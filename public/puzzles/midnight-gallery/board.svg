@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewBox="0 0 768 768" role="img" aria-label="原创谜题：午夜画廊（6×6） board map">
+<defs>
+<style>
+  .cell-base { shape-rendering: crispEdges; }
+  .cell-grid { fill: none; stroke: rgba(15, 18, 22, 0.44); stroke-width: 2; shape-rendering: crispEdges; }
+  .region-boundary { fill: none; stroke: #0b0d0f; stroke-width: 7; stroke-linecap: square; shape-rendering: crispEdges; }
+  .outer-border { stroke: #050505; stroke-width: 4; shape-rendering: crispEdges; }
+  .tile-symbol { font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif; font-size: 17px; font-weight: 900; fill: rgba(7, 8, 9, 0.78); }
+  .cell-region { font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif; font-size: 14px; font-weight: 900; fill: rgba(7, 8, 9, 0.7); }
+  .cell-element { font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif; font-size: 12px; font-weight: 760; fill: rgba(7, 8, 9, 0.58); }
+  .dark .tile-symbol, .dark .cell-region, .dark .cell-element { fill: rgba(245, 247, 249, 0.86); }
+</style>
+<pattern id="grass-hatch" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+  <rect width="20" height="20" fill="transparent"/>
+  <rect width="10" height="20" fill="rgba(255,255,255,0.1)"/>
+</pattern>
+<pattern id="carpet-hatch" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+  <rect width="20" height="20" fill="transparent"/>
+  <path d="M 0 0 L 20 0" stroke="rgba(255,255,255,0.22)" stroke-width="4"/>
+</pattern>
+<pattern id="blocker-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+  <rect width="20" height="20" fill="transparent"/>
+  <circle cx="10" cy="10" r="3" fill="rgba(255,255,255,0.12)"/>
+</pattern>
+</defs>
+<rect width="768" height="768" fill="#f4f5f7"/>
+<g id="cell-r1c1" class="cell dark" data-row="1" data-col="1" data-region="雕塑庭" data-tile="shrub">
+  <rect class="cell-base" x="0" y="0" width="128" height="128" fill="#20342b"/>
+  <rect x="0" y="0" width="128" height="128" fill="#36533f" opacity="0.28"/>
+  <rect x="0" y="0" width="128" height="128" fill="url(#blocker-dots)"/>
+  <rect class="cell-grid" x="0" y="0" width="128" height="128"/>
+  <text class="tile-symbol" x="12" y="25">X</text>
+  <text class="cell-region" x="12" y="91">雕塑庭</text>
+  <text class="cell-element" x="12" y="111">封闭雕塑基座旁的…</text>
+</g>
+<g id="cell-r1c2" class="cell" data-row="1" data-col="2" data-region="雕塑庭" data-tile="floor">
+  <rect class="cell-base" x="128" y="0" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="128" y="0" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="128" y="0" width="128" height="128"/>
+  <text class="tile-symbol" x="140" y="25">F</text>
+  <text class="cell-region" x="140" y="91">雕塑庭</text>
+  <text class="cell-element" x="140" y="111">磨亮的画廊地板</text>
+</g>
+<g id="cell-r1c3" class="cell dark" data-row="1" data-col="3" data-region="雕塑庭" data-tile="tree">
+  <rect class="cell-base" x="256" y="0" width="128" height="128" fill="#1f2f29"/>
+  <rect x="256" y="0" width="128" height="128" fill="#3d533f" opacity="0.28"/>
+  <rect x="256" y="0" width="128" height="128" fill="url(#blocker-dots)"/>
+  <rect class="cell-grid" x="256" y="0" width="128" height="128"/>
+  <text class="tile-symbol" x="268" y="25">X</text>
+  <text class="cell-region" x="268" y="91">雕塑庭</text>
+  <text class="cell-element" x="268" y="111">室内高植树影</text>
+</g>
+<g id="cell-r1c4" class="cell" data-row="1" data-col="4" data-region="灯厅" data-tile="floor">
+  <rect class="cell-base" x="384" y="0" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="384" y="0" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="384" y="0" width="128" height="128"/>
+  <text class="tile-symbol" x="396" y="25">F</text>
+  <text class="cell-region" x="396" y="91">灯厅</text>
+  <text class="cell-element" x="396" y="111">灯厅入口地板</text>
+</g>
+<g id="cell-r1c5" class="cell dark" data-row="1" data-col="5" data-region="灯厅" data-tile="bookshelf">
+  <rect class="cell-base" x="512" y="0" width="128" height="128" fill="#252b29"/>
+  <rect x="512" y="0" width="128" height="128" fill="#3b3430" opacity="0.28"/>
+  <rect x="512" y="0" width="128" height="128" fill="url(#blocker-dots)"/>
+  <rect class="cell-grid" x="512" y="0" width="128" height="128"/>
+  <text class="tile-symbol" x="524" y="25">X</text>
+  <text class="cell-region" x="524" y="91">灯厅</text>
+  <text class="cell-element" x="524" y="111">展册书柜</text>
+</g>
+<g id="cell-r1c6" class="cell" data-row="1" data-col="6" data-region="灯厅" data-tile="chair">
+  <rect class="cell-base" x="640" y="0" width="128" height="128" fill="#d8dce2"/>
+  <rect x="640" y="0" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="640" y="0" width="128" height="128"/>
+  <text class="tile-symbol" x="652" y="25">C</text>
+  <text class="cell-region" x="652" y="91">灯厅</text>
+  <text class="cell-element" x="652" y="111">看画单椅</text>
+</g>
+<g id="cell-r2c1" class="cell" data-row="2" data-col="1" data-region="雕塑庭" data-tile="grass">
+  <rect class="cell-base" x="0" y="128" width="128" height="128" fill="#4f7d55"/>
+  <rect x="0" y="128" width="128" height="128" fill="#6f9a6b" opacity="0.28"/>
+  <rect x="0" y="128" width="128" height="128" fill="url(#grass-hatch)"/>
+  <rect class="cell-grid" x="0" y="128" width="128" height="128"/>
+  <text class="tile-symbol" x="12" y="153">G</text>
+  <text class="cell-region" x="12" y="219">雕塑庭</text>
+  <text class="cell-element" x="12" y="239">雕塑庭草毯</text>
+</g>
+<g id="cell-r2c2" class="cell" data-row="2" data-col="2" data-region="雕塑庭" data-tile="floor">
+  <rect class="cell-base" x="128" y="128" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="128" y="128" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="128" y="128" width="128" height="128"/>
+  <text class="tile-symbol" x="140" y="153">F</text>
+  <text class="cell-region" x="140" y="219">雕塑庭</text>
+  <text class="cell-element" x="140" y="239">雕塑庭石纹地板</text>
+</g>
+<g id="cell-r2c3" class="cell" data-row="2" data-col="3" data-region="雕塑庭" data-tile="floor">
+  <rect class="cell-base" x="256" y="128" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="256" y="128" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="256" y="128" width="128" height="128"/>
+  <text class="tile-symbol" x="268" y="153">F</text>
+  <text class="cell-region" x="268" y="219">雕塑庭</text>
+  <text class="cell-element" x="268" y="239">雕塑庭通道</text>
+</g>
+<g id="cell-r2c4" class="cell" data-row="2" data-col="4" data-region="灯厅" data-tile="carpet">
+  <rect class="cell-base" x="384" y="128" width="128" height="128" fill="#8f8a5d"/>
+  <rect x="384" y="128" width="128" height="128" fill="#aaa36d" opacity="0.28"/>
+  <rect x="384" y="128" width="128" height="128" fill="url(#carpet-hatch)"/>
+  <rect class="cell-grid" x="384" y="128" width="128" height="128"/>
+  <text class="tile-symbol" x="396" y="153">K</text>
+  <text class="cell-region" x="396" y="219">灯厅</text>
+  <text class="cell-element" x="396" y="239">灯厅旧地毯</text>
+</g>
+<g id="cell-r2c5" class="cell" data-row="2" data-col="5" data-region="灯厅" data-tile="floor">
+  <rect class="cell-base" x="512" y="128" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="512" y="128" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="512" y="128" width="128" height="128"/>
+  <text class="tile-symbol" x="524" y="153">F</text>
+  <text class="cell-region" x="524" y="219">灯厅</text>
+  <text class="cell-element" x="524" y="239">聚光灯下地板</text>
+</g>
+<g id="cell-r2c6" class="cell" data-row="2" data-col="6" data-region="灯厅" data-tile="floor">
+  <rect class="cell-base" x="640" y="128" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="640" y="128" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="640" y="128" width="128" height="128"/>
+  <text class="tile-symbol" x="652" y="153">F</text>
+  <text class="cell-region" x="652" y="219">灯厅</text>
+  <text class="cell-element" x="652" y="239">售票台前地板</text>
+</g>
+<g id="cell-r3c1" class="cell" data-row="3" data-col="1" data-region="修复室" data-tile="chair">
+  <rect class="cell-base" x="0" y="256" width="128" height="128" fill="#d8dce2"/>
+  <rect x="0" y="256" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="0" y="256" width="128" height="128"/>
+  <text class="tile-symbol" x="12" y="281">C</text>
+  <text class="cell-region" x="12" y="347">修复室</text>
+  <text class="cell-element" x="12" y="367">修复室高脚椅</text>
+</g>
+<g id="cell-r3c2" class="cell dark" data-row="3" data-col="2" data-region="修复室" data-tile="bookshelf">
+  <rect class="cell-base" x="128" y="256" width="128" height="128" fill="#252b29"/>
+  <rect x="128" y="256" width="128" height="128" fill="#3b3430" opacity="0.28"/>
+  <rect x="128" y="256" width="128" height="128" fill="url(#blocker-dots)"/>
+  <rect class="cell-grid" x="128" y="256" width="128" height="128"/>
+  <text class="tile-symbol" x="140" y="281">X</text>
+  <text class="cell-region" x="140" y="347">修复室</text>
+  <text class="cell-element" x="140" y="367">颜料档案柜</text>
+</g>
+<g id="cell-r3c3" class="cell" data-row="3" data-col="3" data-region="修复室" data-tile="carpet">
+  <rect class="cell-base" x="256" y="256" width="128" height="128" fill="#8f8a5d"/>
+  <rect x="256" y="256" width="128" height="128" fill="#aaa36d" opacity="0.28"/>
+  <rect x="256" y="256" width="128" height="128" fill="url(#carpet-hatch)"/>
+  <rect class="cell-grid" x="256" y="256" width="128" height="128"/>
+  <text class="tile-symbol" x="268" y="281">K</text>
+  <text class="cell-region" x="268" y="347">修复室</text>
+  <text class="cell-element" x="268" y="367">修复室防尘地毯</text>
+</g>
+<g id="cell-r3c4" class="cell dark" data-row="3" data-col="4" data-region="展廊" data-tile="fountain">
+  <rect class="cell-base" x="384" y="256" width="128" height="128" fill="#24353c"/>
+  <rect x="384" y="256" width="128" height="128" fill="#4a8393" opacity="0.28"/>
+  <rect x="384" y="256" width="128" height="128" fill="url(#blocker-dots)"/>
+  <rect class="cell-grid" x="384" y="256" width="128" height="128"/>
+  <text class="tile-symbol" x="396" y="281">X</text>
+  <text class="cell-region" x="396" y="347">展廊</text>
+  <text class="cell-element" x="396" y="367">展廊喷泉装置</text>
+</g>
+<g id="cell-r3c5" class="cell" data-row="3" data-col="5" data-region="展廊" data-tile="floor">
+  <rect class="cell-base" x="512" y="256" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="512" y="256" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="512" y="256" width="128" height="128"/>
+  <text class="tile-symbol" x="524" y="281">F</text>
+  <text class="cell-region" x="524" y="347">展廊</text>
+  <text class="cell-element" x="524" y="367">展廊中央地板</text>
+</g>
+<g id="cell-r3c6" class="cell" data-row="3" data-col="6" data-region="展廊" data-tile="floor">
+  <rect class="cell-base" x="640" y="256" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="640" y="256" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="640" y="256" width="128" height="128"/>
+  <text class="tile-symbol" x="652" y="281">F</text>
+  <text class="cell-region" x="652" y="347">展廊</text>
+  <text class="cell-element" x="652" y="367">展廊东侧地板</text>
+</g>
+<g id="cell-r4c1" class="cell" data-row="4" data-col="1" data-region="修复室" data-tile="floor">
+  <rect class="cell-base" x="0" y="384" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="0" y="384" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="0" y="384" width="128" height="128"/>
+  <text class="tile-symbol" x="12" y="409">F</text>
+  <text class="cell-region" x="12" y="475">修复室</text>
+  <text class="cell-element" x="12" y="495">修复台旁地板</text>
+</g>
+<g id="cell-r4c2" class="cell" data-row="4" data-col="2" data-region="修复室" data-tile="floor">
+  <rect class="cell-base" x="128" y="384" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="128" y="384" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="128" y="384" width="128" height="128"/>
+  <text class="tile-symbol" x="140" y="409">F</text>
+  <text class="cell-region" x="140" y="475">修复室</text>
+  <text class="cell-element" x="140" y="495">工具柜前地板</text>
+</g>
+<g id="cell-r4c3" class="cell dark" data-row="4" data-col="3" data-region="展廊" data-tile="table">
+  <rect class="cell-base" x="256" y="384" width="128" height="128" fill="#2f2924"/>
+  <rect x="256" y="384" width="128" height="128" fill="#51453a" opacity="0.28"/>
+  <rect x="256" y="384" width="128" height="128" fill="url(#blocker-dots)"/>
+  <rect class="cell-grid" x="256" y="384" width="128" height="128"/>
+  <text class="tile-symbol" x="268" y="409">X</text>
+  <text class="cell-region" x="268" y="475">展廊</text>
+  <text class="cell-element" x="268" y="495">展廊长桌</text>
+</g>
+<g id="cell-r4c4" class="cell" data-row="4" data-col="4" data-region="展廊" data-tile="floor">
+  <rect class="cell-base" x="384" y="384" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="384" y="384" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="384" y="384" width="128" height="128"/>
+  <text class="tile-symbol" x="396" y="409">F</text>
+  <text class="cell-region" x="396" y="475">展廊</text>
+  <text class="cell-element" x="396" y="495">展廊灰石地板</text>
+</g>
+<g id="cell-r4c5" class="cell" data-row="4" data-col="5" data-region="展廊" data-tile="chair">
+  <rect class="cell-base" x="512" y="384" width="128" height="128" fill="#d8dce2"/>
+  <rect x="512" y="384" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="512" y="384" width="128" height="128"/>
+  <text class="tile-symbol" x="524" y="409">C</text>
+  <text class="cell-region" x="524" y="475">展廊</text>
+  <text class="cell-element" x="524" y="495">展廊休息椅</text>
+</g>
+<g id="cell-r4c6" class="cell" data-row="4" data-col="6" data-region="展廊" data-tile="carpet">
+  <rect class="cell-base" x="640" y="384" width="128" height="128" fill="#8f8a5d"/>
+  <rect x="640" y="384" width="128" height="128" fill="#aaa36d" opacity="0.28"/>
+  <rect x="640" y="384" width="128" height="128" fill="url(#carpet-hatch)"/>
+  <rect class="cell-grid" x="640" y="384" width="128" height="128"/>
+  <text class="tile-symbol" x="652" y="409">K</text>
+  <text class="cell-region" x="652" y="475">展廊</text>
+  <text class="cell-element" x="652" y="495">展廊边毯</text>
+</g>
+<g id="cell-r5c1" class="cell" data-row="5" data-col="1" data-region="暗房" data-tile="floor">
+  <rect class="cell-base" x="0" y="512" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="0" y="512" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="0" y="512" width="128" height="128"/>
+  <text class="tile-symbol" x="12" y="537">F</text>
+  <text class="cell-region" x="12" y="603">暗房</text>
+  <text class="cell-element" x="12" y="623">暗房入口地板</text>
+</g>
+<g id="cell-r5c2" class="cell dark" data-row="5" data-col="2" data-region="暗房" data-tile="tree">
+  <rect class="cell-base" x="128" y="512" width="128" height="128" fill="#1f2f29"/>
+  <rect x="128" y="512" width="128" height="128" fill="#3d533f" opacity="0.28"/>
+  <rect x="128" y="512" width="128" height="128" fill="url(#blocker-dots)"/>
+  <rect class="cell-grid" x="128" y="512" width="128" height="128"/>
+  <text class="tile-symbol" x="140" y="537">X</text>
+  <text class="cell-region" x="140" y="603">暗房</text>
+  <text class="cell-element" x="140" y="623">暗房盆栽树影</text>
+</g>
+<g id="cell-r5c3" class="cell" data-row="5" data-col="3" data-region="暗房" data-tile="floor">
+  <rect class="cell-base" x="256" y="512" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="256" y="512" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="256" y="512" width="128" height="128"/>
+  <text class="tile-symbol" x="268" y="537">F</text>
+  <text class="cell-region" x="268" y="603">暗房</text>
+  <text class="cell-element" x="268" y="623">暗房晾片区地板</text>
+</g>
+<g id="cell-r5c4" class="cell" data-row="5" data-col="4" data-region="保管室" data-tile="chair">
+  <rect class="cell-base" x="384" y="512" width="128" height="128" fill="#d8dce2"/>
+  <rect x="384" y="512" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="384" y="512" width="128" height="128"/>
+  <text class="tile-symbol" x="396" y="537">C</text>
+  <text class="cell-region" x="396" y="603">保管室</text>
+  <text class="cell-element" x="396" y="623">保管室登记椅</text>
+</g>
+<g id="cell-r5c5" class="cell" data-row="5" data-col="5" data-region="保管室" data-tile="floor">
+  <rect class="cell-base" x="512" y="512" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="512" y="512" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="512" y="512" width="128" height="128"/>
+  <text class="tile-symbol" x="524" y="537">F</text>
+  <text class="cell-region" x="524" y="603">保管室</text>
+  <text class="cell-element" x="524" y="623">保管室清点地板</text>
+</g>
+<g id="cell-r5c6" class="cell dark" data-row="5" data-col="6" data-region="保管室" data-tile="tree">
+  <rect class="cell-base" x="640" y="512" width="128" height="128" fill="#1f2f29"/>
+  <rect x="640" y="512" width="128" height="128" fill="#3d533f" opacity="0.28"/>
+  <rect x="640" y="512" width="128" height="128" fill="url(#blocker-dots)"/>
+  <rect class="cell-grid" x="640" y="512" width="128" height="128"/>
+  <text class="tile-symbol" x="652" y="537">X</text>
+  <text class="cell-region" x="652" y="603">保管室</text>
+  <text class="cell-element" x="652" y="623">保管室窗边树影</text>
+</g>
+<g id="cell-r6c1" class="cell dark" data-row="6" data-col="1" data-region="暗房" data-tile="bookshelf">
+  <rect class="cell-base" x="0" y="640" width="128" height="128" fill="#252b29"/>
+  <rect x="0" y="640" width="128" height="128" fill="#3b3430" opacity="0.28"/>
+  <rect x="0" y="640" width="128" height="128" fill="url(#blocker-dots)"/>
+  <rect class="cell-grid" x="0" y="640" width="128" height="128"/>
+  <text class="tile-symbol" x="12" y="665">X</text>
+  <text class="cell-region" x="12" y="731">暗房</text>
+  <text class="cell-element" x="12" y="751">暗房资料柜</text>
+</g>
+<g id="cell-r6c2" class="cell" data-row="6" data-col="2" data-region="暗房" data-tile="floor">
+  <rect class="cell-base" x="128" y="640" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="128" y="640" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="128" y="640" width="128" height="128"/>
+  <text class="tile-symbol" x="140" y="665">F</text>
+  <text class="cell-region" x="140" y="731">暗房</text>
+  <text class="cell-element" x="140" y="751">暗房后排地板</text>
+</g>
+<g id="cell-r6c3" class="cell" data-row="6" data-col="3" data-region="暗房" data-tile="carpet">
+  <rect class="cell-base" x="256" y="640" width="128" height="128" fill="#8f8a5d"/>
+  <rect x="256" y="640" width="128" height="128" fill="#aaa36d" opacity="0.28"/>
+  <rect x="256" y="640" width="128" height="128" fill="url(#carpet-hatch)"/>
+  <rect class="cell-grid" x="256" y="640" width="128" height="128"/>
+  <text class="tile-symbol" x="268" y="665">K</text>
+  <text class="cell-region" x="268" y="731">暗房</text>
+  <text class="cell-element" x="268" y="751">暗房旧地毯</text>
+</g>
+<g id="cell-r6c4" class="cell" data-row="6" data-col="4" data-region="保管室" data-tile="floor">
+  <rect class="cell-base" x="384" y="640" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="384" y="640" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="384" y="640" width="128" height="128"/>
+  <text class="tile-symbol" x="396" y="665">F</text>
+  <text class="cell-region" x="396" y="731">保管室</text>
+  <text class="cell-element" x="396" y="751">保管室门口地板</text>
+</g>
+<g id="cell-r6c5" class="cell" data-row="6" data-col="5" data-region="保管室" data-tile="floor">
+  <rect class="cell-base" x="512" y="640" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="512" y="640" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+  
+  <rect class="cell-grid" x="512" y="640" width="128" height="128"/>
+  <text class="tile-symbol" x="524" y="665">F</text>
+  <text class="cell-region" x="524" y="731">保管室</text>
+  <text class="cell-element" x="524" y="751">保管室走道地板</text>
+</g>
+<g id="cell-r6c6" class="cell dark" data-row="6" data-col="6" data-region="保管室" data-tile="shrub">
+  <rect class="cell-base" x="640" y="640" width="128" height="128" fill="#20342b"/>
+  <rect x="640" y="640" width="128" height="128" fill="#36533f" opacity="0.28"/>
+  <rect x="640" y="640" width="128" height="128" fill="url(#blocker-dots)"/>
+  <rect class="cell-grid" x="640" y="640" width="128" height="128"/>
+  <text class="tile-symbol" x="652" y="665">X</text>
+  <text class="cell-region" x="652" y="731">保管室</text>
+  <text class="cell-element" x="652" y="751">封住后门的灌木</text>
+</g>
+<path class="region-boundary" d="M 256 384 L 256 512"/>
+<path class="region-boundary" d="M 384 0 L 384 384"/>
+<path class="region-boundary" d="M 384 512 L 384 768"/>
+<path class="region-boundary" d="M 0 256 L 768 256"/>
+<path class="region-boundary" d="M 256 384 L 384 384"/>
+<path class="region-boundary" d="M 0 512 L 768 512"/>
+<path class="region-boundary" d="M 0 0 L 768 0 L 768 768 L 0 768 Z"/>
+<rect x="1" y="1" width="766" height="766" fill="none" class="outer-border"/>
+</svg>

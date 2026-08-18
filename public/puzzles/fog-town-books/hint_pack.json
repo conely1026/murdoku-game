@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "puzzle_id": "fog-town-books",
+  "ai_status": "P9-boundary-only",
+  "hints": [
+    {
+      "id": "rules-row-col",
+      "level": 0,
+      "title": "规则解释",
+      "text": "每行和每列都恰好放置一名人物，人物只能站在可行走格子上。",
+      "references": [
+        "puzzle.public.json#rows",
+        "puzzle.public.json#cols"
+      ]
+    },
+    {
+      "id": "first-fixed-person",
+      "level": 1,
+      "title": "方向提示",
+      "text": "先从 Aiden 的定位线索开始，它能直接缩小候选行列。",
+      "references": [
+        "puzzle.public.json#clues.clue-3"
+      ]
+    },
+    {
+      "id": "victim-region",
+      "level": 2,
+      "title": "排除提示",
+      "text": "留意 Fiona 所在区域；凶手必须与受害者单独同区。",
+      "references": [
+        "puzzle.public.json#clues.clue-2"
+      ]
+    },
+    {
+      "id": "board-consistency",
+      "level": 3,
+      "title": "矛盾检查",
+      "text": "如果某一行或某一列已经放了两个人，这个棋盘状态一定需要回退。",
+      "references": [
+        "proof.public.json#matrices.answer"
+      ]
+    },
+    {
+      "id": "next-step",
+      "level": 4,
+      "title": "下一步提示",
+      "text": "把已确定人物从同行、同列的其他候选中排除，再检查椅子、树、书柜和地毯线索。",
+      "references": [
+        "puzzle.public.json#clues"
+      ]
+    },
+    {
+      "id": "reveal-murderer",
+      "level": 5,
+      "title": "揭晓",
+      "text": "凶手是 Diana。",
+      "references": [
+        "proof.public.json#solution.murderer"
+      ]
+    }
+  ]
+}

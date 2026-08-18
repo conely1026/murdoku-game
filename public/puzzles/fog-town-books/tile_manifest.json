@@ -1,0 +1,1217 @@
+{
+  "schema_version": 1,
+  "puzzle_id": "fog-town-books",
+  "generated_by": "murdoku.tile_assets build_tile_manifest",
+  "source": "examples/fog_town_books.json",
+  "asset_root": "tiles/fog-town-books",
+  "tile_size": 512,
+  "composition": {
+    "mode": "scene-slice-atlas",
+    "camera": "top-down orthographic",
+    "background_role": "board-map-and-atmosphere",
+    "asset_resolution": "cell.scene_asset -> css_scene_fallback; scene_objects are decorative multi-cell cuts only"
+  },
+  "common_kit": {
+    "id": "common-tile-kit-v1",
+    "manifest": "assets/common/tile-kit/v1/manifest.json",
+    "role": "Reusable surfaces, props, overlays, and masks. Puzzle assets may override it."
+  },
+  "scene_slices": {
+    "mode": "scene-slice-atlas",
+    "source_asset": "assets/puzzles/fog-town-books/scene/v1/source-topdown-scene-v1.png",
+    "source_crop_rect": {
+      "left": 64,
+      "top": 52,
+      "right": 1190,
+      "bottom": 1178
+    },
+    "cell_asset_root": "assets/puzzles/fog-town-books/scene/v1/cells",
+    "grid": {
+      "rows": 6,
+      "cols": 6
+    },
+    "usage": "Visual-only slices cut from one complete top-down scene; region borders and puzzle facts remain matrix-driven."
+  },
+  "scene_objects": {
+    "asset_root": "assets/puzzles/fog-town-books/scene/v1/objects",
+    "items": {
+      "cafe-table-1x2": {
+        "asset": "assets/puzzles/fog-town-books/scene/v1/objects/cafe-table-1x2.png",
+        "footprint": {
+          "row": 1,
+          "col": 4,
+          "rows": 1,
+          "cols": 2
+        },
+        "usage": "visual-only multi-cell cut; does not change walkable, region, clues, or solution"
+      },
+      "courtyard-fountain-2x2": {
+        "asset": "assets/puzzles/fog-town-books/scene/v1/objects/courtyard-fountain-2x2.png",
+        "footprint": {
+          "row": 3,
+          "col": 3,
+          "rows": 2,
+          "cols": 2
+        },
+        "usage": "visual-only multi-cell cut; does not change walkable, region, clues, or solution"
+      },
+      "courtyard-long-table-1x2": {
+        "asset": "assets/puzzles/fog-town-books/scene/v1/objects/courtyard-long-table-1x2.png",
+        "footprint": {
+          "row": 4,
+          "col": 3,
+          "rows": 1,
+          "cols": 2
+        },
+        "usage": "visual-only multi-cell cut; does not change walkable, region, clues, or solution"
+      },
+      "workshop-table-2x2": {
+        "asset": "assets/puzzles/fog-town-books/scene/v1/objects/workshop-table-2x2.png",
+        "footprint": {
+          "row": 5,
+          "col": 1,
+          "rows": 2,
+          "cols": 2
+        },
+        "usage": "visual-only multi-cell cut; does not change walkable, region, clues, or solution"
+      },
+      "inn-bar-1x2": {
+        "asset": "assets/puzzles/fog-town-books/scene/v1/objects/inn-bar-1x2.png",
+        "footprint": {
+          "row": 5,
+          "col": 4,
+          "rows": 1,
+          "cols": 2
+        },
+        "usage": "visual-only multi-cell cut; does not change walkable, region, clues, or solution"
+      }
+    }
+  },
+  "art_trials": {
+    "region-grade": {
+      "source_asset": "assets/puzzles/fog-town-books/scene/v1/experiments/region-graded/source-region-graded-v1.png",
+      "cell_asset_root": "assets/puzzles/fog-town-books/scene/v1/experiments/region-graded/cells",
+      "usage": "Scheme A: region-masked grading over the approved scene crop, then cut back into 36 visual-only cells."
+    },
+    "background-objects": {
+      "board_background_asset": "assets/puzzles/fog-town-books/scene/v1/experiments/background-objects/board-background-v1.png",
+      "object_overlay_opacity": 0.58,
+      "usage": "Scheme B: one complete board background carries floors and rooms; common object PNGs are semi-transparent visual overlays."
+    }
+  },
+  "background": {
+    "asset": "assets/fog-town-books-background.png",
+    "board_asset": "puzzles/fog-town-books/board.svg",
+    "usage": "asset is optional page atmosphere; board_asset is deterministic programmatic board rendering; board logic remains cell driven"
+  },
+  "tiles": {
+    "bookshelf": {
+      "id": "bookshelf",
+      "symbol": "X",
+      "walkable": false,
+      "object_asset": "assets/common/tile-kit/v1/tiles/bookshelf.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "dark_blocker_base",
+        "props": [
+          "bookshelf_prop"
+        ],
+        "overlays": [
+          "dust_paper_overlay"
+        ],
+        "mask": "blocker_shadow_mask",
+        "variant_axes": [
+          "shelf_density",
+          "region_tint"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "高书柜",
+        "密集书柜",
+        "作坊样书柜"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, non-walkable blocker tile: packed old bookshelf forming an impassable obstacle. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 高书柜; 密集书柜; 作坊样书柜. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "carpet": {
+      "id": "carpet",
+      "symbol": "K",
+      "walkable": true,
+      "object_asset": "assets/common/tile-kit/v1/tiles/carpet.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "rug_base",
+        "props": [],
+        "overlays": [
+          "dust_paper_overlay"
+        ],
+        "variant_axes": [
+          "region_tint",
+          "pattern"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "咖啡馆花纹地毯",
+        "庭院防滑地毯",
+        "作坊旧地毯"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, walkable board tile: worn patterned rug, readable walkable ground. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 咖啡馆花纹地毯; 庭院防滑地毯; 作坊旧地毯. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "chair": {
+      "id": "chair",
+      "symbol": "C",
+      "walkable": true,
+      "object_asset": "assets/common/tile-kit/v1/tiles/chair.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "wood_floor_base",
+        "props": [
+          "chair_prop"
+        ],
+        "overlays": [
+          "rain_wetness_overlay"
+        ],
+        "variant_axes": [
+          "chair_style",
+          "region_tint"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "靠窗单椅",
+        "图书室阅读椅",
+        "客栈候客椅"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, walkable board tile: single reading or cafe chair on walkable ground. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 靠窗单椅; 图书室阅读椅; 客栈候客椅. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "floor": {
+      "id": "floor",
+      "symbol": "F",
+      "walkable": true,
+      "object_asset": "",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "wood_floor_base",
+        "props": [],
+        "overlays": [
+          "rain_wetness_overlay"
+        ],
+        "variant_axes": [
+          "region_tint",
+          "story_decal"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "咖啡馆门口木地板",
+        "吧台前地板",
+        "窗边地板",
+        "图书室过道",
+        "庭院石板",
+        "图书室西侧地板"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, walkable board tile: rain-darkened wood or stone floor, clean readable walkable ground. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 咖啡馆门口木地板; 吧台前地板; 窗边地板; 图书室过道. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "fountain": {
+      "id": "fountain",
+      "symbol": "X",
+      "walkable": false,
+      "object_asset": "assets/common/tile-kit/v1/tiles/fountain.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "dark_blocker_base",
+        "props": [
+          "fountain_prop"
+        ],
+        "overlays": [
+          "rain_wetness_overlay"
+        ],
+        "mask": "blocker_shadow_mask",
+        "variant_axes": [
+          "water_color",
+          "region_tint"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "庭院喷泉"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, non-walkable blocker tile: small courtyard fountain forming an impassable obstacle. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 庭院喷泉. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "grass": {
+      "id": "grass",
+      "symbol": "G",
+      "walkable": true,
+      "object_asset": "",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "grass_base",
+        "props": [],
+        "overlays": [
+          "rain_wetness_overlay",
+          "moss_edge_overlay"
+        ],
+        "variant_axes": [
+          "region_tint",
+          "path_wear"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "雨湿草坪",
+        "石径边草地",
+        "雾湿草坪",
+        "花园小径草坪"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, walkable board tile: wet garden grass with small path texture, readable walkable ground. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 雨湿草坪; 石径边草地; 雾湿草坪; 花园小径草坪. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "shrub": {
+      "id": "shrub",
+      "symbol": "X",
+      "walkable": false,
+      "object_asset": "assets/common/tile-kit/v1/tiles/shrub.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "dark_blocker_base",
+        "props": [
+          "shrub_prop"
+        ],
+        "overlays": [
+          "moss_edge_overlay"
+        ],
+        "mask": "blocker_shadow_mask",
+        "variant_axes": [
+          "shrub_density",
+          "region_tint"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "覆苔灌木丛",
+        "客栈窗外灌木"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, non-walkable blocker tile: dense trimmed shrub forming an impassable obstacle. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 覆苔灌木丛; 客栈窗外灌木. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "table": {
+      "id": "table",
+      "symbol": "X",
+      "walkable": false,
+      "object_asset": "assets/common/tile-kit/v1/tiles/table.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "dark_blocker_base",
+        "props": [
+          "table_prop"
+        ],
+        "overlays": [
+          "dust_paper_overlay"
+        ],
+        "mask": "blocker_shadow_mask",
+        "variant_axes": [
+          "table_length",
+          "region_tint"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "庭院长桌",
+        "制书长桌"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, non-walkable blocker tile: long worktable forming an impassable obstacle. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 庭院长桌; 制书长桌. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "tree": {
+      "id": "tree",
+      "symbol": "X",
+      "walkable": false,
+      "object_asset": "assets/common/tile-kit/v1/tiles/tree.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "dark_blocker_base",
+        "props": [
+          "tree_prop"
+        ],
+        "overlays": [
+          "moss_edge_overlay"
+        ],
+        "mask": "blocker_shadow_mask",
+        "variant_axes": [
+          "canopy_shadow",
+          "region_tint"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "老槐树",
+        "客栈后门树影"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, non-walkable blocker tile: old tree trunk and canopy shadow forming an impassable obstacle. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 老槐树; 客栈后门树影. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    }
+  },
+  "cells": [
+    {
+      "key": "R1C1",
+      "row": 1,
+      "col": 1,
+      "tile": "shrub",
+      "region": "花园",
+      "walkable": false,
+      "element": "覆苔灌木丛",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "shrub",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 花园, tile type shrub, element: 覆苔灌木丛. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r1c1.png",
+      "floor_family": "garden-moss",
+      "scene_source_rect": {
+        "row": 1,
+        "col": 1,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R1C2",
+      "row": 1,
+      "col": 2,
+      "tile": "grass",
+      "region": "花园",
+      "walkable": true,
+      "element": "雨湿草坪",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "grass",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 花园, tile type grass, element: 雨湿草坪. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r1c2.png",
+      "floor_family": "garden-moss",
+      "scene_source_rect": {
+        "row": 1,
+        "col": 2,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R1C3",
+      "row": 1,
+      "col": 3,
+      "tile": "tree",
+      "region": "花园",
+      "walkable": false,
+      "element": "老槐树",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "tree",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 花园, tile type tree, element: 老槐树. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r1c3.png",
+      "floor_family": "garden-moss",
+      "scene_source_rect": {
+        "row": 1,
+        "col": 3,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R1C4",
+      "row": 1,
+      "col": 4,
+      "tile": "floor",
+      "region": "咖啡馆",
+      "walkable": true,
+      "element": "咖啡馆门口木地板",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 咖啡馆, tile type floor, element: 咖啡馆门口木地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r1c4.png",
+      "floor_family": "cafe-wood",
+      "scene_source_rect": {
+        "row": 1,
+        "col": 4,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R1C5",
+      "row": 1,
+      "col": 5,
+      "tile": "bookshelf",
+      "region": "咖啡馆",
+      "walkable": false,
+      "element": "高书柜",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "bookshelf",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 咖啡馆, tile type bookshelf, element: 高书柜. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r1c5.png",
+      "floor_family": "cafe-wood",
+      "scene_source_rect": {
+        "row": 1,
+        "col": 5,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R1C6",
+      "row": 1,
+      "col": 6,
+      "tile": "chair",
+      "region": "咖啡馆",
+      "walkable": true,
+      "element": "靠窗单椅",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "chair",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 咖啡馆, tile type chair, element: 靠窗单椅. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r1c6.png",
+      "floor_family": "cafe-wood",
+      "scene_source_rect": {
+        "row": 1,
+        "col": 6,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R2C1",
+      "row": 2,
+      "col": 1,
+      "tile": "grass",
+      "region": "花园",
+      "walkable": true,
+      "element": "石径边草地",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "grass",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 花园, tile type grass, element: 石径边草地. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r2c1.png",
+      "floor_family": "garden-moss",
+      "scene_source_rect": {
+        "row": 2,
+        "col": 1,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R2C2",
+      "row": 2,
+      "col": 2,
+      "tile": "grass",
+      "region": "花园",
+      "walkable": true,
+      "element": "雾湿草坪",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "grass",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 花园, tile type grass, element: 雾湿草坪. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r2c2.png",
+      "floor_family": "garden-moss",
+      "scene_source_rect": {
+        "row": 2,
+        "col": 2,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R2C3",
+      "row": 2,
+      "col": 3,
+      "tile": "grass",
+      "region": "花园",
+      "walkable": true,
+      "element": "花园小径草坪",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "grass",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 花园, tile type grass, element: 花园小径草坪. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r2c3.png",
+      "floor_family": "garden-moss",
+      "scene_source_rect": {
+        "row": 2,
+        "col": 3,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R2C4",
+      "row": 2,
+      "col": 4,
+      "tile": "carpet",
+      "region": "咖啡馆",
+      "walkable": true,
+      "element": "咖啡馆花纹地毯",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "carpet",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 咖啡馆, tile type carpet, element: 咖啡馆花纹地毯. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r2c4.png",
+      "floor_family": "cafe-wood",
+      "scene_source_rect": {
+        "row": 2,
+        "col": 4,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R2C5",
+      "row": 2,
+      "col": 5,
+      "tile": "floor",
+      "region": "咖啡馆",
+      "walkable": true,
+      "element": "吧台前地板",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 咖啡馆, tile type floor, element: 吧台前地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r2c5.png",
+      "floor_family": "cafe-wood",
+      "scene_source_rect": {
+        "row": 2,
+        "col": 5,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R2C6",
+      "row": 2,
+      "col": 6,
+      "tile": "floor",
+      "region": "咖啡馆",
+      "walkable": true,
+      "element": "窗边地板",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 咖啡馆, tile type floor, element: 窗边地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r2c6.png",
+      "floor_family": "cafe-wood",
+      "scene_source_rect": {
+        "row": 2,
+        "col": 6,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R3C1",
+      "row": 3,
+      "col": 1,
+      "tile": "chair",
+      "region": "图书室",
+      "walkable": true,
+      "element": "图书室阅读椅",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "chair",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 图书室, tile type chair, element: 图书室阅读椅. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r3c1.png",
+      "floor_family": "library-dark-wood",
+      "scene_source_rect": {
+        "row": 3,
+        "col": 1,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R3C2",
+      "row": 3,
+      "col": 2,
+      "tile": "bookshelf",
+      "region": "图书室",
+      "walkable": false,
+      "element": "密集书柜",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "bookshelf",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 图书室, tile type bookshelf, element: 密集书柜. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r3c2.png",
+      "floor_family": "library-dark-wood",
+      "scene_source_rect": {
+        "row": 3,
+        "col": 2,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R3C3",
+      "row": 3,
+      "col": 3,
+      "tile": "floor",
+      "region": "图书室",
+      "walkable": true,
+      "element": "图书室过道",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 图书室, tile type floor, element: 图书室过道. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r3c3.png",
+      "floor_family": "library-dark-wood",
+      "scene_source_rect": {
+        "row": 3,
+        "col": 3,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R3C4",
+      "row": 3,
+      "col": 4,
+      "tile": "fountain",
+      "region": "庭院",
+      "walkable": false,
+      "element": "庭院喷泉",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "fountain",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 庭院, tile type fountain, element: 庭院喷泉. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r3c4.png",
+      "floor_family": "courtyard-wet-stone",
+      "scene_source_rect": {
+        "row": 3,
+        "col": 4,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R3C5",
+      "row": 3,
+      "col": 5,
+      "tile": "carpet",
+      "region": "庭院",
+      "walkable": true,
+      "element": "庭院防滑地毯",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "carpet",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 庭院, tile type carpet, element: 庭院防滑地毯. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r3c5.png",
+      "floor_family": "courtyard-wet-stone",
+      "scene_source_rect": {
+        "row": 3,
+        "col": 5,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R3C6",
+      "row": 3,
+      "col": 6,
+      "tile": "floor",
+      "region": "庭院",
+      "walkable": true,
+      "element": "庭院石板",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 庭院, tile type floor, element: 庭院石板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r3c6.png",
+      "floor_family": "courtyard-wet-stone",
+      "scene_source_rect": {
+        "row": 3,
+        "col": 6,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R4C1",
+      "row": 4,
+      "col": 1,
+      "tile": "floor",
+      "region": "图书室",
+      "walkable": true,
+      "element": "图书室西侧地板",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 图书室, tile type floor, element: 图书室西侧地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r4c1.png",
+      "floor_family": "library-dark-wood",
+      "scene_source_rect": {
+        "row": 4,
+        "col": 1,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R4C2",
+      "row": 4,
+      "col": 2,
+      "tile": "floor",
+      "region": "图书室",
+      "walkable": true,
+      "element": "图书室角落地板",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 图书室, tile type floor, element: 图书室角落地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r4c2.png",
+      "floor_family": "library-dark-wood",
+      "scene_source_rect": {
+        "row": 4,
+        "col": 2,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R4C3",
+      "row": 4,
+      "col": 3,
+      "tile": "table",
+      "region": "庭院",
+      "walkable": false,
+      "element": "庭院长桌",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "table",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 庭院, tile type table, element: 庭院长桌. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r4c3.png",
+      "floor_family": "courtyard-wet-stone",
+      "scene_source_rect": {
+        "row": 4,
+        "col": 3,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R4C4",
+      "row": 4,
+      "col": 4,
+      "tile": "floor",
+      "region": "庭院",
+      "walkable": true,
+      "element": "庭院湿石板",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 庭院, tile type floor, element: 庭院湿石板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r4c4.png",
+      "floor_family": "courtyard-wet-stone",
+      "scene_source_rect": {
+        "row": 4,
+        "col": 4,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R4C5",
+      "row": 4,
+      "col": 5,
+      "tile": "floor",
+      "region": "庭院",
+      "walkable": true,
+      "element": "庭院回廊地板",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 庭院, tile type floor, element: 庭院回廊地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r4c5.png",
+      "floor_family": "courtyard-wet-stone",
+      "scene_source_rect": {
+        "row": 4,
+        "col": 5,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R4C6",
+      "row": 4,
+      "col": 6,
+      "tile": "floor",
+      "region": "庭院",
+      "walkable": true,
+      "element": "庭院东侧石板",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 庭院, tile type floor, element: 庭院东侧石板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r4c6.png",
+      "floor_family": "courtyard-wet-stone",
+      "scene_source_rect": {
+        "row": 4,
+        "col": 6,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R5C1",
+      "row": 5,
+      "col": 1,
+      "tile": "floor",
+      "region": "作坊",
+      "walkable": true,
+      "element": "作坊入口地板",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 作坊, tile type floor, element: 作坊入口地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r5c1.png",
+      "floor_family": "workshop-worn-floor",
+      "scene_source_rect": {
+        "row": 5,
+        "col": 1,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R5C2",
+      "row": 5,
+      "col": 2,
+      "tile": "table",
+      "region": "作坊",
+      "walkable": false,
+      "element": "制书长桌",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "table",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 作坊, tile type table, element: 制书长桌. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r5c2.png",
+      "floor_family": "workshop-worn-floor",
+      "scene_source_rect": {
+        "row": 5,
+        "col": 2,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R5C3",
+      "row": 5,
+      "col": 3,
+      "tile": "floor",
+      "region": "作坊",
+      "walkable": true,
+      "element": "作坊油布地面",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 作坊, tile type floor, element: 作坊油布地面. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r5c3.png",
+      "floor_family": "workshop-worn-floor",
+      "scene_source_rect": {
+        "row": 5,
+        "col": 3,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R5C4",
+      "row": 5,
+      "col": 4,
+      "tile": "chair",
+      "region": "客栈",
+      "walkable": true,
+      "element": "客栈候客椅",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "chair",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 客栈, tile type chair, element: 客栈候客椅. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r5c4.png",
+      "floor_family": "inn-amber-wood",
+      "scene_source_rect": {
+        "row": 5,
+        "col": 4,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R5C5",
+      "row": 5,
+      "col": 5,
+      "tile": "floor",
+      "region": "客栈",
+      "walkable": true,
+      "element": "客栈柜台前",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 客栈, tile type floor, element: 客栈柜台前. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r5c5.png",
+      "floor_family": "inn-amber-wood",
+      "scene_source_rect": {
+        "row": 5,
+        "col": 5,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R5C6",
+      "row": 5,
+      "col": 6,
+      "tile": "tree",
+      "region": "客栈",
+      "walkable": false,
+      "element": "客栈后门树影",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "tree",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 客栈, tile type tree, element: 客栈后门树影. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r5c6.png",
+      "floor_family": "inn-amber-wood",
+      "scene_source_rect": {
+        "row": 5,
+        "col": 6,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R6C1",
+      "row": 6,
+      "col": 1,
+      "tile": "bookshelf",
+      "region": "作坊",
+      "walkable": false,
+      "element": "作坊样书柜",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "bookshelf",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 作坊, tile type bookshelf, element: 作坊样书柜. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r6c1.png",
+      "floor_family": "workshop-worn-floor",
+      "scene_source_rect": {
+        "row": 6,
+        "col": 1,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R6C2",
+      "row": 6,
+      "col": 2,
+      "tile": "floor",
+      "region": "作坊",
+      "walkable": true,
+      "element": "作坊后排地板",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 作坊, tile type floor, element: 作坊后排地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r6c2.png",
+      "floor_family": "workshop-worn-floor",
+      "scene_source_rect": {
+        "row": 6,
+        "col": 2,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R6C3",
+      "row": 6,
+      "col": 3,
+      "tile": "carpet",
+      "region": "作坊",
+      "walkable": true,
+      "element": "作坊旧地毯",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "carpet",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 作坊, tile type carpet, element: 作坊旧地毯. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r6c3.png",
+      "floor_family": "workshop-worn-floor",
+      "scene_source_rect": {
+        "row": 6,
+        "col": 3,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R6C4",
+      "row": 6,
+      "col": 4,
+      "tile": "floor",
+      "region": "客栈",
+      "walkable": true,
+      "element": "客栈楼梯口",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 客栈, tile type floor, element: 客栈楼梯口. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r6c4.png",
+      "floor_family": "inn-amber-wood",
+      "scene_source_rect": {
+        "row": 6,
+        "col": 4,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R6C5",
+      "row": 6,
+      "col": 5,
+      "tile": "floor",
+      "region": "客栈",
+      "walkable": true,
+      "element": "客栈走廊",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 客栈, tile type floor, element: 客栈走廊. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r6c5.png",
+      "floor_family": "inn-amber-wood",
+      "scene_source_rect": {
+        "row": 6,
+        "col": 5,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    },
+    {
+      "key": "R6C6",
+      "row": 6,
+      "col": 6,
+      "tile": "shrub",
+      "region": "客栈",
+      "walkable": false,
+      "element": "客栈窗外灌木",
+      "description": "",
+      "object_asset": "",
+      "inherits_common_recipe": "shrub",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 客栈, tile type shrub, element: 客栈窗外灌木. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1.",
+      "scene_asset": "assets/puzzles/fog-town-books/scene/v1/cells/r6c6.png",
+      "floor_family": "inn-amber-wood",
+      "scene_source_rect": {
+        "row": 6,
+        "col": 6,
+        "rows": 1,
+        "cols": 1
+      },
+      "tile_asset": "",
+      "cell_asset": ""
+    }
+  ]
+}

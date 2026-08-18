@@ -1,0 +1,809 @@
+{
+  "schema_version": 1,
+  "puzzle_id": "clockwork-hotel",
+  "generated_by": "murdoku.tile_assets build_tile_manifest",
+  "source": "examples/clockwork_hotel.json",
+  "asset_root": "tiles/clockwork-hotel",
+  "tile_size": 512,
+  "composition": {
+    "mode": "tile-atlas",
+    "camera": "top-down orthographic",
+    "background_role": "board-map-and-atmosphere",
+    "asset_resolution": "cell_asset -> tile_asset -> common_recipe -> css_fallback"
+  },
+  "common_kit": {
+    "id": "common-tile-kit-v1",
+    "manifest": "assets/common/tile-kit/v1/manifest.json",
+    "role": "Reusable surfaces, props, overlays, and masks. Puzzle assets may override it."
+  },
+  "background": {
+    "asset": "",
+    "board_asset": "puzzles/clockwork-hotel/board.svg",
+    "usage": "asset is optional page atmosphere; board_asset is deterministic programmatic board rendering; board logic remains cell driven"
+  },
+  "tiles": {
+    "bookshelf": {
+      "id": "bookshelf",
+      "symbol": "X",
+      "walkable": false,
+      "asset": "tiles/clockwork-hotel/bookshelf.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "dark_blocker_base",
+        "props": [
+          "bookshelf_prop"
+        ],
+        "overlays": [
+          "dust_paper_overlay"
+        ],
+        "mask": "blocker_shadow_mask",
+        "variant_axes": [
+          "shelf_density",
+          "region_tint"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "旅店登记书柜",
+        "阁楼廊旧书柜"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, non-walkable blocker tile: packed old bookshelf forming an impassable obstacle. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 旅店登记书柜; 阁楼廊旧书柜. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "carpet": {
+      "id": "carpet",
+      "symbol": "K",
+      "walkable": true,
+      "asset": "tiles/clockwork-hotel/carpet.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "rug_base",
+        "props": [],
+        "overlays": [
+          "dust_paper_overlay"
+        ],
+        "variant_axes": [
+          "region_tint",
+          "pattern"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "前厅红毯",
+        "内院防滑地毯",
+        "钟表房旧地毯",
+        "阁楼廊地毯",
+        "洗衣间晾衣地毯"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, walkable board tile: worn patterned rug, readable walkable ground. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 前厅红毯; 内院防滑地毯; 钟表房旧地毯; 阁楼廊地毯. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "chair": {
+      "id": "chair",
+      "symbol": "C",
+      "walkable": true,
+      "asset": "tiles/clockwork-hotel/chair.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "wood_floor_base",
+        "props": [
+          "chair_prop"
+        ],
+        "overlays": [
+          "rain_wetness_overlay"
+        ],
+        "variant_axes": [
+          "chair_style",
+          "region_tint"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "街口等候椅",
+        "前厅靠背椅",
+        "钟表房修理椅",
+        "洗衣间矮椅"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, walkable board tile: single reading or cafe chair on walkable ground. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 街口等候椅; 前厅靠背椅; 钟表房修理椅; 洗衣间矮椅. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "floor": {
+      "id": "floor",
+      "symbol": "F",
+      "walkable": true,
+      "asset": "tiles/clockwork-hotel/floor.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "wood_floor_base",
+        "props": [],
+        "overlays": [
+          "rain_wetness_overlay"
+        ],
+        "variant_axes": [
+          "region_tint",
+          "story_decal"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "雨棚下木地板",
+        "前厅接待地板",
+        "雨棚走道地板",
+        "雨棚内侧地板",
+        "前厅楼梯口地板",
+        "钟表房木地板"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, walkable board tile: rain-darkened wood or stone floor, clean readable walkable ground. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 雨棚下木地板; 前厅接待地板; 雨棚走道地板; 雨棚内侧地板. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "fountain": {
+      "id": "fountain",
+      "symbol": "X",
+      "walkable": false,
+      "asset": "tiles/clockwork-hotel/fountain.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "dark_blocker_base",
+        "props": [
+          "fountain_prop"
+        ],
+        "overlays": [
+          "rain_wetness_overlay"
+        ],
+        "mask": "blocker_shadow_mask",
+        "variant_axes": [
+          "water_color",
+          "region_tint"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "内院停摆喷泉"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, non-walkable blocker tile: small courtyard fountain forming an impassable obstacle. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 内院停摆喷泉. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "grass": {
+      "id": "grass",
+      "symbol": "G",
+      "walkable": true,
+      "asset": "tiles/clockwork-hotel/grass.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "grass_base",
+        "props": [],
+        "overlays": [
+          "rain_wetness_overlay",
+          "moss_edge_overlay"
+        ],
+        "variant_axes": [
+          "region_tint",
+          "path_wear"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "前厅绿植草垫"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, walkable board tile: wet garden grass with small path texture, readable walkable ground. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 前厅绿植草垫. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "shrub": {
+      "id": "shrub",
+      "symbol": "X",
+      "walkable": false,
+      "asset": "tiles/clockwork-hotel/shrub.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "dark_blocker_base",
+        "props": [
+          "shrub_prop"
+        ],
+        "overlays": [
+          "moss_edge_overlay"
+        ],
+        "mask": "blocker_shadow_mask",
+        "variant_axes": [
+          "shrub_density",
+          "region_tint"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "窗外灌木阴影",
+        "洗衣间封窗灌木"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, non-walkable blocker tile: dense trimmed shrub forming an impassable obstacle. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 窗外灌木阴影; 洗衣间封窗灌木. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "table": {
+      "id": "table",
+      "symbol": "X",
+      "walkable": false,
+      "asset": "tiles/clockwork-hotel/table.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "dark_blocker_base",
+        "props": [
+          "table_prop"
+        ],
+        "overlays": [
+          "dust_paper_overlay"
+        ],
+        "mask": "blocker_shadow_mask",
+        "variant_axes": [
+          "table_length",
+          "region_tint"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "封住门边的货桌",
+        "内院长桌"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, non-walkable blocker tile: long worktable forming an impassable obstacle. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 封住门边的货桌; 内院长桌. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    "tree": {
+      "id": "tree",
+      "symbol": "X",
+      "walkable": false,
+      "asset": "tiles/clockwork-hotel/tree.png",
+      "common_recipe": {
+        "kit": "common-tile-kit-v1",
+        "surface": "dark_blocker_base",
+        "props": [
+          "tree_prop"
+        ],
+        "overlays": [
+          "moss_edge_overlay"
+        ],
+        "mask": "blocker_shadow_mask",
+        "variant_axes": [
+          "canopy_shadow",
+          "region_tint"
+        ]
+      },
+      "variant_strategy": "Use puzzle-specific tile asset when present; otherwise compose from common_recipe.",
+      "element_examples": [
+        "钟表房门口树影",
+        "阁楼廊树影窗"
+      ],
+      "prompt": "Top-down orthographic single square board-game tile, non-walkable blocker tile: old tree trunk and canopy shadow forming an impassable obstacle. Fog Town bookshop mystery, rainy old street, readable from a 6x6 puzzle board, element hints: 钟表房门口树影; 阁楼廊树影窗. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    }
+  },
+  "cells": [
+    {
+      "key": "R1C1",
+      "row": 1,
+      "col": 1,
+      "tile": "floor",
+      "region": "雨棚街口",
+      "walkable": true,
+      "element": "雨棚下木地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r1c1-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 雨棚街口, tile type floor, element: 雨棚下木地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R1C2",
+      "row": 1,
+      "col": 2,
+      "tile": "chair",
+      "region": "雨棚街口",
+      "walkable": true,
+      "element": "街口等候椅",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/chair.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r1c2-chair.png",
+      "inherits_common_recipe": "chair",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 雨棚街口, tile type chair, element: 街口等候椅. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R1C3",
+      "row": 1,
+      "col": 3,
+      "tile": "table",
+      "region": "雨棚街口",
+      "walkable": false,
+      "element": "封住门边的货桌",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/table.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r1c3-table.png",
+      "inherits_common_recipe": "table",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 雨棚街口, tile type table, element: 封住门边的货桌. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R1C4",
+      "row": 1,
+      "col": 4,
+      "tile": "grass",
+      "region": "前厅",
+      "walkable": true,
+      "element": "前厅绿植草垫",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/grass.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r1c4-grass.png",
+      "inherits_common_recipe": "grass",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 前厅, tile type grass, element: 前厅绿植草垫. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R1C5",
+      "row": 1,
+      "col": 5,
+      "tile": "floor",
+      "region": "前厅",
+      "walkable": true,
+      "element": "前厅接待地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r1c5-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 前厅, tile type floor, element: 前厅接待地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R1C6",
+      "row": 1,
+      "col": 6,
+      "tile": "shrub",
+      "region": "前厅",
+      "walkable": false,
+      "element": "窗外灌木阴影",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/shrub.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r1c6-shrub.png",
+      "inherits_common_recipe": "shrub",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 前厅, tile type shrub, element: 窗外灌木阴影. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R2C1",
+      "row": 2,
+      "col": 1,
+      "tile": "floor",
+      "region": "雨棚街口",
+      "walkable": true,
+      "element": "雨棚走道地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r2c1-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 雨棚街口, tile type floor, element: 雨棚走道地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R2C2",
+      "row": 2,
+      "col": 2,
+      "tile": "bookshelf",
+      "region": "雨棚街口",
+      "walkable": false,
+      "element": "旅店登记书柜",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/bookshelf.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r2c2-bookshelf.png",
+      "inherits_common_recipe": "bookshelf",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 雨棚街口, tile type bookshelf, element: 旅店登记书柜. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R2C3",
+      "row": 2,
+      "col": 3,
+      "tile": "floor",
+      "region": "雨棚街口",
+      "walkable": true,
+      "element": "雨棚内侧地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r2c3-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 雨棚街口, tile type floor, element: 雨棚内侧地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R2C4",
+      "row": 2,
+      "col": 4,
+      "tile": "carpet",
+      "region": "前厅",
+      "walkable": true,
+      "element": "前厅红毯",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/carpet.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r2c4-carpet.png",
+      "inherits_common_recipe": "carpet",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 前厅, tile type carpet, element: 前厅红毯. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R2C5",
+      "row": 2,
+      "col": 5,
+      "tile": "chair",
+      "region": "前厅",
+      "walkable": true,
+      "element": "前厅靠背椅",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/chair.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r2c5-chair.png",
+      "inherits_common_recipe": "chair",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 前厅, tile type chair, element: 前厅靠背椅. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R2C6",
+      "row": 2,
+      "col": 6,
+      "tile": "floor",
+      "region": "前厅",
+      "walkable": true,
+      "element": "前厅楼梯口地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r2c6-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 前厅, tile type floor, element: 前厅楼梯口地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R3C1",
+      "row": 3,
+      "col": 1,
+      "tile": "tree",
+      "region": "钟表房",
+      "walkable": false,
+      "element": "钟表房门口树影",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/tree.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r3c1-tree.png",
+      "inherits_common_recipe": "tree",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 钟表房, tile type tree, element: 钟表房门口树影. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R3C2",
+      "row": 3,
+      "col": 2,
+      "tile": "floor",
+      "region": "钟表房",
+      "walkable": true,
+      "element": "钟表房木地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r3c2-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 钟表房, tile type floor, element: 钟表房木地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R3C3",
+      "row": 3,
+      "col": 3,
+      "tile": "chair",
+      "region": "钟表房",
+      "walkable": true,
+      "element": "钟表房修理椅",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/chair.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r3c3-chair.png",
+      "inherits_common_recipe": "chair",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 钟表房, tile type chair, element: 钟表房修理椅. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R3C4",
+      "row": 3,
+      "col": 4,
+      "tile": "floor",
+      "region": "内院",
+      "walkable": true,
+      "element": "内院石板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r3c4-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 内院, tile type floor, element: 内院石板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R3C5",
+      "row": 3,
+      "col": 5,
+      "tile": "fountain",
+      "region": "内院",
+      "walkable": false,
+      "element": "内院停摆喷泉",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/fountain.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r3c5-fountain.png",
+      "inherits_common_recipe": "fountain",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 内院, tile type fountain, element: 内院停摆喷泉. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R3C6",
+      "row": 3,
+      "col": 6,
+      "tile": "carpet",
+      "region": "内院",
+      "walkable": true,
+      "element": "内院防滑地毯",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/carpet.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r3c6-carpet.png",
+      "inherits_common_recipe": "carpet",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 内院, tile type carpet, element: 内院防滑地毯. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R4C1",
+      "row": 4,
+      "col": 1,
+      "tile": "floor",
+      "region": "钟表房",
+      "walkable": true,
+      "element": "钟表房西侧地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r4c1-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 钟表房, tile type floor, element: 钟表房西侧地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R4C2",
+      "row": 4,
+      "col": 2,
+      "tile": "carpet",
+      "region": "钟表房",
+      "walkable": true,
+      "element": "钟表房旧地毯",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/carpet.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r4c2-carpet.png",
+      "inherits_common_recipe": "carpet",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 钟表房, tile type carpet, element: 钟表房旧地毯. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R4C3",
+      "row": 4,
+      "col": 3,
+      "tile": "table",
+      "region": "内院",
+      "walkable": false,
+      "element": "内院长桌",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/table.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r4c3-table.png",
+      "inherits_common_recipe": "table",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 内院, tile type table, element: 内院长桌. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R4C4",
+      "row": 4,
+      "col": 4,
+      "tile": "floor",
+      "region": "内院",
+      "walkable": true,
+      "element": "内院湿地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r4c4-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 内院, tile type floor, element: 内院湿地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R4C5",
+      "row": 4,
+      "col": 5,
+      "tile": "floor",
+      "region": "内院",
+      "walkable": true,
+      "element": "内院廊下地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r4c5-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 内院, tile type floor, element: 内院廊下地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R4C6",
+      "row": 4,
+      "col": 6,
+      "tile": "floor",
+      "region": "内院",
+      "walkable": true,
+      "element": "内院东侧地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r4c6-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 内院, tile type floor, element: 内院东侧地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R5C1",
+      "row": 5,
+      "col": 1,
+      "tile": "chair",
+      "region": "洗衣间",
+      "walkable": true,
+      "element": "洗衣间矮椅",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/chair.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r5c1-chair.png",
+      "inherits_common_recipe": "chair",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 洗衣间, tile type chair, element: 洗衣间矮椅. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R5C2",
+      "row": 5,
+      "col": 2,
+      "tile": "floor",
+      "region": "洗衣间",
+      "walkable": true,
+      "element": "洗衣间水渍地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r5c2-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 洗衣间, tile type floor, element: 洗衣间水渍地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R5C3",
+      "row": 5,
+      "col": 3,
+      "tile": "floor",
+      "region": "洗衣间",
+      "walkable": true,
+      "element": "洗衣间后排地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r5c3-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 洗衣间, tile type floor, element: 洗衣间后排地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R5C4",
+      "row": 5,
+      "col": 4,
+      "tile": "bookshelf",
+      "region": "阁楼廊",
+      "walkable": false,
+      "element": "阁楼廊旧书柜",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/bookshelf.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r5c4-bookshelf.png",
+      "inherits_common_recipe": "bookshelf",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 阁楼廊, tile type bookshelf, element: 阁楼廊旧书柜. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R5C5",
+      "row": 5,
+      "col": 5,
+      "tile": "carpet",
+      "region": "阁楼廊",
+      "walkable": true,
+      "element": "阁楼廊地毯",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/carpet.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r5c5-carpet.png",
+      "inherits_common_recipe": "carpet",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 阁楼廊, tile type carpet, element: 阁楼廊地毯. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R5C6",
+      "row": 5,
+      "col": 6,
+      "tile": "floor",
+      "region": "阁楼廊",
+      "walkable": true,
+      "element": "阁楼廊木地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r5c6-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 阁楼廊, tile type floor, element: 阁楼廊木地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R6C1",
+      "row": 6,
+      "col": 1,
+      "tile": "shrub",
+      "region": "洗衣间",
+      "walkable": false,
+      "element": "洗衣间封窗灌木",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/shrub.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r6c1-shrub.png",
+      "inherits_common_recipe": "shrub",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 洗衣间, tile type shrub, element: 洗衣间封窗灌木. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R6C2",
+      "row": 6,
+      "col": 2,
+      "tile": "floor",
+      "region": "洗衣间",
+      "walkable": true,
+      "element": "洗衣间门边地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r6c2-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 洗衣间, tile type floor, element: 洗衣间门边地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R6C3",
+      "row": 6,
+      "col": 3,
+      "tile": "carpet",
+      "region": "洗衣间",
+      "walkable": true,
+      "element": "洗衣间晾衣地毯",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/carpet.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r6c3-carpet.png",
+      "inherits_common_recipe": "carpet",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 洗衣间, tile type carpet, element: 洗衣间晾衣地毯. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R6C4",
+      "row": 6,
+      "col": 4,
+      "tile": "floor",
+      "region": "阁楼廊",
+      "walkable": true,
+      "element": "阁楼廊拐角地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r6c4-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 阁楼廊, tile type floor, element: 阁楼廊拐角地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R6C5",
+      "row": 6,
+      "col": 5,
+      "tile": "tree",
+      "region": "阁楼廊",
+      "walkable": false,
+      "element": "阁楼廊树影窗",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/tree.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r6c5-tree.png",
+      "inherits_common_recipe": "tree",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, blocked cell, region 阁楼廊, tile type tree, element: 阁楼廊树影窗. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    },
+    {
+      "key": "R6C6",
+      "row": 6,
+      "col": 6,
+      "tile": "floor",
+      "region": "阁楼廊",
+      "walkable": true,
+      "element": "阁楼尽头地板",
+      "description": "",
+      "tile_asset": "tiles/clockwork-hotel/floor.png",
+      "cell_asset": "tiles/clockwork-hotel/cells/r6c6-floor.png",
+      "inherits_common_recipe": "floor",
+      "variant_strategy": "Generate or use this cell asset for region and story specificity; fall back to tile_asset.",
+      "prompt": "Top-down orthographic square puzzle-map cell, walkable cell, region 阁楼廊, tile type floor, element: 阁楼尽头地板. Fog Town bookshop mystery, rainy old street, readable at small board size. No people, no labels, no letters, no UI, no perspective camera, no border, 1:1."
+    }
+  ]
+}

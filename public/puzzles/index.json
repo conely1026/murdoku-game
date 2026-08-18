@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "generated_by": "murdoku.workflow public_level_index_payload",
+  "levels": [
+    {
+      "id": "fog-town-books",
+      "title": "雾镇书影",
+      "subtitle": "雨后旧书街的第一案",
+      "difficulty": "入门",
+      "author_difficulty": "入门",
+      "difficulty_band": "Easy",
+      "difficulty_score": 233,
+      "pack": "./public/puzzles/fog-town-books",
+      "source": "examples/fog_town_books.json",
+      "summary": "从咖啡馆、庭院和图书室的线索中复原六人的位置。"
+    },
+    {
+      "id": "midnight-gallery",
+      "title": "午夜画廊",
+      "subtitle": "应急灯下的展厅封锁",
+      "difficulty": "困难",
+      "author_difficulty": "标准",
+      "difficulty_band": "Hard",
+      "difficulty_score": 4666,
+      "pack": "./public/puzzles/midnight-gallery",
+      "source": "examples/midnight_gallery.json",
+      "summary": "雕塑庭和展廊之间留下了互相矛盾的夜巡证词。"
+    },
+    {
+      "id": "clockwork-hotel",
+      "title": "钟楼旅店",
+      "subtitle": "暴雨夜的旅店钟声",
+      "difficulty": "困难",
+      "author_difficulty": "标准",
+      "difficulty_band": "Hard",
+      "difficulty_score": 3239,
+      "pack": "./public/puzzles/clockwork-hotel",
+      "source": "examples/clockwork_hotel.json",
+      "summary": "在前厅、钟表房和阁楼廊里找出钟声停止前的真相。"
+    }
+  ]
+}

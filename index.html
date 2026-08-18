@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>雾镇书影</title>
+    <link rel="stylesheet" href="./styles.css?v=20260705-levels" />
+  </head>
+  <body>
+    <main class="app-shell" aria-live="polite">
+      <section class="level-select" id="level-select" aria-labelledby="level-select-title">
+        <header class="level-head">
+          <p class="product">Murdoku</p>
+          <h1 id="level-select-title">选择案件</h1>
+          <p class="level-intro">每个案件都来自已验证题包，进入后再根据线索复原六人的位置。</p>
+        </header>
+        <div class="level-list" id="level-list"></div>
+      </section>
+
+      <section class="game-screen is-hidden" id="game-screen">
+        <button class="back-button" id="back-button" type="button">返回</button>
+        <div class="game-layout">
+          <aside class="suspect-column">
+            <header class="game-head">
+              <div>
+                <p class="product">Murdoku</p>
+                <h1 id="puzzle-title">雾镇书影</h1>
+              </div>
+              <div class="proof-pill" id="proof-pill">读取题包中</div>
+            </header>
+
+            <section class="story-card" id="story-card" aria-label="场景描述">
+              <p id="story-text"></p>
+            </section>
+
+            <section class="general-clues" aria-labelledby="general-clues-title">
+              <h2 id="general-clues-title">通用线索</h2>
+              <div class="general-clue-card" id="general-clue-card"></div>
+            </section>
+
+            <section class="people-panel" aria-labelledby="people-title">
+              <h2 id="people-title">嫌疑人</h2>
+              <p class="instruction">点击人物，再点网格放置。说明挂在人物下面。</p>
+              <div class="person-list" id="person-list"></div>
+            </section>
+          </aside>
+
+          <section class="board-stage" aria-labelledby="board-title">
+            <h2 id="board-title">棋盘</h2>
+            <div class="board-wrap">
+              <div class="board" id="board"></div>
+            </div>
+          </section>
+
+          <aside class="tool-rail" aria-label="棋盘工具">
+            <button class="tool-button tool-clear" id="tool-clear" type="button" aria-pressed="false">
+              <span class="tool-icon">X</span>
+              <span class="tool-caption">标记格子</span>
+            </button>
+            <button class="tool-button tool-eraser" id="tool-eraser" type="button">
+              <span class="tool-icon">◆</span>
+              <span class="tool-caption">擦除标记/人物</span>
+            </button>
+            <button class="tool-button tool-undo" id="tool-undo" type="button" disabled>撤销</button>
+            <button class="submit-button" id="submit-button" type="button" disabled>
+              提交
+              <span id="submit-caption">请先放置所有人</span>
+            </button>
+            <button class="help-button" id="help-button" type="button">玩法说明</button>
+            <div class="feedback" id="feedback"></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script type="module">
+      const buildVersion = new URLSearchParams(window.location.search).get('build') || String(Date.now());
+      import(`./app.js?v=${encodeURIComponent(buildVersion)}`);
+    </script>
+  </body>
+</html>
