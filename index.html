@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>雾镇书影</title>
-    <link rel="stylesheet" href="./styles.css?v=20260824-grid-alignment" />
+    <link rel="stylesheet" href="./styles.css?v=20260824-visual-density" />
   </head>
   <body>
     <main class="app-shell" aria-live="polite">
@@ -38,6 +38,12 @@
               <div class="general-clue-card" id="general-clue-card"></div>
             </section>
 
+            <section class="people-panel" aria-labelledby="people-title">
+              <h2 id="people-title">嫌疑人</h2>
+              <p class="instruction">点击人物，再点网格放置；经过或选中任一格会高亮整个区域。</p>
+              <div class="person-list" id="person-list"></div>
+            </section>
+
             <section class="investigation-panel" id="investigation-panel" aria-labelledby="investigation-title" hidden>
               <div class="investigation-heading">
                 <div>
@@ -49,12 +55,6 @@
               <p class="investigation-intro" id="investigation-intro"></p>
               <div class="investigation-list" id="investigation-list"></div>
               <div class="investigation-complete" id="investigation-complete" hidden></div>
-            </section>
-
-            <section class="people-panel" aria-labelledby="people-title">
-              <h2 id="people-title">嫌疑人</h2>
-              <p class="instruction">点击人物，再点网格放置；经过或选中任一格会高亮整个区域。</p>
-              <div class="person-list" id="person-list"></div>
             </section>
           </aside>
 

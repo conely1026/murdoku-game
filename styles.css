@@ -312,6 +312,7 @@ h2 {
 }
 
 .investigation-panel {
+  margin-top: 16px;
   margin-bottom: 14px;
   border: 2px solid #43382b;
   border-radius: 9px;
@@ -596,6 +597,43 @@ h2 {
   -webkit-line-clamp: 3;
   overflow: hidden;
   overflow-wrap: anywhere;
+}
+
+.people-panel.is-large-roster .person-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  gap: 10px;
+}
+
+.people-panel.is-large-roster .person-card {
+  --portrait-height: 74px;
+  grid-template-columns: 78px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  min-height: 0;
+  height: auto;
+  padding: 7px;
+  text-align: left;
+}
+
+.people-panel.is-large-roster .portrait {
+  grid-row: 1 / span 2;
+  width: 72px;
+  justify-self: start;
+}
+
+.people-panel.is-large-roster .person-meta {
+  align-content: start;
+  padding: 1px 0 5px;
+}
+
+.people-panel.is-large-roster .person-clue {
+  display: block;
+  min-height: 0;
+  padding: 7px 2px 1px;
+  font-size: 12px;
+  line-height: 1.3;
+  -webkit-line-clamp: unset;
+  overflow: visible;
 }
 
 .board-stage {
@@ -1390,16 +1428,16 @@ h2 {
     order: 3;
   }
 
-  .investigation-panel {
-    order: 4;
-  }
-
   .board-stage {
-    order: 5;
+    order: 4;
     padding-top: 0;
   }
 
   .people-panel {
+    order: 5;
+  }
+
+  .investigation-panel {
     order: 6;
   }
 
@@ -1439,6 +1477,10 @@ h2 {
   }
 
   .person-list {
+    grid-template-columns: 1fr;
+  }
+
+  .people-panel.is-large-roster .person-list {
     grid-template-columns: 1fr;
   }
 

@@ -114,13 +114,13 @@
   <text class="cell-region" x="1292" y="91">信标廊</text>
   <text class="cell-element" x="1292" y="111">雾蓝信标石板</text>
 </g>
-<g id="cell-r1c12" class="cell" data-row="1" data-col="12" data-region="信标廊" data-tile="chair">
-  <rect class="cell-base" x="1408" y="0" width="128" height="128" fill="#d8dce2"/>
-  <rect x="1408" y="0" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+<g id="cell-r1c12" class="cell" data-row="1" data-col="12" data-region="信标廊" data-tile="floor">
+  <rect class="cell-base" x="1408" y="0" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="1408" y="0" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
   <rect class="cell-grid" x="1408" y="0" width="128" height="128"/>
-  <text class="tile-symbol" x="1420" y="25">C</text>
+  <text class="tile-symbol" x="1420" y="25">F</text>
   <text class="cell-region" x="1420" y="91">信标廊</text>
-  <text class="cell-element" x="1420" y="111">固定休息椅</text>
+  <text class="cell-element" x="1420" y="111">雾蓝信标石板</text>
 </g>
 <g id="cell-r1c13" class="cell" data-row="1" data-col="13" data-region="信标廊" data-tile="floor">
   <rect class="cell-base" x="1536" y="0" width="128" height="128" fill="#cfe1e2"/>
@@ -212,13 +212,13 @@
   <text class="cell-region" x="908" y="219">星图室</text>
   <text class="cell-element" x="908" y="239">浅金观测木地板</text>
 </g>
-<g id="cell-r2c9" class="cell" data-row="2" data-col="9" data-region="星图室" data-tile="floor">
-  <rect class="cell-base" x="1024" y="128" width="128" height="128" fill="#cfe1e2"/>
-  <rect x="1024" y="128" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+<g id="cell-r2c9" class="cell" data-row="2" data-col="9" data-region="星图室" data-tile="chair">
+  <rect class="cell-base" x="1024" y="128" width="128" height="128" fill="#d8dce2"/>
+  <rect x="1024" y="128" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
   <rect class="cell-grid" x="1024" y="128" width="128" height="128"/>
-  <text class="tile-symbol" x="1036" y="153">F</text>
+  <text class="tile-symbol" x="1036" y="153">C</text>
   <text class="cell-region" x="1036" y="219">星图室</text>
-  <text class="cell-element" x="1036" y="239">浅金观测木地板</text>
+  <text class="cell-element" x="1036" y="239">星图记录椅</text>
 </g>
 <g id="cell-r2c10" class="cell" data-row="2" data-col="10" data-region="星图室" data-tile="floor">
   <rect class="cell-base" x="1152" y="128" width="128" height="128" fill="#cfe1e2"/>
@@ -343,13 +343,13 @@
   <text class="cell-region" x="1036" y="347">星图室</text>
   <text class="cell-element" x="1036" y="367">盐雾侵蚀的资料书架</text>
 </g>
-<g id="cell-r3c10" class="cell" data-row="3" data-col="10" data-region="信标廊" data-tile="chair">
-  <rect class="cell-base" x="1152" y="256" width="128" height="128" fill="#d8dce2"/>
-  <rect x="1152" y="256" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+<g id="cell-r3c10" class="cell" data-row="3" data-col="10" data-region="信标廊" data-tile="floor">
+  <rect class="cell-base" x="1152" y="256" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="1152" y="256" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
   <rect class="cell-grid" x="1152" y="256" width="128" height="128"/>
-  <text class="tile-symbol" x="1164" y="281">C</text>
+  <text class="tile-symbol" x="1164" y="281">F</text>
   <text class="cell-region" x="1164" y="347">信标廊</text>
-  <text class="cell-element" x="1164" y="367">固定休息椅</text>
+  <text class="cell-element" x="1164" y="367">雾蓝信标石板</text>
 </g>
 <g id="cell-r3c11" class="cell" data-row="3" data-col="11" data-region="信标廊" data-tile="floor">
   <rect class="cell-base" x="1280" y="256" width="128" height="128" fill="#cfe1e2"/>
@@ -448,21 +448,21 @@
   <text class="cell-region" x="780" y="475">星图室</text>
   <text class="cell-element" x="780" y="495">浅金观测木地板</text>
 </g>
-<g id="cell-r4c8" class="cell" data-row="4" data-col="8" data-region="星图室" data-tile="floor">
-  <rect class="cell-base" x="896" y="384" width="128" height="128" fill="#cfe1e2"/>
-  <rect x="896" y="384" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+<g id="cell-r4c8" class="cell" data-row="4" data-col="8" data-region="星图室" data-tile="chair">
+  <rect class="cell-base" x="896" y="384" width="128" height="128" fill="#d8dce2"/>
+  <rect x="896" y="384" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
   <rect class="cell-grid" x="896" y="384" width="128" height="128"/>
-  <text class="tile-symbol" x="908" y="409">F</text>
+  <text class="tile-symbol" x="908" y="409">C</text>
   <text class="cell-region" x="908" y="475">星图室</text>
-  <text class="cell-element" x="908" y="495">浅金观测木地板</text>
+  <text class="cell-element" x="908" y="495">星图记录椅</text>
 </g>
-<g id="cell-r4c9" class="cell" data-row="4" data-col="9" data-region="星图室" data-tile="chair">
-  <rect class="cell-base" x="1024" y="384" width="128" height="128" fill="#d8dce2"/>
-  <rect x="1024" y="384" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+<g id="cell-r4c9" class="cell" data-row="4" data-col="9" data-region="星图室" data-tile="floor">
+  <rect class="cell-base" x="1024" y="384" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="1024" y="384" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
   <rect class="cell-grid" x="1024" y="384" width="128" height="128"/>
-  <text class="tile-symbol" x="1036" y="409">C</text>
+  <text class="tile-symbol" x="1036" y="409">F</text>
   <text class="cell-region" x="1036" y="475">星图室</text>
-  <text class="cell-element" x="1036" y="495">固定休息椅</text>
+  <text class="cell-element" x="1036" y="495">浅金观测木地板</text>
 </g>
 <g id="cell-r4c10" class="cell" data-row="4" data-col="10" data-region="信标廊" data-tile="floor">
   <rect class="cell-base" x="1152" y="384" width="128" height="128" fill="#cfe1e2"/>
@@ -554,13 +554,14 @@
   <text class="cell-region" x="524" y="603">海崖小径</text>
   <text class="cell-element" x="524" y="623">雨湿海崖石径</text>
 </g>
-<g id="cell-r5c6" class="cell" data-row="5" data-col="6" data-region="海崖小径" data-tile="floor">
-  <rect class="cell-base" x="640" y="512" width="128" height="128" fill="#cfe1e2"/>
-  <rect x="640" y="512" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+<g id="cell-r5c6" class="cell" data-row="5" data-col="6" data-region="海崖小径" data-tile="carpet">
+  <rect class="cell-base" x="640" y="512" width="128" height="128" fill="#8f8a5d"/>
+  <rect x="640" y="512" width="128" height="128" fill="#aaa36d" opacity="0.28"/>
+  <rect x="640" y="512" width="128" height="128" fill="url(#carpet-hatch)"/>
   <rect class="cell-grid" x="640" y="512" width="128" height="128"/>
-  <text class="tile-symbol" x="652" y="537">F</text>
+  <text class="tile-symbol" x="652" y="537">K</text>
   <text class="cell-region" x="652" y="603">海崖小径</text>
-  <text class="cell-element" x="652" y="623">雨湿海崖石径</text>
+  <text class="cell-element" x="652" y="623">建筑入口防滑毯</text>
 </g>
 <g id="cell-r5c7" class="cell" data-row="5" data-col="7" data-region="海崖小径" data-tile="floor">
   <rect class="cell-base" x="768" y="512" width="128" height="128" fill="#cfe1e2"/>
@@ -570,13 +571,13 @@
   <text class="cell-region" x="780" y="603">海崖小径</text>
   <text class="cell-element" x="780" y="623">雨湿海崖石径</text>
 </g>
-<g id="cell-r5c8" class="cell" data-row="5" data-col="8" data-region="海崖小径" data-tile="chair">
-  <rect class="cell-base" x="896" y="512" width="128" height="128" fill="#d8dce2"/>
-  <rect x="896" y="512" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+<g id="cell-r5c8" class="cell" data-row="5" data-col="8" data-region="海崖小径" data-tile="floor">
+  <rect class="cell-base" x="896" y="512" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="896" y="512" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
   <rect class="cell-grid" x="896" y="512" width="128" height="128"/>
-  <text class="tile-symbol" x="908" y="537">C</text>
+  <text class="tile-symbol" x="908" y="537">F</text>
   <text class="cell-region" x="908" y="603">海崖小径</text>
-  <text class="cell-element" x="908" y="623">固定休息椅</text>
+  <text class="cell-element" x="908" y="623">雨湿海崖石径</text>
 </g>
 <g id="cell-r5c9" class="cell" data-row="5" data-col="9" data-region="海崖小径" data-tile="floor">
   <rect class="cell-base" x="1024" y="512" width="128" height="128" fill="#cfe1e2"/>
@@ -782,13 +783,13 @@
   <text class="cell-region" x="268" y="859">潮汐档案库</text>
   <text class="cell-element" x="268" y="879">铆钉外壳备用发电机</text>
 </g>
-<g id="cell-r7c4" class="cell" data-row="7" data-col="4" data-region="潮汐档案库" data-tile="floor">
-  <rect class="cell-base" x="384" y="768" width="128" height="128" fill="#cfe1e2"/>
-  <rect x="384" y="768" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+<g id="cell-r7c4" class="cell" data-row="7" data-col="4" data-region="潮汐档案库" data-tile="chair">
+  <rect class="cell-base" x="384" y="768" width="128" height="128" fill="#d8dce2"/>
+  <rect x="384" y="768" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
   <rect class="cell-grid" x="384" y="768" width="128" height="128"/>
-  <text class="tile-symbol" x="396" y="793">F</text>
+  <text class="tile-symbol" x="396" y="793">C</text>
   <text class="cell-region" x="396" y="859">潮汐档案库</text>
-  <text class="cell-element" x="396" y="879">灰紫档案室地板</text>
+  <text class="cell-element" x="396" y="879">档案阅览椅</text>
 </g>
 <g id="cell-r7c5" class="cell" data-row="7" data-col="5" data-region="海崖小径" data-tile="floor">
   <rect class="cell-base" x="512" y="768" width="128" height="128" fill="#cfe1e2"/>
@@ -798,21 +799,21 @@
   <text class="cell-region" x="524" y="859">海崖小径</text>
   <text class="cell-element" x="524" y="879">雨湿海崖石径</text>
 </g>
-<g id="cell-r7c6" class="cell" data-row="7" data-col="6" data-region="中央圆厅" data-tile="chair">
-  <rect class="cell-base" x="640" y="768" width="128" height="128" fill="#d8dce2"/>
-  <rect x="640" y="768" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+<g id="cell-r7c6" class="cell" data-row="7" data-col="6" data-region="中央圆厅" data-tile="floor">
+  <rect class="cell-base" x="640" y="768" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="640" y="768" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
   <rect class="cell-grid" x="640" y="768" width="128" height="128"/>
-  <text class="tile-symbol" x="652" y="793">C</text>
+  <text class="tile-symbol" x="652" y="793">F</text>
   <text class="cell-region" x="652" y="859">中央圆厅</text>
-  <text class="cell-element" x="652" y="879">固定休息椅</text>
+  <text class="cell-element" x="652" y="879">海盐色圆厅石板</text>
 </g>
-<g id="cell-r7c7" class="cell" data-row="7" data-col="7" data-region="中央圆厅" data-tile="floor">
-  <rect class="cell-base" x="768" y="768" width="128" height="128" fill="#cfe1e2"/>
-  <rect x="768" y="768" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+<g id="cell-r7c7" class="cell" data-row="7" data-col="7" data-region="中央圆厅" data-tile="chair">
+  <rect class="cell-base" x="768" y="768" width="128" height="128" fill="#d8dce2"/>
+  <rect x="768" y="768" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
   <rect class="cell-grid" x="768" y="768" width="128" height="128"/>
-  <text class="tile-symbol" x="780" y="793">F</text>
+  <text class="tile-symbol" x="780" y="793">C</text>
   <text class="cell-region" x="780" y="859">中央圆厅</text>
-  <text class="cell-element" x="780" y="879">海盐色圆厅石板</text>
+  <text class="cell-element" x="780" y="879">圆厅会客椅</text>
 </g>
 <g id="cell-r7c8" class="cell" data-row="7" data-col="8" data-region="中央圆厅" data-tile="floor">
   <rect class="cell-base" x="896" y="768" width="128" height="128" fill="#cfe1e2"/>
@@ -863,13 +864,13 @@
   <text class="cell-region" x="1548" y="859">无线电室</text>
   <text class="cell-element" x="1548" y="879">琥珀色设备间地板</text>
 </g>
-<g id="cell-r7c14" class="cell" data-row="7" data-col="14" data-region="无线电室" data-tile="floor">
-  <rect class="cell-base" x="1664" y="768" width="128" height="128" fill="#cfe1e2"/>
-  <rect x="1664" y="768" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+<g id="cell-r7c14" class="cell" data-row="7" data-col="14" data-region="无线电室" data-tile="chair">
+  <rect class="cell-base" x="1664" y="768" width="128" height="128" fill="#d8dce2"/>
+  <rect x="1664" y="768" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
   <rect class="cell-grid" x="1664" y="768" width="128" height="128"/>
-  <text class="tile-symbol" x="1676" y="793">F</text>
+  <text class="tile-symbol" x="1676" y="793">C</text>
   <text class="cell-region" x="1676" y="859">无线电室</text>
-  <text class="cell-element" x="1676" y="879">琥珀色设备间地板</text>
+  <text class="cell-element" x="1676" y="879">无线电值班椅</text>
 </g>
 <g id="cell-r7c15" class="cell" data-row="7" data-col="15" data-region="无线电室" data-tile="floor">
   <rect class="cell-base" x="1792" y="768" width="128" height="128" fill="#cfe1e2"/>
@@ -912,13 +913,13 @@
   <text class="cell-region" x="396" y="987">海崖小径</text>
   <text class="cell-element" x="396" y="1007">雨湿海崖石径</text>
 </g>
-<g id="cell-r8c5" class="cell" data-row="8" data-col="5" data-region="海崖小径" data-tile="chair">
-  <rect class="cell-base" x="512" y="896" width="128" height="128" fill="#d8dce2"/>
-  <rect x="512" y="896" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+<g id="cell-r8c5" class="cell" data-row="8" data-col="5" data-region="海崖小径" data-tile="floor">
+  <rect class="cell-base" x="512" y="896" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="512" y="896" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
   <rect class="cell-grid" x="512" y="896" width="128" height="128"/>
-  <text class="tile-symbol" x="524" y="921">C</text>
+  <text class="tile-symbol" x="524" y="921">F</text>
   <text class="cell-region" x="524" y="987">海崖小径</text>
-  <text class="cell-element" x="524" y="1007">固定休息椅</text>
+  <text class="cell-element" x="524" y="1007">雨湿海崖石径</text>
 </g>
 <g id="cell-r8c6" class="cell" data-row="8" data-col="6" data-region="中央圆厅" data-tile="floor">
   <rect class="cell-base" x="640" y="896" width="128" height="128" fill="#cfe1e2"/>
@@ -944,13 +945,13 @@
   <text class="cell-region" x="908" y="987">中央圆厅</text>
   <text class="cell-element" x="908" y="1007">海盐色圆厅石板</text>
 </g>
-<g id="cell-r8c9" class="cell" data-row="8" data-col="9" data-region="中央圆厅" data-tile="floor">
-  <rect class="cell-base" x="1024" y="896" width="128" height="128" fill="#cfe1e2"/>
-  <rect x="1024" y="896" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+<g id="cell-r8c9" class="cell" data-row="8" data-col="9" data-region="中央圆厅" data-tile="chair">
+  <rect class="cell-base" x="1024" y="896" width="128" height="128" fill="#d8dce2"/>
+  <rect x="1024" y="896" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
   <rect class="cell-grid" x="1024" y="896" width="128" height="128"/>
-  <text class="tile-symbol" x="1036" y="921">F</text>
+  <text class="tile-symbol" x="1036" y="921">C</text>
   <text class="cell-region" x="1036" y="987">中央圆厅</text>
-  <text class="cell-element" x="1036" y="1007">海盐色圆厅石板</text>
+  <text class="cell-element" x="1036" y="1007">圆厅会客椅</text>
 </g>
 <g id="cell-r8c10" class="cell" data-row="8" data-col="10" data-region="中央圆厅" data-tile="floor">
   <rect class="cell-base" x="1152" y="896" width="128" height="128" fill="#cfe1e2"/>
@@ -1139,13 +1140,13 @@
   <text class="cell-region" x="140" y="1243">海崖小径</text>
   <text class="cell-element" x="140" y="1263">雨湿海崖石径</text>
 </g>
-<g id="cell-r10c3" class="cell" data-row="10" data-col="3" data-region="海崖小径" data-tile="chair">
-  <rect class="cell-base" x="256" y="1152" width="128" height="128" fill="#d8dce2"/>
-  <rect x="256" y="1152" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+<g id="cell-r10c3" class="cell" data-row="10" data-col="3" data-region="海崖小径" data-tile="floor">
+  <rect class="cell-base" x="256" y="1152" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="256" y="1152" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
   <rect class="cell-grid" x="256" y="1152" width="128" height="128"/>
-  <text class="tile-symbol" x="268" y="1177">C</text>
+  <text class="tile-symbol" x="268" y="1177">F</text>
   <text class="cell-region" x="268" y="1243">海崖小径</text>
-  <text class="cell-element" x="268" y="1263">固定休息椅</text>
+  <text class="cell-element" x="268" y="1263">雨湿海崖石径</text>
 </g>
 <g id="cell-r10c4" class="cell" data-row="10" data-col="4" data-region="海崖小径" data-tile="floor">
   <rect class="cell-base" x="384" y="1152" width="128" height="128" fill="#cfe1e2"/>
@@ -1213,13 +1214,14 @@
   <text class="cell-region" x="1292" y="1243">海崖小径</text>
   <text class="cell-element" x="1292" y="1263">雨湿海崖石径</text>
 </g>
-<g id="cell-r10c12" class="cell" data-row="10" data-col="12" data-region="无线电室" data-tile="floor">
-  <rect class="cell-base" x="1408" y="1152" width="128" height="128" fill="#cfe1e2"/>
-  <rect x="1408" y="1152" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
+<g id="cell-r10c12" class="cell" data-row="10" data-col="12" data-region="无线电室" data-tile="carpet">
+  <rect class="cell-base" x="1408" y="1152" width="128" height="128" fill="#8f8a5d"/>
+  <rect x="1408" y="1152" width="128" height="128" fill="#aaa36d" opacity="0.28"/>
+  <rect x="1408" y="1152" width="128" height="128" fill="url(#carpet-hatch)"/>
   <rect class="cell-grid" x="1408" y="1152" width="128" height="128"/>
-  <text class="tile-symbol" x="1420" y="1177">F</text>
+  <text class="tile-symbol" x="1420" y="1177">K</text>
   <text class="cell-region" x="1420" y="1243">无线电室</text>
-  <text class="cell-element" x="1420" y="1263">琥珀色设备间地板</text>
+  <text class="cell-element" x="1420" y="1263">设备间绝缘毯</text>
 </g>
 <g id="cell-r10c13" class="cell" data-row="10" data-col="13" data-region="无线电室" data-tile="floor">
   <rect class="cell-base" x="1536" y="1152" width="128" height="128" fill="#cfe1e2"/>
@@ -1359,13 +1361,13 @@
   <text class="cell-region" x="1676" y="1371">盐雾庭院</text>
   <text class="cell-element" x="1676" y="1391">低矮耐盐草地</text>
 </g>
-<g id="cell-r11c15" class="cell" data-row="11" data-col="15" data-region="盐雾庭院" data-tile="chair">
-  <rect class="cell-base" x="1792" y="1280" width="128" height="128" fill="#d8dce2"/>
-  <rect x="1792" y="1280" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+<g id="cell-r11c15" class="cell" data-row="11" data-col="15" data-region="盐雾庭院" data-tile="floor">
+  <rect class="cell-base" x="1792" y="1280" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="1792" y="1280" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
   <rect class="cell-grid" x="1792" y="1280" width="128" height="128"/>
-  <text class="tile-symbol" x="1804" y="1305">C</text>
+  <text class="tile-symbol" x="1804" y="1305">F</text>
   <text class="cell-region" x="1804" y="1371">盐雾庭院</text>
-  <text class="cell-element" x="1804" y="1391">固定休息椅</text>
+  <text class="cell-element" x="1804" y="1391">低矮耐盐草地</text>
 </g>
 <g id="cell-r12c1" class="cell dark" data-row="12" data-col="1" data-region="维修坞" data-tile="lifebuoy">
   <rect class="cell-base" x="0" y="1408" width="128" height="128" fill="#cfd7dc"/>
@@ -1479,7 +1481,7 @@
   <rect class="cell-grid" x="1664" y="1408" width="128" height="128"/>
   <text class="tile-symbol" x="1676" y="1433">C</text>
   <text class="cell-region" x="1676" y="1499">盐雾庭院</text>
-  <text class="cell-element" x="1676" y="1519">固定休息椅</text>
+  <text class="cell-element" x="1676" y="1519">庭院休息椅</text>
 </g>
 <g id="cell-r12c15" class="cell" data-row="12" data-col="15" data-region="盐雾庭院" data-tile="floor">
   <rect class="cell-base" x="1792" y="1408" width="128" height="128" fill="#cfe1e2"/>
@@ -1592,7 +1594,7 @@
   <rect class="cell-grid" x="1536" y="1536" width="128" height="128"/>
   <text class="tile-symbol" x="1548" y="1561">C</text>
   <text class="cell-region" x="1548" y="1627">盐雾庭院</text>
-  <text class="cell-element" x="1548" y="1647">固定休息椅</text>
+  <text class="cell-element" x="1548" y="1647">庭院休息椅</text>
 </g>
 <g id="cell-r13c14" class="cell" data-row="13" data-col="14" data-region="盐雾庭院" data-tile="floor">
   <rect class="cell-base" x="1664" y="1536" width="128" height="128" fill="#cfe1e2"/>
@@ -1701,13 +1703,13 @@
   <text class="cell-region" x="1292" y="1755">海崖小径</text>
   <text class="cell-element" x="1292" y="1775">雨湿海崖石径</text>
 </g>
-<g id="cell-r14c12" class="cell" data-row="14" data-col="12" data-region="盐雾庭院" data-tile="chair">
-  <rect class="cell-base" x="1408" y="1664" width="128" height="128" fill="#d8dce2"/>
-  <rect x="1408" y="1664" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+<g id="cell-r14c12" class="cell" data-row="14" data-col="12" data-region="盐雾庭院" data-tile="floor">
+  <rect class="cell-base" x="1408" y="1664" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="1408" y="1664" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
   <rect class="cell-grid" x="1408" y="1664" width="128" height="128"/>
-  <text class="tile-symbol" x="1420" y="1689">C</text>
+  <text class="tile-symbol" x="1420" y="1689">F</text>
   <text class="cell-region" x="1420" y="1755">盐雾庭院</text>
-  <text class="cell-element" x="1420" y="1775">固定休息椅</text>
+  <text class="cell-element" x="1420" y="1775">低矮耐盐草地</text>
 </g>
 <g id="cell-r14c13" class="cell" data-row="14" data-col="13" data-region="盐雾庭院" data-tile="floor">
   <rect class="cell-base" x="1536" y="1664" width="128" height="128" fill="#cfe1e2"/>
@@ -1814,13 +1816,13 @@
   <text class="cell-region" x="1164" y="1883">海崖小径</text>
   <text class="cell-element" x="1164" y="1903">雨湿海崖石径</text>
 </g>
-<g id="cell-r15c11" class="cell" data-row="15" data-col="11" data-region="盐雾庭院" data-tile="chair">
-  <rect class="cell-base" x="1280" y="1792" width="128" height="128" fill="#d8dce2"/>
-  <rect x="1280" y="1792" width="128" height="128" fill="#eef1f4" opacity="0.28"/>
+<g id="cell-r15c11" class="cell" data-row="15" data-col="11" data-region="盐雾庭院" data-tile="floor">
+  <rect class="cell-base" x="1280" y="1792" width="128" height="128" fill="#cfe1e2"/>
+  <rect x="1280" y="1792" width="128" height="128" fill="#e8f1f1" opacity="0.28"/>
   <rect class="cell-grid" x="1280" y="1792" width="128" height="128"/>
-  <text class="tile-symbol" x="1292" y="1817">C</text>
+  <text class="tile-symbol" x="1292" y="1817">F</text>
   <text class="cell-region" x="1292" y="1883">盐雾庭院</text>
-  <text class="cell-element" x="1292" y="1903">固定休息椅</text>
+  <text class="cell-element" x="1292" y="1903">低矮耐盐草地</text>
 </g>
 <g id="cell-r15c12" class="cell" data-row="15" data-col="12" data-region="盐雾庭院" data-tile="floor">
   <rect class="cell-base" x="1408" y="1792" width="128" height="128" fill="#cfe1e2"/>

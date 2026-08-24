@@ -11,6 +11,11 @@
     "value": "medium-light surfaces that preserve grid and piece readability"
   },
   "materials": {
+    "hotel_burgundy_carpet_tileable_v2": {
+      "asset": "assets/common/region-materials/clockwork-hotel-v1/materials/hotel_burgundy_carpet_tileable-v2.png",
+      "source_asset": "OpenAI ImageGen seamless carpet texture, mirrored into a 2x2 pixel-continuous tile",
+      "usage": "visual-only seamless wall-to-wall carpet; puzzle matrix owns geometry"
+    },
     "hotel_burgundy_carpet": {
       "asset": "assets/common/region-materials/clockwork-hotel-v1/materials/hotel_burgundy_carpet.png",
       "source_crop": {

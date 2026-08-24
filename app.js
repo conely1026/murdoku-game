@@ -731,6 +731,7 @@ function renderRegionSurfaceLayer(puzzle, tileManifest, materialManifest) {
     pattern.setAttribute('patternUnits', 'userSpaceOnUse');
     pattern.setAttribute('width', '220');
     pattern.setAttribute('height', '220');
+    pattern.setAttribute('overflow', 'hidden');
     const fallback = document.createElementNS(SVG_NAMESPACE, 'rect');
     fallback.setAttribute('width', '220');
     fallback.setAttribute('height', '220');
@@ -739,8 +740,10 @@ function renderRegionSurfaceLayer(puzzle, tileManifest, materialManifest) {
     if (material?.asset) {
       const image = document.createElementNS(SVG_NAMESPACE, 'image');
       image.setAttribute('href', publicAssetUrl(material.asset));
-      image.setAttribute('width', '220');
-      image.setAttribute('height', '220');
+      image.setAttribute('x', '-3');
+      image.setAttribute('y', '-3');
+      image.setAttribute('width', '226');
+      image.setAttribute('height', '226');
       image.setAttribute('preserveAspectRatio', 'xMidYMid slice');
       pattern.appendChild(image);
     }
@@ -1029,6 +1032,10 @@ function renderInvestigationPanel() {
 
 function renderPeople() {
   const list = byId('person-list');
+  list.closest('.people-panel')?.classList.toggle(
+    'is-large-roster',
+    state.puzzle.people.length > 9,
+  );
   list.replaceChildren();
   const cluesByPerson = activeCluesByPerson(state.puzzle);
   for (const person of state.puzzle.people) {
@@ -1430,8 +1437,19 @@ export function objectOverlayOpacityFor(tileManifest = null, visualMode = ART_MO
   return opacity;
 }
 
+export function sceneBackgroundAssetFor(
+  tileManifest = null,
+  visualMode = ART_MODE_DEFAULT,
+) {
+  if (visualMode === 'matrix-skin') {
+    return '';
+  }
+  const manifest = tileManifest || state.tileManifest;
+  return manifest?.background?.asset || '';
+}
+
 function sceneBackgroundAsset() {
-  return state.tileManifest?.background?.asset || '';
+  return sceneBackgroundAssetFor(state.tileManifest, state.visualMode);
 }
 
 function applyVisualManifest() {

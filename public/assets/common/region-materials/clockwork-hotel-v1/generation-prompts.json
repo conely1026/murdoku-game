@@ -6,5 +6,10 @@
     "assets/common/object-kit/v3/source/imagegen-object-style-master-v3.png",
     "assets/common/region-materials/v2/source/imagegen-illustrated-material-atlas-v2.png"
   ],
-  "prompt_summary": "3×2 材质图集：酒红旅店地毯、黄铜嵌条深胡桃木、蜂蜜色前厅木地板、雨蓝庭院石板、奶白洗衣间陶砖、灰褐阁楼木板；扁平手绘、低饱和、中等明度、无文字无物件无棋盘格。"
+  "prompt_summary": "3×2 材质图集：酒红旅店地毯、黄铜嵌条深胡桃木、蜂蜜色前厅木地板、雨蓝庭院石板、奶白洗衣间陶砖、灰褐阁楼木板；扁平手绘、低饱和、中等明度、无文字无物件无棋盘格。",
+  "followup_asset": {
+    "path": "assets/common/region-materials/clockwork-hotel-v1/materials/hotel_burgundy_carpet_tileable-v2.png",
+    "prompt_summary": "无边框、无中央大纹章的小尺度酒红满铺地毯；正交俯视、四边无缝、沿用原图集的描边和纸张质感。",
+    "postprocess": "将 ImageGen 输出缩放为 256×256，并以水平/垂直镜像组成 512×512 四边像素连续贴图。"
+  }
 }

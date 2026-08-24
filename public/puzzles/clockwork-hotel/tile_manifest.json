@@ -33,7 +33,7 @@
     "object_manifest": "assets/puzzles/clockwork-hotel/matrix-skin/objects-v1.json",
     "region_materials": {
       "钟表工坊": "hotel_brass_walnut",
-      "前厅客席": "hotel_burgundy_carpet",
+      "前厅客席": "hotel_burgundy_carpet_tileable_v2",
       "客房回廊": "hotel_attic_planks",
       "雨棚门廊": "hotel_rain_blue_stone"
     },

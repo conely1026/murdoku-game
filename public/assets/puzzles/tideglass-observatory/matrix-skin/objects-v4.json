@@ -30,27 +30,6 @@
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"
     },
     {
-      "id": "chair-r1c12",
-      "tile": "chair",
-      "source_cell": "R1C12",
-      "asset": "assets/common/object-kit/v3/objects/chair.png",
-      "footprint": {
-        "row": 1,
-        "col": 12,
-        "rows": 1,
-        "cols": 1,
-        "align": "cell-center"
-      },
-      "render_box": {
-        "x": 5708,
-        "y": 76,
-        "width": 360,
-        "height": 360
-      },
-      "background": "transparent",
-      "usage": "common transparent visual overlay; puzzle JSON owns all facts"
-    },
-    {
       "id": "lifebuoy-r1c14",
       "tile": "lifebuoy",
       "source_cell": "R1C14",
@@ -88,6 +67,27 @@
         "y": 556,
         "width": 424,
         "height": 424
+      },
+      "background": "transparent",
+      "usage": "common transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r2c9",
+      "tile": "chair",
+      "source_cell": "R2C9",
+      "asset": "assets/common/object-kit/v3/objects/chair.png",
+      "footprint": {
+        "row": 2,
+        "col": 9,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 4172,
+        "y": 588,
+        "width": 360,
+        "height": 360
       },
       "background": "transparent",
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"
@@ -156,27 +156,6 @@
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"
     },
     {
-      "id": "chair-r3c10",
-      "tile": "chair",
-      "source_cell": "R3C10",
-      "asset": "assets/common/object-kit/v3/objects/chair.png",
-      "footprint": {
-        "row": 3,
-        "col": 10,
-        "rows": 1,
-        "cols": 1,
-        "align": "cell-center"
-      },
-      "render_box": {
-        "x": 4684,
-        "y": 1100,
-        "width": 360,
-        "height": 360
-      },
-      "background": "transparent",
-      "usage": "common transparent visual overlay; puzzle JSON owns all facts"
-    },
-    {
       "id": "generator-r4c5",
       "tile": "generator",
       "source_cell": "R4C5",
@@ -198,19 +177,19 @@
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"
     },
     {
-      "id": "chair-r4c9",
+      "id": "chair-r4c8",
       "tile": "chair",
-      "source_cell": "R4C9",
+      "source_cell": "R4C8",
       "asset": "assets/common/object-kit/v3/objects/chair.png",
       "footprint": {
         "row": 4,
-        "col": 9,
+        "col": 8,
         "rows": 1,
         "cols": 1,
         "align": "cell-center"
       },
       "render_box": {
-        "x": 4172,
+        "x": 3660,
         "y": 1612,
         "width": 360,
         "height": 360
@@ -261,22 +240,22 @@
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"
     },
     {
-      "id": "chair-r5c8",
-      "tile": "chair",
-      "source_cell": "R5C8",
-      "asset": "assets/common/object-kit/v3/objects/chair.png",
+      "id": "carpet-r5c6",
+      "tile": "carpet",
+      "source_cell": "R5C6",
+      "asset": "assets/common/object-kit/v3/objects/carpet.png",
       "footprint": {
         "row": 5,
-        "col": 8,
+        "col": 6,
         "rows": 1,
         "cols": 1,
         "align": "cell-center"
       },
       "render_box": {
-        "x": 3660,
-        "y": 2124,
-        "width": 360,
-        "height": 360
+        "x": 2589,
+        "y": 2077,
+        "width": 454,
+        "height": 454
       },
       "background": "transparent",
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"
@@ -366,19 +345,40 @@
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"
     },
     {
-      "id": "chair-r7c6",
+      "id": "chair-r7c4",
       "tile": "chair",
-      "source_cell": "R7C6",
+      "source_cell": "R7C4",
       "asset": "assets/common/object-kit/v3/objects/chair.png",
       "footprint": {
         "row": 7,
-        "col": 6,
+        "col": 4,
         "rows": 1,
         "cols": 1,
         "align": "cell-center"
       },
       "render_box": {
-        "x": 2636,
+        "x": 1612,
+        "y": 3148,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "common transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r7c7",
+      "tile": "chair",
+      "source_cell": "R7C7",
+      "asset": "assets/common/object-kit/v3/objects/chair.png",
+      "footprint": {
+        "row": 7,
+        "col": 7,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 3148,
         "y": 3148,
         "width": 360,
         "height": 360
@@ -408,6 +408,27 @@
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"
     },
     {
+      "id": "chair-r7c14",
+      "tile": "chair",
+      "source_cell": "R7C14",
+      "asset": "assets/common/object-kit/v3/objects/chair.png",
+      "footprint": {
+        "row": 7,
+        "col": 14,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 6732,
+        "y": 3148,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "common transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
       "id": "telescope-r8c1",
       "tile": "telescope",
       "source_cell": "R8C1",
@@ -429,19 +450,19 @@
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"
     },
     {
-      "id": "chair-r8c5",
+      "id": "chair-r8c9",
       "tile": "chair",
-      "source_cell": "R8C5",
+      "source_cell": "R8C9",
       "asset": "assets/common/object-kit/v3/objects/chair.png",
       "footprint": {
         "row": 8,
-        "col": 5,
+        "col": 9,
         "rows": 1,
         "cols": 1,
         "align": "cell-center"
       },
       "render_box": {
-        "x": 2124,
+        "x": 4172,
         "y": 3660,
         "width": 360,
         "height": 360
@@ -513,27 +534,6 @@
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"
     },
     {
-      "id": "chair-r10c3",
-      "tile": "chair",
-      "source_cell": "R10C3",
-      "asset": "assets/common/object-kit/v3/objects/chair.png",
-      "footprint": {
-        "row": 10,
-        "col": 3,
-        "rows": 1,
-        "cols": 1,
-        "align": "cell-center"
-      },
-      "render_box": {
-        "x": 1100,
-        "y": 4684,
-        "width": 360,
-        "height": 360
-      },
-      "background": "transparent",
-      "usage": "common transparent visual overlay; puzzle JSON owns all facts"
-    },
-    {
       "id": "cabinet-r10c6",
       "tile": "cabinet",
       "source_cell": "R10C6",
@@ -576,6 +576,27 @@
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"
     },
     {
+      "id": "carpet-r10c12",
+      "tile": "carpet",
+      "source_cell": "R10C12",
+      "asset": "assets/common/object-kit/v3/objects/carpet.png",
+      "footprint": {
+        "row": 10,
+        "col": 12,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 5661,
+        "y": 4637,
+        "width": 454,
+        "height": 454
+      },
+      "background": "transparent",
+      "usage": "common transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
       "id": "beacon-r11c2",
       "tile": "beacon",
       "source_cell": "R11C2",
@@ -613,27 +634,6 @@
         "y": 5161,
         "width": 430,
         "height": 430
-      },
-      "background": "transparent",
-      "usage": "common transparent visual overlay; puzzle JSON owns all facts"
-    },
-    {
-      "id": "chair-r11c15",
-      "tile": "chair",
-      "source_cell": "R11C15",
-      "asset": "assets/common/object-kit/v3/objects/chair.png",
-      "footprint": {
-        "row": 11,
-        "col": 15,
-        "rows": 1,
-        "cols": 1,
-        "align": "cell-center"
-      },
-      "render_box": {
-        "x": 7244,
-        "y": 5196,
-        "width": 360,
-        "height": 360
       },
       "background": "transparent",
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"
@@ -807,27 +807,6 @@
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"
     },
     {
-      "id": "chair-r14c12",
-      "tile": "chair",
-      "source_cell": "R14C12",
-      "asset": "assets/common/object-kit/v3/objects/chair.png",
-      "footprint": {
-        "row": 14,
-        "col": 12,
-        "rows": 1,
-        "cols": 1,
-        "align": "cell-center"
-      },
-      "render_box": {
-        "x": 5708,
-        "y": 6732,
-        "width": 360,
-        "height": 360
-      },
-      "background": "transparent",
-      "usage": "common transparent visual overlay; puzzle JSON owns all facts"
-    },
-    {
       "id": "beacon-r15c7",
       "tile": "beacon",
       "source_cell": "R15C7",
@@ -844,27 +823,6 @@
         "y": 7214,
         "width": 420,
         "height": 420
-      },
-      "background": "transparent",
-      "usage": "common transparent visual overlay; puzzle JSON owns all facts"
-    },
-    {
-      "id": "chair-r15c11",
-      "tile": "chair",
-      "source_cell": "R15C11",
-      "asset": "assets/common/object-kit/v3/objects/chair.png",
-      "footprint": {
-        "row": 15,
-        "col": 11,
-        "rows": 1,
-        "cols": 1,
-        "align": "cell-center"
-      },
-      "render_box": {
-        "x": 5196,
-        "y": 7244,
-        "width": 360,
-        "height": 360
       },
       "background": "transparent",
       "usage": "common transparent visual overlay; puzzle JSON owns all facts"

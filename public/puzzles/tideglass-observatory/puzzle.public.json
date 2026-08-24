@@ -222,10 +222,10 @@
     {
       "row": 1,
       "col": 12,
-      "tile": "chair",
+      "tile": "floor",
       "region": "信标廊",
       "walkable": true,
-      "element": "固定休息椅",
+      "element": "雾蓝信标石板",
       "description": ""
     },
     {
@@ -330,10 +330,10 @@
     {
       "row": 2,
       "col": 9,
-      "tile": "floor",
+      "tile": "chair",
       "region": "星图室",
       "walkable": true,
-      "element": "浅金观测木地板",
+      "element": "星图记录椅",
       "description": ""
     },
     {
@@ -474,10 +474,10 @@
     {
       "row": 3,
       "col": 10,
-      "tile": "chair",
+      "tile": "floor",
       "region": "信标廊",
       "walkable": true,
-      "element": "固定休息椅",
+      "element": "雾蓝信标石板",
       "description": ""
     },
     {
@@ -591,19 +591,19 @@
     {
       "row": 4,
       "col": 8,
-      "tile": "floor",
+      "tile": "chair",
       "region": "星图室",
       "walkable": true,
-      "element": "浅金观测木地板",
+      "element": "星图记录椅",
       "description": ""
     },
     {
       "row": 4,
       "col": 9,
-      "tile": "chair",
+      "tile": "floor",
       "region": "星图室",
       "walkable": true,
-      "element": "固定休息椅",
+      "element": "浅金观测木地板",
       "description": ""
     },
     {
@@ -708,10 +708,10 @@
     {
       "row": 5,
       "col": 6,
-      "tile": "floor",
+      "tile": "carpet",
       "region": "海崖小径",
       "walkable": true,
-      "element": "雨湿海崖石径",
+      "element": "建筑入口防滑毯",
       "description": ""
     },
     {
@@ -726,10 +726,10 @@
     {
       "row": 5,
       "col": 8,
-      "tile": "chair",
+      "tile": "floor",
       "region": "海崖小径",
       "walkable": true,
-      "element": "固定休息椅",
+      "element": "雨湿海崖石径",
       "description": ""
     },
     {
@@ -960,10 +960,10 @@
     {
       "row": 7,
       "col": 4,
-      "tile": "floor",
+      "tile": "chair",
       "region": "潮汐档案库",
       "walkable": true,
-      "element": "灰紫档案室地板",
+      "element": "档案阅览椅",
       "description": ""
     },
     {
@@ -978,19 +978,19 @@
     {
       "row": 7,
       "col": 6,
-      "tile": "chair",
+      "tile": "floor",
       "region": "中央圆厅",
       "walkable": true,
-      "element": "固定休息椅",
+      "element": "海盐色圆厅石板",
       "description": ""
     },
     {
       "row": 7,
       "col": 7,
-      "tile": "floor",
+      "tile": "chair",
       "region": "中央圆厅",
       "walkable": true,
-      "element": "海盐色圆厅石板",
+      "element": "圆厅会客椅",
       "description": ""
     },
     {
@@ -1050,10 +1050,10 @@
     {
       "row": 7,
       "col": 14,
-      "tile": "floor",
+      "tile": "chair",
       "region": "无线电室",
       "walkable": true,
-      "element": "琥珀色设备间地板",
+      "element": "无线电值班椅",
       "description": ""
     },
     {
@@ -1104,10 +1104,10 @@
     {
       "row": 8,
       "col": 5,
-      "tile": "chair",
+      "tile": "floor",
       "region": "海崖小径",
       "walkable": true,
-      "element": "固定休息椅",
+      "element": "雨湿海崖石径",
       "description": ""
     },
     {
@@ -1140,10 +1140,10 @@
     {
       "row": 8,
       "col": 9,
-      "tile": "floor",
+      "tile": "chair",
       "region": "中央圆厅",
       "walkable": true,
-      "element": "海盐色圆厅石板",
+      "element": "圆厅会客椅",
       "description": ""
     },
     {
@@ -1356,10 +1356,10 @@
     {
       "row": 10,
       "col": 3,
-      "tile": "chair",
+      "tile": "floor",
       "region": "海崖小径",
       "walkable": true,
-      "element": "固定休息椅",
+      "element": "雨湿海崖石径",
       "description": ""
     },
     {
@@ -1437,10 +1437,10 @@
     {
       "row": 10,
       "col": 12,
-      "tile": "floor",
+      "tile": "carpet",
       "region": "无线电室",
       "walkable": true,
-      "element": "琥珀色设备间地板",
+      "element": "设备间绝缘毯",
       "description": ""
     },
     {
@@ -1599,10 +1599,10 @@
     {
       "row": 11,
       "col": 15,
-      "tile": "chair",
+      "tile": "floor",
       "region": "盐雾庭院",
       "walkable": true,
-      "element": "固定休息椅",
+      "element": "低矮耐盐草地",
       "description": ""
     },
     {
@@ -1728,7 +1728,7 @@
       "tile": "chair",
       "region": "盐雾庭院",
       "walkable": true,
-      "element": "固定休息椅",
+      "element": "庭院休息椅",
       "description": ""
     },
     {
@@ -1854,7 +1854,7 @@
       "tile": "chair",
       "region": "盐雾庭院",
       "walkable": true,
-      "element": "固定休息椅",
+      "element": "庭院休息椅",
       "description": ""
     },
     {
@@ -1977,10 +1977,10 @@
     {
       "row": 14,
       "col": 12,
-      "tile": "chair",
+      "tile": "floor",
       "region": "盐雾庭院",
       "walkable": true,
-      "element": "固定休息椅",
+      "element": "低矮耐盐草地",
       "description": ""
     },
     {
@@ -2103,10 +2103,10 @@
     {
       "row": 15,
       "col": 11,
-      "tile": "chair",
+      "tile": "floor",
       "region": "盐雾庭院",
       "walkable": true,
-      "element": "固定休息椅",
+      "element": "低矮耐盐草地",
       "description": ""
     },
     {
