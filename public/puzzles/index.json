@@ -9,34 +9,46 @@
       "difficulty": "入门",
       "author_difficulty": "入门",
       "difficulty_band": "Easy",
-      "difficulty_score": 233,
+      "difficulty_score": 261,
       "pack": "./public/puzzles/fog-town-books",
       "source": "examples/fog_town_books.json",
-      "summary": "从咖啡馆、庭院和图书室的线索中复原六人的位置。"
+      "summary": "沿苔庭、修书铺和玻璃连廊的折角线索复原六人的位置。"
     },
     {
       "id": "midnight-gallery",
       "title": "午夜画廊",
       "subtitle": "应急灯下的展厅封锁",
-      "difficulty": "困难",
+      "difficulty": "标准",
       "author_difficulty": "标准",
-      "difficulty_band": "Hard",
-      "difficulty_score": 4666,
+      "difficulty_band": "Medium",
+      "difficulty_score": 1142,
       "pack": "./public/puzzles/midnight-gallery",
       "source": "examples/midnight_gallery.json",
-      "summary": "雕塑庭和展廊之间留下了互相矛盾的夜巡证词。"
+      "summary": "七个错位展区和修复回廊之间留下了矛盾的夜巡证词。"
     },
     {
       "id": "clockwork-hotel",
       "title": "钟楼旅店",
       "subtitle": "暴雨夜的旅店钟声",
-      "difficulty": "困难",
+      "difficulty": "标准",
       "author_difficulty": "标准",
-      "difficulty_band": "Hard",
-      "difficulty_score": 3239,
+      "difficulty_band": "Medium",
+      "difficulty_score": 852,
       "pack": "./public/puzzles/clockwork-hotel",
       "source": "examples/clockwork_hotel.json",
-      "summary": "在前厅、钟表房和阁楼廊里找出钟声停止前的真相。"
+      "summary": "在四片相互咬合的旅店空间里找出钟声停止前的真相。"
+    },
+    {
+      "id": "tideglass-observatory",
+      "title": "潮镜观测站",
+      "subtitle": "黑潮风暴中的十五人观测站",
+      "difficulty": "入门",
+      "author_difficulty": "大型入门",
+      "difficulty_band": "Easy",
+      "difficulty_score": 110,
+      "pack": "./public/puzzles/tideglass-observatory",
+      "source": "examples/tideglass_observatory.json",
+      "summary": "沿海崖小径穿过十个室内外观测区域，并调查六件可选物证。"
     }
   ]
 }

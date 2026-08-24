@@ -48,15 +48,6 @@
       "references": [
         "puzzle.public.json#clues"
       ]
-    },
-    {
-      "id": "reveal-murderer",
-      "level": 5,
-      "title": "揭晓",
-      "text": "凶手是 Colin。",
-      "references": [
-        "proof.public.json#solution.murderer"
-      ]
     }
   ]
 }

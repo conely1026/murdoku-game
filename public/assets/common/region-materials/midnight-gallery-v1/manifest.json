@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "midnight-gallery-v1",
+  "source_asset": "assets/common/region-materials/midnight-gallery-v1/source/imagegen-midnight-gallery-material-atlas-v1.png",
+  "prompt_record": "assets/common/region-materials/midnight-gallery-v1/generation-prompts.json",
+  "source_role": "Theme-specific atlas; no raster asset owns cells or region boundaries.",
+  "texture_size": 512,
+  "art_direction": {
+    "style": "muted municipal art-gallery surfaces in the object-kit/v3 hand-drawn style",
+    "detail": "large sparse motifs with no photographic grain",
+    "value": "medium-light surfaces that preserve grid and piece readability"
+  },
+  "materials": {
+    "gallery_ivory_marble": {
+      "asset": "assets/common/region-materials/midnight-gallery-v1/materials/gallery_ivory_marble.png",
+      "source_crop": {
+        "left": 22,
+        "top": 24,
+        "right": 502,
+        "bottom": 500
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "gallery_teal_terrazzo": {
+      "asset": "assets/common/region-materials/midnight-gallery-v1/materials/gallery_teal_terrazzo.png",
+      "source_crop": {
+        "left": 528,
+        "top": 24,
+        "right": 1004,
+        "bottom": 500
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "gallery_mauve_lino": {
+      "asset": "assets/common/region-materials/midnight-gallery-v1/materials/gallery_mauve_lino.png",
+      "source_crop": {
+        "left": 1030,
+        "top": 24,
+        "right": 1513,
+        "bottom": 500
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "gallery_charcoal_tile": {
+      "asset": "assets/common/region-materials/midnight-gallery-v1/materials/gallery_charcoal_tile.png",
+      "source_crop": {
+        "left": 22,
+        "top": 526,
+        "right": 502,
+        "bottom": 1001
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "gallery_honey_herringbone": {
+      "asset": "assets/common/region-materials/midnight-gallery-v1/materials/gallery_honey_herringbone.png",
+      "source_crop": {
+        "left": 528,
+        "top": 526,
+        "right": 1004,
+        "bottom": 1001
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "gallery_archive_concrete": {
+      "asset": "assets/common/region-materials/midnight-gallery-v1/materials/gallery_archive_concrete.png",
+      "source_crop": {
+        "left": 1030,
+        "top": 526,
+        "right": 1513,
+        "bottom": 1001
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    }
+  }
+}

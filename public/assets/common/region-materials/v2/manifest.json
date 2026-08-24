@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "common-illustrated-region-materials-v2",
+  "source_asset": "assets/common/region-materials/v2/source/imagegen-illustrated-material-atlas-v2.png",
+  "prompt_record": "assets/common/region-materials/v2/generation-prompts.json",
+  "source_role": "One shared illustrated material atlas; structure and region masks remain matrix-owned.",
+  "texture_size": 512,
+  "art_direction": {
+    "style": "flat hand-drawn board-game materials",
+    "detail": "large sparse seams and motifs with no photographic grain",
+    "value": "medium-light low-contrast palette matched to object-kit/v3"
+  },
+  "region_materials": {
+    "花园": "mossy_garden_grass",
+    "咖啡馆": "light_honey_cafe_wood",
+    "图书室": "dark_walnut_library_wood",
+    "庭院": "cool_gray_courtyard_stone",
+    "作坊": "rough_taupe_workshop_stone",
+    "客栈": "amber_inn_wood"
+  },
+  "materials": {
+    "mossy_garden_grass": {
+      "asset": "assets/common/region-materials/v2/materials/mossy_garden_grass.png",
+      "source_crop": {
+        "left": 24,
+        "top": 25,
+        "right": 505,
+        "bottom": 499
+      },
+      "usage": "visual-only illustrated region surface; never changes tile, walkable, clues, or solution"
+    },
+    "light_honey_cafe_wood": {
+      "asset": "assets/common/region-materials/v2/materials/light_honey_cafe_wood.png",
+      "source_crop": {
+        "left": 533,
+        "top": 25,
+        "right": 1000,
+        "bottom": 499
+      },
+      "usage": "visual-only illustrated region surface; never changes tile, walkable, clues, or solution"
+    },
+    "dark_walnut_library_wood": {
+      "asset": "assets/common/region-materials/v2/materials/dark_walnut_library_wood.png",
+      "source_crop": {
+        "left": 1028,
+        "top": 25,
+        "right": 1512,
+        "bottom": 499
+      },
+      "usage": "visual-only illustrated region surface; never changes tile, walkable, clues, or solution"
+    },
+    "cool_gray_courtyard_stone": {
+      "asset": "assets/common/region-materials/v2/materials/cool_gray_courtyard_stone.png",
+      "source_crop": {
+        "left": 24,
+        "top": 527,
+        "right": 505,
+        "bottom": 999
+      },
+      "usage": "visual-only illustrated region surface; never changes tile, walkable, clues, or solution"
+    },
+    "rough_taupe_workshop_stone": {
+      "asset": "assets/common/region-materials/v2/materials/rough_taupe_workshop_stone.png",
+      "source_crop": {
+        "left": 533,
+        "top": 527,
+        "right": 1000,
+        "bottom": 999
+      },
+      "usage": "visual-only illustrated region surface; never changes tile, walkable, clues, or solution"
+    },
+    "amber_inn_wood": {
+      "asset": "assets/common/region-materials/v2/materials/amber_inn_wood.png",
+      "source_crop": {
+        "left": 1028,
+        "top": 527,
+        "right": 1512,
+        "bottom": 999
+      },
+      "usage": "visual-only illustrated region surface; never changes tile, walkable, clues, or solution"
+    }
+  }
+}

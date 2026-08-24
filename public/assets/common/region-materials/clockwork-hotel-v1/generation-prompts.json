@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "tool": "OpenAI ImageGen",
+  "purpose": "钟楼旅店专用的六格手绘区域材质图集",
+  "references": [
+    "assets/common/object-kit/v3/source/imagegen-object-style-master-v3.png",
+    "assets/common/region-materials/v2/source/imagegen-illustrated-material-atlas-v2.png"
+  ],
+  "prompt_summary": "3×2 材质图集：酒红旅店地毯、黄铜嵌条深胡桃木、蜂蜜色前厅木地板、雨蓝庭院石板、奶白洗衣间陶砖、灰褐阁楼木板；扁平手绘、低饱和、中等明度、无文字无物件无棋盘格。"
+}

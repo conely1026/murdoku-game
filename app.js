@@ -12,6 +12,12 @@ const TILE_NAMES = {
   bookshelf: '书柜',
   fountain: '喷泉',
   table: '桌子',
+  telescope: '望远镜',
+  radio: '无线电台',
+  cabinet: '档案柜',
+  generator: '发电机',
+  lifebuoy: '救生圈架',
+  beacon: '信标灯',
 };
 
 const TILE_SYMBOLS = {
@@ -24,6 +30,12 @@ const TILE_SYMBOLS = {
   bookshelf: 'X',
   fountain: 'X',
   table: 'X',
+  telescope: 'X',
+  radio: 'X',
+  cabinet: 'X',
+  generator: 'X',
+  lifebuoy: 'X',
+  beacon: 'X',
 };
 
 export const COMMON_OBJECT_ASSETS = Object.freeze({
@@ -34,10 +46,37 @@ export const COMMON_OBJECT_ASSETS = Object.freeze({
   table: 'assets/common/tile-kit/v1/tiles/table.png',
   fountain: 'assets/common/tile-kit/v1/tiles/fountain.png',
   shrub: 'assets/common/tile-kit/v1/tiles/shrub.png',
+  telescope: 'assets/common/object-kit/v4/objects/telescope.png',
+  radio: 'assets/common/object-kit/v4/objects/radio.png',
+  cabinet: 'assets/common/object-kit/v4/objects/cabinet.png',
+  generator: 'assets/common/object-kit/v4/objects/generator.png',
+  lifebuoy: 'assets/common/object-kit/v4/objects/lifebuoy.png',
+  beacon: 'assets/common/object-kit/v4/objects/beacon.png',
 });
 
-export const ART_MODE_DEFAULT = 'scene-slices';
-const ART_MODES = new Set([ART_MODE_DEFAULT, 'region-grade', 'background-objects']);
+export const ART_MODE_DEFAULT = 'matrix-skin';
+const ART_MODES = new Set([
+  ART_MODE_DEFAULT,
+  'scene-slices',
+  'region-grade',
+  'background-objects',
+]);
+
+const SVG_NAMESPACE = 'http://www.w3.org/2000/svg';
+const BOARD_COORD_WIDTH = 34;
+const LARGE_GRID_MIN_CELL_SIZE = 40;
+const REGION_FALLBACK_COLORS = Object.freeze({
+  mossy_garden_grass: '#5f7d3c',
+  light_honey_cafe_wood: '#b48647',
+  dark_walnut_library_wood: '#56351f',
+  cool_gray_courtyard_stone: '#6e7778',
+  rough_taupe_workshop_stone: '#89775c',
+  amber_inn_wood: '#a85d25',
+});
+
+export function largeGridMinWidth(cols) {
+  return BOARD_COORD_WIDTH + (Math.max(0, Number(cols) || 0) * LARGE_GRID_MIN_CELL_SIZE);
+}
 
 export const PORTRAIT_ASSETS = Object.freeze({
   Aiden: 'assets/portraits/common/v1/aiden.png',
@@ -55,7 +94,12 @@ const state = {
   proof: null,
   hints: null,
   tileManifest: null,
+  materialManifest: null,
+  objectManifest: null,
   visualMode: ART_MODE_DEFAULT,
+  hoveredRegion: '',
+  focusedRegion: '',
+  selectedRegion: '',
   selectedPerson: '',
   mode: 'place',
   assignments: {},
@@ -65,6 +109,7 @@ const state = {
   activeHint: 0,
   isPainting: false,
   lastPaintedPosition: '',
+  collectedInvestigationIds: new Set(),
 };
 
 export async function loadLevelIndex(fetcher = fetch) {
@@ -82,7 +127,25 @@ export async function loadPublicPack(base = PACK_BASE, fetcher = fetch) {
     fetchJson(`${base}/hint_pack.json`, fetcher),
     fetchOptionalJson(`${base}/tile_manifest.json`, fetcher, null),
   ]);
-  return { puzzle, proof, hints, tileManifest };
+  const [materialManifest, objectManifest] = await loadMatrixSkinAssets(
+    tileManifest,
+    fetcher,
+  );
+  return { puzzle, proof, hints, tileManifest, materialManifest, objectManifest };
+}
+
+export async function loadMatrixSkinAssets(tileManifest, fetcher = fetch) {
+  const skin = tileManifest?.matrix_skin;
+  if (!skin || skin.mode === 'none') {
+    return [null, null];
+  }
+  const materialRequest = skin.material_manifest
+    ? fetchOptionalJson(publicAssetUrl(skin.material_manifest), fetcher, null)
+    : Promise.resolve(null);
+  const objectRequest = skin.object_manifest
+    ? fetchOptionalJson(publicAssetUrl(skin.object_manifest), fetcher, null)
+    : Promise.resolve(null);
+  return Promise.all([materialRequest, objectRequest]);
 }
 
 export function createPlayState(people) {
@@ -157,7 +220,7 @@ export function selectPerson(playState, personId) {
 }
 
 export function selectTool(playState, tool) {
-  if (!['mark-x', 'erase'].includes(tool)) {
+  if (!['mark-x', 'erase', 'investigate'].includes(tool)) {
     throw new Error(`Unknown tool: ${tool}`);
   }
   return {
@@ -299,6 +362,20 @@ export function positionKey(row, col) {
   return `${row},${col}`;
 }
 
+export function investigationItemAt(puzzle, row, col) {
+  return puzzle?.investigation?.items?.find(
+    (item) => Number(item.row) === Number(row) && Number(item.col) === Number(col),
+  ) || null;
+}
+
+export function collectInvestigationItem(collectedIds, itemId) {
+  const collected = new Set(collectedIds || []);
+  if (itemId) {
+    collected.add(itemId);
+  }
+  return collected;
+}
+
 export function regionBoundaryClasses(puzzle, cell) {
   const classes = [];
   if (!puzzle || !cell) {
@@ -308,15 +385,23 @@ export function regionBoundaryClasses(puzzle, cell) {
   const sameRegion = (row, col) => cellAt(puzzle, row, col)?.region === cell.region;
   if (cell.row === 1 || !sameRegion(cell.row - 1, cell.col)) {
     classes.push('region-border-top');
+    classes.push('region-outline-top');
   }
   if (cell.col === 1 || !sameRegion(cell.row, cell.col - 1)) {
     classes.push('region-border-left');
+    classes.push('region-outline-left');
   }
   if (cell.row === puzzle.rows) {
     classes.push('region-border-bottom');
   }
   if (cell.col === puzzle.cols) {
     classes.push('region-border-right');
+  }
+  if (cell.row === puzzle.rows || !sameRegion(cell.row + 1, cell.col)) {
+    classes.push('region-outline-bottom');
+  }
+  if (cell.col === puzzle.cols || !sameRegion(cell.row, cell.col + 1)) {
+    classes.push('region-outline-right');
   }
   return classes;
 }
@@ -371,11 +456,12 @@ function render() {
   document.title = state.puzzle.title;
   byId('puzzle-title').textContent = state.puzzle.title;
   byId('proof-pill').textContent = state.proof.valid
-    ? `唯一解 · 凶手 ${state.proof.solution.murderer}`
+    ? '已验证 · 唯一解'
     : 'proof 未通过';
   renderStory();
   renderBoard();
   renderGeneralClues();
+  renderInvestigationPanel();
   renderPeople();
   renderSubmitState();
   bindActions();
@@ -430,6 +516,8 @@ async function loadLevel(levelId, options = {}) {
   state.proof = pack.proof;
   state.hints = pack.hints;
   state.tileManifest = pack.tileManifest;
+  state.materialManifest = pack.materialManifest;
+  state.objectManifest = pack.objectManifest;
   state.visualMode = options.visualMode || visualModeFromSearch(
     typeof window === 'undefined' ? '' : window.location.search,
   );
@@ -440,6 +528,10 @@ async function loadLevel(levelId, options = {}) {
   state.manualMarks = new Set();
   state.history = [];
   state.activeHint = 0;
+  state.hoveredRegion = '';
+  state.focusedRegion = '';
+  state.selectedRegion = '';
+  state.collectedInvestigationIds = loadCollectedInvestigationIds(levelId);
   stopPainting();
   applyVisualManifest();
   showGameScreen(options);
@@ -460,7 +552,13 @@ function showLevelSelect(options = {}) {
   state.proof = null;
   state.hints = null;
   state.tileManifest = null;
+  state.materialManifest = null;
+  state.objectManifest = null;
   state.visualMode = ART_MODE_DEFAULT;
+  state.hoveredRegion = '';
+  state.focusedRegion = '';
+  state.selectedRegion = '';
+  state.collectedInvestigationIds = new Set();
   stopPainting();
   clearVisualManifest();
   document.title = 'Murdoku';
@@ -510,15 +608,22 @@ function renderBoard() {
   const board = byId('board');
   const visualMode = state.visualMode || ART_MODE_DEFAULT;
   const boardBackground = boardBackgroundAssetFor(state.tileManifest, visualMode);
+  const hasMatrixSkin = visualMode === 'matrix-skin'
+    && state.materialManifest
+    && state.objectManifest;
   board.className = [
     'board',
     `is-art-${visualMode}`,
+    hasMatrixSkin ? 'has-matrix-skin' : '',
     boardBackground ? 'has-board-background' : '',
     state.mode === 'mark-x' ? 'is-tool-mark-x' : '',
     state.mode === 'erase' ? 'is-tool-erase' : '',
+    state.mode === 'investigate' ? 'is-tool-investigate' : '',
+    state.puzzle.rows > 9 || state.puzzle.cols > 9 ? 'is-large-grid' : '',
   ].filter(Boolean).join(' ');
   board.style.setProperty('--cols', String(state.puzzle.cols));
   board.style.setProperty('--rows', String(state.puzzle.rows));
+  board.style.setProperty('--large-grid-min-width', `${largeGridMinWidth(state.puzzle.cols)}px`);
   board.style.setProperty(
     '--object-overlay-opacity',
     String(objectOverlayOpacityFor(state.tileManifest, visualMode)),
@@ -528,7 +633,20 @@ function renderBoard() {
   } else {
     board.style.removeProperty('--board-background-image');
   }
+  board.onpointerleave = () => setHoveredRegion('');
+  board.onfocusout = (event) => {
+    if (!board.contains(event.relatedTarget)) {
+      setFocusedRegion('');
+    }
+  };
   board.replaceChildren();
+  if (hasMatrixSkin) {
+    board.append(
+      renderRegionSurfaceLayer(state.puzzle, state.tileManifest, state.materialManifest),
+      renderObjectLayer(state.puzzle, state.objectManifest),
+      renderRegionLabelLayer(state.puzzle),
+    );
+  }
   board.appendChild(coordCell(''));
   for (let col = 1; col <= state.puzzle.cols; col += 1) {
     board.appendChild(coordCell(`C${col}`));
@@ -541,11 +659,152 @@ function renderBoard() {
   }
 }
 
+export function regionCellsByName(puzzle) {
+  const regions = {};
+  for (const cell of puzzle?.cells || []) {
+    if (!regions[cell.region]) {
+      regions[cell.region] = [];
+    }
+    regions[cell.region].push(cell);
+  }
+  return regions;
+}
+
+export function objectPlacementStyle(placement, objectManifest, puzzle) {
+  const grid = objectManifest?.grid || {};
+  const cellSize = Number(grid.cell_size) || 1;
+  const boardWidth = (Number(grid.cols) || puzzle?.cols || 1) * cellSize;
+  const boardHeight = (Number(grid.rows) || puzzle?.rows || 1) * cellSize;
+  const box = placement?.render_box;
+  if (box) {
+    return {
+      left: `${(Number(box.x) / boardWidth) * 100}%`,
+      top: `${(Number(box.y) / boardHeight) * 100}%`,
+      width: `${(Number(box.width) / boardWidth) * 100}%`,
+      height: `${(Number(box.height) / boardHeight) * 100}%`,
+    };
+  }
+  const footprint = placement?.footprint || {};
+  const cols = puzzle?.cols || Number(grid.cols) || 1;
+  const rows = puzzle?.rows || Number(grid.rows) || 1;
+  return {
+    left: `${((Number(footprint.col) - 1) / cols) * 100}%`,
+    top: `${((Number(footprint.row) - 1) / rows) * 100}%`,
+    width: `${((Number(footprint.cols) || 1) / cols) * 100}%`,
+    height: `${((Number(footprint.rows) || 1) / rows) * 100}%`,
+  };
+}
+
+function renderRegionSurfaceLayer(puzzle, tileManifest, materialManifest) {
+  const svg = document.createElementNS(SVG_NAMESPACE, 'svg');
+  const width = puzzle.cols * 100;
+  const height = puzzle.rows * 100;
+  svg.classList.add('region-surface-layer');
+  svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+  svg.setAttribute('preserveAspectRatio', 'none');
+  svg.setAttribute('aria-hidden', 'true');
+
+  const defs = document.createElementNS(SVG_NAMESPACE, 'defs');
+  svg.appendChild(defs);
+  const regions = regionCellsByName(puzzle);
+  const materialByRegion = tileManifest?.matrix_skin?.region_materials || {};
+
+  Object.entries(regions).forEach(([regionName, cells], index) => {
+    const materialName = materialByRegion[regionName];
+    const material = materialManifest?.materials?.[materialName];
+    const clipId = `region-clip-${index}`;
+    const patternId = `region-pattern-${index}`;
+    const clip = document.createElementNS(SVG_NAMESPACE, 'clipPath');
+    clip.id = clipId;
+    for (const cell of cells) {
+      const rect = document.createElementNS(SVG_NAMESPACE, 'rect');
+      rect.setAttribute('x', String((cell.col - 1) * 100));
+      rect.setAttribute('y', String((cell.row - 1) * 100));
+      rect.setAttribute('width', '100');
+      rect.setAttribute('height', '100');
+      clip.appendChild(rect);
+    }
+    defs.appendChild(clip);
+
+    const pattern = document.createElementNS(SVG_NAMESPACE, 'pattern');
+    pattern.id = patternId;
+    pattern.setAttribute('patternUnits', 'userSpaceOnUse');
+    pattern.setAttribute('width', '220');
+    pattern.setAttribute('height', '220');
+    const fallback = document.createElementNS(SVG_NAMESPACE, 'rect');
+    fallback.setAttribute('width', '220');
+    fallback.setAttribute('height', '220');
+    fallback.setAttribute('fill', REGION_FALLBACK_COLORS[materialName] || '#70675a');
+    pattern.appendChild(fallback);
+    if (material?.asset) {
+      const image = document.createElementNS(SVG_NAMESPACE, 'image');
+      image.setAttribute('href', publicAssetUrl(material.asset));
+      image.setAttribute('width', '220');
+      image.setAttribute('height', '220');
+      image.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+      pattern.appendChild(image);
+    }
+    defs.appendChild(pattern);
+
+    const surface = document.createElementNS(SVG_NAMESPACE, 'rect');
+    surface.classList.add('region-surface');
+    surface.dataset.region = regionName;
+    surface.setAttribute('width', String(width));
+    surface.setAttribute('height', String(height));
+    surface.setAttribute('fill', `url(#${patternId})`);
+    surface.setAttribute('clip-path', `url(#${clipId})`);
+    svg.appendChild(surface);
+  });
+  return svg;
+}
+
+function renderObjectLayer(puzzle, objectManifest) {
+  const layer = document.createElement('div');
+  layer.className = 'board-object-layer';
+  layer.setAttribute('aria-hidden', 'true');
+  for (const placement of objectManifest?.object_placements || []) {
+    const image = document.createElement('img');
+    image.className = `board-object board-object-${placement.tile}`;
+    image.src = publicAssetUrl(placement.asset);
+    image.alt = '';
+    image.loading = 'eager';
+    image.decoding = 'async';
+    image.dataset.objectId = placement.id;
+    image.dataset.align = placement.footprint?.align || '';
+    Object.assign(image.style, objectPlacementStyle(placement, objectManifest, puzzle));
+    layer.appendChild(image);
+  }
+  return layer;
+}
+
+function renderRegionLabelLayer(puzzle) {
+  const layer = document.createElement('div');
+  layer.className = 'board-region-label-layer';
+  layer.setAttribute('aria-hidden', 'true');
+  for (const [regionName, cells] of Object.entries(regionCellsByName(puzzle))) {
+    const anchor = cells[0];
+    const label = document.createElement('span');
+    label.className = 'board-region-label';
+    label.dataset.region = regionName;
+    label.textContent = regionName;
+    label.style.left = `${((anchor.col - 1) / puzzle.cols) * 100}%`;
+    label.style.top = `${((anchor.row - 1) / puzzle.rows) * 100}%`;
+    layer.appendChild(label);
+  }
+  return layer;
+}
+
 function renderCell(row, col) {
   const cell = state.puzzle.cells.find((item) => item.row === row && item.col === col);
   const key = positionKey(row, col);
+  const isSelectedRegion = cell.region === state.selectedRegion;
+  const isPreviewRegion = cell.region === (state.focusedRegion || state.hoveredRegion);
   const isManualMark = state.manualMarks.has(key);
   const isXHint = state.blockedPositions.has(key) || isManualMark;
+  const investigationItem = investigationItemAt(state.puzzle, row, col);
+  const isInvestigated = investigationItem
+    ? state.collectedInvestigationIds.has(investigationItem.id)
+    : false;
   const sceneAsset = cellSceneAssetFor(cell, state.tileManifest, state.visualMode);
   const objectAsset = cellObjectAssetFor(cell, state.tileManifest, state.visualMode);
   const button = document.createElement('button');
@@ -556,13 +815,21 @@ function renderCell(row, col) {
     ...regionBoundaryClasses(state.puzzle, cell),
     sceneAsset ? 'has-scene-asset' : '',
     objectAsset ? 'has-object-asset' : '',
+    isSelectedRegion ? 'is-region-selected' : '',
+    isPreviewRegion ? 'is-region-preview' : '',
     isXHint ? 'is-x-hint' : '',
     isManualMark ? 'is-manual-x' : '',
+    investigationItem ? 'is-investigable' : '',
+    isInvestigated ? 'is-investigated' : '',
   ].filter(Boolean).join(' ');
   button.dataset.position = key;
   button.dataset.row = String(row);
   button.dataset.col = String(col);
+  button.dataset.region = cell.region;
   button.dataset.walkable = cell.walkable ? 'true' : 'false';
+  if (investigationItem) {
+    button.dataset.investigationId = investigationItem.id;
+  }
   if (sceneAsset) {
     button.dataset.sceneAsset = sceneAsset;
     button.style.setProperty('--cell-scene-image', `url("${publicAssetUrl(sceneAsset)}")`);
@@ -573,10 +840,10 @@ function renderCell(row, col) {
   }
   const element = cell.element || tileName(cell.tile);
   button.title = `${key} · ${element} · ${cell.region}`;
-  button.disabled = !cell.walkable;
+  button.setAttribute('aria-pressed', isSelectedRegion ? 'true' : 'false');
   button.setAttribute(
     'aria-label',
-    `${row} 行 ${col} 列，${cell.region}，${element}`,
+    `${row} 行 ${col} 列，${cell.region}，${element}${cell.walkable ? '' : '，不可放置，可查看区域'}`,
   );
 
   if (sceneAsset) {
@@ -613,7 +880,7 @@ function renderCell(row, col) {
 
   const region = document.createElement('span');
   region.className = 'cell-region';
-  region.textContent = cell.region;
+  region.textContent = isFirstRegionCell(state.puzzle, cell) ? cell.region : '';
   button.appendChild(region);
 
   const elementLabel = document.createElement('span');
@@ -621,10 +888,61 @@ function renderCell(row, col) {
   elementLabel.textContent = element;
   button.appendChild(elementLabel);
 
-  button.addEventListener('click', () => handleCellClick(row, col));
+  button.addEventListener('click', () => {
+    setSelectedRegion(cell.region);
+    handleCellClick(row, col);
+  });
   button.addEventListener('pointerdown', (event) => handleCellPointerDown(event, row, col));
-  button.addEventListener('pointerenter', () => handleCellPointerEnter(row, col));
+  button.addEventListener('pointerenter', () => {
+    setHoveredRegion(cell.region);
+    handleCellPointerEnter(row, col);
+  });
+  button.addEventListener('focus', () => setFocusedRegion(cell.region));
+  button.addEventListener('blur', () => setFocusedRegion(''));
   return button;
+}
+
+function isFirstRegionCell(puzzle, cell) {
+  return (puzzle?.cells || []).find((item) => item.region === cell.region) === cell;
+}
+
+function setHoveredRegion(region) {
+  if (state.hoveredRegion === region) {
+    return;
+  }
+  state.hoveredRegion = region;
+  updateRegionHighlights();
+}
+
+function setFocusedRegion(region) {
+  if (state.focusedRegion === region) {
+    return;
+  }
+  state.focusedRegion = region;
+  updateRegionHighlights();
+}
+
+function setSelectedRegion(region) {
+  if (state.selectedRegion === region) {
+    return;
+  }
+  state.selectedRegion = region;
+  updateRegionHighlights();
+}
+
+function updateRegionHighlights() {
+  const board = byId('board');
+  if (!board) {
+    return;
+  }
+  const previewRegion = state.focusedRegion || state.hoveredRegion;
+  for (const cell of board.querySelectorAll('.cell')) {
+    const isSelected = cell.dataset.region === state.selectedRegion;
+    const isPreview = cell.dataset.region === previewRegion;
+    cell.classList.toggle('is-region-selected', isSelected);
+    cell.classList.toggle('is-region-preview', isPreview);
+    cell.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+  }
 }
 
 function renderGeneralClues() {
@@ -639,6 +957,73 @@ function renderGeneralClues() {
     const text = document.createElement('p');
     text.textContent = clue.text;
     card.appendChild(text);
+  }
+}
+
+function renderInvestigationPanel() {
+  const panel = byId('investigation-panel');
+  const tool = byId('tool-investigate');
+  const investigation = state.puzzle?.investigation;
+  const items = investigation?.items || [];
+  const hasInvestigation = items.length > 0;
+  panel.hidden = !hasInvestigation;
+  tool.hidden = !hasInvestigation;
+  if (!hasInvestigation) {
+    return;
+  }
+
+  byId('investigation-intro').textContent = investigation.intro
+    || '调查棋盘上的特殊物件，可获得不影响唯一解的追加线索。';
+  const collectedCount = items.filter(
+    (item) => state.collectedInvestigationIds.has(item.id),
+  ).length;
+  byId('investigation-progress').textContent = `${collectedCount} / ${items.length}`;
+
+  const list = byId('investigation-list');
+  list.replaceChildren();
+  for (const item of items) {
+    const collected = state.collectedInvestigationIds.has(item.id);
+    const card = document.createElement('article');
+    card.className = `investigation-entry${collected ? ' is-collected' : ''}`;
+    card.dataset.investigationId = item.id;
+
+    const object = document.createElement('span');
+    object.className = 'investigation-object';
+    object.textContent = collected ? item.object_label : '未调查物件';
+    const title = document.createElement('strong');
+    title.textContent = collected ? item.title : '线索尚未解锁';
+    const summary = document.createElement('span');
+    summary.className = 'investigation-summary';
+    summary.textContent = collected
+      ? item.summary
+      : '切换到“调查物件”，在场景中寻找金色标记。';
+    const clue = document.createElement('p');
+    clue.textContent = collected ? item.clue_text : '？？？';
+    card.append(object, title, summary, clue);
+    list.appendChild(card);
+  }
+
+  const completion = byId('investigation-complete');
+  const isComplete = collectedCount === items.length;
+  completion.hidden = !isComplete;
+  completion.replaceChildren();
+  if (isComplete) {
+    const title = document.createElement('strong');
+    title.textContent = investigation.completion_title || '调查完成';
+    const text = document.createElement('span');
+    text.textContent = investigation.completion_text || '全部追加线索已经收录。';
+    const reset = document.createElement('button');
+    reset.type = 'button';
+    reset.className = 'investigation-reset';
+    reset.textContent = '重置调查记录';
+    reset.addEventListener('click', () => {
+      state.collectedInvestigationIds = new Set();
+      saveCollectedInvestigationIds(state.currentLevel?.id || '', state.collectedInvestigationIds);
+      renderBoard();
+      renderInvestigationPanel();
+      clearFeedback();
+    });
+    completion.append(title, text, reset);
   }
 }
 
@@ -725,6 +1110,11 @@ function bindActions() {
     feedback.className = `feedback ${result.ok ? 'is-good' : 'is-bad'}`;
   };
 
+  byId('tool-investigate').onclick = () => {
+    applyPlayState(selectTool(snapshotPlayState(), 'investigate'));
+    clearFeedback();
+  };
+
   byId('tool-clear').onclick = () => {
     applyPlayState(selectTool(snapshotPlayState(), 'mark-x'));
     clearFeedback();
@@ -752,6 +1142,10 @@ function bindActions() {
 
 function handleCellClick(row, col) {
   const key = positionKey(row, col);
+  if (state.mode === 'investigate') {
+    investigateCell(row, col);
+    return;
+  }
   if (state.mode === 'mark-x') {
     applyPlayState(markPosition(snapshotPlayState(), key, state.puzzle));
     clearFeedback();
@@ -767,6 +1161,34 @@ function handleCellClick(row, col) {
   }
   applyPlayState(placePerson(snapshotPlayState(), state.selectedPerson, key, state.puzzle));
   clearFeedback();
+}
+
+function investigateCell(row, col) {
+  const item = investigationItemAt(state.puzzle, row, col);
+  const feedback = byId('feedback');
+  if (!item) {
+    feedback.textContent = '这里没有可记录的新发现。';
+    feedback.className = 'feedback';
+    return;
+  }
+  if (state.collectedInvestigationIds.has(item.id)) {
+    feedback.textContent = `已记录：${item.title}`;
+    feedback.className = 'feedback';
+    return;
+  }
+  state.collectedInvestigationIds = collectInvestigationItem(
+    state.collectedInvestigationIds,
+    item.id,
+  );
+  saveCollectedInvestigationIds(
+    state.currentLevel?.id || '',
+    state.collectedInvestigationIds,
+  );
+  feedback.textContent = `发现追加线索：${item.clue_text}`;
+  feedback.className = 'feedback is-good';
+  renderBoard();
+  renderInvestigationPanel();
+  renderToolState();
 }
 
 function handleCellPointerDown(event, row, col) {
@@ -855,7 +1277,41 @@ function renderSubmitState() {
 function renderToolState() {
   byId('tool-clear').setAttribute('aria-pressed', state.mode === 'mark-x' ? 'true' : 'false');
   byId('tool-eraser').setAttribute('aria-pressed', state.mode === 'erase' ? 'true' : 'false');
+  byId('tool-investigate').setAttribute(
+    'aria-pressed',
+    state.mode === 'investigate' ? 'true' : 'false',
+  );
   byId('tool-undo').disabled = state.history.length === 0;
+}
+
+function investigationStorageKey(levelId) {
+  return `murdoku:investigation:${levelId}`;
+}
+
+function loadCollectedInvestigationIds(levelId) {
+  if (!levelId || typeof window === 'undefined' || !window.localStorage) {
+    return new Set();
+  }
+  try {
+    const value = JSON.parse(
+      window.localStorage.getItem(investigationStorageKey(levelId)) || '[]',
+    );
+    return new Set(
+      Array.isArray(value) ? value.filter((item) => typeof item === 'string') : [],
+    );
+  } catch {
+    return new Set();
+  }
+}
+
+function saveCollectedInvestigationIds(levelId, collectedIds) {
+  if (!levelId || typeof window === 'undefined' || !window.localStorage) {
+    return;
+  }
+  window.localStorage.setItem(
+    investigationStorageKey(levelId),
+    JSON.stringify([...collectedIds]),
+  );
 }
 
 function stopPainting() {
@@ -925,7 +1381,7 @@ function manifestCellFor(cell, tileManifest = null) {
 }
 
 export function cellSceneAssetFor(cell, tileManifest = null, visualMode = ART_MODE_DEFAULT) {
-  if (!cell || visualMode === 'background-objects') {
+  if (!cell || ['background-objects', 'matrix-skin'].includes(visualMode)) {
     return '';
   }
   const manifest = tileManifest || state.tileManifest;
@@ -938,7 +1394,7 @@ export function cellSceneAssetFor(cell, tileManifest = null, visualMode = ART_MO
 }
 
 export function cellObjectAssetFor(cell, tileManifest = null, visualMode = ART_MODE_DEFAULT) {
-  if (!cell) {
+  if (!cell || visualMode === 'matrix-skin') {
     return '';
   }
   const manifest = tileManifest || state.tileManifest;

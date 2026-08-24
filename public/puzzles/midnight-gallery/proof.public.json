@@ -3,7 +3,7 @@
   "puzzle_id": "midnight-gallery",
   "generated_by": "murdoku.cli export-public",
   "source": "examples/midnight_gallery.json",
-  "verified_at": "2026-07-06T03:08:22.401959+00:00",
+  "verified_at": "2026-08-24T07:56:57.053124+00:00",
   "valid": true,
   "gates": {
     "geometry": true,
@@ -19,109 +19,41 @@
       "duplicates": []
     },
     "regions": {
-      "保管室": {
+      "修复回廊": {
         "component_count": 1,
         "components": [
           {
             "cells": [
-              [
-                5,
-                4
-              ],
-              [
-                5,
-                5
-              ],
-              [
-                5,
-                6
-              ],
-              [
-                6,
-                4
-              ],
-              [
-                6,
-                5
-              ],
-              [
-                6,
-                6
-              ]
-            ],
-            "boundary_edge_count": 10,
-            "boundary_closed": true,
-            "open_endpoints": []
-          }
-        ]
-      },
-      "修复室": {
-        "component_count": 1,
-        "components": [
-          {
-            "cells": [
-              [
-                3,
-                1
-              ],
-              [
-                3,
-                2
-              ],
               [
                 3,
                 3
               ],
               [
-                4,
-                1
-              ],
-              [
-                4,
-                2
-              ]
-            ],
-            "boundary_edge_count": 10,
-            "boundary_closed": true,
-            "open_endpoints": []
-          }
-        ]
-      },
-      "展廊": {
-        "component_count": 1,
-        "components": [
-          {
-            "cells": [
-              [
                 3,
                 4
               ],
               [
-                3,
-                5
-              ],
-              [
-                3,
-                6
+                4,
+                2
               ],
               [
                 4,
                 3
               ],
               [
-                4,
+                5,
+                3
+              ],
+              [
+                5,
                 4
               ],
               [
-                4,
-                5
-              ],
-              [
-                4,
-                6
+                6,
+                4
               ]
             ],
-            "boundary_edge_count": 12,
+            "boundary_edge_count": 16,
             "boundary_closed": true,
             "open_endpoints": []
           }
@@ -133,16 +65,16 @@
           {
             "cells": [
               [
+                4,
+                1
+              ],
+              [
                 5,
                 1
               ],
               [
                 5,
                 2
-              ],
-              [
-                5,
-                3
               ],
               [
                 6,
@@ -157,23 +89,19 @@
                 3
               ]
             ],
-            "boundary_edge_count": 10,
+            "boundary_edge_count": 12,
             "boundary_closed": true,
             "open_endpoints": []
           }
         ]
       },
-      "灯厅": {
+      "聚光展室": {
         "component_count": 1,
         "components": [
           {
             "cells": [
               [
                 1,
-                4
-              ],
-              [
-                1,
                 5
               ],
               [
@@ -182,15 +110,15 @@
               ],
               [
                 2,
-                4
-              ],
-              [
-                2,
                 5
               ],
               [
                 2,
                 6
+              ],
+              [
+                3,
+                5
               ]
             ],
             "boundary_edge_count": 10,
@@ -199,7 +127,99 @@
           }
         ]
       },
-      "雕塑庭": {
+      "藏品库": {
+        "component_count": 1,
+        "components": [
+          {
+            "cells": [
+              [
+                3,
+                6
+              ],
+              [
+                4,
+                4
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                5
+              ],
+              [
+                5,
+                6
+              ],
+              [
+                6,
+                5
+              ],
+              [
+                6,
+                6
+              ]
+            ],
+            "boundary_edge_count": 14,
+            "boundary_closed": true,
+            "open_endpoints": []
+          }
+        ]
+      },
+      "镜厅": {
+        "component_count": 1,
+        "components": [
+          {
+            "cells": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            "boundary_edge_count": 8,
+            "boundary_closed": true,
+            "open_endpoints": []
+          }
+        ]
+      },
+      "长展廊": {
+        "component_count": 1,
+        "components": [
+          {
+            "cells": [
+              [
+                2,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            "boundary_edge_count": 8,
+            "boundary_closed": true,
+            "open_endpoints": []
+          }
+        ]
+      },
+      "雕塑前庭": {
         "component_count": 1,
         "components": [
           {
@@ -213,20 +233,12 @@
                 2
               ],
               [
-                1,
-                3
-              ],
-              [
                 2,
                 1
               ],
               [
-                2,
-                2
-              ],
-              [
-                2,
-                3
+                3,
+                1
               ]
             ],
             "boundary_edge_count": 10,
@@ -279,21 +291,22 @@
     }
   },
   "difficulty": {
-    "band": "Hard",
-    "label": "困难",
-    "score": 4666,
+    "band": "Medium",
+    "label": "标准",
+    "score": 1142,
     "unique": true,
     "solutions_found": 1,
-    "clue_count": 7,
+    "clue_count": 8,
     "clue_type_counts": {
       "area_has_at_least_gender": 1,
       "person_beside_tile": 1,
       "person_in_col": 2,
+      "person_in_row": 1,
       "person_relative": 2,
       "victim_alone_with_murderer": 1
     },
     "candidate_counts": {
-      "Aiden": 26,
+      "Aiden": 5,
       "Bella": 26,
       "Colin": 5,
       "Diana": 26,
@@ -301,11 +314,11 @@
       "Fiona": 26
     },
     "search": {
-      "nodes": 1968,
-      "placements_tried": 33650,
-      "row_col_rejections": 31683,
-      "complete_assignments": 672,
-      "dead_ends": 923,
+      "nodes": 436,
+      "placements_tried": 7597,
+      "row_col_rejections": 7162,
+      "complete_assignments": 138,
+      "dead_ends": 204,
       "max_depth": 6
     },
     "reasons": [
@@ -371,37 +384,29 @@
       [
         "A",
         "A",
-        "A",
         "B",
         "B",
-        "B"
+        "C",
+        "C"
       ],
       [
         "A",
-        "A",
-        "A",
+        "D",
+        "D",
         "B",
-        "B",
-        "B"
+        "C",
+        "C"
       ],
       [
-        "C",
-        "C",
-        "C",
+        "A",
         "D",
-        "D",
-        "D"
-      ],
-      [
-        "C",
-        "C",
-        "D",
-        "D",
-        "D",
-        "D"
-      ],
-      [
         "E",
+        "E",
+        "C",
+        "F"
+      ],
+      [
+        "G",
         "E",
         "E",
         "F",
@@ -409,21 +414,30 @@
         "F"
       ],
       [
-        "E",
+        "G",
+        "G",
         "E",
         "E",
         "F",
+        "F"
+      ],
+      [
+        "G",
+        "G",
+        "G",
+        "E",
         "F",
         "F"
       ]
     ],
     "region_legend": {
-      "A": "雕塑庭",
-      "B": "灯厅",
-      "C": "修复室",
-      "D": "展廊",
-      "E": "暗房",
-      "F": "保管室"
+      "A": "雕塑前庭",
+      "B": "镜厅",
+      "C": "聚光展室",
+      "D": "长展廊",
+      "E": "修复回廊",
+      "F": "藏品库",
+      "G": "暗房"
     },
     "answer": [
       [

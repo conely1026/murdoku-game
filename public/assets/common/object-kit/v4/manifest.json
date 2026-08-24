@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "common-illustrated-observatory-object-kit-v4",
+  "background": "transparent",
+  "size": 512,
+  "source_asset": "assets/common/object-kit/v4/source/imagegen-observatory-object-master-v4.png",
+  "prompt_record": "assets/common/object-kit/v4/generation-prompts.json",
+  "style_reference": "assets/common/object-kit/v3/source/imagegen-object-style-master-v3.png",
+  "art_direction": {
+    "style": "flat hand-drawn board-game illustration matched to object-kit/v3",
+    "outline": "dark charcoal-purple ink outline",
+    "color": "muted maritime sage, fog blue, honey brass, warm cream",
+    "shading": "restrained cel shading with one grounding shadow"
+  },
+  "objects": {
+    "telescope": {
+      "asset": "assets/common/object-kit/v4/objects/telescope.png",
+      "source_crop": {
+        "left": 110,
+        "top": 45,
+        "right": 505,
+        "bottom": 510
+      }
+    },
+    "radio": {
+      "asset": "assets/common/object-kit/v4/objects/radio.png",
+      "source_crop": {
+        "left": 555,
+        "top": 55,
+        "right": 970,
+        "bottom": 510
+      }
+    },
+    "cabinet": {
+      "asset": "assets/common/object-kit/v4/objects/cabinet.png",
+      "source_crop": {
+        "left": 1015,
+        "top": 55,
+        "right": 1415,
+        "bottom": 515
+      }
+    },
+    "generator": {
+      "asset": "assets/common/object-kit/v4/objects/generator.png",
+      "source_crop": {
+        "left": 105,
+        "top": 525,
+        "right": 515,
+        "bottom": 940
+      }
+    },
+    "lifebuoy": {
+      "asset": "assets/common/object-kit/v4/objects/lifebuoy.png",
+      "source_crop": {
+        "left": 565,
+        "top": 525,
+        "right": 970,
+        "bottom": 950
+      }
+    },
+    "beacon": {
+      "asset": "assets/common/object-kit/v4/objects/beacon.png",
+      "source_crop": {
+        "left": 1015,
+        "top": 510,
+        "right": 1405,
+        "bottom": 950
+      }
+    }
+  },
+  "usage": "Supplemental matrix-skin overlays only; never changes puzzle facts or solver inputs."
+}

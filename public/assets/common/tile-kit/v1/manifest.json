@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "id": "common-tile-kit-v1",
+  "tile_size": 512,
+  "role": "Reusable art parts for puzzle-specific top-down tile variants.",
+  "composition_order": [
+    "surface",
+    "prop",
+    "overlay",
+    "mask"
+  ],
+  "tile_assets": {
+    "floor": {
+      "asset": "assets/common/tile-kit/v1/tiles/floor.png",
+      "role": "walkable_surface_tile",
+      "source_recipe": "floor"
+    },
+    "grass": {
+      "asset": "assets/common/tile-kit/v1/tiles/grass.png",
+      "role": "walkable_surface_tile",
+      "source_recipe": "grass"
+    },
+    "carpet": {
+      "asset": "assets/common/tile-kit/v1/tiles/carpet.png",
+      "role": "walkable_surface_tile",
+      "source_recipe": "carpet"
+    },
+    "chair": {
+      "asset": "assets/common/tile-kit/v1/tiles/chair.png",
+      "role": "walkable_object_tile",
+      "source_recipe": "chair"
+    },
+    "bookshelf": {
+      "asset": "assets/common/tile-kit/v1/tiles/bookshelf.png",
+      "role": "blocker_tile",
+      "source_recipe": "bookshelf"
+    },
+    "tree": {
+      "asset": "assets/common/tile-kit/v1/tiles/tree.png",
+      "role": "blocker_tile",
+      "source_recipe": "tree"
+    },
+    "table": {
+      "asset": "assets/common/tile-kit/v1/tiles/table.png",
+      "role": "blocker_tile",
+      "source_recipe": "table"
+    },
+    "fountain": {
+      "asset": "assets/common/tile-kit/v1/tiles/fountain.png",
+      "role": "blocker_tile",
+      "source_recipe": "fountain"
+    },
+    "shrub": {
+      "asset": "assets/common/tile-kit/v1/tiles/shrub.png",
+      "role": "blocker_tile",
+      "source_recipe": "shrub"
+    }
+  },
+  "object_assets": {
+    "carpet": {
+      "asset": "assets/common/tile-kit/v1/tiles/carpet.png",
+      "role": "walkable_object_overlay",
+      "source_recipe": "carpet"
+    },
+    "chair": {
+      "asset": "assets/common/tile-kit/v1/tiles/chair.png",
+      "role": "walkable_object_overlay",
+      "source_recipe": "chair"
+    },
+    "bookshelf": {
+      "asset": "assets/common/tile-kit/v1/tiles/bookshelf.png",
+      "role": "blocker_object_overlay",
+      "source_recipe": "bookshelf"
+    },
+    "tree": {
+      "asset": "assets/common/tile-kit/v1/tiles/tree.png",
+      "role": "blocker_object_overlay",
+      "source_recipe": "tree"
+    },
+    "table": {
+      "asset": "assets/common/tile-kit/v1/tiles/table.png",
+      "role": "blocker_object_overlay",
+      "source_recipe": "table"
+    },
+    "fountain": {
+      "asset": "assets/common/tile-kit/v1/tiles/fountain.png",
+      "role": "blocker_object_overlay",
+      "source_recipe": "fountain"
+    },
+    "shrub": {
+      "asset": "assets/common/tile-kit/v1/tiles/shrub.png",
+      "role": "blocker_object_overlay",
+      "source_recipe": "shrub"
+    }
+  },
+  "surfaces": {
+    "wood_floor_base": {
+      "asset": "assets/common/tile-kit/v1/surfaces/wood_floor_base.png",
+      "walkable": true,
+      "prompt": "Top-down orthographic seamless square wood floor surface, readable board-game tile, no labels, no border, 1:1."
+    },
+    "stone_floor_base": {
+      "asset": "assets/common/tile-kit/v1/surfaces/stone_floor_base.png",
+      "walkable": true,
+      "prompt": "Top-down orthographic seamless square stone floor surface, readable board-game tile, no labels, no border, 1:1."
+    },
+    "grass_base": {
+      "asset": "assets/common/tile-kit/v1/surfaces/grass_base.png",
+      "walkable": true,
+      "prompt": "Top-down orthographic seamless square grass surface, readable board-game tile, no labels, no border, 1:1."
+    },
+    "rug_base": {
+      "asset": "assets/common/tile-kit/v1/surfaces/rug_base.png",
+      "walkable": true,
+      "prompt": "Top-down orthographic seamless square worn rug surface, readable board-game tile, no labels, no border, 1:1."
+    },
+    "dark_blocker_base": {
+      "asset": "assets/common/tile-kit/v1/surfaces/dark_blocker_base.png",
+      "walkable": false,
+      "prompt": "Top-down orthographic square dark blocker base, clearly non-walkable, readable board-game tile, no labels, no border, 1:1."
+    }
+  },
+  "props": {
+    "chair_prop": {
+      "asset": "assets/common/tile-kit/v1/props/chair_prop.png",
+      "prompt": "Top-down single chair prop, centered, readable at small puzzle size, no person, no label, transparent-safe, 1:1."
+    },
+    "bookshelf_prop": {
+      "asset": "assets/common/tile-kit/v1/props/bookshelf_prop.png",
+      "prompt": "Top-down old bookshelf prop, dense and clearly blocking movement, no label, transparent-safe, 1:1."
+    },
+    "table_prop": {
+      "asset": "assets/common/tile-kit/v1/props/table_prop.png",
+      "prompt": "Top-down long table prop, clearly blocking movement, no label, transparent-safe, 1:1."
+    },
+    "tree_prop": {
+      "asset": "assets/common/tile-kit/v1/props/tree_prop.png",
+      "prompt": "Top-down old tree trunk and canopy shadow prop, clearly blocking movement, no label, transparent-safe, 1:1."
+    },
+    "shrub_prop": {
+      "asset": "assets/common/tile-kit/v1/props/shrub_prop.png",
+      "prompt": "Top-down dense shrub prop, clearly blocking movement, no label, transparent-safe, 1:1."
+    },
+    "fountain_prop": {
+      "asset": "assets/common/tile-kit/v1/props/fountain_prop.png",
+      "prompt": "Top-down small fountain prop, clearly blocking movement, no label, transparent-safe, 1:1."
+    }
+  },
+  "overlays": {
+    "rain_wetness_overlay": {
+      "asset": "assets/common/tile-kit/v1/overlays/rain_wetness_overlay.png",
+      "prompt": "Subtle top-down rain wetness overlay for board tiles, no text, no border, transparent-safe."
+    },
+    "dust_paper_overlay": {
+      "asset": "assets/common/tile-kit/v1/overlays/dust_paper_overlay.png",
+      "prompt": "Subtle dust and paper scrap overlay for old bookshop board tiles, no text, no border, transparent-safe."
+    },
+    "moss_edge_overlay": {
+      "asset": "assets/common/tile-kit/v1/overlays/moss_edge_overlay.png",
+      "prompt": "Subtle moss edge overlay for outdoor board tiles, no text, no border, transparent-safe."
+    },
+    "fog_void_overlay": {
+      "asset": "assets/common/tile-kit/v1/overlays/fog_void_overlay.png",
+      "prompt": "Soft fog overlay for void or outside-map board tiles, no text, no border, transparent-safe."
+    }
+  },
+  "masks": {
+    "blocker_shadow_mask": {
+      "asset": "assets/common/tile-kit/v1/masks/blocker_shadow_mask.png",
+      "prompt": "Readable blocker shadow mask for non-walkable puzzle tiles, no text, transparent-safe."
+    }
+  },
+  "recipes": {
+    "floor": {
+      "surface": "wood_floor_base",
+      "props": [],
+      "overlays": [
+        "rain_wetness_overlay"
+      ],
+      "variant_axes": [
+        "region_tint",
+        "story_decal"
+      ]
+    },
+    "grass": {
+      "surface": "grass_base",
+      "props": [],
+      "overlays": [
+        "rain_wetness_overlay",
+        "moss_edge_overlay"
+      ],
+      "variant_axes": [
+        "region_tint",
+        "path_wear"
+      ]
+    },
+    "carpet": {
+      "surface": "rug_base",
+      "props": [],
+      "overlays": [
+        "dust_paper_overlay"
+      ],
+      "variant_axes": [
+        "region_tint",
+        "pattern"
+      ]
+    },
+    "chair": {
+      "surface": "wood_floor_base",
+      "props": [
+        "chair_prop"
+      ],
+      "overlays": [
+        "rain_wetness_overlay"
+      ],
+      "variant_axes": [
+        "chair_style",
+        "region_tint"
+      ]
+    },
+    "bookshelf": {
+      "surface": "dark_blocker_base",
+      "props": [
+        "bookshelf_prop"
+      ],
+      "overlays": [
+        "dust_paper_overlay"
+      ],
+      "mask": "blocker_shadow_mask",
+      "variant_axes": [
+        "shelf_density",
+        "region_tint"
+      ]
+    },
+    "table": {
+      "surface": "dark_blocker_base",
+      "props": [
+        "table_prop"
+      ],
+      "overlays": [
+        "dust_paper_overlay"
+      ],
+      "mask": "blocker_shadow_mask",
+      "variant_axes": [
+        "table_length",
+        "region_tint"
+      ]
+    },
+    "tree": {
+      "surface": "dark_blocker_base",
+      "props": [
+        "tree_prop"
+      ],
+      "overlays": [
+        "moss_edge_overlay"
+      ],
+      "mask": "blocker_shadow_mask",
+      "variant_axes": [
+        "canopy_shadow",
+        "region_tint"
+      ]
+    },
+    "shrub": {
+      "surface": "dark_blocker_base",
+      "props": [
+        "shrub_prop"
+      ],
+      "overlays": [
+        "moss_edge_overlay"
+      ],
+      "mask": "blocker_shadow_mask",
+      "variant_axes": [
+        "shrub_density",
+        "region_tint"
+      ]
+    },
+    "fountain": {
+      "surface": "dark_blocker_base",
+      "props": [
+        "fountain_prop"
+      ],
+      "overlays": [
+        "rain_wetness_overlay"
+      ],
+      "mask": "blocker_shadow_mask",
+      "variant_axes": [
+        "water_color",
+        "region_tint"
+      ]
+    },
+    "edge_void": {
+      "surface": "dark_blocker_base",
+      "props": [],
+      "overlays": [
+        "fog_void_overlay"
+      ],
+      "mask": "blocker_shadow_mask",
+      "variant_axes": [
+        "outside_shape"
+      ]
+    },
+    "inner_void": {
+      "surface": "dark_blocker_base",
+      "props": [],
+      "overlays": [
+        "fog_void_overlay"
+      ],
+      "mask": "blocker_shadow_mask",
+      "variant_axes": [
+        "semantic_void_shape"
+      ]
+    }
+  }
+}

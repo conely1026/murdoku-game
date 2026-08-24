@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "clockwork-hotel-v1",
+  "source_asset": "assets/common/region-materials/clockwork-hotel-v1/source/imagegen-clockwork-hotel-material-atlas-v1.png",
+  "prompt_record": "assets/common/region-materials/clockwork-hotel-v1/generation-prompts.json",
+  "source_role": "Theme-specific atlas; no raster asset owns cells or region boundaries.",
+  "texture_size": 512,
+  "art_direction": {
+    "style": "rain-soaked old-hotel surfaces in the object-kit/v3 hand-drawn style",
+    "detail": "large sparse motifs with no photographic grain",
+    "value": "medium-light surfaces that preserve grid and piece readability"
+  },
+  "materials": {
+    "hotel_burgundy_carpet": {
+      "asset": "assets/common/region-materials/clockwork-hotel-v1/materials/hotel_burgundy_carpet.png",
+      "source_crop": {
+        "left": 22,
+        "top": 24,
+        "right": 502,
+        "bottom": 500
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "hotel_brass_walnut": {
+      "asset": "assets/common/region-materials/clockwork-hotel-v1/materials/hotel_brass_walnut.png",
+      "source_crop": {
+        "left": 528,
+        "top": 24,
+        "right": 1004,
+        "bottom": 500
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "hotel_honey_lobby_wood": {
+      "asset": "assets/common/region-materials/clockwork-hotel-v1/materials/hotel_honey_lobby_wood.png",
+      "source_crop": {
+        "left": 1030,
+        "top": 24,
+        "right": 1513,
+        "bottom": 500
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "hotel_rain_blue_stone": {
+      "asset": "assets/common/region-materials/clockwork-hotel-v1/materials/hotel_rain_blue_stone.png",
+      "source_crop": {
+        "left": 22,
+        "top": 526,
+        "right": 502,
+        "bottom": 1001
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "hotel_cream_laundry_tile": {
+      "asset": "assets/common/region-materials/clockwork-hotel-v1/materials/hotel_cream_laundry_tile.png",
+      "source_crop": {
+        "left": 528,
+        "top": 526,
+        "right": 1004,
+        "bottom": 1001
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "hotel_attic_planks": {
+      "asset": "assets/common/region-materials/clockwork-hotel-v1/materials/hotel_attic_planks.png",
+      "source_crop": {
+        "left": 1030,
+        "top": 526,
+        "right": 1513,
+        "bottom": 1001
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    }
+  }
+}

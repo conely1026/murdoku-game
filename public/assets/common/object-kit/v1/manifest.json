@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "common-transparent-object-kit-v1",
+  "background": "transparent",
+  "source_role": "Reusable visual overlays promoted from the validated Fog Town modular object sheet; puzzle JSON remains authoritative.",
+  "objects": {
+    "bookshelf": {
+      "asset": "assets/common/object-kit/v1/objects/bookshelf.png",
+      "source": "assets/puzzles/fog-town-books/scene/v3/modular/objects/bookshelf-r1c5.png"
+    },
+    "carpet": {
+      "asset": "assets/common/object-kit/v1/objects/carpet.png",
+      "source": "assets/puzzles/fog-town-books/scene/v3/modular/objects/carpet-r2c4.png"
+    },
+    "chair": {
+      "asset": "assets/common/object-kit/v1/objects/chair.png",
+      "source": "assets/puzzles/fog-town-books/scene/v3/modular/objects/chair-r1c6.png"
+    },
+    "fountain": {
+      "asset": "assets/common/object-kit/v1/objects/fountain.png",
+      "source": "assets/puzzles/fog-town-books/scene/v3/modular/objects/fountain-r3c4.png"
+    },
+    "shrub": {
+      "asset": "assets/common/object-kit/v1/objects/shrub.png",
+      "source": "assets/puzzles/fog-town-books/scene/v3/modular/objects/shrub-r1c1.png"
+    },
+    "table": {
+      "asset": "assets/common/object-kit/v1/objects/table.png",
+      "source": "assets/puzzles/fog-town-books/scene/v3/modular/objects/table-r4c3.png"
+    },
+    "tree": {
+      "asset": "assets/common/object-kit/v1/objects/tree.png",
+      "source": "assets/puzzles/fog-town-books/scene/v3/modular/objects/tree-r1c3.png"
+    }
+  },
+  "usage": "Matrix-skin board-level overlays only; never changes tile, walkable, region, clues, or solution."
+}

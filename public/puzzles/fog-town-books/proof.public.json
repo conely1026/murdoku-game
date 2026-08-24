@@ -3,7 +3,7 @@
   "puzzle_id": "fog-town-books",
   "generated_by": "murdoku.cli export-public",
   "source": "examples/fog_town_books.json",
-  "verified_at": "2026-07-06T03:08:22.396714+00:00",
+  "verified_at": "2026-08-24T07:56:57.021545+00:00",
   "valid": true,
   "gates": {
     "geometry": true,
@@ -19,37 +19,33 @@
       "duplicates": []
     },
     "regions": {
-      "作坊": {
+      "修书铺": {
         "component_count": 1,
         "components": [
           {
             "cells": [
               [
-                5,
-                1
-              ],
-              [
-                5,
-                2
-              ],
-              [
-                5,
+                1,
                 3
               ],
               [
-                6,
-                1
+                1,
+                4
               ],
               [
-                6,
-                2
+                1,
+                5
               ],
               [
-                6,
-                3
+                2,
+                4
+              ],
+              [
+                3,
+                4
               ]
             ],
-            "boundary_edge_count": 10,
+            "boundary_edge_count": 12,
             "boundary_closed": true,
             "open_endpoints": []
           }
@@ -62,36 +58,48 @@
             "cells": [
               [
                 1,
-                4
-              ],
-              [
-                1,
-                5
-              ],
-              [
-                1,
                 6
               ],
               [
                 2,
-                4
-              ],
-              [
-                2,
                 5
               ],
               [
                 2,
+                6
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                3,
+                6
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                6
+              ],
+              [
+                6,
+                5
+              ],
+              [
+                6,
                 6
               ]
             ],
-            "boundary_edge_count": 10,
+            "boundary_edge_count": 18,
             "boundary_closed": true,
             "open_endpoints": []
           }
         ]
       },
-      "图书室": {
+      "旧书馆": {
         "component_count": 1,
         "components": [
           {
@@ -105,82 +113,42 @@
                 2
               ],
               [
-                3,
-                3
-              ],
-              [
                 4,
                 1
               ],
               [
                 4,
                 2
-              ]
-            ],
-            "boundary_edge_count": 10,
-            "boundary_closed": true,
-            "open_endpoints": []
-          }
-        ]
-      },
-      "客栈": {
-        "component_count": 1,
-        "components": [
-          {
-            "cells": [
-              [
-                5,
-                4
-              ],
-              [
-                5,
-                5
-              ],
-              [
-                5,
-                6
-              ],
-              [
-                6,
-                4
-              ],
-              [
-                6,
-                5
-              ],
-              [
-                6,
-                6
-              ]
-            ],
-            "boundary_edge_count": 10,
-            "boundary_closed": true,
-            "open_endpoints": []
-          }
-        ]
-      },
-      "庭院": {
-        "component_count": 1,
-        "components": [
-          {
-            "cells": [
-              [
-                3,
-                4
-              ],
-              [
-                3,
-                5
-              ],
-              [
-                3,
-                6
               ],
               [
                 4,
                 3
               ],
               [
+                5,
+                1
+              ],
+              [
+                6,
+                1
+              ],
+              [
+                6,
+                2
+              ]
+            ],
+            "boundary_edge_count": 16,
+            "boundary_closed": true,
+            "open_endpoints": []
+          }
+        ]
+      },
+      "玻璃连廊": {
+        "component_count": 1,
+        "components": [
+          {
+            "cells": [
+              [
                 4,
                 4
               ],
@@ -189,47 +157,67 @@
                 5
               ],
               [
-                4,
-                6
+                5,
+                2
+              ],
+              [
+                5,
+                3
+              ],
+              [
+                5,
+                4
+              ],
+              [
+                5,
+                5
+              ],
+              [
+                6,
+                3
+              ],
+              [
+                6,
+                4
+              ]
+            ],
+            "boundary_edge_count": 14,
+            "boundary_closed": true,
+            "open_endpoints": []
+          }
+        ]
+      },
+      "苔庭": {
+        "component_count": 1,
+        "components": [
+          {
+            "cells": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                3
               ]
             ],
             "boundary_edge_count": 12,
-            "boundary_closed": true,
-            "open_endpoints": []
-          }
-        ]
-      },
-      "花园": {
-        "component_count": 1,
-        "components": [
-          {
-            "cells": [
-              [
-                1,
-                1
-              ],
-              [
-                1,
-                2
-              ],
-              [
-                1,
-                3
-              ],
-              [
-                2,
-                1
-              ],
-              [
-                2,
-                2
-              ],
-              [
-                2,
-                3
-              ]
-            ],
-            "boundary_edge_count": 10,
             "boundary_closed": true,
             "open_endpoints": []
           }
@@ -281,7 +269,7 @@
   "difficulty": {
     "band": "Easy",
     "label": "入门",
-    "score": 233,
+    "score": 261,
     "unique": true,
     "solutions_found": 1,
     "clue_count": 8,
@@ -296,23 +284,23 @@
     },
     "candidate_counts": {
       "Aiden": 3,
-      "Bella": 5,
+      "Bella": 7,
       "Colin": 5,
       "Diana": 9,
       "Ethan": 3,
       "Fiona": 4
     },
     "search": {
-      "nodes": 85,
-      "placements_tried": 459,
-      "row_col_rejections": 375,
-      "complete_assignments": 2,
-      "dead_ends": 41,
+      "nodes": 104,
+      "placements_tried": 639,
+      "row_col_rejections": 536,
+      "complete_assignments": 7,
+      "dead_ends": 42,
       "max_depth": 6
     },
     "reasons": [
       "存在候选格较宽的人物，需要多轮交叉排除。",
-      "solver 在很少的完整排列中确认唯一解。",
+      "solver 需要检查多个完整排列才能确认唯一解。",
       "凶手判定依赖受害者同区约束。"
     ]
   },
@@ -371,59 +359,58 @@
       [
         "A",
         "A",
-        "A",
         "B",
         "B",
-        "B"
+        "B",
+        "C"
       ],
       [
         "A",
         "A",
         "A",
         "B",
+        "C",
+        "C"
+      ],
+      [
+        "D",
+        "D",
+        "A",
         "B",
-        "B"
+        "C",
+        "C"
       ],
       [
-        "C",
-        "C",
-        "C",
         "D",
         "D",
-        "D"
+        "D",
+        "E",
+        "E",
+        "C"
       ],
       [
-        "C",
-        "C",
         "D",
-        "D",
-        "D",
-        "D"
+        "E",
+        "E",
+        "E",
+        "E",
+        "C"
       ],
       [
+        "D",
+        "D",
         "E",
         "E",
-        "E",
-        "F",
-        "F",
-        "F"
-      ],
-      [
-        "E",
-        "E",
-        "E",
-        "F",
-        "F",
-        "F"
+        "C",
+        "C"
       ]
     ],
     "region_legend": {
-      "A": "花园",
-      "B": "咖啡馆",
-      "C": "图书室",
-      "D": "庭院",
-      "E": "作坊",
-      "F": "客栈"
+      "A": "苔庭",
+      "B": "修书铺",
+      "C": "咖啡馆",
+      "D": "旧书馆",
+      "E": "玻璃连廊"
     },
     "answer": [
       [

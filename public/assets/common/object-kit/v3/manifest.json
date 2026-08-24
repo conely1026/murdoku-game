@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "common-illustrated-object-kit-v3",
+  "background": "transparent",
+  "size": 512,
+  "source_asset": "assets/common/object-kit/v3/source/imagegen-object-style-master-v3.png",
+  "prompt_record": "assets/common/object-kit/v3/generation-prompts.json",
+  "source_role": "One shared ImageGen style master deterministically cut into all reusable object overlays.",
+  "art_direction": {
+    "style": "simple 2D hand-drawn board-game illustration",
+    "outline": "consistent dark charcoal-purple ink outline",
+    "color": "muted sage, dusty mauve, honey beige, pale blue-gray",
+    "shading": "one restrained cel-shadow tone per material",
+    "detail": "low-detail silhouettes readable at board scale"
+  },
+  "objects": {
+    "tree": {
+      "asset": "assets/common/object-kit/v3/objects/tree.png",
+      "source_crop": {
+        "left": 45,
+        "top": 35,
+        "right": 425,
+        "bottom": 500
+      }
+    },
+    "shrub": {
+      "asset": "assets/common/object-kit/v3/objects/shrub.png",
+      "source_crop": {
+        "left": 430,
+        "top": 170,
+        "right": 740,
+        "bottom": 505
+      }
+    },
+    "bookshelf": {
+      "asset": "assets/common/object-kit/v3/objects/bookshelf.png",
+      "source_crop": {
+        "left": 770,
+        "top": 110,
+        "right": 1115,
+        "bottom": 510
+      }
+    },
+    "chair": {
+      "asset": "assets/common/object-kit/v3/objects/chair.png",
+      "source_crop": {
+        "left": 1120,
+        "top": 105,
+        "right": 1460,
+        "bottom": 515
+      }
+    },
+    "table": {
+      "asset": "assets/common/object-kit/v3/objects/table.png",
+      "source_crop": {
+        "left": 35,
+        "top": 555,
+        "right": 555,
+        "bottom": 910
+      }
+    },
+    "fountain": {
+      "asset": "assets/common/object-kit/v3/objects/fountain.png",
+      "source_crop": {
+        "left": 570,
+        "top": 515,
+        "right": 970,
+        "bottom": 945
+      }
+    },
+    "carpet": {
+      "asset": "assets/common/object-kit/v3/objects/carpet.png",
+      "source_crop": {
+        "left": 945,
+        "top": 535,
+        "right": 1495,
+        "bottom": 925
+      }
+    }
+  },
+  "usage": "Matrix-skin board-level overlays only; never changes tile, walkable, region, clues, or solution."
+}

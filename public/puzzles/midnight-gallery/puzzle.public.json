@@ -4,7 +4,7 @@
   "generated_by": "murdoku.cli export-public",
   "source": "examples/midnight_gallery.json",
   "title": "原创谜题：午夜画廊（6×6）",
-  "story": "午夜后的市政画廊只剩应急灯还亮着。雕塑庭、灯厅、修复室、展廊、暗房和保管室被封锁，六名滞留者的位置必须从区域、地面材质和证词里复原。",
+  "story": "午夜后的市政画廊只剩应急灯还亮着。雕塑前庭和镜厅在入口处错位衔接，长展廊绕向修复回廊，再分流到聚光展室、藏品库与暗房；六名滞留者的位置必须从区域、地面材质和证词里复原。",
   "rows": 6,
   "cols": 6,
   "walkable_tiles": [
@@ -62,52 +62,52 @@
       "row": 1,
       "col": 1,
       "tile": "shrub",
-      "region": "雕塑庭",
+      "region": "雕塑前庭",
       "walkable": false,
-      "element": "封闭雕塑基座旁的灌木",
+      "element": "石膏像旁绿植",
       "description": ""
     },
     {
       "row": 1,
       "col": 2,
       "tile": "floor",
-      "region": "雕塑庭",
+      "region": "雕塑前庭",
       "walkable": true,
-      "element": "磨亮的画廊地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 1,
       "col": 3,
       "tile": "tree",
-      "region": "雕塑庭",
+      "region": "镜厅",
       "walkable": false,
-      "element": "室内高植树影",
+      "element": "高植盆景",
       "description": ""
     },
     {
       "row": 1,
       "col": 4,
       "tile": "floor",
-      "region": "灯厅",
+      "region": "镜厅",
       "walkable": true,
-      "element": "灯厅入口地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 1,
       "col": 5,
       "tile": "bookshelf",
-      "region": "灯厅",
+      "region": "聚光展室",
       "walkable": false,
-      "element": "展册书柜",
+      "element": "展册档案柜",
       "description": ""
     },
     {
       "row": 1,
       "col": 6,
       "tile": "chair",
-      "region": "灯厅",
+      "region": "聚光展室",
       "walkable": true,
       "element": "看画单椅",
       "description": ""
@@ -116,162 +116,162 @@
       "row": 2,
       "col": 1,
       "tile": "grass",
-      "region": "雕塑庭",
+      "region": "雕塑前庭",
       "walkable": true,
-      "element": "雕塑庭草毯",
+      "element": "雕塑庭苔毯",
       "description": ""
     },
     {
       "row": 2,
       "col": 2,
       "tile": "floor",
-      "region": "雕塑庭",
+      "region": "长展廊",
       "walkable": true,
-      "element": "雕塑庭石纹地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 2,
       "col": 3,
       "tile": "floor",
-      "region": "雕塑庭",
+      "region": "长展廊",
       "walkable": true,
-      "element": "雕塑庭通道",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 2,
       "col": 4,
       "tile": "carpet",
-      "region": "灯厅",
+      "region": "镜厅",
       "walkable": true,
-      "element": "灯厅旧地毯",
+      "element": "低饱和防尘地毯",
       "description": ""
     },
     {
       "row": 2,
       "col": 5,
       "tile": "floor",
-      "region": "灯厅",
+      "region": "聚光展室",
       "walkable": true,
-      "element": "聚光灯下地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 2,
       "col": 6,
       "tile": "floor",
-      "region": "灯厅",
+      "region": "聚光展室",
       "walkable": true,
-      "element": "售票台前地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 3,
       "col": 1,
       "tile": "chair",
-      "region": "修复室",
+      "region": "雕塑前庭",
       "walkable": true,
-      "element": "修复室高脚椅",
+      "element": "看画单椅",
       "description": ""
     },
     {
       "row": 3,
       "col": 2,
       "tile": "bookshelf",
-      "region": "修复室",
+      "region": "长展廊",
       "walkable": false,
-      "element": "颜料档案柜",
+      "element": "展册档案柜",
       "description": ""
     },
     {
       "row": 3,
       "col": 3,
       "tile": "carpet",
-      "region": "修复室",
+      "region": "修复回廊",
       "walkable": true,
-      "element": "修复室防尘地毯",
+      "element": "低饱和防尘地毯",
       "description": ""
     },
     {
       "row": 3,
       "col": 4,
       "tile": "fountain",
-      "region": "展廊",
+      "region": "修复回廊",
       "walkable": false,
-      "element": "展廊喷泉装置",
+      "element": "光影水景装置",
       "description": ""
     },
     {
       "row": 3,
       "col": 5,
       "tile": "floor",
-      "region": "展廊",
+      "region": "聚光展室",
       "walkable": true,
-      "element": "展廊中央地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 3,
       "col": 6,
       "tile": "floor",
-      "region": "展廊",
+      "region": "藏品库",
       "walkable": true,
-      "element": "展廊东侧地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 4,
       "col": 1,
       "tile": "floor",
-      "region": "修复室",
+      "region": "暗房",
       "walkable": true,
-      "element": "修复台旁地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 4,
       "col": 2,
       "tile": "floor",
-      "region": "修复室",
+      "region": "修复回廊",
       "walkable": true,
-      "element": "工具柜前地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 4,
       "col": 3,
       "tile": "table",
-      "region": "展廊",
+      "region": "修复回廊",
       "walkable": false,
-      "element": "展廊长桌",
+      "element": "修复长桌",
       "description": ""
     },
     {
       "row": 4,
       "col": 4,
       "tile": "floor",
-      "region": "展廊",
+      "region": "藏品库",
       "walkable": true,
-      "element": "展廊灰石地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 4,
       "col": 5,
       "tile": "chair",
-      "region": "展廊",
+      "region": "藏品库",
       "walkable": true,
-      "element": "展廊休息椅",
+      "element": "看画单椅",
       "description": ""
     },
     {
       "row": 4,
       "col": 6,
       "tile": "carpet",
-      "region": "展廊",
+      "region": "藏品库",
       "walkable": true,
-      "element": "展廊边毯",
+      "element": "低饱和防尘地毯",
       "description": ""
     },
     {
@@ -280,7 +280,7 @@
       "tile": "floor",
       "region": "暗房",
       "walkable": true,
-      "element": "暗房入口地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
@@ -289,43 +289,43 @@
       "tile": "tree",
       "region": "暗房",
       "walkable": false,
-      "element": "暗房盆栽树影",
+      "element": "高植盆景",
       "description": ""
     },
     {
       "row": 5,
       "col": 3,
       "tile": "floor",
-      "region": "暗房",
+      "region": "修复回廊",
       "walkable": true,
-      "element": "暗房晾片区地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 5,
       "col": 4,
       "tile": "chair",
-      "region": "保管室",
+      "region": "修复回廊",
       "walkable": true,
-      "element": "保管室登记椅",
+      "element": "看画单椅",
       "description": ""
     },
     {
       "row": 5,
       "col": 5,
       "tile": "floor",
-      "region": "保管室",
+      "region": "藏品库",
       "walkable": true,
-      "element": "保管室清点地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 5,
       "col": 6,
       "tile": "tree",
-      "region": "保管室",
+      "region": "藏品库",
       "walkable": false,
-      "element": "保管室窗边树影",
+      "element": "高植盆景",
       "description": ""
     },
     {
@@ -334,7 +334,7 @@
       "tile": "bookshelf",
       "region": "暗房",
       "walkable": false,
-      "element": "暗房资料柜",
+      "element": "展册档案柜",
       "description": ""
     },
     {
@@ -343,7 +343,7 @@
       "tile": "floor",
       "region": "暗房",
       "walkable": true,
-      "element": "暗房后排地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
@@ -352,34 +352,34 @@
       "tile": "carpet",
       "region": "暗房",
       "walkable": true,
-      "element": "暗房旧地毯",
+      "element": "低饱和防尘地毯",
       "description": ""
     },
     {
       "row": 6,
       "col": 4,
       "tile": "floor",
-      "region": "保管室",
+      "region": "修复回廊",
       "walkable": true,
-      "element": "保管室门口地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 6,
       "col": 5,
       "tile": "floor",
-      "region": "保管室",
+      "region": "藏品库",
       "walkable": true,
-      "element": "保管室走道地板",
+      "element": "冷灰展厅地面",
       "description": ""
     },
     {
       "row": 6,
       "col": 6,
       "tile": "shrub",
-      "region": "保管室",
+      "region": "藏品库",
       "walkable": false,
-      "element": "封住后门的灌木",
+      "element": "石膏像旁绿植",
       "description": ""
     }
   ],
@@ -433,6 +433,58 @@
       "type": "victim_alone_with_murderer",
       "victim": "Fiona",
       "text": "菲奥娜遇害时，只和凶手同处一个区域，没有第三个人在场。"
+    },
+    {
+      "id": "clue-8",
+      "type": "person_in_row",
+      "person": "Aiden",
+      "row": 4,
+      "text": "艾登的巡更签字只出现在第 4 行。"
     }
-  ]
+  ],
+  "investigation": {
+    "optional": true,
+    "solver_dependency": "none",
+    "intro": "切换到调查模式，查看画廊里被金色圆环标记的物件。追加线索只用于辅助，不参与原谜题的唯一解。",
+    "completion_title": "午夜巡查记录已补全",
+    "completion_text": "四件物证已经归档。后续可以把这里接成一条独立支线案件，但当前不会锁住数独主流程。",
+    "items": [
+      {
+        "id": "gallery-leaf-shadow",
+        "row": 1,
+        "col": 3,
+        "title": "折断的盆栽嫩枝",
+        "object_label": "高植树",
+        "summary": "枝梢只在东侧沾有新鲜墙灰。",
+        "clue_text": "艾登留下的墙灰痕迹比黛安娜更靠东。"
+      },
+      {
+        "id": "gallery-catalogue-gap",
+        "row": 1,
+        "col": 5,
+        "title": "缺页的展览册",
+        "object_label": "展册书柜",
+        "summary": "缺页边缘反复映出第五列聚光灯。",
+        "clue_text": "科林的位置在第 5 列。"
+      },
+      {
+        "id": "gallery-fountain-screw",
+        "row": 3,
+        "col": 4,
+        "title": "喷泉底座的铜螺丝",
+        "object_label": "喷泉装置",
+        "summary": "螺丝与伊森工具袋里缺失的型号一致。",
+        "clue_text": "伊森位于喷泉装置的相邻格。"
+      },
+      {
+        "id": "gallery-restoration-dust",
+        "row": 4,
+        "col": 3,
+        "title": "修复桌下的双层脚印",
+        "object_label": "展廊长桌",
+        "summary": "两组男性鞋印一前一后穿过同一区域。",
+        "clue_text": "伊森所在区域里还有另一名男性。"
+      }
+    ]
+  }
 }
