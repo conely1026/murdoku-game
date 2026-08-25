@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1920" viewBox="0 0 1920 1920" role="img" aria-label="原创谜题：潮镜观测站（15×15） board map">
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1920" viewBox="0 0 1920 1920" role="img" aria-label="潮镜观测站（15×15） board map">
 <defs>
 <style>
   .cell-base { shape-rendering: crispEdges; }
