@@ -3,8 +3,8 @@
   "id": "midnight-gallery",
   "generated_by": "murdoku.cli export-public",
   "source": "examples/midnight_gallery.json",
-  "title": "原创谜题：午夜画廊（6×6）",
-  "story": "午夜后的市政画廊只剩应急灯还亮着。雕塑前庭和镜厅在入口处错位衔接，长展廊绕向修复回廊，再分流到聚光展室、藏品库与暗房；六名滞留者的位置必须从区域、地面材质和证词里复原。",
+  "title": "午夜画廊（6×6）",
+  "story": "午夜过后，市政画廊只剩应急灯照着空展厅。雕塑前庭和镜厅在入口处错开，长展廊绕过修复回廊，通往聚光展室、藏品库和暗房。六名滞留者的去向，藏在地面痕迹和几段互相牵制的证词里。",
   "rows": 6,
   "cols": 6,
   "walkable_tiles": [
@@ -390,28 +390,28 @@
       "person": "Aiden",
       "other": "Diana",
       "relation": "east_of",
-      "text": "艾登的巡更记录显示，他在黛安娜以东。"
+      "text": "艾登在黛安娜的东边。"
     },
     {
       "id": "clue-2",
       "type": "person_in_col",
       "person": "Colin",
       "col": 5,
-      "text": "科林提到自己一直能看到第 5 列的聚光灯反光。"
+      "text": "科林说，自己一直看得到第 5 列的聚光灯。"
     },
     {
       "id": "clue-3",
       "type": "person_in_col",
       "person": "Ethan",
       "col": 3,
-      "text": "伊森留下的螺丝滚到了第 3 列。"
+      "text": "伊森的螺丝最后停在第 3 列。"
     },
     {
       "id": "clue-4",
       "type": "person_beside_tile",
       "person": "Ethan",
       "tile": "fountain",
-      "text": "伊森外套上有喷泉装置溅出的水痕，他在喷泉旁边。"
+      "text": "伊森的外套上有喷泉溅水，他就在喷泉边。"
     },
     {
       "id": "clue-5",
@@ -419,35 +419,35 @@
       "person": "Ethan",
       "other": "Colin",
       "relation": "south_of",
-      "text": "伊森的脚印比科林的位置更靠南。"
+      "text": "伊森的脚印落在科林的南边。"
     },
     {
       "id": "clue-6",
       "type": "area_has_at_least_gender",
       "person": "Ethan",
       "gender": "M",
-      "text": "伊森所在区域里还有至少一名男性。"
+      "text": "伊森所在的区域，还站着至少一名男性。"
     },
     {
       "id": "clue-7",
       "type": "victim_alone_with_murderer",
       "victim": "Fiona",
-      "text": "菲奥娜遇害时，只和凶手同处一个区域，没有第三个人在场。"
+      "text": "菲奥娜遇害时，她所在区域只有凶手陪着，没有第三个人。"
     },
     {
       "id": "clue-8",
       "type": "person_in_row",
       "person": "Aiden",
       "row": 4,
-      "text": "艾登的巡更签字只出现在第 4 行。"
+      "text": "艾登的巡更签字只落在第 4 行。"
     }
   ],
   "investigation": {
     "optional": true,
     "solver_dependency": "none",
-    "intro": "切换到调查模式，查看画廊里被金色圆环标记的物件。追加线索只用于辅助，不参与原谜题的唯一解。",
-    "completion_title": "午夜巡查记录已补全",
-    "completion_text": "四件物证已经归档。后续可以把这里接成一条独立支线案件，但当前不会锁住数独主流程。",
+    "intro": "画廊里的金色圆环标出可调查的物件。它们会补充线索，但不改变原谜题的唯一解。",
+    "completion_title": "午夜画廊的物证已归档",
+    "completion_text": "四件物证已经归档，可以作为后续支线的入口；主谜题不需要等它们。",
     "items": [
       {
         "id": "gallery-leaf-shadow",
@@ -455,8 +455,8 @@
         "col": 3,
         "title": "折断的盆栽嫩枝",
         "object_label": "高植树",
-        "summary": "枝梢只在东侧沾有新鲜墙灰。",
-        "clue_text": "艾登留下的墙灰痕迹比黛安娜更靠东。"
+        "summary": "断枝上的墙灰只来自东侧。",
+        "clue_text": "艾登比黛安娜更靠东。"
       },
       {
         "id": "gallery-catalogue-gap",
@@ -464,8 +464,8 @@
         "col": 5,
         "title": "缺页的展览册",
         "object_label": "展册书柜",
-        "summary": "缺页边缘反复映出第五列聚光灯。",
-        "clue_text": "科林的位置在第 5 列。"
+        "summary": "缺页边缘映着第五列的聚光灯。",
+        "clue_text": "科林在第 5 列。"
       },
       {
         "id": "gallery-fountain-screw",
@@ -473,8 +473,8 @@
         "col": 4,
         "title": "喷泉底座的铜螺丝",
         "object_label": "喷泉装置",
-        "summary": "螺丝与伊森工具袋里缺失的型号一致。",
-        "clue_text": "伊森位于喷泉装置的相邻格。"
+        "summary": "螺丝的型号正好对上伊森工具袋里缺的那一枚。",
+        "clue_text": "伊森就在喷泉装置旁边。"
       },
       {
         "id": "gallery-restoration-dust",
@@ -482,8 +482,8 @@
         "col": 3,
         "title": "修复桌下的双层脚印",
         "object_label": "展廊长桌",
-        "summary": "两组男性鞋印一前一后穿过同一区域。",
-        "clue_text": "伊森所在区域里还有另一名男性。"
+        "summary": "两双男鞋一前一后穿过同一片展区。",
+        "clue_text": "伊森所在的区域里还有一名男性。"
       }
     ]
   }

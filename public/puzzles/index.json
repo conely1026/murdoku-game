@@ -12,7 +12,7 @@
       "difficulty_score": 261,
       "pack": "./public/puzzles/fog-town-books",
       "source": "examples/fog_town_books.json",
-      "summary": "沿苔庭、修书铺和玻璃连廊的折角线索复原六人的位置。"
+      "summary": "从苔庭到玻璃连廊，找回旧书街六人的落脚处。"
     },
     {
       "id": "midnight-gallery",
@@ -24,7 +24,7 @@
       "difficulty_score": 1142,
       "pack": "./public/puzzles/midnight-gallery",
       "source": "examples/midnight_gallery.json",
-      "summary": "七个错位展区和修复回廊之间留下了矛盾的夜巡证词。"
+      "summary": "应急灯照不到的错位展区里，六人的夜巡证词互相牵制。"
     },
     {
       "id": "clockwork-hotel",
@@ -36,7 +36,7 @@
       "difficulty_score": 852,
       "pack": "./public/puzzles/clockwork-hotel",
       "source": "examples/clockwork_hotel.json",
-      "summary": "在四片相互咬合的旅店空间里找出钟声停止前的真相。"
+      "summary": "听着停下的钟声，把旅店六人的最后位置排出来。"
     },
     {
       "id": "tideglass-observatory",
@@ -48,7 +48,7 @@
       "difficulty_score": 110,
       "pack": "./public/puzzles/tideglass-observatory",
       "source": "examples/tideglass_observatory.json",
-      "summary": "沿海崖小径穿过十个室内外观测区域，并调查六件可选物证。"
+      "summary": "沿海崖小径走过观测站，六件设备还会留下额外线索。"
     }
   ]
 }

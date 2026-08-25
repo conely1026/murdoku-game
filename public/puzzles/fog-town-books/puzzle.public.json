@@ -3,8 +3,8 @@
   "id": "fog-town-books",
   "generated_by": "murdoku.cli export-public",
   "source": "examples/fog_town_books.json",
-  "title": "原创谜题：雾镇书影（6×6）",
-  "story": "雨后的雾镇旧书街沿着苔庭、修书铺与咖啡馆向内收窄，旧书馆的折角过道又接入玻璃连廊。六位来客被困在这片不规则街屋之间；警灯抵达前，只能凭格子、区域和线索复原每个人的位置。",
+  "title": "雾镇书影（6×6）",
+  "story": "雨刚停，雾镇旧书街的几间店铺还连在一片潮湿的水汽里：苔庭挨着修书铺，咖啡馆守在街角，旧书馆的折角又通向玻璃连廊。六个人都说自己没有离开原处；在警灯照进来之前，先从鞋印、物件和街屋分区里找出他们各自站在哪一格。",
   "rows": 6,
   "cols": 6,
   "walkable_tiles": [
@@ -389,55 +389,55 @@
       "type": "exactly_n_on_tile",
       "tile": "chair",
       "n": 1,
-      "text": "案发时，正好只有一人停在椅子所在的格子上。"
+      "text": "椅脚旁只留下了一双鞋印。"
     },
     {
       "id": "clue-2",
       "type": "victim_alone_with_murderer",
       "victim": "Fiona",
-      "text": "被害者只和凶手同处一个区域，没有第三个人在场。"
+      "text": "菲奥娜所在的区域只剩两个人：她和凶手。"
     },
     {
       "id": "clue-3",
       "type": "person_in_row",
       "person": "Aiden",
       "row": 1,
-      "text": "艾登坚持说，他整晚只在第 1 行的视线范围内出现过。"
+      "text": "艾登说，自己整晚没有离开第 1 行。"
     },
     {
       "id": "clue-4",
       "type": "person_in_region",
       "person": "Bella",
       "region": "咖啡馆",
-      "text": "贝拉的围裙上沾着咖啡粉，说明她在咖啡馆区域。"
+      "text": "咖啡粉落在贝拉的围裙上；她人在咖啡馆。"
     },
     {
       "id": "clue-5",
       "type": "person_beside_tile",
       "person": "Colin",
       "tile": "tree",
-      "text": "科林鞋底带着树根旁的湿泥，他站在树旁边。"
+      "text": "科林的鞋底沾着树根旁的湿泥，他就在树边。"
     },
     {
       "id": "clue-6",
       "type": "person_beside_tile",
       "person": "Diana",
       "tile": "bookshelf",
-      "text": "黛安娜手套上有书页灰，她在书柜旁边。"
+      "text": "黛安娜的手套蹭上了书页灰，书柜就在她旁边。"
     },
     {
       "id": "clue-7",
       "type": "person_on_tile",
       "person": "Ethan",
       "tile": "carpet",
-      "text": "伊森留下的铜屑落在地毯上，他站在地毯格。"
+      "text": "伊森的铜屑落在一块地毯上。"
     },
     {
       "id": "clue-8",
       "type": "person_in_col",
       "person": "Fiona",
       "col": 1,
-      "text": "菲奥娜最后被目击在第 1 列。"
+      "text": "菲奥娜最后一次被看见时，在第 1 列。"
     }
   ]
 }

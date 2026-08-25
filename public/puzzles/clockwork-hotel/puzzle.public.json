@@ -3,8 +3,8 @@
   "id": "clockwork-hotel",
   "generated_by": "murdoku.cli export-public",
   "source": "examples/clockwork_hotel.json",
-  "title": "原创谜题：钟楼旅店（6×6）",
-  "story": "暴雨把钟楼旅店切成四片相互咬合的空间：钟表工坊占据旧楼转角，小前厅嵌在上层中央，狭长客房回廊沿东侧下行，雨棚门廊则从中庭向底层展开。六个人的去向必须在钟声停止前拼回去。",
+  "title": "钟楼旅店（6×6）",
+  "story": "暴雨压住了钟楼旅店的灯。钟表工坊卡在旧楼转角，小前厅悬在中央，客房回廊沿东侧往下延伸，雨棚门廊从中庭一直铺到低层。钟声停下前，六个人最后站过的格子要一一对上。",
   "rows": 6,
   "cols": 6,
   "walkable_tiles": [
@@ -389,14 +389,14 @@
       "type": "person_in_col",
       "person": "Aiden",
       "col": 1,
-      "text": "艾登的雨衣滴水只出现在第 1 列。"
+      "text": "艾登的雨衣水痕只落在第 1 列。"
     },
     {
       "id": "clue-2",
       "type": "person_in_row",
       "person": "Bella",
       "row": 1,
-      "text": "贝拉说她从未离开第 1 行的雨棚灯影。"
+      "text": "贝拉说，她一直待在第 1 行的雨棚灯下。"
     },
     {
       "id": "clue-3",
@@ -404,14 +404,14 @@
       "person": "Bella",
       "other": "Fiona",
       "relation": "west_of",
-      "text": "贝拉比菲奥娜更靠西。"
+      "text": "贝拉在菲奥娜的西边。"
     },
     {
       "id": "clue-4",
       "type": "person_beside_tile",
       "person": "Diana",
       "tile": "tree",
-      "text": "黛安娜的披肩沾到窗边树叶，她在树旁边。"
+      "text": "窗边树叶挂在黛安娜的披肩上，她就在树旁。"
     },
     {
       "id": "clue-5",
@@ -419,27 +419,27 @@
       "person": "Ethan",
       "other": "Colin",
       "relation": "west_of",
-      "text": "伊森修表时听见科林在他以东。"
+      "text": "伊森修表时，科林的声音从东边传来。"
     },
     {
       "id": "clue-6",
       "type": "exactly_n_on_tile",
       "tile": "floor",
       "n": 1,
-      "text": "六人之中，正好只有一人站在普通地板格上。"
+      "text": "普通地板格上只有一个人。"
     },
     {
       "id": "clue-7",
       "type": "victim_alone_with_murderer",
       "victim": "Fiona",
-      "text": "菲奥娜遇害时，只和凶手同处一个区域，没有第三个人在场。"
+      "text": "菲奥娜遇害时，她所在区域只有她和凶手。"
     },
     {
       "id": "clue-8",
       "type": "person_in_row",
       "person": "Fiona",
       "row": 2,
-      "text": "菲奥娜鞋底的雨水只在第 2 行留下完整脚印。"
+      "text": "菲奥娜的鞋底雨痕留在第 2 行。"
     }
   ]
 }
