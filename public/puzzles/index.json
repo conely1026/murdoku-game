@@ -48,7 +48,7 @@
       "difficulty_score": 458,
       "pack": "./public/puzzles/rain-manor",
       "source": "examples/rain_manor.json",
-      "summary": "顺着门廊、房间和冬园的边界，定位庄园里的九个人。"
+      "summary": "根据房间边界和现场记录，找出庄园九人的位置。"
     },
     {
       "id": "last-curtain-theatre",
@@ -60,7 +60,7 @@
       "difficulty_score": 28376,
       "pack": "./public/puzzles/last-curtain-theatre",
       "source": "examples/last_curtain_theatre.json",
-      "summary": "舞台、观众席、过道与前厅交错，十人的位置比证词更诚实。"
+      "summary": "根据座席分区和现场记录，找出剧院十人的最后位置。"
     },
     {
       "id": "tideglass-observatory",
@@ -72,7 +72,7 @@
       "difficulty_score": 110,
       "pack": "./public/puzzles/tideglass-observatory",
       "source": "examples/tideglass_observatory.json",
-      "summary": "沿海崖小径走过观测站，六件设备还会留下额外线索。"
+      "summary": "沿海崖小径核对十五人的位置，并调查六件现场设备。"
     }
   ]
 }

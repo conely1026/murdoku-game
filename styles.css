@@ -679,6 +679,27 @@ h2 {
   overflow-wrap: anywhere;
 }
 
+.person-clue.is-list {
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  text-align: left;
+}
+
+.person-clue-item {
+  position: relative;
+  display: block;
+  padding-left: 11px;
+}
+
+.person-clue-item::before {
+  position: absolute;
+  left: 0;
+  content: "•";
+  color: var(--accent-strong);
+  font-weight: 1000;
+}
+
 .people-panel.is-large-roster .person-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-auto-rows: auto;

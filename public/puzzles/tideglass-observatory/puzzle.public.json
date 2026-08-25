@@ -4,7 +4,7 @@
   "generated_by": "murdoku.cli export-public",
   "source": "examples/tideglass_observatory.json",
   "title": "潮镜观测站（15×15）",
-  "story": "黑潮风暴把孤岛观测站封进盐雾。海崖上的建筑被雨湿小径串成三组，风暴露台向维修坞、蓄电池房和盐雾庭院分出岔路。十五名滞留者留下了一串从西向东的脚印；海洋声学家雨果倒在中央圆厅，断电前每个人站在哪里，成了这场调查唯一要回答的问题。",
+  "story": "黑潮风暴把孤岛观测站封进盐雾。雨湿小径串起三组建筑，风暴露台又分向维修坞、蓄电池房和盐雾庭院。十五名滞留者留下从西向东的脚印，海洋声学家雨果倒在中央圆厅。根据通行记录和现场设备，找出断电前每个人的位置。",
   "rows": 15,
   "cols": 15,
   "walkable_tiles": [
@@ -2152,210 +2152,210 @@
       "type": "person_in_row",
       "person": "Dorian",
       "row": 4,
-      "text": "多里安的灯塔守夜人记录落在第 4 行。"
+      "text": "多里安在第 4 行。"
     },
     {
       "id": "clue-2",
       "type": "person_in_col",
       "person": "Dorian",
       "col": 1,
-      "text": "多里安的通行牌最后刷在第 1 列。"
+      "text": "多里安在第 1 列。"
     },
     {
       "id": "clue-3",
       "type": "person_in_row",
       "person": "Finn",
       "row": 6,
-      "text": "第 6 行还能对上芬恩的潮汐测量员记录。"
+      "text": "芬恩在第 6 行。"
     },
     {
       "id": "clue-4",
       "type": "person_in_col",
       "person": "Finn",
       "col": 2,
-      "text": "第 2 列留有芬恩最后一次通行记录。"
+      "text": "芬恩在第 2 列。"
     },
     {
       "id": "clue-5",
       "type": "person_in_row",
       "person": "Alice",
       "row": 1,
-      "text": "关于艾丽丝的定位记录，最后指向第 1 行。"
+      "text": "艾丽丝在第 1 行。"
     },
     {
       "id": "clue-6",
       "type": "person_in_col",
       "person": "Alice",
       "col": 3,
-      "text": "盐雾感应器在第 3 列读到了艾丽丝的通行牌。"
+      "text": "艾丽丝在第 3 列。"
     },
     {
       "id": "clue-7",
       "type": "person_in_row",
       "person": "Kira",
       "row": 11,
-      "text": "琪拉的维修领班记录落在第 11 行。"
+      "text": "琪拉在第 11 行。"
     },
     {
       "id": "clue-8",
       "type": "person_in_col",
       "person": "Kira",
       "col": 4,
-      "text": "琪拉的通行牌最后刷在第 4 列。"
+      "text": "琪拉在第 4 列。"
     },
     {
       "id": "clue-9",
       "type": "person_in_row",
       "person": "Elara",
       "row": 5,
-      "text": "第 5 行还能对上艾拉拉的星图绘制员记录。"
+      "text": "艾拉拉在第 5 行。"
     },
     {
       "id": "clue-10",
       "type": "person_in_col",
       "person": "Elara",
       "col": 5,
-      "text": "第 5 列留有艾拉拉最后一次通行记录。"
+      "text": "艾拉拉在第 5 列。"
     },
     {
       "id": "clue-11",
       "type": "person_in_row",
       "person": "Lucan",
       "row": 12,
-      "text": "关于卢肯的定位记录，最后指向第 12 行。"
+      "text": "卢肯在第 12 行。"
     },
     {
       "id": "clue-12",
       "type": "person_in_col",
       "person": "Lucan",
       "col": 6,
-      "text": "盐雾感应器在第 6 列读到了卢肯的通行牌。"
+      "text": "卢肯在第 6 列。"
     },
     {
       "id": "clue-13",
       "type": "person_in_row",
       "person": "Bram",
       "row": 2,
-      "text": "布拉姆的无线电报务员记录落在第 2 行。"
+      "text": "布拉姆在第 2 行。"
     },
     {
       "id": "clue-14",
       "type": "person_in_col",
       "person": "Bram",
       "col": 7,
-      "text": "布拉姆的通行牌最后刷在第 7 列。"
+      "text": "布拉姆在第 7 列。"
     },
     {
       "id": "clue-15",
       "type": "person_in_row",
       "person": "Hugo",
       "row": 8,
-      "text": "第 8 行还能对上雨果的海洋声学家记录。"
+      "text": "雨果在第 8 行。"
     },
     {
       "id": "clue-16",
       "type": "person_in_col",
       "person": "Hugo",
       "col": 8,
-      "text": "第 8 列留有雨果最后一次通行记录。"
+      "text": "雨果在第 8 列。"
     },
     {
       "id": "clue-17",
       "type": "person_in_row",
       "person": "Greta",
       "row": 7,
-      "text": "关于格蕾塔的定位记录，最后指向第 7 行。"
+      "text": "格蕾塔在第 7 行。"
     },
     {
       "id": "clue-18",
       "type": "person_in_col",
       "person": "Greta",
       "col": 9,
-      "text": "盐雾感应器在第 9 列读到了格蕾塔的通行牌。"
+      "text": "格蕾塔在第 9 列。"
     },
     {
       "id": "clue-19",
       "type": "person_in_row",
       "person": "Mara",
       "row": 13,
-      "text": "玛拉的救生设备管理员记录落在第 13 行。"
+      "text": "玛拉在第 13 行。"
     },
     {
       "id": "clue-20",
       "type": "person_in_col",
       "person": "Mara",
       "col": 10,
-      "text": "玛拉的通行牌最后刷在第 10 列。"
+      "text": "玛拉在第 10 列。"
     },
     {
       "id": "clue-21",
       "type": "person_in_row",
       "person": "Niles",
       "row": 14,
-      "text": "第 14 行还能对上奈尔斯的档案修复师记录。"
+      "text": "奈尔斯在第 14 行。"
     },
     {
       "id": "clue-22",
       "type": "person_in_col",
       "person": "Niles",
       "col": 11,
-      "text": "第 11 列留有奈尔斯最后一次通行记录。"
+      "text": "奈尔斯在第 11 列。"
     },
     {
       "id": "clue-23",
       "type": "person_in_row",
       "person": "Celia",
       "row": 3,
-      "text": "关于西莉亚的定位记录，最后指向第 3 行。"
+      "text": "西莉亚在第 3 行。"
     },
     {
       "id": "clue-24",
       "type": "person_in_col",
       "person": "Celia",
       "col": 12,
-      "text": "盐雾感应器在第 12 列读到了西莉亚的通行牌。"
+      "text": "西莉亚在第 12 列。"
     },
     {
       "id": "clue-25",
       "type": "person_in_row",
       "person": "Orla",
       "row": 15,
-      "text": "奥拉的海鸟观察员记录落在第 15 行。"
+      "text": "奥拉在第 15 行。"
     },
     {
       "id": "clue-26",
       "type": "person_in_col",
       "person": "Orla",
       "col": 13,
-      "text": "奥拉的通行牌最后刷在第 13 列。"
+      "text": "奥拉在第 13 列。"
     },
     {
       "id": "clue-27",
       "type": "person_in_row",
       "person": "Iris",
       "row": 9,
-      "text": "第 9 行还能对上伊里斯的站务医生记录。"
+      "text": "伊里斯在第 9 行。"
     },
     {
       "id": "clue-28",
       "type": "person_in_col",
       "person": "Iris",
       "col": 14,
-      "text": "第 14 列留有伊里斯最后一次通行记录。"
+      "text": "伊里斯在第 14 列。"
     },
     {
       "id": "clue-29",
       "type": "person_in_row",
       "person": "Jonas",
       "row": 10,
-      "text": "关于乔纳斯的定位记录，最后指向第 10 行。"
+      "text": "乔纳斯在第 10 行。"
     },
     {
       "id": "clue-30",
       "type": "person_in_col",
       "person": "Jonas",
       "col": 15,
-      "text": "盐雾感应器在第 15 列读到了乔纳斯的通行牌。"
+      "text": "乔纳斯在第 15 列。"
     },
     {
       "id": "clue-31",
@@ -2363,7 +2363,7 @@
       "person": "Dorian",
       "other": "Finn",
       "relation": "west_of",
-      "text": "多里安在芬恩的西边。"
+      "text": "多里安在芬恩西边。"
     },
     {
       "id": "clue-32",
@@ -2371,7 +2371,7 @@
       "person": "Finn",
       "other": "Alice",
       "relation": "west_of",
-      "text": "从西往东看，先是芬恩，再是艾丽丝。"
+      "text": "芬恩在艾丽丝西边。"
     },
     {
       "id": "clue-33",
@@ -2379,7 +2379,7 @@
       "person": "Alice",
       "other": "Kira",
       "relation": "west_of",
-      "text": "艾丽丝的脚印排在琪拉西侧。"
+      "text": "艾丽丝在琪拉西边。"
     },
     {
       "id": "clue-34",
@@ -2387,7 +2387,7 @@
       "person": "Kira",
       "other": "Elara",
       "relation": "west_of",
-      "text": "琪拉在艾拉拉的西边。"
+      "text": "琪拉在艾拉拉西边。"
     },
     {
       "id": "clue-35",
@@ -2395,7 +2395,7 @@
       "person": "Elara",
       "other": "Lucan",
       "relation": "west_of",
-      "text": "从西往东看，先是艾拉拉，再是卢肯。"
+      "text": "艾拉拉在卢肯西边。"
     },
     {
       "id": "clue-36",
@@ -2403,7 +2403,7 @@
       "person": "Lucan",
       "other": "Bram",
       "relation": "west_of",
-      "text": "卢肯的脚印排在布拉姆西侧。"
+      "text": "卢肯在布拉姆西边。"
     },
     {
       "id": "clue-37",
@@ -2411,7 +2411,7 @@
       "person": "Bram",
       "other": "Hugo",
       "relation": "west_of",
-      "text": "布拉姆在雨果的西边。"
+      "text": "布拉姆在雨果西边。"
     },
     {
       "id": "clue-38",
@@ -2419,7 +2419,7 @@
       "person": "Hugo",
       "other": "Greta",
       "relation": "west_of",
-      "text": "从西往东看，先是雨果，再是格蕾塔。"
+      "text": "雨果在格蕾塔西边。"
     },
     {
       "id": "clue-39",
@@ -2427,7 +2427,7 @@
       "person": "Greta",
       "other": "Mara",
       "relation": "west_of",
-      "text": "格蕾塔的脚印排在玛拉西侧。"
+      "text": "格蕾塔在玛拉西边。"
     },
     {
       "id": "clue-40",
@@ -2435,7 +2435,7 @@
       "person": "Mara",
       "other": "Niles",
       "relation": "west_of",
-      "text": "玛拉在奈尔斯的西边。"
+      "text": "玛拉在奈尔斯西边。"
     },
     {
       "id": "clue-41",
@@ -2443,7 +2443,7 @@
       "person": "Niles",
       "other": "Celia",
       "relation": "west_of",
-      "text": "从西往东看，先是奈尔斯，再是西莉亚。"
+      "text": "奈尔斯在西莉亚西边。"
     },
     {
       "id": "clue-42",
@@ -2451,7 +2451,7 @@
       "person": "Celia",
       "other": "Orla",
       "relation": "west_of",
-      "text": "西莉亚的脚印排在奥拉西侧。"
+      "text": "西莉亚在奥拉西边。"
     },
     {
       "id": "clue-43",
@@ -2459,7 +2459,7 @@
       "person": "Orla",
       "other": "Iris",
       "relation": "west_of",
-      "text": "奥拉在伊里斯的西边。"
+      "text": "奥拉在伊里斯西边。"
     },
     {
       "id": "clue-44",
@@ -2467,13 +2467,13 @@
       "person": "Iris",
       "other": "Jonas",
       "relation": "west_of",
-      "text": "从西往东看，先是伊里斯，再是乔纳斯。"
+      "text": "伊里斯在乔纳斯西边。"
     },
     {
       "id": "clue-45",
       "type": "victim_alone_with_murderer",
       "victim": "Hugo",
-      "text": "雨果所在的中央圆厅里，没有第三个人。"
+      "text": "雨果所在的区域里，只有他和凶手。"
     }
   ],
   "investigation": {
@@ -2489,8 +2489,8 @@
         "col": 6,
         "title": "镜筒上的结晶盐线",
         "object_label": "潮星望远镜",
-        "summary": "镜筒上的盐线由西向东变细。",
-        "clue_text": "多里安、芬恩、艾丽丝依次向东排开。"
+        "summary": "镜筒盐线从西向东逐渐变细。",
+        "clue_text": "多里安、芬恩、艾丽丝从西向东排列。"
       },
       {
         "id": "tideglass-radio-tape",
@@ -2498,8 +2498,8 @@
         "col": 2,
         "title": "倒放的无线电纸带",
         "object_label": "无线电台",
-        "summary": "倒放的纸带里，先出现布拉姆，后出现雨果。",
-        "clue_text": "布拉姆在雨果的西边。"
+        "summary": "倒放纸带中，布拉姆先于雨果出现。",
+        "clue_text": "布拉姆在雨果西边。"
       },
       {
         "id": "tideglass-generator-oil",
@@ -2507,8 +2507,8 @@
         "col": 5,
         "title": "发电机旁的绝缘油滴",
         "object_label": "备用发电机",
-        "summary": "发电机旁的油滴，和蓄电池房的鞋印对得上。",
-        "clue_text": "琪拉在卢肯的西边。"
+        "summary": "发电机旁的油滴与蓄电池房鞋印吻合。",
+        "clue_text": "琪拉在卢肯西边。"
       },
       {
         "id": "tideglass-beacon-glass",
@@ -2516,8 +2516,8 @@
         "col": 12,
         "title": "信标罩内的黑色纤维",
         "object_label": "信标灯",
-        "summary": "黑色纤维上粘着中央圆厅的浅色石粉。",
-        "clue_text": "雨果所在的中央圆厅里，还有且只有一人。"
+        "summary": "黑色纤维沾有中央圆厅的浅色石粉。",
+        "clue_text": "雨果所在的中央圆厅里，只有两个人。"
       },
       {
         "id": "tideglass-lifebuoy-knot",
@@ -2525,8 +2525,8 @@
         "col": 11,
         "title": "重新系过的救生绳结",
         "object_label": "救生圈架",
-        "summary": "绳结上从左到右粘着三种手套纤维。",
-        "clue_text": "从西往东是玛拉、奈尔斯、西莉亚。"
+        "summary": "绳结从左到右粘着三种手套纤维。",
+        "clue_text": "玛拉、奈尔斯、西莉亚从西向东排列。"
       },
       {
         "id": "tideglass-cabinet-index",
@@ -2534,8 +2534,8 @@
         "col": 3,
         "title": "被水浸过的索引卡",
         "object_label": "航海档案柜",
-        "summary": "最后三张借阅卡的编号一路向东递增。",
-        "clue_text": "奥拉、伊里斯、乔纳斯依次向东排列。"
+        "summary": "最后三张借阅卡的编号从西向东递增。",
+        "clue_text": "奥拉、伊里斯、乔纳斯从西向东排列。"
       }
     ]
   }

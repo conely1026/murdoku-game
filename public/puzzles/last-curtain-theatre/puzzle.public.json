@@ -4,7 +4,7 @@
   "generated_by": "murdoku.cli export-public",
   "source": "examples/last_curtain_theatre.json",
   "title": "末场剧院（10×10）",
-  "story": "末场演出散场后，老剧院临时封锁。舞台前缘没有墙，左右观众席由中央过道连到两侧前厅；固定座椅一排排摆着，后台家具都贴着墙。导演布鲁诺倒在红幕下，十个人最后站在哪里，只能靠这张剧院平面图拼出来。",
+  "story": "末场演出散场后，老剧院被临时封锁。舞台前缘没有墙，左右观众席通过中央过道连到两侧前厅；固定座椅成排摆放，后台家具都靠墙。导演布鲁诺倒在红幕下。根据剧院平面图和现场记录，找出十个人最后所在的位置。",
   "rows": 10,
   "cols": 10,
   "walkable_tiles": [
@@ -991,21 +991,21 @@
       "type": "victim_alone_with_murderer",
       "victim": "Bruno",
       "person": "Bruno",
-      "text": "布鲁诺所在的区域里，没有第三个人。"
+      "text": "布鲁诺所在的区域里，只有他和凶手。"
     },
     {
       "id": "clue-2",
       "type": "person_in_row",
       "person": "Alma",
       "row": 1,
-      "text": "第 1 行留有阿尔玛的完整鞋印。"
+      "text": "阿尔玛的鞋印留在第 1 行。"
     },
     {
       "id": "clue-3",
       "type": "person_in_row",
       "person": "Bruno",
       "row": 2,
-      "text": "雨水把布鲁诺的脚印带到了第 2 行。"
+      "text": "布鲁诺的湿脚印留在第 2 行。"
     },
     {
       "id": "clue-4",
@@ -1019,14 +1019,14 @@
       "type": "person_in_region",
       "person": "Diego",
       "region": "左观众席",
-      "text": "迭戈被发现在左观众席。"
+      "text": "迭戈最后出现在左观众席。"
     },
     {
       "id": "clue-6",
       "type": "person_in_row",
       "person": "Diego",
       "row": 4,
-      "text": "雨水把迭戈的脚印带到了第 4 行。"
+      "text": "迭戈的湿脚印留在第 4 行。"
     },
     {
       "id": "clue-7",
@@ -1040,75 +1040,80 @@
       "type": "person_in_row",
       "person": "Fabian",
       "row": 6,
-      "text": "第 6 行留有费边的完整鞋印。"
+      "text": "费边的鞋印留在第 6 行。"
     },
     {
       "id": "clue-9",
       "type": "person_in_region",
       "person": "Gilda",
       "region": "右观众席",
-      "text": "现场名单把吉尔达列在右观众席。"
+      "text": "现场名单显示，吉尔达在右观众席。"
     },
     {
       "id": "clue-10",
       "type": "person_in_row",
       "person": "Hector",
       "row": 8,
-      "text": "赫克托的鞋印只在第 8 行清楚可见。"
+      "text": "赫克托的鞋印留在第 8 行。"
     },
     {
       "id": "clue-11",
       "type": "person_in_region",
       "person": "Irma",
       "region": "中央过道",
-      "text": "伊尔玛被发现在中央过道。"
+      "text": "伊尔玛最后出现在中央过道。"
     },
     {
       "id": "clue-12",
       "type": "person_in_region",
       "person": "Jules",
       "region": "衣帽前厅",
-      "text": "现场名单把朱尔斯列在衣帽前厅。"
+      "text": "现场名单显示，朱尔斯在衣帽前厅。"
     },
     {
       "id": "clue-13",
       "type": "person_relative",
       "person": "Diego",
       "other": "Elsie",
+      "card_owner": "Elsie",
       "relation": "north_of",
-      "text": "迭戈在艾尔西的北边。"
+      "text": "迭戈在艾尔西北边。"
     },
     {
       "id": "clue-14",
       "type": "person_relative",
       "person": "Elsie",
       "other": "Fabian",
+      "card_owner": "Fabian",
       "relation": "north_of",
-      "text": "地图上，艾尔西落在费边的北边。"
+      "text": "艾尔西在费边北边。"
     },
     {
       "id": "clue-15",
       "type": "person_relative",
       "person": "Elsie",
       "other": "Hector",
+      "card_owner": "Hector",
       "relation": "east_of",
-      "text": "位置关系很清楚：艾尔西比赫克托更靠东边。"
+      "text": "艾尔西在赫克托东边。"
     },
     {
       "id": "clue-16",
       "type": "person_relative",
       "person": "Alma",
       "other": "Cora",
+      "card_owner": "Cora",
       "relation": "west_of",
-      "text": "阿尔玛在科拉的西边。"
+      "text": "阿尔玛在科拉西边。"
     },
     {
       "id": "clue-17",
       "type": "person_relative",
       "person": "Elsie",
       "other": "Irma",
+      "card_owner": "Irma",
       "relation": "west_of",
-      "text": "地图上，艾尔西落在伊尔玛的西边。"
+      "text": "艾尔西在伊尔玛西边。"
     },
     {
       "id": "clue-18",
@@ -1116,23 +1121,25 @@
       "person": "Alma",
       "other": "Irma",
       "relation": "west_of",
-      "text": "位置关系很清楚：阿尔玛比伊尔玛更靠西边。"
+      "text": "阿尔玛在伊尔玛西边。"
     },
     {
       "id": "clue-19",
       "type": "person_relative",
       "person": "Fabian",
       "other": "Gilda",
+      "card_owner": "Gilda",
       "relation": "west_of",
-      "text": "费边在吉尔达的西边。"
+      "text": "费边在吉尔达西边。"
     },
     {
       "id": "clue-20",
       "type": "person_relative",
       "person": "Bruno",
       "other": "Fabian",
+      "card_owner": "Fabian",
       "relation": "west_of",
-      "text": "地图上，布鲁诺落在费边的西边。"
+      "text": "布鲁诺在费边西边。"
     },
     {
       "id": "clue-21",
@@ -1140,15 +1147,16 @@
       "person": "Diego",
       "other": "Irma",
       "relation": "north_of",
-      "text": "位置关系很清楚：迭戈比伊尔玛更靠北边。"
+      "text": "迭戈在伊尔玛北边。"
     },
     {
       "id": "clue-22",
       "type": "person_relative",
       "person": "Bruno",
       "other": "Irma",
+      "card_owner": "Irma",
       "relation": "west_of",
-      "text": "布鲁诺在伊尔玛的西边。"
+      "text": "布鲁诺在伊尔玛西边。"
     },
     {
       "id": "clue-23",
@@ -1156,15 +1164,16 @@
       "person": "Alma",
       "other": "Diego",
       "relation": "east_of",
-      "text": "地图上，阿尔玛落在迭戈的东边。"
+      "text": "阿尔玛在迭戈东边。"
     },
     {
       "id": "clue-24",
       "type": "person_relative",
       "person": "Bruno",
       "other": "Cora",
+      "card_owner": "Cora",
       "relation": "west_of",
-      "text": "位置关系很清楚：布鲁诺比科拉更靠西边。"
+      "text": "布鲁诺在科拉西边。"
     },
     {
       "id": "clue-25",
@@ -1172,7 +1181,7 @@
       "person": "Bruno",
       "other": "Fabian",
       "relation": "north_of",
-      "text": "布鲁诺在费边的北边。"
+      "text": "布鲁诺在费边北边。"
     }
   ]
 }

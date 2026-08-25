@@ -1399,8 +1399,19 @@ function renderPeople() {
 
     const clue = document.createElement('span');
     clue.className = 'person-clue';
+    const clueParts = cluesByPerson[person.id] || [];
     const clueText = personClueText(cluesByPerson, person.id);
-    clue.textContent = clueText;
+    if (clueParts.length > 1) {
+      clue.classList.add('is-list');
+      for (const text of clueParts) {
+        const item = document.createElement('span');
+        item.className = 'person-clue-item';
+        item.textContent = text;
+        clue.appendChild(item);
+      }
+    } else {
+      clue.textContent = clueText;
+    }
     clue.title = clueText;
 
     button.append(portrait, meta, clue);

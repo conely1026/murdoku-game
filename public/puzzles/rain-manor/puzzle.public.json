@@ -4,7 +4,7 @@
   "generated_by": "murdoku.cli export-public",
   "source": "examples/rain_manor.json",
   "title": "雨幕庄园（9×9）",
-  "story": "暴雨封住了庄园一层。北侧的有顶门廊通向雨衣门厅，南侧的玻璃冬园连着开放雨台；书房、起居室、餐室和厨房围在中央走廊四周。艺术经纪人伊芙琳倒在走廊里，九名留宿者最后出现在哪些格子，要从房间边界和线索中找出来。",
+  "story": "暴雨封住了庄园一层。有顶门廊通向雨衣门厅，南面的玻璃冬园连着开放雨台；书房、起居室、餐室和厨房围着中央走廊。艺术经纪人伊芙琳倒在走廊里。根据房间边界和现场记录，找出九名留宿者最后所在的位置。",
   "rows": 9,
   "cols": 9,
   "walkable_tiles": [
@@ -813,42 +813,42 @@
       "type": "victim_alone_with_murderer",
       "victim": "Evelyn",
       "person": "Evelyn",
-      "text": "伊芙琳所在的区域里，没有第三个人。"
+      "text": "伊芙琳所在的区域里，只有她和凶手。"
     },
     {
       "id": "clue-2",
       "type": "person_in_col",
       "person": "Ada",
       "col": 2,
-      "text": "第 2 列留有艾达最后一次通行记录。"
+      "text": "通行记录显示，艾达在第 2 列。"
     },
     {
       "id": "clue-3",
       "type": "person_in_col",
       "person": "Basil",
       "col": 5,
-      "text": "值班簿把巴兹尔留在了第 5 列。"
+      "text": "值班簿显示，巴兹尔在第 5 列。"
     },
     {
       "id": "clue-4",
       "type": "person_in_region",
       "person": "Clara",
       "region": "蓝呢起居室",
-      "text": "清场时，克拉拉人在蓝呢起居室。"
+      "text": "克拉拉最后出现在蓝呢起居室。"
     },
     {
       "id": "clue-5",
       "type": "person_in_row",
       "person": "Clara",
       "row": 3,
-      "text": "第 3 行留有克拉拉的完整鞋印。"
+      "text": "克拉拉的鞋印留在第 3 行。"
     },
     {
       "id": "clue-6",
       "type": "person_in_row",
       "person": "Duncan",
       "row": 4,
-      "text": "雨水把邓肯的脚印带到了第 4 行。"
+      "text": "邓肯的湿脚印留在第 4 行。"
     },
     {
       "id": "clue-7",
@@ -862,49 +862,49 @@
       "type": "person_in_region",
       "person": "Evelyn",
       "region": "中央走廊",
-      "text": "伊芙琳被发现在中央走廊。"
+      "text": "伊芙琳最后出现在中央走廊。"
     },
     {
       "id": "clue-9",
       "type": "person_in_row",
       "person": "Evelyn",
       "row": 5,
-      "text": "雨水把伊芙琳的脚印带到了第 5 行。"
+      "text": "伊芙琳的湿脚印留在第 5 行。"
     },
     {
       "id": "clue-10",
       "type": "person_in_region",
       "person": "Felix",
       "region": "中央走廊",
-      "text": "清场时，菲利克斯人在中央走廊。"
+      "text": "菲利克斯最后出现在中央走廊。"
     },
     {
       "id": "clue-11",
       "type": "person_in_col",
       "person": "Grace",
       "col": 3,
-      "text": "第 3 列留有格蕾丝最后一次通行记录。"
+      "text": "通行记录显示，格蕾丝在第 3 列。"
     },
     {
       "id": "clue-12",
       "type": "person_in_col",
       "person": "Henry",
       "col": 6,
-      "text": "值班簿把亨利留在了第 6 列。"
+      "text": "值班簿显示，亨利在第 6 列。"
     },
     {
       "id": "clue-13",
       "type": "person_in_region",
       "person": "Iona",
       "region": "玻璃冬园",
-      "text": "清场时，艾奥娜人在玻璃冬园。"
+      "text": "艾奥娜最后出现在玻璃冬园。"
     },
     {
       "id": "clue-14",
       "type": "person_in_row",
       "person": "Iona",
       "row": 9,
-      "text": "第 9 行留有艾奥娜的完整鞋印。"
+      "text": "艾奥娜的鞋印留在第 9 行。"
     },
     {
       "id": "clue-15",
@@ -912,7 +912,7 @@
       "person": "Felix",
       "other": "Henry",
       "relation": "north_of",
-      "text": "位置关系很清楚：菲利克斯比亨利更靠北边。"
+      "text": "菲利克斯在亨利北边。"
     },
     {
       "id": "clue-16",
@@ -920,7 +920,7 @@
       "person": "Henry",
       "other": "Iona",
       "relation": "west_of",
-      "text": "亨利在艾奥娜的西边。"
+      "text": "亨利在艾奥娜西边。"
     },
     {
       "id": "clue-17",
@@ -928,23 +928,25 @@
       "person": "Ada",
       "other": "Evelyn",
       "relation": "west_of",
-      "text": "地图上，艾达落在伊芙琳的西边。"
+      "text": "艾达在伊芙琳西边。"
     },
     {
       "id": "clue-18",
       "type": "person_relative",
       "person": "Henry",
       "other": "Iona",
+      "card_owner": "Iona",
       "relation": "north_of",
-      "text": "位置关系很清楚：亨利比艾奥娜更靠北边。"
+      "text": "亨利在艾奥娜北边。"
     },
     {
       "id": "clue-19",
       "type": "person_relative",
       "person": "Ada",
       "other": "Clara",
+      "card_owner": "Clara",
       "relation": "west_of",
-      "text": "艾达在克拉拉的西边。"
+      "text": "艾达在克拉拉西边。"
     },
     {
       "id": "clue-20",
@@ -952,7 +954,7 @@
       "person": "Evelyn",
       "other": "Felix",
       "relation": "north_of",
-      "text": "地图上，伊芙琳落在菲利克斯的北边。"
+      "text": "伊芙琳在菲利克斯北边。"
     },
     {
       "id": "clue-21",
@@ -960,7 +962,7 @@
       "person": "Basil",
       "other": "Evelyn",
       "relation": "north_of",
-      "text": "位置关系很清楚：巴兹尔比伊芙琳更靠北边。"
+      "text": "巴兹尔在伊芙琳北边。"
     },
     {
       "id": "clue-22",
@@ -968,15 +970,16 @@
       "person": "Felix",
       "other": "Iona",
       "relation": "north_of",
-      "text": "菲利克斯在艾奥娜的北边。"
+      "text": "菲利克斯在艾奥娜北边。"
     },
     {
       "id": "clue-23",
       "type": "person_relative",
       "person": "Basil",
       "other": "Clara",
+      "card_owner": "Clara",
       "relation": "north_of",
-      "text": "地图上，巴兹尔落在克拉拉的北边。"
+      "text": "巴兹尔在克拉拉北边。"
     },
     {
       "id": "clue-24",
@@ -984,7 +987,7 @@
       "person": "Grace",
       "other": "Iona",
       "relation": "north_of",
-      "text": "位置关系很清楚：格蕾丝比艾奥娜更靠北边。"
+      "text": "格蕾丝在艾奥娜北边。"
     },
     {
       "id": "clue-25",
@@ -992,7 +995,7 @@
       "person": "Ada",
       "other": "Iona",
       "relation": "north_of",
-      "text": "艾达在艾奥娜的北边。"
+      "text": "艾达在艾奥娜北边。"
     },
     {
       "id": "clue-26",
@@ -1000,23 +1003,25 @@
       "person": "Ada",
       "other": "Evelyn",
       "relation": "north_of",
-      "text": "地图上，艾达落在伊芙琳的北边。"
+      "text": "艾达在伊芙琳北边。"
     },
     {
       "id": "clue-27",
       "type": "person_relative",
       "person": "Ada",
       "other": "Basil",
+      "card_owner": "Basil",
       "relation": "west_of",
-      "text": "位置关系很清楚：艾达比巴兹尔更靠西边。"
+      "text": "艾达在巴兹尔西边。"
     },
     {
       "id": "clue-28",
       "type": "person_relative",
       "person": "Basil",
       "other": "Iona",
+      "card_owner": "Iona",
       "relation": "north_of",
-      "text": "巴兹尔在艾奥娜的北边。"
+      "text": "巴兹尔在艾奥娜北边。"
     }
   ]
 }
