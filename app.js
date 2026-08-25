@@ -135,6 +135,7 @@ const state = {
 
 let placementHold = null;
 let suppressedCandidateClick = null;
+let paintHistoryTransaction = null;
 
 export async function loadLevelIndex(fetcher = fetch) {
   return fetchJson(LEVEL_INDEX, fetcher);
@@ -326,6 +327,25 @@ export function markPosition(playState, position, puzzle = null) {
     candidatePositions: withoutCandidates.candidatePositions,
     manualMarks,
   }, puzzle);
+}
+
+export function createBoardHistoryTransaction(playState) {
+  const previousHistory = playState.history || EMPTY_UNDO_HISTORY;
+  return {
+    board: boardHistorySnapshot(playState),
+    previous: previousHistory,
+    length: previousHistory.length + 1,
+  };
+}
+
+export function coalesceBoardHistoryChange(playState, nextPlayState, transactionHistory) {
+  if (!transactionHistory || nextPlayState.history === playState.history) {
+    return nextPlayState;
+  }
+  return {
+    ...nextPlayState,
+    history: transactionHistory,
+  };
 }
 
 export function eraseManualMark(playState, position) {
@@ -1523,8 +1543,7 @@ function investigateCell(row, col) {
 
 function handleCellPointerDown(event, row, col, cellElement) {
   if (isPaintToolActive()) {
-    state.isPainting = true;
-    state.lastPaintedPosition = '';
+    startPainting();
     applyToolToCell(row, col);
     event.preventDefault();
     return;
@@ -1559,11 +1578,18 @@ function applyToolToPosition(position) {
     return;
   }
   state.lastPaintedPosition = position;
+  const playState = snapshotPlayState();
+  let nextPlayState = playState;
   if (state.mode === 'mark-x') {
-    applyPlayState(markPosition(snapshotPlayState(), position, state.puzzle));
+    nextPlayState = markPosition(playState, position, state.puzzle);
   } else if (state.mode === 'erase') {
-    applyPlayState(eraseCell(snapshotPlayState(), position, state.puzzle));
+    nextPlayState = eraseCell(playState, position, state.puzzle);
   }
+  applyPlayState(coalesceBoardHistoryChange(
+    playState,
+    nextPlayState,
+    paintHistoryTransaction,
+  ));
   clearFeedback();
 }
 
@@ -1766,9 +1792,16 @@ function saveCollectedInvestigationIds(levelId, collectedIds) {
   );
 }
 
+function startPainting() {
+  state.isPainting = true;
+  state.lastPaintedPosition = '';
+  paintHistoryTransaction = createBoardHistoryTransaction(snapshotPlayState());
+}
+
 function stopPainting() {
   state.isPainting = false;
   state.lastPaintedPosition = '';
+  paintHistoryTransaction = null;
 }
 
 function clearFeedback() {
@@ -1948,15 +1981,19 @@ function pushHistory(playState, boardChanges, puzzle = null) {
     manualMarks,
     blockedPositions: computeBlockedPositions(assignments, puzzle),
     history: {
-      board: {
-        assignments: playState.assignments,
-        candidatePositions: playState.candidatePositions || {},
-        blockedPositions: playState.blockedPositions,
-        manualMarks: playState.manualMarks || new Set(),
-      },
+      board: boardHistorySnapshot(playState),
       previous: previousHistory,
       length: previousHistory.length + 1,
     },
+  };
+}
+
+function boardHistorySnapshot(playState) {
+  return {
+    assignments: playState.assignments,
+    candidatePositions: playState.candidatePositions || {},
+    blockedPositions: playState.blockedPositions,
+    manualMarks: playState.manualMarks || new Set(),
   };
 }
 
