@@ -9,7 +9,7 @@
       "difficulty": "入门",
       "author_difficulty": "入门",
       "difficulty_band": "Easy",
-      "difficulty_score": 261,
+      "difficulty_score": 166,
       "pack": "./public/puzzles/fog-town-books",
       "source": "examples/fog_town_books.json",
       "summary": "从苔庭到玻璃连廊，找回旧书街六人的落脚处。"
@@ -33,10 +33,34 @@
       "difficulty": "标准",
       "author_difficulty": "标准",
       "difficulty_band": "Medium",
-      "difficulty_score": 852,
+      "difficulty_score": 579,
       "pack": "./public/puzzles/clockwork-hotel",
       "source": "examples/clockwork_hotel.json",
       "summary": "听着停下的钟声，把旅店六人的最后位置排出来。"
+    },
+    {
+      "id": "rain-manor",
+      "title": "雨幕庄园",
+      "subtitle": "九人被困的庄园一层",
+      "difficulty": "标准",
+      "author_difficulty": "标准",
+      "difficulty_band": "Medium",
+      "difficulty_score": 458,
+      "pack": "./public/puzzles/rain-manor",
+      "source": "examples/rain_manor.json",
+      "summary": "顺着门廊、房间和冬园的边界，定位庄园里的九个人。"
+    },
+    {
+      "id": "last-curtain-theatre",
+      "title": "末场剧院",
+      "subtitle": "舞台灯熄灭后的十人剧院",
+      "difficulty": "困难",
+      "author_difficulty": "困难",
+      "difficulty_band": "Hard",
+      "difficulty_score": 28376,
+      "pack": "./public/puzzles/last-curtain-theatre",
+      "source": "examples/last_curtain_theatre.json",
+      "summary": "舞台、观众席、过道与前厅交错，十人的位置比证词更诚实。"
     },
     {
       "id": "tideglass-observatory",

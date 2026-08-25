@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "last-curtain-theatre-v1",
+  "source_asset": "assets/common/region-materials/last-curtain-theatre-v1/source/imagegen-last-curtain-theatre-material-atlas-v1.png",
+  "prompt_record": "assets/common/region-materials/last-curtain-theatre-v1/generation-prompts.json",
+  "source_role": "Theme-specific atlas; no raster asset owns cells or region boundaries.",
+  "texture_size": 512,
+  "art_direction": {
+    "style": "old municipal theatre surfaces in one restrained hand-painted board-game style",
+    "detail": "large sparse motifs with no photographic grain",
+    "value": "medium-light surfaces that preserve grid and piece readability"
+  },
+  "materials": {
+    "theatre_black_backstage": {
+      "asset": "assets/common/region-materials/last-curtain-theatre-v1/materials/theatre_black_backstage.png",
+      "pixel_size": {
+        "width": 512,
+        "height": 512
+      },
+      "source_crop": {
+        "left": 22,
+        "top": 24,
+        "right": 502,
+        "bottom": 500
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "theatre_red_stage": {
+      "asset": "assets/common/region-materials/last-curtain-theatre-v1/materials/theatre_red_stage.png",
+      "pixel_size": {
+        "width": 512,
+        "height": 512
+      },
+      "source_crop": {
+        "left": 528,
+        "top": 24,
+        "right": 1004,
+        "bottom": 500
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "theatre_rose_lino": {
+      "asset": "assets/common/region-materials/last-curtain-theatre-v1/materials/theatre_rose_lino.png",
+      "pixel_size": {
+        "width": 512,
+        "height": 512
+      },
+      "source_crop": {
+        "left": 1030,
+        "top": 24,
+        "right": 1513,
+        "bottom": 500
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "theatre_burgundy_carpet": {
+      "asset": "assets/common/region-materials/last-curtain-theatre-v1/materials/theatre_burgundy_carpet.png",
+      "pixel_size": {
+        "width": 512,
+        "height": 512
+      },
+      "source_crop": {
+        "left": 22,
+        "top": 526,
+        "right": 502,
+        "bottom": 1001
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "theatre_blue_aisle": {
+      "asset": "assets/common/region-materials/last-curtain-theatre-v1/materials/theatre_blue_aisle.png",
+      "pixel_size": {
+        "width": 512,
+        "height": 512
+      },
+      "source_crop": {
+        "left": 528,
+        "top": 526,
+        "right": 1004,
+        "bottom": 1001
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    },
+    "theatre_cream_terrazzo": {
+      "asset": "assets/common/region-materials/last-curtain-theatre-v1/materials/theatre_cream_terrazzo.png",
+      "pixel_size": {
+        "width": 512,
+        "height": 512
+      },
+      "source_crop": {
+        "left": 1030,
+        "top": 526,
+        "right": 1513,
+        "bottom": 1001
+      },
+      "usage": "visual-only illustrated region surface; puzzle matrix owns geometry"
+    }
+  }
+}

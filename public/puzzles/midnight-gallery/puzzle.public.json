@@ -404,29 +404,30 @@
       "type": "person_in_col",
       "person": "Ethan",
       "col": 3,
-      "text": "伊森的螺丝最后停在第 3 列。"
+      "text": "伊森在第 3 列。"
     },
     {
       "id": "clue-4",
       "type": "person_beside_tile",
       "person": "Ethan",
       "tile": "fountain",
-      "text": "伊森的外套上有喷泉溅水，他就在喷泉边。"
+      "text": "伊森在同一区域的喷泉旁。"
     },
     {
       "id": "clue-5",
       "type": "person_relative",
       "person": "Ethan",
       "other": "Colin",
+      "card_owner": "Colin",
       "relation": "south_of",
-      "text": "伊森的脚印落在科林的南边。"
+      "text": "伊森在科林南边。"
     },
     {
       "id": "clue-6",
       "type": "area_has_at_least_gender",
       "person": "Ethan",
       "gender": "M",
-      "text": "伊森所在的区域，还站着至少一名男性。"
+      "text": "伊森所在区域还有一名男性。"
     },
     {
       "id": "clue-7",

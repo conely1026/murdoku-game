@@ -1,0 +1,1178 @@
+{
+  "schema_version": 1,
+  "id": "last-curtain-theatre",
+  "generated_by": "murdoku.cli export-public",
+  "source": "examples/last_curtain_theatre.json",
+  "title": "末场剧院（10×10）",
+  "story": "末场演出散场后，老剧院临时封锁。舞台前缘没有墙，左右观众席由中央过道连到两侧前厅；固定座椅一排排摆着，后台家具都贴着墙。导演布鲁诺倒在红幕下，十个人最后站在哪里，只能靠这张剧院平面图拼出来。",
+  "rows": 10,
+  "cols": 10,
+  "walkable_tiles": [
+    "carpet",
+    "floor"
+  ],
+  "people": [
+    {
+      "id": "Alma",
+      "name": "阿尔玛 Alma",
+      "gender": "F",
+      "victim": false,
+      "role": "服装主管"
+    },
+    {
+      "id": "Bruno",
+      "name": "布鲁诺 Bruno",
+      "gender": "M",
+      "victim": true,
+      "role": "剧院导演"
+    },
+    {
+      "id": "Cora",
+      "name": "科拉 Cora",
+      "gender": "F",
+      "victim": false,
+      "role": "女主演"
+    },
+    {
+      "id": "Diego",
+      "name": "迭戈 Diego",
+      "gender": "M",
+      "victim": false,
+      "role": "舞台监督"
+    },
+    {
+      "id": "Elsie",
+      "name": "艾尔西 Elsie",
+      "gender": "F",
+      "victim": false,
+      "role": "领座员"
+    },
+    {
+      "id": "Fabian",
+      "name": "费边 Fabian",
+      "gender": "M",
+      "victim": false,
+      "role": "戏剧评论人"
+    },
+    {
+      "id": "Gilda",
+      "name": "吉尔达 Gilda",
+      "gender": "F",
+      "victim": false,
+      "role": "编舞"
+    },
+    {
+      "id": "Hector",
+      "name": "赫克托 Hector",
+      "gender": "M",
+      "victim": false,
+      "role": "灯光技师"
+    },
+    {
+      "id": "Irma",
+      "name": "伊尔玛 Irma",
+      "gender": "F",
+      "victim": false,
+      "role": "伴奏钢琴师"
+    },
+    {
+      "id": "Jules",
+      "name": "朱尔斯 Jules",
+      "gender": "M",
+      "victim": false,
+      "role": "剧院赞助人"
+    }
+  ],
+  "cells": [
+    {
+      "row": 1,
+      "col": 1,
+      "tile": "bookshelf",
+      "region": "左侧后台",
+      "walkable": false,
+      "element": "贴墙布景道具架",
+      "description": ""
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "tile": "floor",
+      "region": "左侧后台",
+      "walkable": true,
+      "element": "哑黑后台木地板",
+      "description": ""
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "tile": "carpet",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "舞台左定位毯",
+      "description": ""
+    },
+    {
+      "row": 1,
+      "col": 5,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 1,
+      "col": 6,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 1,
+      "col": 7,
+      "tile": "carpet",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "舞台右定位毯",
+      "description": ""
+    },
+    {
+      "row": 1,
+      "col": 8,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 1,
+      "col": 9,
+      "tile": "bookshelf",
+      "region": "右侧化妆间",
+      "walkable": false,
+      "element": "贴墙戏服柜",
+      "description": ""
+    },
+    {
+      "row": 1,
+      "col": 10,
+      "tile": "floor",
+      "region": "右侧化妆间",
+      "walkable": true,
+      "element": "褪色玫瑰色化妆间地胶",
+      "description": ""
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "tile": "table",
+      "region": "左侧后台",
+      "walkable": false,
+      "element": "后台提示桌",
+      "description": ""
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "tile": "floor",
+      "region": "左侧后台",
+      "walkable": true,
+      "element": "哑黑后台木地板",
+      "description": ""
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 2,
+      "col": 4,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 2,
+      "col": 5,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 2,
+      "col": 6,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 2,
+      "col": 7,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 2,
+      "col": 8,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 2,
+      "col": 9,
+      "tile": "floor",
+      "region": "右侧化妆间",
+      "walkable": true,
+      "element": "褪色玫瑰色化妆间地胶",
+      "description": ""
+    },
+    {
+      "row": 2,
+      "col": 10,
+      "tile": "table",
+      "region": "右侧化妆间",
+      "walkable": false,
+      "element": "化妆镜台",
+      "description": ""
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "tile": "floor",
+      "region": "左侧后台",
+      "walkable": true,
+      "element": "哑黑后台木地板",
+      "description": ""
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "tile": "floor",
+      "region": "左侧后台",
+      "walkable": true,
+      "element": "哑黑后台木地板",
+      "description": ""
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 3,
+      "col": 4,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 3,
+      "col": 5,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 3,
+      "col": 6,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 3,
+      "col": 7,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 3,
+      "col": 8,
+      "tile": "floor",
+      "region": "红幕舞台",
+      "walkable": true,
+      "element": "磨旧的深红舞台木板",
+      "description": ""
+    },
+    {
+      "row": 3,
+      "col": 9,
+      "tile": "floor",
+      "region": "右侧化妆间",
+      "walkable": true,
+      "element": "褪色玫瑰色化妆间地胶",
+      "description": ""
+    },
+    {
+      "row": 3,
+      "col": 10,
+      "tile": "floor",
+      "region": "右侧化妆间",
+      "walkable": true,
+      "element": "褪色玫瑰色化妆间地胶",
+      "description": ""
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "tile": "floor",
+      "region": "左观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "tile": "chair",
+      "region": "左观众席",
+      "walkable": false,
+      "element": "第 1 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 4,
+      "col": 3,
+      "tile": "chair",
+      "region": "左观众席",
+      "walkable": false,
+      "element": "第 1 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 4,
+      "col": 4,
+      "tile": "floor",
+      "region": "左观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 4,
+      "col": 5,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 4,
+      "col": 6,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 4,
+      "col": 7,
+      "tile": "floor",
+      "region": "右观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 4,
+      "col": 8,
+      "tile": "chair",
+      "region": "右观众席",
+      "walkable": false,
+      "element": "第 1 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 4,
+      "col": 9,
+      "tile": "chair",
+      "region": "右观众席",
+      "walkable": false,
+      "element": "第 1 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 4,
+      "col": 10,
+      "tile": "floor",
+      "region": "右观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 5,
+      "col": 1,
+      "tile": "floor",
+      "region": "左观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 5,
+      "col": 2,
+      "tile": "chair",
+      "region": "左观众席",
+      "walkable": false,
+      "element": "第 2 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 5,
+      "col": 3,
+      "tile": "chair",
+      "region": "左观众席",
+      "walkable": false,
+      "element": "第 2 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 5,
+      "col": 4,
+      "tile": "floor",
+      "region": "左观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 5,
+      "col": 5,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 5,
+      "col": 6,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 5,
+      "col": 7,
+      "tile": "floor",
+      "region": "右观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 5,
+      "col": 8,
+      "tile": "chair",
+      "region": "右观众席",
+      "walkable": false,
+      "element": "第 2 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 5,
+      "col": 9,
+      "tile": "chair",
+      "region": "右观众席",
+      "walkable": false,
+      "element": "第 2 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 5,
+      "col": 10,
+      "tile": "floor",
+      "region": "右观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 6,
+      "col": 1,
+      "tile": "floor",
+      "region": "左观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 6,
+      "col": 2,
+      "tile": "chair",
+      "region": "左观众席",
+      "walkable": false,
+      "element": "第 3 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 6,
+      "col": 3,
+      "tile": "chair",
+      "region": "左观众席",
+      "walkable": false,
+      "element": "第 3 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 6,
+      "col": 4,
+      "tile": "floor",
+      "region": "左观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 6,
+      "col": 5,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 6,
+      "col": 6,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 6,
+      "col": 7,
+      "tile": "floor",
+      "region": "右观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 6,
+      "col": 8,
+      "tile": "chair",
+      "region": "右观众席",
+      "walkable": false,
+      "element": "第 3 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 6,
+      "col": 9,
+      "tile": "chair",
+      "region": "右观众席",
+      "walkable": false,
+      "element": "第 3 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 6,
+      "col": 10,
+      "tile": "floor",
+      "region": "右观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 7,
+      "col": 1,
+      "tile": "floor",
+      "region": "左观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 7,
+      "col": 2,
+      "tile": "chair",
+      "region": "左观众席",
+      "walkable": false,
+      "element": "第 4 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 7,
+      "col": 3,
+      "tile": "chair",
+      "region": "左观众席",
+      "walkable": false,
+      "element": "第 4 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 7,
+      "col": 4,
+      "tile": "floor",
+      "region": "左观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 7,
+      "col": 5,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 7,
+      "col": 6,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 7,
+      "col": 7,
+      "tile": "floor",
+      "region": "右观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 7,
+      "col": 8,
+      "tile": "chair",
+      "region": "右观众席",
+      "walkable": false,
+      "element": "第 4 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 7,
+      "col": 9,
+      "tile": "chair",
+      "region": "右观众席",
+      "walkable": false,
+      "element": "第 4 排固定观众椅",
+      "description": ""
+    },
+    {
+      "row": 7,
+      "col": 10,
+      "tile": "floor",
+      "region": "右观众席",
+      "walkable": true,
+      "element": "暗酒红观众席地毯",
+      "description": ""
+    },
+    {
+      "row": 8,
+      "col": 1,
+      "tile": "table",
+      "region": "票房前厅",
+      "walkable": false,
+      "element": "售票与检票桌",
+      "description": ""
+    },
+    {
+      "row": 8,
+      "col": 2,
+      "tile": "floor",
+      "region": "票房前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 8,
+      "col": 3,
+      "tile": "floor",
+      "region": "票房前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 8,
+      "col": 4,
+      "tile": "chair",
+      "region": "票房前厅",
+      "walkable": false,
+      "element": "前厅等候椅",
+      "description": ""
+    },
+    {
+      "row": 8,
+      "col": 5,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 8,
+      "col": 6,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 8,
+      "col": 7,
+      "tile": "floor",
+      "region": "衣帽前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 8,
+      "col": 8,
+      "tile": "floor",
+      "region": "衣帽前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 8,
+      "col": 9,
+      "tile": "floor",
+      "region": "衣帽前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 8,
+      "col": 10,
+      "tile": "floor",
+      "region": "衣帽前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 9,
+      "col": 1,
+      "tile": "floor",
+      "region": "票房前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 9,
+      "col": 2,
+      "tile": "floor",
+      "region": "票房前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 9,
+      "col": 3,
+      "tile": "floor",
+      "region": "票房前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 9,
+      "col": 4,
+      "tile": "floor",
+      "region": "票房前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 9,
+      "col": 5,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 9,
+      "col": 6,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 9,
+      "col": 7,
+      "tile": "floor",
+      "region": "衣帽前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 9,
+      "col": 8,
+      "tile": "table",
+      "region": "衣帽前厅",
+      "walkable": false,
+      "element": "衣帽寄存台",
+      "description": ""
+    },
+    {
+      "row": 9,
+      "col": 9,
+      "tile": "chair",
+      "region": "衣帽前厅",
+      "walkable": false,
+      "element": "衣帽间值班椅",
+      "description": ""
+    },
+    {
+      "row": 9,
+      "col": 10,
+      "tile": "floor",
+      "region": "衣帽前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 10,
+      "col": 1,
+      "tile": "floor",
+      "region": "票房前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 10,
+      "col": 2,
+      "tile": "floor",
+      "region": "票房前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 10,
+      "col": 3,
+      "tile": "floor",
+      "region": "票房前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 10,
+      "col": 4,
+      "tile": "floor",
+      "region": "票房前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 10,
+      "col": 5,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 10,
+      "col": 6,
+      "tile": "floor",
+      "region": "中央过道",
+      "walkable": true,
+      "element": "午夜蓝中央过道地毯",
+      "description": ""
+    },
+    {
+      "row": 10,
+      "col": 7,
+      "tile": "floor",
+      "region": "衣帽前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 10,
+      "col": 8,
+      "tile": "floor",
+      "region": "衣帽前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 10,
+      "col": 9,
+      "tile": "floor",
+      "region": "衣帽前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    },
+    {
+      "row": 10,
+      "col": 10,
+      "tile": "floor",
+      "region": "衣帽前厅",
+      "walkable": true,
+      "element": "奶油黑点水磨石",
+      "description": ""
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-1",
+      "type": "victim_alone_with_murderer",
+      "victim": "Bruno",
+      "person": "Bruno",
+      "text": "布鲁诺所在的区域里，没有第三个人。"
+    },
+    {
+      "id": "clue-2",
+      "type": "person_in_row",
+      "person": "Alma",
+      "row": 1,
+      "text": "第 1 行留有阿尔玛的完整鞋印。"
+    },
+    {
+      "id": "clue-3",
+      "type": "person_in_row",
+      "person": "Bruno",
+      "row": 2,
+      "text": "雨水把布鲁诺的脚印带到了第 2 行。"
+    },
+    {
+      "id": "clue-4",
+      "type": "person_in_col",
+      "person": "Cora",
+      "col": 8,
+      "text": "科拉的值班牌最后刷在第 8 列。"
+    },
+    {
+      "id": "clue-5",
+      "type": "person_in_region",
+      "person": "Diego",
+      "region": "左观众席",
+      "text": "迭戈被发现在左观众席。"
+    },
+    {
+      "id": "clue-6",
+      "type": "person_in_row",
+      "person": "Diego",
+      "row": 4,
+      "text": "雨水把迭戈的脚印带到了第 4 行。"
+    },
+    {
+      "id": "clue-7",
+      "type": "person_in_col",
+      "person": "Elsie",
+      "col": 4,
+      "text": "艾尔西的值班牌最后刷在第 4 列。"
+    },
+    {
+      "id": "clue-8",
+      "type": "person_in_row",
+      "person": "Fabian",
+      "row": 6,
+      "text": "第 6 行留有费边的完整鞋印。"
+    },
+    {
+      "id": "clue-9",
+      "type": "person_in_region",
+      "person": "Gilda",
+      "region": "右观众席",
+      "text": "现场名单把吉尔达列在右观众席。"
+    },
+    {
+      "id": "clue-10",
+      "type": "person_in_row",
+      "person": "Hector",
+      "row": 8,
+      "text": "赫克托的鞋印只在第 8 行清楚可见。"
+    },
+    {
+      "id": "clue-11",
+      "type": "person_in_region",
+      "person": "Irma",
+      "region": "中央过道",
+      "text": "伊尔玛被发现在中央过道。"
+    },
+    {
+      "id": "clue-12",
+      "type": "person_in_region",
+      "person": "Jules",
+      "region": "衣帽前厅",
+      "text": "现场名单把朱尔斯列在衣帽前厅。"
+    },
+    {
+      "id": "clue-13",
+      "type": "person_relative",
+      "person": "Diego",
+      "other": "Elsie",
+      "relation": "north_of",
+      "text": "迭戈在艾尔西的北边。"
+    },
+    {
+      "id": "clue-14",
+      "type": "person_relative",
+      "person": "Elsie",
+      "other": "Fabian",
+      "relation": "north_of",
+      "text": "地图上，艾尔西落在费边的北边。"
+    },
+    {
+      "id": "clue-15",
+      "type": "person_relative",
+      "person": "Elsie",
+      "other": "Hector",
+      "relation": "east_of",
+      "text": "位置关系很清楚：艾尔西比赫克托更靠东边。"
+    },
+    {
+      "id": "clue-16",
+      "type": "person_relative",
+      "person": "Alma",
+      "other": "Cora",
+      "relation": "west_of",
+      "text": "阿尔玛在科拉的西边。"
+    },
+    {
+      "id": "clue-17",
+      "type": "person_relative",
+      "person": "Elsie",
+      "other": "Irma",
+      "relation": "west_of",
+      "text": "地图上，艾尔西落在伊尔玛的西边。"
+    },
+    {
+      "id": "clue-18",
+      "type": "person_relative",
+      "person": "Alma",
+      "other": "Irma",
+      "relation": "west_of",
+      "text": "位置关系很清楚：阿尔玛比伊尔玛更靠西边。"
+    },
+    {
+      "id": "clue-19",
+      "type": "person_relative",
+      "person": "Fabian",
+      "other": "Gilda",
+      "relation": "west_of",
+      "text": "费边在吉尔达的西边。"
+    },
+    {
+      "id": "clue-20",
+      "type": "person_relative",
+      "person": "Bruno",
+      "other": "Fabian",
+      "relation": "west_of",
+      "text": "地图上，布鲁诺落在费边的西边。"
+    },
+    {
+      "id": "clue-21",
+      "type": "person_relative",
+      "person": "Diego",
+      "other": "Irma",
+      "relation": "north_of",
+      "text": "位置关系很清楚：迭戈比伊尔玛更靠北边。"
+    },
+    {
+      "id": "clue-22",
+      "type": "person_relative",
+      "person": "Bruno",
+      "other": "Irma",
+      "relation": "west_of",
+      "text": "布鲁诺在伊尔玛的西边。"
+    },
+    {
+      "id": "clue-23",
+      "type": "person_relative",
+      "person": "Alma",
+      "other": "Diego",
+      "relation": "east_of",
+      "text": "地图上，阿尔玛落在迭戈的东边。"
+    },
+    {
+      "id": "clue-24",
+      "type": "person_relative",
+      "person": "Bruno",
+      "other": "Cora",
+      "relation": "west_of",
+      "text": "位置关系很清楚：布鲁诺比科拉更靠西边。"
+    },
+    {
+      "id": "clue-25",
+      "type": "person_relative",
+      "person": "Bruno",
+      "other": "Fabian",
+      "relation": "north_of",
+      "text": "布鲁诺在费边的北边。"
+    }
+  ]
+}

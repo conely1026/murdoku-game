@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "generator": "OpenAI built-in ImageGen plus deterministic low-frequency surface builder",
+  "use_case": "stylized-concept",
+  "concept_asset": "assets/puzzles/rain-manor/concepts/rain-manor-indoor-outdoor-concept-v4.png",
+  "reference_asset": "C:/Users/feixiaojie/AppData/Local/Temp/rain-manor-v3-desktop-hover.png",
+  "prompt_summary": "Preserve the Rain Manor 9x9 macro plan while adding a three-cell covered arrival porch and a three-cell conservatory rain terrace. Establish a cool wet exterior to warm inhabited interior sequence, keep realistic circulation and furniture groups, show a subtle 9x9 grid, and avoid dense floor motifs, dark gothic values, global rain overlays, text, UI, and interactions.",
+  "production_policy": "The full-board concept is direction-only and is never cropped into cells. Exterior production surfaces are generated independently as seam-free low-frequency color fields.",
+  "status": "draft"
+}

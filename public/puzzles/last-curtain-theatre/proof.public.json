@@ -1,0 +1,996 @@
+{
+  "schema_version": 1,
+  "puzzle_id": "last-curtain-theatre",
+  "generated_by": "murdoku.cli export-public",
+  "source": "examples/last_curtain_theatre.json",
+  "verified_at": "2026-08-24T09:33:07.372315+00:00",
+  "valid": true,
+  "gates": {
+    "geometry": true,
+    "void_semantics": true,
+    "unique_solution": true,
+    "murderer": true
+  },
+  "geometry": {
+    "valid": true,
+    "coverage": {
+      "missing": [],
+      "extra": [],
+      "duplicates": []
+    },
+    "regions": {
+      "中央过道": {
+        "component_count": 1,
+        "components": [
+          {
+            "cells": [
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                5
+              ],
+              [
+                5,
+                6
+              ],
+              [
+                6,
+                5
+              ],
+              [
+                6,
+                6
+              ],
+              [
+                7,
+                5
+              ],
+              [
+                7,
+                6
+              ],
+              [
+                8,
+                5
+              ],
+              [
+                8,
+                6
+              ],
+              [
+                9,
+                5
+              ],
+              [
+                9,
+                6
+              ],
+              [
+                10,
+                5
+              ],
+              [
+                10,
+                6
+              ]
+            ],
+            "boundary_edge_count": 18,
+            "boundary_closed": true,
+            "open_endpoints": []
+          }
+        ]
+      },
+      "右侧化妆间": {
+        "component_count": 1,
+        "components": [
+          {
+            "cells": [
+              [
+                1,
+                9
+              ],
+              [
+                1,
+                10
+              ],
+              [
+                2,
+                9
+              ],
+              [
+                2,
+                10
+              ],
+              [
+                3,
+                9
+              ],
+              [
+                3,
+                10
+              ]
+            ],
+            "boundary_edge_count": 10,
+            "boundary_closed": true,
+            "open_endpoints": []
+          }
+        ]
+      },
+      "右观众席": {
+        "component_count": 1,
+        "components": [
+          {
+            "cells": [
+              [
+                4,
+                7
+              ],
+              [
+                4,
+                8
+              ],
+              [
+                4,
+                9
+              ],
+              [
+                4,
+                10
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                5,
+                8
+              ],
+              [
+                5,
+                9
+              ],
+              [
+                5,
+                10
+              ],
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                8
+              ],
+              [
+                6,
+                9
+              ],
+              [
+                6,
+                10
+              ],
+              [
+                7,
+                7
+              ],
+              [
+                7,
+                8
+              ],
+              [
+                7,
+                9
+              ],
+              [
+                7,
+                10
+              ]
+            ],
+            "boundary_edge_count": 16,
+            "boundary_closed": true,
+            "open_endpoints": []
+          }
+        ]
+      },
+      "左侧后台": {
+        "component_count": 1,
+        "components": [
+          {
+            "cells": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            "boundary_edge_count": 10,
+            "boundary_closed": true,
+            "open_endpoints": []
+          }
+        ]
+      },
+      "左观众席": {
+        "component_count": 1,
+        "components": [
+          {
+            "cells": [
+              [
+                4,
+                1
+              ],
+              [
+                4,
+                2
+              ],
+              [
+                4,
+                3
+              ],
+              [
+                4,
+                4
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                5,
+                2
+              ],
+              [
+                5,
+                3
+              ],
+              [
+                5,
+                4
+              ],
+              [
+                6,
+                1
+              ],
+              [
+                6,
+                2
+              ],
+              [
+                6,
+                3
+              ],
+              [
+                6,
+                4
+              ],
+              [
+                7,
+                1
+              ],
+              [
+                7,
+                2
+              ],
+              [
+                7,
+                3
+              ],
+              [
+                7,
+                4
+              ]
+            ],
+            "boundary_edge_count": 16,
+            "boundary_closed": true,
+            "open_endpoints": []
+          }
+        ]
+      },
+      "票房前厅": {
+        "component_count": 1,
+        "components": [
+          {
+            "cells": [
+              [
+                8,
+                1
+              ],
+              [
+                8,
+                2
+              ],
+              [
+                8,
+                3
+              ],
+              [
+                8,
+                4
+              ],
+              [
+                9,
+                1
+              ],
+              [
+                9,
+                2
+              ],
+              [
+                9,
+                3
+              ],
+              [
+                9,
+                4
+              ],
+              [
+                10,
+                1
+              ],
+              [
+                10,
+                2
+              ],
+              [
+                10,
+                3
+              ],
+              [
+                10,
+                4
+              ]
+            ],
+            "boundary_edge_count": 14,
+            "boundary_closed": true,
+            "open_endpoints": []
+          }
+        ]
+      },
+      "红幕舞台": {
+        "component_count": 1,
+        "components": [
+          {
+            "cells": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                2,
+                5
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                2,
+                7
+              ],
+              [
+                2,
+                8
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                3,
+                6
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                3,
+                8
+              ]
+            ],
+            "boundary_edge_count": 18,
+            "boundary_closed": true,
+            "open_endpoints": []
+          }
+        ]
+      },
+      "衣帽前厅": {
+        "component_count": 1,
+        "components": [
+          {
+            "cells": [
+              [
+                8,
+                7
+              ],
+              [
+                8,
+                8
+              ],
+              [
+                8,
+                9
+              ],
+              [
+                8,
+                10
+              ],
+              [
+                9,
+                7
+              ],
+              [
+                9,
+                8
+              ],
+              [
+                9,
+                9
+              ],
+              [
+                9,
+                10
+              ],
+              [
+                10,
+                7
+              ],
+              [
+                10,
+                8
+              ],
+              [
+                10,
+                9
+              ],
+              [
+                10,
+                10
+              ]
+            ],
+            "boundary_edge_count": 14,
+            "boundary_closed": true,
+            "open_endpoints": []
+          }
+        ]
+      }
+    }
+  },
+  "voids": {
+    "valid": true,
+    "edge_voids": [],
+    "inner_voids": [],
+    "walkable_voids": [],
+    "edge_voids_inside": [],
+    "inner_voids_on_edge": [],
+    "missing_inner_semantics": [],
+    "too_many_inner_voids": false
+  },
+  "solution": {
+    "unique": true,
+    "solutions_found": 1,
+    "murderer": "Cora",
+    "placements": {
+      "Alma": {
+        "row": 1,
+        "col": 2
+      },
+      "Bruno": {
+        "row": 2,
+        "col": 5
+      },
+      "Cora": {
+        "row": 3,
+        "col": 8
+      },
+      "Diego": {
+        "row": 4,
+        "col": 1
+      },
+      "Elsie": {
+        "row": 5,
+        "col": 4
+      },
+      "Fabian": {
+        "row": 6,
+        "col": 7
+      },
+      "Gilda": {
+        "row": 7,
+        "col": 10
+      },
+      "Hector": {
+        "row": 8,
+        "col": 3
+      },
+      "Irma": {
+        "row": 9,
+        "col": 6
+      },
+      "Jules": {
+        "row": 10,
+        "col": 9
+      }
+    }
+  },
+  "difficulty": {
+    "band": "Hard",
+    "label": "困难",
+    "score": 28376,
+    "unique": true,
+    "solutions_found": 1,
+    "clue_count": 25,
+    "clue_type_counts": {
+      "person_in_col": 2,
+      "person_in_region": 4,
+      "person_in_row": 5,
+      "person_relative": 13,
+      "victim_alone_with_murderer": 1
+    },
+    "candidate_counts": {
+      "Alma": 8,
+      "Bruno": 8,
+      "Cora": 5,
+      "Diego": 2,
+      "Elsie": 9,
+      "Fabian": 6,
+      "Gilda": 8,
+      "Hector": 8,
+      "Irma": 14,
+      "Jules": 10
+    },
+    "search": {
+      "nodes": 12500,
+      "placements_tried": 116576,
+      "row_col_rejections": 104077,
+      "complete_assignments": 336,
+      "dead_ends": 7688,
+      "max_depth": 10
+    },
+    "reasons": [
+      "存在候选格较宽的人物，需要多轮交叉排除。",
+      "solver 需要检查多个完整排列才能确认唯一解。",
+      "包含 13 条相对位置线索。",
+      "凶手判定依赖受害者同区约束。"
+    ]
+  },
+  "matrices": {
+    "cell": [
+      [
+        "X",
+        "F",
+        "F",
+        "K",
+        "F",
+        "F",
+        "K",
+        "F",
+        "X",
+        "F"
+      ],
+      [
+        "X",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "X"
+      ],
+      [
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F"
+      ],
+      [
+        "F",
+        "C",
+        "C",
+        "F",
+        "F",
+        "F",
+        "F",
+        "C",
+        "C",
+        "F"
+      ],
+      [
+        "F",
+        "C",
+        "C",
+        "F",
+        "F",
+        "F",
+        "F",
+        "C",
+        "C",
+        "F"
+      ],
+      [
+        "F",
+        "C",
+        "C",
+        "F",
+        "F",
+        "F",
+        "F",
+        "C",
+        "C",
+        "F"
+      ],
+      [
+        "F",
+        "C",
+        "C",
+        "F",
+        "F",
+        "F",
+        "F",
+        "C",
+        "C",
+        "F"
+      ],
+      [
+        "X",
+        "F",
+        "F",
+        "C",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F"
+      ],
+      [
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "X",
+        "C",
+        "F"
+      ],
+      [
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F",
+        "F"
+      ]
+    ],
+    "region": [
+      [
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "C",
+        "C"
+      ],
+      [
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "C",
+        "C"
+      ],
+      [
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "C",
+        "C"
+      ],
+      [
+        "D",
+        "D",
+        "D",
+        "D",
+        "E",
+        "E",
+        "F",
+        "F",
+        "F",
+        "F"
+      ],
+      [
+        "D",
+        "D",
+        "D",
+        "D",
+        "E",
+        "E",
+        "F",
+        "F",
+        "F",
+        "F"
+      ],
+      [
+        "D",
+        "D",
+        "D",
+        "D",
+        "E",
+        "E",
+        "F",
+        "F",
+        "F",
+        "F"
+      ],
+      [
+        "D",
+        "D",
+        "D",
+        "D",
+        "E",
+        "E",
+        "F",
+        "F",
+        "F",
+        "F"
+      ],
+      [
+        "G",
+        "G",
+        "G",
+        "G",
+        "E",
+        "E",
+        "H",
+        "H",
+        "H",
+        "H"
+      ],
+      [
+        "G",
+        "G",
+        "G",
+        "G",
+        "E",
+        "E",
+        "H",
+        "H",
+        "H",
+        "H"
+      ],
+      [
+        "G",
+        "G",
+        "G",
+        "G",
+        "E",
+        "E",
+        "H",
+        "H",
+        "H",
+        "H"
+      ]
+    ],
+    "region_legend": {
+      "A": "左侧后台",
+      "B": "红幕舞台",
+      "C": "右侧化妆间",
+      "D": "左观众席",
+      "E": "中央过道",
+      "F": "右观众席",
+      "G": "票房前厅",
+      "H": "衣帽前厅"
+    },
+    "answer": [
+      [
+        ".",
+        "Alma",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "."
+      ],
+      [
+        ".",
+        ".",
+        ".",
+        ".",
+        "Bruno",
+        ".",
+        ".",
+        ".",
+        ".",
+        "."
+      ],
+      [
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "Cora",
+        ".",
+        "."
+      ],
+      [
+        "Diego",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "."
+      ],
+      [
+        ".",
+        ".",
+        ".",
+        "Elsie",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "."
+      ],
+      [
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "Fabian",
+        ".",
+        ".",
+        "."
+      ],
+      [
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "Gilda"
+      ],
+      [
+        ".",
+        ".",
+        "Hector",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "."
+      ],
+      [
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "Irma",
+        ".",
+        ".",
+        ".",
+        "."
+      ],
+      [
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "Jules",
+        "."
+      ]
+    ]
+  }
+}

@@ -204,13 +204,13 @@
       "asset": "assets/common/object-kit/v3/objects/table.png",
       "footprint": {
         "row": 4,
-        "col": 3,
+        "col": 2,
         "rows": 1,
         "cols": 2,
         "align": "shared-edge-center"
       },
       "render_box": {
-        "x": 1096,
+        "x": 584,
         "y": 1597,
         "width": 880,
         "height": 390

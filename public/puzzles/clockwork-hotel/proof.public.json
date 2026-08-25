@@ -3,7 +3,7 @@
   "puzzle_id": "clockwork-hotel",
   "generated_by": "murdoku.cli export-public",
   "source": "examples/clockwork_hotel.json",
-  "verified_at": "2026-08-24T07:56:57.107219+00:00",
+  "verified_at": "2026-08-25T07:39:12.849978+00:00",
   "valid": true,
   "gates": {
     "geometry": true,
@@ -257,7 +257,7 @@
   "difficulty": {
     "band": "Medium",
     "label": "标准",
-    "score": 852,
+    "score": 579,
     "unique": true,
     "solutions_found": 1,
     "clue_count": 8,
@@ -273,16 +273,16 @@
       "Aiden": 4,
       "Bella": 4,
       "Colin": 27,
-      "Diana": 6,
+      "Diana": 4,
       "Ethan": 27,
       "Fiona": 5
     },
     "search": {
-      "nodes": 321,
-      "placements_tried": 4910,
-      "row_col_rejections": 4590,
-      "complete_assignments": 112,
-      "dead_ends": 137,
+      "nodes": 200,
+      "placements_tried": 3020,
+      "row_col_rejections": 2821,
+      "complete_assignments": 64,
+      "dead_ends": 86,
       "max_depth": 6
     },
     "reasons": [

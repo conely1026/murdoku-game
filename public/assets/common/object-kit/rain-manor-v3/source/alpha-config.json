@@ -1,0 +1,15 @@
+{
+  "target_size": 512,
+  "default_occupy": 0.82,
+  "checker_colors": [[254, 254, 254], [248, 248, 248]],
+  "icons": [
+    {"name": "umbrella-stand.png", "source": "umbrella-stand.png", "kind": "topbar", "occupy": 0.78},
+    {"name": "coat-bench.png", "source": "coat-bench.png", "kind": "topbar", "occupy": 0.82},
+    {"name": "fireplace.png", "source": "fireplace.png", "kind": "topbar", "occupy": 0.88},
+    {"name": "telephone-console.png", "source": "telephone-console.png", "kind": "topbar", "occupy": 0.78},
+    {"name": "grandfather-clock.png", "source": "grandfather-clock.png", "kind": "topbar", "occupy": 0.80},
+    {"name": "dining-sideboard.png", "source": "dining-sideboard.png", "kind": "topbar", "occupy": 0.88},
+    {"name": "copper-pot-rack.png", "source": "copper-pot-rack.png", "kind": "topbar", "occupy": 0.86},
+    {"name": "glazed-planter-bench.png", "source": "glazed-planter-bench.png", "kind": "topbar", "occupy": 0.86}
+  ]
+}

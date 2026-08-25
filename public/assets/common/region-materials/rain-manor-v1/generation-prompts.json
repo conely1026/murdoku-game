@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "generator": "OpenAI built-in ImageGen",
+  "source_asset": "assets/common/region-materials/rain-manor-v1/source/imagegen-rain-manor-material-atlas-v1.png",
+  "prompt": "Create exactly six equal illustrated material panels for a realistic rainy manor: walnut study planks, sage-and-cream vestibule tile, dusty blue-green sitting-room rug, warm oak parquet, terracotta kitchen tile, and damp moss-jointed conservatory stone. Orthographic, no furniture, walls, text, labels, characters, UI, or watermark.",
+  "fact_policy": "Material-only source; puzzle JSON and matrix-skin boundary metadata own all geometry."
+}

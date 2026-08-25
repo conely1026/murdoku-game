@@ -1,0 +1,456 @@
+{
+  "schema_version": 1,
+  "puzzle_id": "rain-manor",
+  "composition": "common-object-cell-footprints",
+  "grid": {
+    "rows": 9,
+    "cols": 9,
+    "cell_size": 512
+  },
+  "render_policy": {
+    "single_cell_occupancy": 0.8,
+    "multi_cell_outer_margin": -0.1,
+    "placement_scales": {
+      "table-r8c2": 0.72,
+      "corridor-grandfather-clock": 1.15
+    }
+  },
+  "object_placements": [
+    {
+      "id": "bookshelf-r1c1",
+      "tile": "bookshelf",
+      "source_cell": "R1C1",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/bookshelf.png",
+      "footprint": {
+        "row": 1,
+        "col": 1,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 51,
+        "y": 51,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "bookshelf-r2c1",
+      "tile": "bookshelf",
+      "source_cell": "R2C1",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/bookshelf.png",
+      "footprint": {
+        "row": 2,
+        "col": 1,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 51,
+        "y": 563,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "table-r2c2",
+      "tile": "table",
+      "source_cell": "R2C2",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/writing-desk.png",
+      "footprint": {
+        "row": 2,
+        "col": 2,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 563,
+        "y": 563,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "table-r2c8",
+      "tile": "table",
+      "source_cell": "R2C8",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/conservatory-table.png",
+      "footprint": {
+        "row": 2,
+        "col": 8,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 3635,
+        "y": 563,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r3c7",
+      "tile": "chair",
+      "source_cell": "R3C7",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/wingback-chair.png",
+      "footprint": {
+        "row": 3,
+        "col": 7,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 3123,
+        "y": 1075,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r3c9",
+      "tile": "chair",
+      "source_cell": "R3C9",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/wingback-chair.png",
+      "footprint": {
+        "row": 3,
+        "col": 9,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 4147,
+        "y": 1075,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "bookshelf-r7c4",
+      "tile": "bookshelf",
+      "source_cell": "R7C4",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/kitchen-prep-trolley.png",
+      "footprint": {
+        "row": 7,
+        "col": 4,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 1587,
+        "y": 3123,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "shrub-r7c9",
+      "tile": "shrub",
+      "source_cell": "R7C9",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/fern.png",
+      "footprint": {
+        "row": 7,
+        "col": 9,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 4147,
+        "y": 3123,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "table-r8c2",
+      "tile": "table",
+      "source_cell": "R8C2",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/dining-table-2x3.png",
+      "footprint": {
+        "row": 7,
+        "col": 1,
+        "rows": 2,
+        "cols": 3,
+        "align": "expanded-footprint"
+      },
+      "render_box": {
+        "x": 178,
+        "y": 3178,
+        "width": 1179,
+        "height": 811
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "bookshelf-r8c4",
+      "tile": "bookshelf",
+      "source_cell": "R8C4",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/kitchen-prep-trolley.png",
+      "footprint": {
+        "row": 8,
+        "col": 4,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 1587,
+        "y": 3635,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "table-r8c8",
+      "tile": "table",
+      "source_cell": "R8C8",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/plant-table-group.png",
+      "footprint": {
+        "row": 8,
+        "col": 8,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 3635,
+        "y": 3635,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "shrub-r9c7",
+      "tile": "shrub",
+      "source_cell": "R9C7",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/fern.png",
+      "footprint": {
+        "row": 9,
+        "col": 7,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 3123,
+        "y": 4147,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "vestibule-umbrella-stand",
+      "tile": "floor",
+      "source_cell": "R2C4",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/umbrella-stand.png",
+      "footprint": {
+        "row": 2,
+        "col": 4,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 1587,
+        "y": 563,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "semantic_role": "雨衣门厅主识别物",
+      "interaction": "nonblocking-center-decor",
+      "usage": "theme-specific region-identity overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "vestibule-coat-bench",
+      "tile": "floor",
+      "source_cell": "R2C6",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/coat-bench.png",
+      "footprint": {
+        "row": 2,
+        "col": 6,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 2611,
+        "y": 563,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "semantic_role": "雨衣门厅换衣辅助物",
+      "interaction": "nonblocking-center-decor",
+      "usage": "theme-specific region-identity overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "sitting-fireplace",
+      "tile": "chair",
+      "source_cell": "R1C8",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/fireplace.png",
+      "footprint": {
+        "row": 1,
+        "col": 8,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 3635,
+        "y": 51,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "semantic_role": "蓝呢起居室主识别物",
+      "interaction": "blocker-visual",
+      "usage": "theme-specific region-identity overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "corridor-telephone-table",
+      "tile": "table",
+      "source_cell": "R5C6",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/telephone-console.png",
+      "footprint": {
+        "row": 5,
+        "col": 6,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 2611,
+        "y": 2099,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "semantic_role": "中央走廊主识别物",
+      "interaction": "blocker-visual",
+      "usage": "theme-specific region-identity overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "corridor-grandfather-clock",
+      "tile": "floor",
+      "source_cell": "R5C4",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/grandfather-clock.png",
+      "footprint": {
+        "row": 5,
+        "col": 4,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 1556,
+        "y": 2068,
+        "width": 471,
+        "height": 471
+      },
+      "background": "transparent",
+      "semantic_role": "中央走廊时代辅助物",
+      "interaction": "nonblocking-center-decor",
+      "usage": "theme-specific region-identity overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "dining-sideboard",
+      "tile": "floor",
+      "source_cell": "R9C3",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/dining-sideboard.png",
+      "footprint": {
+        "row": 9,
+        "col": 3,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 1075,
+        "y": 4147,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "semantic_role": "家族餐室餐具辅助物",
+      "interaction": "nonblocking-center-decor",
+      "usage": "theme-specific region-identity overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "pantry-copper-rack",
+      "tile": "floor",
+      "source_cell": "R7C6",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/copper-pot-rack.png",
+      "footprint": {
+        "row": 7,
+        "col": 6,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 2611,
+        "y": 3123,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "semantic_role": "备餐厨房主识别物",
+      "interaction": "nonblocking-center-decor",
+      "usage": "theme-specific region-identity overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "conservatory-planter-bench",
+      "tile": "floor",
+      "source_cell": "R9C9",
+      "asset": "assets/common/object-kit/rain-manor-v5/objects/glazed-planter-bench.png",
+      "footprint": {
+        "row": 9,
+        "col": 9,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 4147,
+        "y": 4147,
+        "width": 410,
+        "height": 410
+      },
+      "background": "transparent",
+      "semantic_role": "玻璃冬园辅助展示物",
+      "interaction": "nonblocking-center-decor",
+      "usage": "theme-specific region-identity overlay; puzzle JSON owns all facts"
+    }
+  ]
+}

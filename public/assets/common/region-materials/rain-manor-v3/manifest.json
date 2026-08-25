@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "rain-manor-v3",
+  "prompt_record": "assets/common/region-materials/rain-manor-v3/generation-prompts.json",
+  "source_role": "One ImageGen source per material; the puzzle matrix owns all cells and regions.",
+  "texture_size": 512,
+  "art_direction": {
+    "style": "brighter rainy-manor hand-painted board-game color fields",
+    "detail": "low-frequency macro variation without boards, grout, medallions, or room-sized motifs",
+    "value": "medium-light surfaces beneath light structure lines and complete hover outlines"
+  },
+  "materials": {
+    "manor_walnut_study": {"asset": "assets/common/region-materials/rain-manor-v3/materials/manor_walnut_study.png", "pixel_size": {"width": 512, "height": 512}, "usage": "single uninterrupted warm walnut color field"},
+    "manor_sage_tile": {"asset": "assets/common/region-materials/rain-manor-v3/materials/manor_sage_tile.png", "pixel_size": {"width": 512, "height": 512}, "usage": "single uninterrupted pale sage mineral color field"},
+    "manor_blue_rug": {"asset": "assets/common/region-materials/rain-manor-v3/materials/manor_blue_rug.png", "pixel_size": {"width": 512, "height": 512}, "usage": "single uninterrupted muted blue-green textile field"},
+    "manor_oak_parquet": {"asset": "assets/common/region-materials/rain-manor-v3/materials/manor_oak_parquet.png", "pixel_size": {"width": 512, "height": 512}, "usage": "single uninterrupted honey-oak color field; legacy id retained for puzzle compatibility"},
+    "manor_terracotta": {"asset": "assets/common/region-materials/rain-manor-v3/materials/manor_terracotta.png", "pixel_size": {"width": 512, "height": 512}, "usage": "single uninterrupted muted terracotta mineral field"},
+    "manor_moss_stone": {"asset": "assets/common/region-materials/rain-manor-v3/materials/manor_moss_stone.png", "pixel_size": {"width": 512, "height": 512}, "usage": "single uninterrupted pale gray-green mineral field"},
+    "manor_wet_slate": {"asset": "assets/common/region-materials/rain-manor-v2/materials/manor_wet_slate.png", "pixel_size": {"width": 512, "height": 512}, "usage": "approved covered arrival porch surface"},
+    "manor_rain_terrace": {"asset": "assets/common/region-materials/rain-manor-v2/materials/manor_rain_terrace.png", "pixel_size": {"width": 512, "height": 512}, "usage": "approved open conservatory rain terrace surface"}
+  }
+}

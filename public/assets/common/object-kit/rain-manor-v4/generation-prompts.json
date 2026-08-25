@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "generator": "built-in ImageGen",
+  "reference": "assets/puzzles/rain-manor/concepts/rain-manor-indoor-outdoor-concept-v4.png",
+  "source_asset": "assets/common/object-kit/rain-manor-v4/source/imagegen-rain-manor-concept-props-atlas-v4.png",
+  "objects": ["writing-desk", "bookshelf", "umbrella-stand", "coat-bench", "fireplace", "telephone-console", "dining-table-2x3", "plant-table-group"],
+  "prompt_summary": "Eight isolated orthographic late-Victorian rainy-manor props in a unified hand-painted board-game style, upper-left diffuse light, generous gutters, no room background, no text, no grid.",
+  "status": "draft-alpha-cleaned-not-integrated",
+  "known_issue": "ImageGen returned an RGB fake-checkerboard source. RGBA exports pass alpha bounds checks, but residual light shadow halos still require actual-board evaluation before integration."
+}

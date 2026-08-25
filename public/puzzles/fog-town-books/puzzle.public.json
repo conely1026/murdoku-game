@@ -389,7 +389,7 @@
       "type": "exactly_n_on_tile",
       "tile": "chair",
       "n": 1,
-      "text": "椅脚旁只留下了一双鞋印。"
+      "text": "案发时，三把椅子中只有一把有人坐着。"
     },
     {
       "id": "clue-2",
@@ -413,27 +413,34 @@
     },
     {
       "id": "clue-5",
-      "type": "person_beside_tile",
+      "type": "person_in_col",
       "person": "Colin",
-      "tile": "tree",
-      "text": "科林的鞋底沾着树根旁的湿泥，他就在树边。"
+      "col": 5,
+      "text": "科林的鞋印停在第 5 列。"
     },
     {
       "id": "clue-6",
+      "type": "person_in_region",
+      "person": "Colin",
+      "region": "玻璃连廊",
+      "text": "科林没有离开玻璃连廊。"
+    },
+    {
+      "id": "clue-7",
       "type": "person_beside_tile",
       "person": "Diana",
       "tile": "bookshelf",
       "text": "黛安娜的手套蹭上了书页灰，书柜就在她旁边。"
     },
     {
-      "id": "clue-7",
+      "id": "clue-8",
       "type": "person_on_tile",
       "person": "Ethan",
       "tile": "carpet",
       "text": "伊森的铜屑落在一块地毯上。"
     },
     {
-      "id": "clue-8",
+      "id": "clue-9",
       "type": "person_in_col",
       "person": "Fiona",
       "col": 1,

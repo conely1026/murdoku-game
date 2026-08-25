@@ -1,0 +1,23 @@
+{
+  "target_size": 512,
+  "default_occupy": 0.86,
+  "checker_colors": null,
+  "icons": [
+    { "name": "bookshelf.png", "source": "bookshelf.png", "kind": "topbar" },
+    { "name": "writing-desk.png", "source": "writing-desk.png", "kind": "topbar" },
+    { "name": "wingback-chair.png", "source": "wingback-chair.png", "kind": "topbar" },
+    { "name": "fireplace.png", "source": "fireplace.png", "kind": "topbar" },
+    { "name": "coat-bench.png", "source": "coat-bench.png", "kind": "topbar" },
+    { "name": "dining-table-2x3.png", "source": "dining-table-2x3.png", "kind": "topbar" },
+    { "name": "dining-sideboard.png", "source": "dining-sideboard.png", "kind": "topbar" },
+    { "name": "glazed-planter-bench.png", "source": "glazed-planter-bench.png", "kind": "topbar" },
+    { "name": "umbrella-stand.png", "source": "umbrella-stand.png", "kind": "topbar" },
+    { "name": "conservatory-table.png", "source": "conservatory-table.png", "kind": "topbar" },
+    { "name": "grandfather-clock.png", "source": "grandfather-clock.png", "kind": "topbar" },
+    { "name": "telephone-console.png", "source": "telephone-console.png", "kind": "topbar" },
+    { "name": "fern.png", "source": "fern.png", "kind": "topbar" },
+    { "name": "plant-table-group.png", "source": "plant-table-group.png", "kind": "topbar" },
+    { "name": "copper-pot-rack.png", "source": "copper-pot-rack.png", "kind": "topbar" },
+    { "name": "kitchen-prep-trolley.png", "source": "kitchen-prep-trolley.png", "kind": "topbar" }
+  ]
+}

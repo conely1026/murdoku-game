@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "generator": "OpenAI built-in ImageGen",
+  "source_asset": "assets/common/object-kit/rain-manor-v2/source/imagegen-rain-manor-identity-props-atlas-v2.png",
+  "style_reference": "assets/common/object-kit/rain-manor-v1/source/imagegen-rain-manor-furniture-atlas-v1.png",
+  "prompt": "Create exactly eight late-Victorian English manor identity props in a 4x2 transparent atlas: umbrella stand, coat-and-shoe bench, top-down fireplace, telephone console, grandfather clock, dining sideboard, copper-pot rack, and glazed conservatory planter bench. Match the existing manor furniture atlas perspective, outline, walnut/brass/deep-green palette, upper-left light, and short contact shadows. Keep one complete centered object per panel with transparent padding; no text, floor, walls, room background, checkerboard, dividers, logos, watermark, cropped edges, extras, or duplicates.",
+  "fact_policy": "Region-identity overlays only; puzzle JSON owns cells, walkability, regions, clues, and answers.",
+  "production_policy": "Walkable-cell props are scaled and aligned to a wall edge so their render boxes never cover the cell center."
+}

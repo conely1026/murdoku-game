@@ -66,6 +66,11 @@ const ART_MODES = new Set([
 const SVG_NAMESPACE = 'http://www.w3.org/2000/svg';
 const BOARD_COORD_WIDTH = 34;
 const LARGE_GRID_MIN_CELL_SIZE = 40;
+const EMPTY_UNDO_HISTORY = Object.freeze({
+  board: null,
+  previous: null,
+  length: 0,
+});
 const REGION_FALLBACK_COLORS = Object.freeze({
   mossy_garden_grass: '#5f7d3c',
   light_honey_cafe_wood: '#b48647',
@@ -121,7 +126,7 @@ const state = {
   candidatePositions: {},
   blockedPositions: new Set(),
   manualMarks: new Set(),
-  history: [],
+  history: EMPTY_UNDO_HISTORY,
   activeHint: 0,
   isPainting: false,
   lastPaintedPosition: '',
@@ -173,7 +178,7 @@ export function createPlayState(people) {
     candidatePositions: {},
     blockedPositions: new Set(),
     manualMarks: new Set(),
-    history: [],
+    history: EMPTY_UNDO_HISTORY,
     selectedPerson: people[0] || '',
     mode: 'place',
   };
@@ -185,11 +190,19 @@ export function candidatePeopleAtPosition(candidatePositions, position) {
     .map(([personId]) => personId);
 }
 
+export function candidateLabelForPerson(people, personId) {
+  const index = (people || []).findIndex((person) => person.id === personId);
+  if (index < 0) {
+    return '';
+  }
+  return index < 26 ? String.fromCharCode(97 + index) : String(index + 1);
+}
+
 export function toggleCandidatePosition(playState, personId, position, puzzle = null) {
   if (!canPlaceCandidate(playState, personId, position, puzzle)) {
     return withBlockedPositions(playState, puzzle);
   }
-  const candidatePositions = cloneCandidatePositions(playState.candidatePositions);
+  const candidatePositions = { ...(playState.candidatePositions || {}) };
   const positions = new Set(candidatePositions[personId] || []);
   if (positions.has(position)) {
     positions.delete(position);
@@ -201,10 +214,7 @@ export function toggleCandidatePosition(playState, personId, position, puzzle = 
   } else {
     delete candidatePositions[personId];
   }
-  return {
-    ...playState,
-    candidatePositions,
-  };
+  return pushHistory(playState, { candidatePositions }, puzzle);
 }
 
 export function confirmPersonPlacement(playState, personId, position, puzzle = null) {
@@ -243,7 +253,7 @@ export function placePerson(playState, personId, position, puzzle = null) {
     }
   }
   nextAssignments[personId] = position;
-  return pushHistory(playState, nextAssignments, puzzle);
+  return pushHistory(playState, { assignments: nextAssignments }, puzzle);
 }
 
 export function clearPosition(playState, position, puzzle = null) {
@@ -255,27 +265,31 @@ export function clearPosition(playState, position, puzzle = null) {
     return withBlockedPositions(playState, puzzle);
   }
   delete nextAssignments[personAtPosition];
-  return pushHistory(playState, nextAssignments, puzzle);
+  return pushHistory(playState, { assignments: nextAssignments }, puzzle);
 }
 
 export function eraseAll(playState, puzzle = null) {
   const hasCandidates = Object.keys(playState.candidatePositions || {}).length > 0;
-  if (!Object.keys(playState.assignments).length && !hasCandidates) {
+  const hasManualMarks = (playState.manualMarks?.size || 0) > 0;
+  if (!Object.keys(playState.assignments).length && !hasCandidates && !hasManualMarks) {
     return withBlockedPositions(playState, puzzle);
   }
-  return pushHistory({ ...playState, candidatePositions: {} }, {}, puzzle);
+  return pushHistory(playState, {
+    assignments: {},
+    candidatePositions: {},
+    manualMarks: new Set(),
+  }, puzzle);
 }
 
 export function undoLast(playState, puzzle = null) {
   if (!playState.history.length) {
     return withBlockedPositions(playState, puzzle);
   }
-  const previous = playState.history[playState.history.length - 1];
+  const previous = playState.history.board;
   return {
     ...playState,
-    assignments: { ...previous },
-    blockedPositions: computeBlockedPositions(previous, puzzle),
-    history: playState.history.slice(0, -1),
+    ...previous,
+    history: playState.history.previous,
   };
 }
 
@@ -302,13 +316,16 @@ export function markPosition(playState, position, puzzle = null) {
   if (!canMarkPosition(playState, position, puzzle)) {
     return playState;
   }
+  if (playState.manualMarks?.has(position)) {
+    return withBlockedPositions(playState, puzzle);
+  }
   const manualMarks = new Set(playState.manualMarks || []);
   manualMarks.add(position);
   const withoutCandidates = eraseCandidatesAtPosition(playState, position);
-  return {
-    ...withoutCandidates,
+  return pushHistory(playState, {
+    candidatePositions: withoutCandidates.candidatePositions,
     manualMarks,
-  };
+  }, puzzle);
 }
 
 export function eraseManualMark(playState, position) {
@@ -324,17 +341,28 @@ export function eraseManualMark(playState, position) {
 }
 
 export function eraseCell(playState, position, puzzle = null) {
+  const hadManualMark = playState.manualMarks?.has(position) || false;
+  const hadCandidates = candidatePeopleAtPosition(
+    playState.candidatePositions,
+    position,
+  ).length > 0;
   const withoutMark = eraseManualMark(playState, position);
   const withoutCandidates = eraseCandidatesAtPosition(withoutMark, position);
   const nextAssignments = { ...withoutCandidates.assignments };
   const personAtPosition = Object.keys(nextAssignments).find(
     (personId) => nextAssignments[personId] === position,
   );
-  if (!personAtPosition) {
-    return withBlockedPositions(withoutCandidates, puzzle);
+  if (personAtPosition) {
+    delete nextAssignments[personAtPosition];
   }
-  delete nextAssignments[personAtPosition];
-  return pushHistory(withoutCandidates, nextAssignments, puzzle);
+  if (!personAtPosition && !hadManualMark && !hadCandidates) {
+    return withBlockedPositions(playState, puzzle);
+  }
+  return pushHistory(playState, {
+    assignments: nextAssignments,
+    candidatePositions: withoutCandidates.candidatePositions,
+    manualMarks: withoutCandidates.manualMarks,
+  }, puzzle);
 }
 
 export function computeBlockedPositions(assignments, puzzle, options = {}) {
@@ -373,10 +401,9 @@ export function computeBlockedPositions(assignments, puzzle, options = {}) {
 export function activeCluesByPerson(puzzle) {
   const byPerson = Object.fromEntries(puzzle.people.map((person) => [person.id, []]));
   for (const clue of puzzle.clues) {
-    for (const personId of cluePersonIds(clue)) {
-      if (byPerson[personId] && !byPerson[personId].includes(clue.text)) {
-        byPerson[personId].push(clue.text);
-      }
+    const personId = clueCardOwnerId(clue);
+    if (byPerson[personId] && !byPerson[personId].includes(clue.text)) {
+      byPerson[personId].push(clue.text);
     }
   }
   return byPerson;
@@ -387,12 +414,12 @@ export function personClueText(cluesByPerson, personId) {
   return clues.length ? clues.join(' ') : NO_DIRECT_CLUE_TEXT;
 }
 
-function cluePersonIds(clue) {
-  return [clue.person, clue.victim, clue.other].filter(Boolean);
+export function clueCardOwnerId(clue) {
+  return clue.card_owner || clue.victim || clue.person || clue.other || '';
 }
 
 export function generalClues(puzzle) {
-  return puzzle.clues.filter((clue) => !clue.person && !clue.victim);
+  return puzzle.clues.filter((clue) => !clueCardOwnerId(clue));
 }
 
 export function evaluateSubmission(assignments, proof, people) {
@@ -630,7 +657,7 @@ async function loadLevel(levelId, options = {}) {
   state.candidatePositions = {};
   state.blockedPositions = new Set();
   state.manualMarks = new Set();
-  state.history = [];
+  state.history = EMPTY_UNDO_HISTORY;
   state.activeHint = 0;
   state.hoveredRegion = '';
   state.focusedRegion = '';
@@ -980,6 +1007,12 @@ function renderCell(row, col) {
   const candidatePersonIds = candidatePeopleAtPosition(state.candidatePositions, key);
   const candidateNames = candidatePersonIds.map((personId) => personName(personId));
   const occupant = occupantAt(row, col);
+  const isSelectedPersonPosition = Boolean(
+    state.selectedPerson && occupant === state.selectedPerson,
+  );
+  const hasSelectedCandidate = Boolean(
+    state.selectedPerson && candidatePersonIds.includes(state.selectedPerson),
+  );
   const isSelectedRegion = cell.region === state.selectedRegion;
   const isPreviewRegion = cell.region === (state.focusedRegion || state.hoveredRegion);
   const isManualMark = state.manualMarks.has(key);
@@ -1004,6 +1037,8 @@ function renderCell(row, col) {
     objectAsset ? 'has-object-asset' : '',
     isSelectedRegion ? 'is-region-selected' : '',
     isPreviewRegion ? 'is-region-preview' : '',
+    isSelectedPersonPosition ? 'is-selected-person-position' : '',
+    hasSelectedCandidate ? 'has-selected-candidate' : '',
     isXHint ? 'is-x-hint' : '',
     isManualMark ? 'is-manual-x' : '',
     investigationItem ? 'is-investigable' : '',
@@ -1028,6 +1063,9 @@ function renderCell(row, col) {
   const element = cell.element || tileName(cell.tile);
   button.title = `${key} · ${element} · ${cell.region}`;
   button.setAttribute('aria-pressed', isSelectedRegion ? 'true' : 'false');
+  if (isSelectedPersonPosition) {
+    button.setAttribute('aria-current', 'location');
+  }
   button.setAttribute(
     'aria-label',
     [
@@ -1035,6 +1073,8 @@ function renderCell(row, col) {
       cell.walkable ? '单击添加候选虚影，长按一秒正式放置' : '不可放置，可查看区域',
       occupant ? `正式放置：${personName(occupant)}` : '',
       candidateNames.length ? `候选：${candidateNames.join('、')}` : '',
+      isSelectedPersonPosition ? '当前选中人物的位置' : '',
+      hasSelectedCandidate ? '包含当前选中人物的候选标记' : '',
     ].filter(Boolean).join('，'),
   );
 
@@ -1058,9 +1098,9 @@ function renderCell(row, col) {
   button.appendChild(symbol);
 
   if (occupant) {
-    button.appendChild(renderOccupant(occupant));
+    button.appendChild(renderOccupant(occupant, isSelectedPersonPosition));
   } else if (candidatePersonIds.length) {
-    button.appendChild(renderCandidateGhosts(candidatePersonIds));
+    button.appendChild(renderCandidateMarkers(candidatePersonIds, state.selectedPerson));
   } else if (isXHint) {
     const x = document.createElement('span');
     x.className = 'map-x';
@@ -1100,31 +1140,28 @@ function renderCell(row, col) {
   return button;
 }
 
-function renderCandidateGhosts(personIds) {
+function renderCandidateMarkers(personIds, selectedPersonId = '') {
   const stack = document.createElement('span');
-  stack.className = 'candidate-stack';
+  stack.className = [
+    'candidate-stack',
+    personIds.includes(selectedPersonId) ? 'has-selected-person' : '',
+  ].filter(Boolean).join(' ');
   stack.setAttribute('aria-hidden', 'true');
   for (const personId of personIds) {
-    const ghost = document.createElement('span');
-    ghost.className = 'candidate-ghost';
-    ghost.title = personName(personId);
-    const asset = portraitAssetFor(personId);
-    if (asset) {
-      const image = document.createElement('img');
-      image.src = publicAssetUrl(asset);
-      image.alt = '';
-      ghost.appendChild(image);
-    } else {
-      ghost.textContent = personId.slice(0, 1);
-    }
-    stack.appendChild(ghost);
+    const marker = document.createElement('span');
+    const label = candidateLabelForPerson(state.puzzle.people, personId);
+    marker.className = `candidate-letter${personId === selectedPersonId ? ' is-selected' : ''}`;
+    marker.dataset.personId = personId;
+    marker.title = `${label} · ${personName(personId)}`;
+    marker.textContent = label;
+    stack.appendChild(marker);
   }
   return stack;
 }
 
-function renderOccupant(personId) {
+function renderOccupant(personId, isSelected = false) {
   const marker = document.createElement('span');
-  marker.className = 'occupant';
+  marker.className = `occupant${isSelected ? ' is-selected' : ''}`;
   marker.title = personName(personId);
   marker.setAttribute('aria-hidden', 'true');
 
@@ -1278,18 +1315,26 @@ function renderInvestigationPanel() {
 function renderPeople() {
   const list = byId('person-list');
   const cluesByPerson = activeCluesByPerson(state.puzzle);
-  renderSelectedPersonClue(cluesByPerson);
   list.closest('.people-panel')?.classList.toggle(
     'is-large-roster',
     state.puzzle.people.length > 9,
   );
   list.replaceChildren();
   for (const person of state.puzzle.people) {
+    const isSelected = person.id === state.selectedPerson;
+    const assignedPosition = state.assignments[person.id];
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = `person-card${person.id === state.selectedPerson ? ' is-selected' : ''}`;
+    button.className = [
+      'person-card',
+      assignedPosition ? 'is-placed' : '',
+      isSelected ? 'is-selected' : '',
+    ].filter(Boolean).join(' ');
     button.dataset.personId = person.id;
-    button.setAttribute('aria-pressed', person.id === state.selectedPerson ? 'true' : 'false');
+    if (assignedPosition) {
+      button.dataset.assignment = assignedPosition;
+    }
+    button.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
     button.addEventListener('click', () => {
       applyPlayState(selectPerson(snapshotPlayState(), person.id));
       clearFeedback();
@@ -1314,6 +1359,11 @@ function renderPeople() {
     } else {
       portrait.textContent = person.id.slice(0, 1);
     }
+    const candidateKey = document.createElement('span');
+    candidateKey.className = 'person-candidate-key';
+    candidateKey.textContent = candidateLabelForPerson(state.puzzle.people, person.id);
+    candidateKey.setAttribute('aria-hidden', 'true');
+    portrait.appendChild(candidateKey);
 
     const name = document.createElement('span');
     name.className = 'person-name';
@@ -1325,10 +1375,6 @@ function renderPeople() {
       name.append(' ', victim);
     }
 
-    const position = document.createElement('span');
-    position.className = 'person-position';
-    position.textContent = assignmentLabel(state.assignments[person.id]);
-
     const meta = document.createElement('span');
     meta.className = 'person-meta';
     meta.append(name);
@@ -1338,7 +1384,18 @@ function renderPeople() {
       role.textContent = person.role;
       meta.appendChild(role);
     }
-    meta.appendChild(position);
+    if (assignedPosition) {
+      const placement = document.createElement('span');
+      placement.className = 'person-placement';
+      const placementStatus = document.createElement('span');
+      placementStatus.className = 'person-placement-status';
+      placementStatus.textContent = '已放置';
+      const position = document.createElement('span');
+      position.className = 'person-position';
+      position.textContent = assignmentLabel(assignedPosition);
+      placement.append(placementStatus, position);
+      meta.appendChild(placement);
+    }
 
     const clue = document.createElement('span');
     clue.className = 'person-clue';
@@ -1688,21 +1745,6 @@ function loadCollectedInvestigationIds(levelId) {
   }
 }
 
-function renderSelectedPersonClue(cluesByPerson) {
-  const panel = byId('selected-person-clue');
-  const name = byId('selected-person-clue-name');
-  const text = byId('selected-person-clue-text');
-  const person = state.puzzle.people.find((item) => item.id === state.selectedPerson);
-  panel.hidden = !person;
-  if (!person) {
-    name.textContent = '';
-    text.textContent = '';
-    return;
-  }
-  name.textContent = `${person.name} · 完整线索`;
-  text.textContent = personClueText(cluesByPerson, person.id);
-}
-
 function saveCollectedInvestigationIds(levelId, collectedIds) {
   if (!levelId || typeof window === 'undefined' || !window.localStorage) {
     return;
@@ -1734,9 +1776,7 @@ function personName(personId) {
 }
 
 function assignmentLabel(key) {
-  if (!key) {
-    return '未放置';
-  }
+  if (!key) return '';
   const [row, col] = key.split(',');
   return `R${row}C${col}`;
 }
@@ -1880,12 +1920,32 @@ function byId(id) {
   return document.getElementById(id);
 }
 
-function pushHistory(playState, nextAssignments, puzzle = null) {
+function pushHistory(playState, boardChanges, puzzle = null) {
+  const assignments = boardChanges.assignments ?? playState.assignments;
+  const candidatePositions = boardChanges.candidatePositions
+    ?? playState.candidatePositions
+    ?? {};
+  const manualMarks = boardChanges.manualMarks ?? playState.manualMarks ?? new Set();
+  const previousHistory = playState.history || EMPTY_UNDO_HISTORY;
+  // Board collections are replaced on change, so a history node can share
+  // their previous versions without copying the whole board.
   return {
     ...playState,
-    assignments: nextAssignments,
-    blockedPositions: computeBlockedPositions(nextAssignments, puzzle),
-    history: [...playState.history, { ...playState.assignments }],
+    ...boardChanges,
+    assignments,
+    candidatePositions,
+    manualMarks,
+    blockedPositions: computeBlockedPositions(assignments, puzzle),
+    history: {
+      board: {
+        assignments: playState.assignments,
+        candidatePositions: playState.candidatePositions || {},
+        blockedPositions: playState.blockedPositions,
+        manualMarks: playState.manualMarks || new Set(),
+      },
+      previous: previousHistory,
+      length: previousHistory.length + 1,
+    },
   };
 }
 

@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "generator": "OpenAI built-in ImageGen",
+  "source_asset": "assets/common/region-materials/last-curtain-theatre-v1/source/imagegen-last-curtain-theatre-material-atlas-v1.png",
+  "prompt": "Create exactly six equal illustrated material panels for a realistic old theatre: matte black backstage timber, worn crimson stage boards, faded rose dressing-room linoleum, burgundy auditorium carpet, dark blue aisle runner, and cream-and-charcoal foyer terrazzo. Orthographic, no furniture, walls, text, labels, characters, UI, or watermark.",
+  "fact_policy": "Material-only source; puzzle JSON and matrix-skin boundary metadata own all geometry."
+}

@@ -1,0 +1,516 @@
+{
+  "schema_version": 1,
+  "puzzle_id": "last-curtain-theatre",
+  "composition": "common-object-cell-footprints",
+  "grid": {
+    "rows": 10,
+    "cols": 10,
+    "cell_size": 512
+  },
+  "object_placements": [
+    {
+      "id": "bookshelf-r1c1",
+      "tile": "bookshelf",
+      "source_cell": "R1C1",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/prop-rack.png",
+      "footprint": {
+        "row": 1,
+        "col": 1,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 41,
+        "y": 41,
+        "width": 430,
+        "height": 430
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "bookshelf-r1c9",
+      "tile": "bookshelf",
+      "source_cell": "R1C9",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/prop-rack.png",
+      "footprint": {
+        "row": 1,
+        "col": 9,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 4137,
+        "y": 41,
+        "width": 430,
+        "height": 430
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "table-r2c1",
+      "tile": "table",
+      "source_cell": "R2C1",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/cue-table.png",
+      "footprint": {
+        "row": 2,
+        "col": 1,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 41,
+        "y": 553,
+        "width": 430,
+        "height": 430
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "table-r2c10",
+      "tile": "table",
+      "source_cell": "R2C10",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/vanity.png",
+      "footprint": {
+        "row": 2,
+        "col": 10,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 4649,
+        "y": 553,
+        "width": 430,
+        "height": 430
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r4c2",
+      "tile": "chair",
+      "source_cell": "R4C2",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 4,
+        "col": 2,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 588,
+        "y": 1612,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r4c3",
+      "tile": "chair",
+      "source_cell": "R4C3",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 4,
+        "col": 3,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 1100,
+        "y": 1612,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r4c8",
+      "tile": "chair",
+      "source_cell": "R4C8",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 4,
+        "col": 8,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 3660,
+        "y": 1612,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r4c9",
+      "tile": "chair",
+      "source_cell": "R4C9",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 4,
+        "col": 9,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 4172,
+        "y": 1612,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r5c2",
+      "tile": "chair",
+      "source_cell": "R5C2",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 5,
+        "col": 2,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 588,
+        "y": 2124,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r5c3",
+      "tile": "chair",
+      "source_cell": "R5C3",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 5,
+        "col": 3,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 1100,
+        "y": 2124,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r5c8",
+      "tile": "chair",
+      "source_cell": "R5C8",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 5,
+        "col": 8,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 3660,
+        "y": 2124,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r5c9",
+      "tile": "chair",
+      "source_cell": "R5C9",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 5,
+        "col": 9,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 4172,
+        "y": 2124,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r6c2",
+      "tile": "chair",
+      "source_cell": "R6C2",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 6,
+        "col": 2,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 588,
+        "y": 2636,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r6c3",
+      "tile": "chair",
+      "source_cell": "R6C3",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 6,
+        "col": 3,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 1100,
+        "y": 2636,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r6c8",
+      "tile": "chair",
+      "source_cell": "R6C8",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 6,
+        "col": 8,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 3660,
+        "y": 2636,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r6c9",
+      "tile": "chair",
+      "source_cell": "R6C9",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 6,
+        "col": 9,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 4172,
+        "y": 2636,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r7c2",
+      "tile": "chair",
+      "source_cell": "R7C2",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 7,
+        "col": 2,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 588,
+        "y": 3148,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r7c3",
+      "tile": "chair",
+      "source_cell": "R7C3",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 7,
+        "col": 3,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 1100,
+        "y": 3148,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r7c8",
+      "tile": "chair",
+      "source_cell": "R7C8",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 7,
+        "col": 8,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 3660,
+        "y": 3148,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r7c9",
+      "tile": "chair",
+      "source_cell": "R7C9",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 7,
+        "col": 9,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 4172,
+        "y": 3148,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "table-r8c1",
+      "tile": "table",
+      "source_cell": "R8C1",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/ticket-counter.png",
+      "footprint": {
+        "row": 8,
+        "col": 1,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 41,
+        "y": 3625,
+        "width": 430,
+        "height": 430
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r8c4",
+      "tile": "chair",
+      "source_cell": "R8C4",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/cloakroom-bench.png",
+      "footprint": {
+        "row": 8,
+        "col": 4,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 1612,
+        "y": 3660,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "table-r9c8",
+      "tile": "table",
+      "source_cell": "R9C8",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/ticket-counter.png",
+      "footprint": {
+        "row": 9,
+        "col": 8,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 3625,
+        "y": 4137,
+        "width": 430,
+        "height": 430
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    },
+    {
+      "id": "chair-r9c9",
+      "tile": "chair",
+      "source_cell": "R9C9",
+      "asset": "assets/common/object-kit/last-curtain-theatre-v1/objects/auditorium-seat.png",
+      "footprint": {
+        "row": 9,
+        "col": 9,
+        "rows": 1,
+        "cols": 1,
+        "align": "cell-center"
+      },
+      "render_box": {
+        "x": 4172,
+        "y": 4172,
+        "width": 360,
+        "height": 360
+      },
+      "background": "transparent",
+      "usage": "theme-specific transparent visual overlay; puzzle JSON owns all facts"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "coat-bench.png": {
+    "format": "PNG",
+    "mode": "RGBA",
+    "size": [
+      512,
+      512
+    ],
+    "has_alpha": true,
+    "bits_per_pixel": 32,
+    "min_alpha": 0,
+    "max_alpha": 255,
+    "nonzero_alpha_pixels": 109258,
+    "border_max_alpha": 0,
+    "border_alpha_all_zero": true
+  },
+  "copper-pot-rack.png": {
+    "format": "PNG",
+    "mode": "RGBA",
+    "size": [
+      512,
+      512
+    ],
+    "has_alpha": true,
+    "bits_per_pixel": 32,
+    "min_alpha": 0,
+    "max_alpha": 255,
+    "nonzero_alpha_pixels": 148959,
+    "border_max_alpha": 0,
+    "border_alpha_all_zero": true
+  },
+  "dining-sideboard.png": {
+    "format": "PNG",
+    "mode": "RGBA",
+    "size": [
+      512,
+      512
+    ],
+    "has_alpha": true,
+    "bits_per_pixel": 32,
+    "min_alpha": 0,
+    "max_alpha": 255,
+    "nonzero_alpha_pixels": 157067,
+    "border_max_alpha": 0,
+    "border_alpha_all_zero": true
+  },
+  "fireplace.png": {
+    "format": "PNG",
+    "mode": "RGBA",
+    "size": [
+      512,
+      512
+    ],
+    "has_alpha": true,
+    "bits_per_pixel": 32,
+    "min_alpha": 0,
+    "max_alpha": 255,
+    "nonzero_alpha_pixels": 144485,
+    "border_max_alpha": 0,
+    "border_alpha_all_zero": true
+  },
+  "glazed-planter-bench.png": {
+    "format": "PNG",
+    "mode": "RGBA",
+    "size": [
+      512,
+      512
+    ],
+    "has_alpha": true,
+    "bits_per_pixel": 32,
+    "min_alpha": 0,
+    "max_alpha": 255,
+    "nonzero_alpha_pixels": 164641,
+    "border_max_alpha": 0,
+    "border_alpha_all_zero": true
+  },
+  "grandfather-clock.png": {
+    "format": "PNG",
+    "mode": "RGBA",
+    "size": [
+      512,
+      512
+    ],
+    "has_alpha": true,
+    "bits_per_pixel": 32,
+    "min_alpha": 0,
+    "max_alpha": 255,
+    "nonzero_alpha_pixels": 54910,
+    "border_max_alpha": 0,
+    "border_alpha_all_zero": true
+  },
+  "telephone-console.png": {
+    "format": "PNG",
+    "mode": "RGBA",
+    "size": [
+      512,
+      512
+    ],
+    "has_alpha": true,
+    "bits_per_pixel": 32,
+    "min_alpha": 0,
+    "max_alpha": 255,
+    "nonzero_alpha_pixels": 77041,
+    "border_max_alpha": 0,
+    "border_alpha_all_zero": true
+  },
+  "umbrella-stand.png": {
+    "format": "PNG",
+    "mode": "RGBA",
+    "size": [
+      512,
+      512
+    ],
+    "has_alpha": true,
+    "bits_per_pixel": 32,
+    "min_alpha": 0,
+    "max_alpha": 255,
+    "nonzero_alpha_pixels": 50124,
+    "border_max_alpha": 0,
+    "border_alpha_all_zero": true
+  }
+}
