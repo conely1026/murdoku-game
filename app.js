@@ -1,6 +1,7 @@
 export const LEVEL_INDEX = './public/puzzles/index.json';
 export const PACK_BASE = './public/puzzles/fog-town-books';
 export const NO_DIRECT_CLUE_TEXT = '无直接线索，需通过其他线索推出。';
+export const FORMAL_PLACEMENT_HOLD_MS = 1000;
 
 const TILE_NAMES = {
   floor: '地板',
@@ -72,6 +73,20 @@ const REGION_FALLBACK_COLORS = Object.freeze({
   cool_gray_courtyard_stone: '#6e7778',
   rough_taupe_workshop_stone: '#89775c',
   amber_inn_wood: '#a85d25',
+  manor_walnut_study: '#594638',
+  manor_sage_tile: '#8a8b75',
+  manor_blue_rug: '#506467',
+  manor_oak_parquet: '#977048',
+  manor_terracotta: '#93644d',
+  manor_moss_stone: '#68705b',
+  manor_wet_slate: '#789198',
+  manor_rain_terrace: '#849486',
+  theatre_black_backstage: '#333231',
+  theatre_red_stage: '#87443b',
+  theatre_rose_lino: '#876e70',
+  theatre_burgundy_carpet: '#674348',
+  theatre_blue_aisle: '#3d5060',
+  theatre_cream_terrazzo: '#a28e74',
 });
 
 export function largeGridMinWidth(cols) {
@@ -103,6 +118,7 @@ const state = {
   selectedPerson: '',
   mode: 'place',
   assignments: {},
+  candidatePositions: {},
   blockedPositions: new Set(),
   manualMarks: new Set(),
   history: [],
@@ -111,6 +127,9 @@ const state = {
   lastPaintedPosition: '',
   collectedInvestigationIds: new Set(),
 };
+
+let placementHold = null;
+let suppressedCandidateClick = null;
 
 export async function loadLevelIndex(fetcher = fetch) {
   return fetchJson(LEVEL_INDEX, fetcher);
@@ -151,11 +170,59 @@ export async function loadMatrixSkinAssets(tileManifest, fetcher = fetch) {
 export function createPlayState(people) {
   return {
     assignments: {},
+    candidatePositions: {},
     blockedPositions: new Set(),
     manualMarks: new Set(),
     history: [],
     selectedPerson: people[0] || '',
     mode: 'place',
+  };
+}
+
+export function candidatePeopleAtPosition(candidatePositions, position) {
+  return Object.entries(candidatePositions || {})
+    .filter(([, positions]) => positions.includes(position))
+    .map(([personId]) => personId);
+}
+
+export function toggleCandidatePosition(playState, personId, position, puzzle = null) {
+  if (!canPlaceCandidate(playState, personId, position, puzzle)) {
+    return withBlockedPositions(playState, puzzle);
+  }
+  const candidatePositions = cloneCandidatePositions(playState.candidatePositions);
+  const positions = new Set(candidatePositions[personId] || []);
+  if (positions.has(position)) {
+    positions.delete(position);
+  } else {
+    positions.add(position);
+  }
+  if (positions.size) {
+    candidatePositions[personId] = [...positions];
+  } else {
+    delete candidatePositions[personId];
+  }
+  return {
+    ...playState,
+    candidatePositions,
+  };
+}
+
+export function confirmPersonPlacement(playState, personId, position, puzzle = null) {
+  if (playState.manualMarks?.has(position)) {
+    return withBlockedPositions(playState, puzzle);
+  }
+  const placed = placePerson(playState, personId, position, puzzle);
+  if (placed.assignments[personId] !== position) {
+    return placed;
+  }
+  const withoutPlacedPerson = cloneCandidatePositions(placed.candidatePositions);
+  delete withoutPlacedPerson[personId];
+  return {
+    ...placed,
+    candidatePositions: pruneCandidatePositions(
+      { ...placed, candidatePositions: withoutPlacedPerson },
+      puzzle,
+    ),
   };
 }
 
@@ -192,10 +259,11 @@ export function clearPosition(playState, position, puzzle = null) {
 }
 
 export function eraseAll(playState, puzzle = null) {
-  if (!Object.keys(playState.assignments).length) {
+  const hasCandidates = Object.keys(playState.candidatePositions || {}).length > 0;
+  if (!Object.keys(playState.assignments).length && !hasCandidates) {
     return withBlockedPositions(playState, puzzle);
   }
-  return pushHistory(playState, {}, puzzle);
+  return pushHistory({ ...playState, candidatePositions: {} }, {}, puzzle);
 }
 
 export function undoLast(playState, puzzle = null) {
@@ -236,8 +304,9 @@ export function markPosition(playState, position, puzzle = null) {
   }
   const manualMarks = new Set(playState.manualMarks || []);
   manualMarks.add(position);
+  const withoutCandidates = eraseCandidatesAtPosition(playState, position);
   return {
-    ...playState,
+    ...withoutCandidates,
     manualMarks,
   };
 }
@@ -256,15 +325,16 @@ export function eraseManualMark(playState, position) {
 
 export function eraseCell(playState, position, puzzle = null) {
   const withoutMark = eraseManualMark(playState, position);
-  const nextAssignments = { ...withoutMark.assignments };
+  const withoutCandidates = eraseCandidatesAtPosition(withoutMark, position);
+  const nextAssignments = { ...withoutCandidates.assignments };
   const personAtPosition = Object.keys(nextAssignments).find(
     (personId) => nextAssignments[personId] === position,
   );
   if (!personAtPosition) {
-    return withBlockedPositions(withoutMark, puzzle);
+    return withBlockedPositions(withoutCandidates, puzzle);
   }
   delete nextAssignments[personAtPosition];
-  return pushHistory(withoutMark, nextAssignments, puzzle);
+  return pushHistory(withoutCandidates, nextAssignments, puzzle);
 }
 
 export function computeBlockedPositions(assignments, puzzle, options = {}) {
@@ -376,7 +446,21 @@ export function collectInvestigationItem(collectedIds, itemId) {
   return collected;
 }
 
-export function regionBoundaryClasses(puzzle, cell) {
+function boundaryCellRef(row, col) {
+  return `R${row}C${col}`;
+}
+
+export function isOpenPresentationBoundary(boundaryStyle, a, b) {
+  if (!boundaryStyle?.open_edges?.length) {
+    return false;
+  }
+  const key = [a, b].sort().join('|');
+  return boundaryStyle.open_edges.some((edge) => (
+    [edge.a, edge.b].sort().join('|') === key
+  ));
+}
+
+export function regionBoundaryClasses(puzzle, cell, boundaryStyle = null) {
   const classes = [];
   if (!puzzle || !cell) {
     return classes;
@@ -384,11 +468,25 @@ export function regionBoundaryClasses(puzzle, cell) {
 
   const sameRegion = (row, col) => cellAt(puzzle, row, col)?.region === cell.region;
   if (cell.row === 1 || !sameRegion(cell.row - 1, cell.col)) {
-    classes.push('region-border-top');
+    const isOpen = cell.row > 1 && isOpenPresentationBoundary(
+      boundaryStyle,
+      boundaryCellRef(cell.row, cell.col),
+      boundaryCellRef(cell.row - 1, cell.col),
+    );
+    if (!isOpen) {
+      classes.push('region-border-top');
+    }
     classes.push('region-outline-top');
   }
   if (cell.col === 1 || !sameRegion(cell.row, cell.col - 1)) {
-    classes.push('region-border-left');
+    const isOpen = cell.col > 1 && isOpenPresentationBoundary(
+      boundaryStyle,
+      boundaryCellRef(cell.row, cell.col),
+      boundaryCellRef(cell.row, cell.col - 1),
+    );
+    if (!isOpen) {
+      classes.push('region-border-left');
+    }
     classes.push('region-outline-left');
   }
   if (cell.row === puzzle.rows) {
@@ -404,6 +502,11 @@ export function regionBoundaryClasses(puzzle, cell) {
     classes.push('region-outline-right');
   }
   return classes;
+}
+
+export function boundaryToneFor(tileManifest = null) {
+  const tone = tileManifest?.matrix_skin?.boundary_style?.line_tone;
+  return tone === 'light' ? 'light' : 'dark';
 }
 
 function fetchJson(url, fetcher) {
@@ -430,9 +533,9 @@ async function init() {
   try {
     const levelIndex = await loadLevelIndex();
     state.levels = levelIndex.levels || [];
-    window.addEventListener('pointerup', stopPainting);
-    window.addEventListener('pointercancel', stopPainting);
-    window.addEventListener('pointermove', handlePaintPointerMove);
+    window.addEventListener('pointerup', handleGlobalPointerEnd);
+    window.addEventListener('pointercancel', handleGlobalPointerEnd);
+    window.addEventListener('pointermove', handleGlobalPointerMove);
     window.addEventListener('popstate', handlePopState);
     bindShellActions();
     renderLevelSelect();
@@ -524,6 +627,7 @@ async function loadLevel(levelId, options = {}) {
   state.selectedPerson = pack.puzzle.people[0]?.id || '';
   state.mode = 'place';
   state.assignments = {};
+  state.candidatePositions = {};
   state.blockedPositions = new Set();
   state.manualMarks = new Set();
   state.history = [];
@@ -532,7 +636,10 @@ async function loadLevel(levelId, options = {}) {
   state.focusedRegion = '';
   state.selectedRegion = '';
   state.collectedInvestigationIds = loadCollectedInvestigationIds(levelId);
-  stopPainting();
+  if (typeof document !== 'undefined') {
+    document.body.dataset.levelId = level.id;
+  }
+  stopPointerInteractions();
   applyVisualManifest();
   showGameScreen(options);
   render();
@@ -547,6 +654,9 @@ function showGameScreen(options = {}) {
 }
 
 function showLevelSelect(options = {}) {
+  if (typeof document !== 'undefined') {
+    delete document.body.dataset.levelId;
+  }
   state.currentLevel = null;
   state.puzzle = null;
   state.proof = null;
@@ -558,8 +668,9 @@ function showLevelSelect(options = {}) {
   state.hoveredRegion = '';
   state.focusedRegion = '';
   state.selectedRegion = '';
+  state.candidatePositions = {};
   state.collectedInvestigationIds = new Set();
-  stopPainting();
+  stopPointerInteractions();
   clearVisualManifest();
   document.title = 'Murdoku';
   byId('game-screen').classList.add('is-hidden');
@@ -615,6 +726,7 @@ function renderBoard() {
     'board',
     `is-art-${visualMode}`,
     hasMatrixSkin ? 'has-matrix-skin' : '',
+    hasMatrixSkin ? `is-boundary-${boundaryToneFor(state.tileManifest)}` : '',
     boardBackground ? 'has-board-background' : '',
     state.mode === 'mark-x' ? 'is-tool-mark-x' : '',
     state.mode === 'erase' ? 'is-tool-erase' : '',
@@ -706,16 +818,39 @@ function renderRegionSurfaceLayer(puzzle, tileManifest, materialManifest) {
 
   const defs = document.createElementNS(SVG_NAMESPACE, 'defs');
   svg.appendChild(defs);
-  const regions = regionCellsByName(puzzle);
   const materialByRegion = tileManifest?.matrix_skin?.region_materials || {};
+  const materialByCell = tileManifest?.matrix_skin?.cell_material_overrides || {};
+  const surfaceZones = tileManifest?.matrix_skin?.surface_zones || {};
+  const zoneByCell = {};
+  Object.entries(surfaceZones).forEach(([zoneId, zone]) => {
+    for (const cellRef of zone?.cells || []) {
+      zoneByCell[cellRef] = zoneId;
+    }
+  });
+  const surfaceGroups = new Map();
+  for (const cell of puzzle.cells || []) {
+    const cellRef = `R${cell.row}C${cell.col}`;
+    const materialName = materialByCell[cellRef] || materialByRegion[cell.region];
+    const zoneId = zoneByCell[cellRef] || '';
+    const key = `${cell.region}\u0000${materialName}\u0000${zoneId}`;
+    if (!surfaceGroups.has(key)) {
+      surfaceGroups.set(key, {
+        regionName: cell.region,
+        materialName,
+        zoneId,
+        cells: [],
+      });
+    }
+    surfaceGroups.get(key).cells.push(cell);
+  }
 
-  Object.entries(regions).forEach(([regionName, cells], index) => {
-    const materialName = materialByRegion[regionName];
+  [...surfaceGroups.values()].forEach((group, index) => {
+    const { regionName, materialName, zoneId, cells } = group;
     const material = materialManifest?.materials?.[materialName];
     const clipId = `region-clip-${index}`;
-    const patternId = `region-pattern-${index}`;
     const clip = document.createElementNS(SVG_NAMESPACE, 'clipPath');
     clip.id = clipId;
+    clip.setAttribute('clipPathUnits', 'userSpaceOnUse');
     for (const cell of cells) {
       const rect = document.createElementNS(SVG_NAMESPACE, 'rect');
       rect.setAttribute('x', String((cell.col - 1) * 100));
@@ -726,39 +861,77 @@ function renderRegionSurfaceLayer(puzzle, tileManifest, materialManifest) {
     }
     defs.appendChild(clip);
 
-    const pattern = document.createElementNS(SVG_NAMESPACE, 'pattern');
-    pattern.id = patternId;
-    pattern.setAttribute('patternUnits', 'userSpaceOnUse');
-    pattern.setAttribute('width', '220');
-    pattern.setAttribute('height', '220');
-    pattern.setAttribute('overflow', 'hidden');
+    const rows = cells.map((cell) => cell.row);
+    const cols = cells.map((cell) => cell.col);
+    const left = (Math.min(...cols) - 1) * 100;
+    const top = (Math.min(...rows) - 1) * 100;
+    const regionWidth = (Math.max(...cols) - Math.min(...cols) + 1) * 100;
+    const regionHeight = (Math.max(...rows) - Math.min(...rows) + 1) * 100;
+
     const fallback = document.createElementNS(SVG_NAMESPACE, 'rect');
-    fallback.setAttribute('width', '220');
-    fallback.setAttribute('height', '220');
+    fallback.classList.add('region-surface', 'region-surface-fallback');
+    fallback.dataset.region = regionName;
+    fallback.dataset.material = materialName || '';
+    if (zoneId) fallback.dataset.surfaceZone = zoneId;
+    fallback.setAttribute('x', String(left));
+    fallback.setAttribute('y', String(top));
+    fallback.setAttribute('width', String(regionWidth));
+    fallback.setAttribute('height', String(regionHeight));
     fallback.setAttribute('fill', REGION_FALLBACK_COLORS[materialName] || '#70675a');
-    pattern.appendChild(fallback);
+    fallback.setAttribute('clip-path', `url(#${clipId})`);
+    svg.appendChild(fallback);
+
     if (material?.asset) {
       const image = document.createElementNS(SVG_NAMESPACE, 'image');
+      image.classList.add('region-surface', 'region-surface-image');
+      image.dataset.region = regionName;
+      image.dataset.material = materialName || '';
+      if (zoneId) image.dataset.surfaceZone = zoneId;
       image.setAttribute('href', publicAssetUrl(material.asset));
-      image.setAttribute('x', '-3');
-      image.setAttribute('y', '-3');
-      image.setAttribute('width', '226');
-      image.setAttribute('height', '226');
+      image.setAttribute('x', String(left));
+      image.setAttribute('y', String(top));
+      image.setAttribute('width', String(regionWidth));
+      image.setAttribute('height', String(regionHeight));
       image.setAttribute('preserveAspectRatio', 'xMidYMid slice');
-      pattern.appendChild(image);
+      const pixelSize = material.pixel_size || {};
+      image.dataset.sourceWidth = String(Number(pixelSize.width) || 0);
+      image.dataset.sourceHeight = String(Number(pixelSize.height) || 0);
+      image.setAttribute('clip-path', `url(#${clipId})`);
+      svg.appendChild(image);
     }
-    defs.appendChild(pattern);
+  });
 
-    const surface = document.createElementNS(SVG_NAMESPACE, 'rect');
-    surface.classList.add('region-surface');
-    surface.dataset.region = regionName;
-    surface.setAttribute('width', String(width));
-    surface.setAttribute('height', String(height));
-    surface.setAttribute('fill', `url(#${patternId})`);
-    surface.setAttribute('clip-path', `url(#${clipId})`);
-    svg.appendChild(surface);
+  Object.entries(surfaceZones).forEach(([zoneId, zone]) => {
+    for (const edge of zone?.threshold_edges || []) {
+      const a = parseCellReference(edge.a);
+      const b = parseCellReference(edge.b);
+      if (!a || !b) continue;
+      const line = document.createElementNS(SVG_NAMESPACE, 'line');
+      line.classList.add('surface-zone-threshold');
+      line.dataset.surfaceZone = zoneId;
+      line.dataset.kind = edge.kind || '';
+      if (a.row === b.row) {
+        const x = Math.max(a.col, b.col) * 100 - 100;
+        line.setAttribute('x1', String(x));
+        line.setAttribute('x2', String(x));
+        line.setAttribute('y1', String((a.row - 1) * 100));
+        line.setAttribute('y2', String(a.row * 100));
+      } else {
+        const y = Math.max(a.row, b.row) * 100 - 100;
+        line.setAttribute('x1', String((a.col - 1) * 100));
+        line.setAttribute('x2', String(a.col * 100));
+        line.setAttribute('y1', String(y));
+        line.setAttribute('y2', String(y));
+      }
+      svg.appendChild(line);
+    }
   });
   return svg;
+}
+
+function parseCellReference(value) {
+  const match = /^R(\d+)C(\d+)$/.exec(value || '');
+  return match ? { row: Number(match[1]), col: Number(match[2]) } : null;
 }
 
 function renderObjectLayer(puzzle, objectManifest) {
@@ -774,6 +947,10 @@ function renderObjectLayer(puzzle, objectManifest) {
     image.decoding = 'async';
     image.dataset.objectId = placement.id;
     image.dataset.align = placement.footprint?.align || '';
+    image.dataset.asset = placement.asset || '';
+    if ((placement.asset || '').includes('/rain-manor-v4/')) {
+      image.classList.add('board-object-generated-v4');
+    }
     Object.assign(image.style, objectPlacementStyle(placement, objectManifest, puzzle));
     layer.appendChild(image);
   }
@@ -800,6 +977,9 @@ function renderRegionLabelLayer(puzzle) {
 function renderCell(row, col) {
   const cell = state.puzzle.cells.find((item) => item.row === row && item.col === col);
   const key = positionKey(row, col);
+  const candidatePersonIds = candidatePeopleAtPosition(state.candidatePositions, key);
+  const candidateNames = candidatePersonIds.map((personId) => personName(personId));
+  const occupant = occupantAt(row, col);
   const isSelectedRegion = cell.region === state.selectedRegion;
   const isPreviewRegion = cell.region === (state.focusedRegion || state.hoveredRegion);
   const isManualMark = state.manualMarks.has(key);
@@ -815,7 +995,11 @@ function renderCell(row, col) {
   button.className = [
     'cell',
     ...tileClasses(cell),
-    ...regionBoundaryClasses(state.puzzle, cell),
+    ...regionBoundaryClasses(
+      state.puzzle,
+      cell,
+      state.tileManifest?.matrix_skin?.boundary_style,
+    ),
     sceneAsset ? 'has-scene-asset' : '',
     objectAsset ? 'has-object-asset' : '',
     isSelectedRegion ? 'is-region-selected' : '',
@@ -846,7 +1030,12 @@ function renderCell(row, col) {
   button.setAttribute('aria-pressed', isSelectedRegion ? 'true' : 'false');
   button.setAttribute(
     'aria-label',
-    `${row} 行 ${col} 列，${cell.region}，${element}${cell.walkable ? '' : '，不可放置，可查看区域'}`,
+    [
+      `${row} 行 ${col} 列，${cell.region}，${element}`,
+      cell.walkable ? '单击添加候选虚影，长按一秒正式放置' : '不可放置，可查看区域',
+      occupant ? `正式放置：${personName(occupant)}` : '',
+      candidateNames.length ? `候选：${candidateNames.join('、')}` : '',
+    ].filter(Boolean).join('，'),
   );
 
   if (sceneAsset) {
@@ -868,12 +1057,10 @@ function renderCell(row, col) {
   symbol.textContent = TILE_SYMBOLS[cell.tile] || (cell.walkable ? cell.tile : 'X');
   button.appendChild(symbol);
 
-  const occupant = occupantAt(row, col);
   if (occupant) {
-    const badge = document.createElement('span');
-    badge.className = 'occupant';
-    badge.textContent = occupant;
-    button.appendChild(badge);
+    button.appendChild(renderOccupant(occupant));
+  } else if (candidatePersonIds.length) {
+    button.appendChild(renderCandidateGhosts(candidatePersonIds));
   } else if (isXHint) {
     const x = document.createElement('span');
     x.className = 'map-x';
@@ -895,7 +1082,15 @@ function renderCell(row, col) {
     setSelectedRegion(cell.region);
     handleCellClick(row, col);
   });
-  button.addEventListener('pointerdown', (event) => handleCellPointerDown(event, row, col));
+  button.addEventListener(
+    'pointerdown',
+    (event) => handleCellPointerDown(event, row, col, button),
+  );
+  button.addEventListener('keydown', (event) => {
+    if (event.shiftKey && event.key === 'Enter') {
+      handleKeyboardFormalPlacement(event, row, col);
+    }
+  });
   button.addEventListener('pointerenter', () => {
     setHoveredRegion(cell.region);
     handleCellPointerEnter(row, col);
@@ -903,6 +1098,56 @@ function renderCell(row, col) {
   button.addEventListener('focus', () => setFocusedRegion(cell.region));
   button.addEventListener('blur', () => setFocusedRegion(''));
   return button;
+}
+
+function renderCandidateGhosts(personIds) {
+  const stack = document.createElement('span');
+  stack.className = 'candidate-stack';
+  stack.setAttribute('aria-hidden', 'true');
+  for (const personId of personIds) {
+    const ghost = document.createElement('span');
+    ghost.className = 'candidate-ghost';
+    ghost.title = personName(personId);
+    const asset = portraitAssetFor(personId);
+    if (asset) {
+      const image = document.createElement('img');
+      image.src = publicAssetUrl(asset);
+      image.alt = '';
+      ghost.appendChild(image);
+    } else {
+      ghost.textContent = personId.slice(0, 1);
+    }
+    stack.appendChild(ghost);
+  }
+  return stack;
+}
+
+function renderOccupant(personId) {
+  const marker = document.createElement('span');
+  marker.className = 'occupant';
+  marker.title = personName(personId);
+  marker.setAttribute('aria-hidden', 'true');
+
+  const portrait = document.createElement('span');
+  portrait.className = 'occupant-portrait';
+  const asset = portraitAssetFor(personId);
+  if (asset) {
+    const image = document.createElement('img');
+    image.className = 'occupant-portrait-image';
+    image.src = publicAssetUrl(asset);
+    image.alt = '';
+    image.loading = 'eager';
+    image.decoding = 'async';
+    portrait.appendChild(image);
+  } else {
+    portrait.classList.add('is-placeholder');
+  }
+
+  const name = document.createElement('span');
+  name.className = 'occupant-name';
+  name.textContent = personName(personId).trim().split(/\s+/)[0] || personId;
+  marker.append(portrait, name);
+  return marker;
 }
 
 function isFirstRegionCell(puzzle, cell) {
@@ -1032,17 +1277,19 @@ function renderInvestigationPanel() {
 
 function renderPeople() {
   const list = byId('person-list');
+  const cluesByPerson = activeCluesByPerson(state.puzzle);
+  renderSelectedPersonClue(cluesByPerson);
   list.closest('.people-panel')?.classList.toggle(
     'is-large-roster',
     state.puzzle.people.length > 9,
   );
   list.replaceChildren();
-  const cluesByPerson = activeCluesByPerson(state.puzzle);
   for (const person of state.puzzle.people) {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = `person-card${person.id === state.selectedPerson ? ' is-selected' : ''}`;
     button.dataset.personId = person.id;
+    button.setAttribute('aria-pressed', person.id === state.selectedPerson ? 'true' : 'false');
     button.addEventListener('click', () => {
       applyPlayState(selectPerson(snapshotPlayState(), person.id));
       clearFeedback();
@@ -1149,6 +1396,9 @@ function bindActions() {
 
 function handleCellClick(row, col) {
   const key = positionKey(row, col);
+  if (consumeSuppressedCandidateClick(key)) {
+    return;
+  }
   if (state.mode === 'investigate') {
     investigateCell(row, col);
     return;
@@ -1166,7 +1416,12 @@ function handleCellClick(row, col) {
   if (!state.selectedPerson) {
     return;
   }
-  applyPlayState(placePerson(snapshotPlayState(), state.selectedPerson, key, state.puzzle));
+  applyPlayState(toggleCandidatePosition(
+    snapshotPlayState(),
+    state.selectedPerson,
+    key,
+    state.puzzle,
+  ));
   clearFeedback();
 }
 
@@ -1198,14 +1453,15 @@ function investigateCell(row, col) {
   renderToolState();
 }
 
-function handleCellPointerDown(event, row, col) {
-  if (!isPaintToolActive()) {
+function handleCellPointerDown(event, row, col, cellElement) {
+  if (isPaintToolActive()) {
+    state.isPainting = true;
+    state.lastPaintedPosition = '';
+    applyToolToCell(row, col);
+    event.preventDefault();
     return;
   }
-  state.isPainting = true;
-  state.lastPaintedPosition = '';
-  applyToolToCell(row, col);
-  event.preventDefault();
+  beginPlacementHold(event, row, col, cellElement);
 }
 
 function handleCellPointerEnter(row, col) {
@@ -1250,6 +1506,7 @@ function isPaintToolActive() {
 function snapshotPlayState() {
   return {
     assignments: state.assignments,
+    candidatePositions: state.candidatePositions,
     blockedPositions: state.blockedPositions,
     manualMarks: state.manualMarks,
     history: state.history,
@@ -1260,6 +1517,7 @@ function snapshotPlayState() {
 
 function applyPlayState(playState) {
   state.assignments = playState.assignments;
+  state.candidatePositions = playState.candidatePositions || {};
   state.blockedPositions = playState.blockedPositions
     || computeBlockedPositions(playState.assignments, state.puzzle);
   state.manualMarks = playState.manualMarks || new Set();
@@ -1291,6 +1549,125 @@ function renderToolState() {
   byId('tool-undo').disabled = state.history.length === 0;
 }
 
+function handleGlobalPointerMove(event) {
+  handlePaintPointerMove(event);
+  if (!placementHold || placementHold.pointerId !== event.pointerId) {
+    return;
+  }
+  const cell = document.elementFromPoint(event.clientX, event.clientY)?.closest('.cell');
+  if (cell !== placementHold.cellElement) {
+    cancelPlacementHold(event.pointerId);
+  }
+}
+
+function handleGlobalPointerEnd(event) {
+  stopPainting();
+  cancelPlacementHold(event.pointerId);
+}
+
+function stopPointerInteractions() {
+  stopPainting();
+  cancelPlacementHold();
+}
+
+function beginPlacementHold(event, row, col, cellElement) {
+  if (
+    state.mode !== 'place'
+    || !state.selectedPerson
+    || !event.isPrimary
+    || event.button !== 0
+  ) {
+    return;
+  }
+  const position = positionKey(row, col);
+  const playState = snapshotPlayState();
+  if (!canConfirmPersonPlacement(playState, state.selectedPerson, position, state.puzzle)) {
+    return;
+  }
+  cancelPlacementHold();
+  const progress = document.createElement('span');
+  progress.className = 'placement-hold-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  cellElement.classList.add('is-placement-holding');
+  cellElement.appendChild(progress);
+  const hold = {
+    cellElement,
+    personId: state.selectedPerson,
+    pointerId: event.pointerId,
+    position,
+    progress,
+    timerId: 0,
+  };
+  placementHold = hold;
+  hold.timerId = window.setTimeout(
+    () => completePlacementHold(hold),
+    FORMAL_PLACEMENT_HOLD_MS,
+  );
+}
+
+function completePlacementHold(hold) {
+  if (
+    placementHold !== hold
+    || state.mode !== 'place'
+    || state.selectedPerson !== hold.personId
+  ) {
+    return;
+  }
+  placementHold = null;
+  hold.cellElement.classList.remove('is-placement-holding');
+  hold.progress.remove();
+  suppressedCandidateClick = {
+    position: hold.position,
+    expiresAt: Date.now() + 600,
+  };
+  applyPlayState(confirmPersonPlacement(
+    snapshotPlayState(),
+    hold.personId,
+    hold.position,
+    state.puzzle,
+  ));
+  clearFeedback();
+}
+
+function cancelPlacementHold(pointerId = null) {
+  if (!placementHold || (pointerId !== null && placementHold.pointerId !== pointerId)) {
+    return;
+  }
+  window.clearTimeout(placementHold.timerId);
+  placementHold.cellElement.classList.remove('is-placement-holding');
+  placementHold.progress.remove();
+  placementHold = null;
+}
+
+function consumeSuppressedCandidateClick(position) {
+  if (!suppressedCandidateClick) {
+    return false;
+  }
+  const shouldSuppress = suppressedCandidateClick.position === position
+    && Date.now() <= suppressedCandidateClick.expiresAt;
+  suppressedCandidateClick = null;
+  return shouldSuppress;
+}
+
+function handleKeyboardFormalPlacement(event, row, col) {
+  if (state.mode !== 'place' || !state.selectedPerson) {
+    return;
+  }
+  event.preventDefault();
+  const position = positionKey(row, col);
+  const playState = snapshotPlayState();
+  if (!canConfirmPersonPlacement(playState, state.selectedPerson, position, state.puzzle)) {
+    return;
+  }
+  applyPlayState(confirmPersonPlacement(
+    playState,
+    state.selectedPerson,
+    position,
+    state.puzzle,
+  ));
+  clearFeedback();
+}
+
 function investigationStorageKey(levelId) {
   return `murdoku:investigation:${levelId}`;
 }
@@ -1309,6 +1686,21 @@ function loadCollectedInvestigationIds(levelId) {
   } catch {
     return new Set();
   }
+}
+
+function renderSelectedPersonClue(cluesByPerson) {
+  const panel = byId('selected-person-clue');
+  const name = byId('selected-person-clue-name');
+  const text = byId('selected-person-clue-text');
+  const person = state.puzzle.people.find((item) => item.id === state.selectedPerson);
+  panel.hidden = !person;
+  if (!person) {
+    name.textContent = '';
+    text.textContent = '';
+    return;
+  }
+  name.textContent = `${person.name} · 完整线索`;
+  text.textContent = personClueText(cluesByPerson, person.id);
 }
 
 function saveCollectedInvestigationIds(levelId, collectedIds) {
@@ -1335,6 +1727,10 @@ function clearFeedback() {
 function occupantAt(row, col) {
   const key = positionKey(row, col);
   return Object.keys(state.assignments).find((personId) => state.assignments[personId] === key);
+}
+
+function personName(personId) {
+  return state.puzzle?.people?.find((person) => person.id === personId)?.name || personId;
 }
 
 function assignmentLabel(key) {
@@ -1513,6 +1909,65 @@ function canPlacePerson(assignments, personId, position, puzzle) {
   const ignorePersonId = assignments[personId] ? personId : '';
   const blockedPositions = computeBlockedPositions(assignments, puzzle, { ignorePersonId });
   return !blockedPositions.has(position);
+}
+
+function canPlaceCandidate(playState, personId, position, puzzle = null) {
+  if (playState.manualMarks?.has(position)) {
+    return false;
+  }
+  if (Object.values(playState.assignments || {}).includes(position)) {
+    return false;
+  }
+  if (!puzzle?.cells) {
+    return true;
+  }
+  return canPlacePerson(playState.assignments || {}, personId, position, puzzle);
+}
+
+function canConfirmPersonPlacement(playState, personId, position, puzzle = null) {
+  if (playState.manualMarks?.has(position) || playState.assignments?.[personId] === position) {
+    return false;
+  }
+  if (!puzzle?.cells) {
+    return true;
+  }
+  return canPlacePerson(playState.assignments || {}, personId, position, puzzle);
+}
+
+function cloneCandidatePositions(candidatePositions = {}) {
+  return Object.fromEntries(
+    Object.entries(candidatePositions).map(([personId, positions]) => [
+      personId,
+      [...positions],
+    ]),
+  );
+}
+
+function eraseCandidatesAtPosition(playState, position) {
+  const candidatePositions = {};
+  for (const [personId, positions] of Object.entries(playState.candidatePositions || {})) {
+    const remaining = positions.filter((candidate) => candidate !== position);
+    if (remaining.length) {
+      candidatePositions[personId] = remaining;
+    }
+  }
+  return {
+    ...playState,
+    candidatePositions,
+  };
+}
+
+function pruneCandidatePositions(playState, puzzle = null) {
+  const candidatePositions = {};
+  for (const [personId, positions] of Object.entries(playState.candidatePositions || {})) {
+    const remaining = positions.filter(
+      (position) => canPlaceCandidate(playState, personId, position, puzzle),
+    );
+    if (remaining.length) {
+      candidatePositions[personId] = remaining;
+    }
+  }
+  return candidatePositions;
 }
 
 function canMarkPosition(playState, position, puzzle = null) {

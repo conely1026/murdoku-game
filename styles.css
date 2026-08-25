@@ -177,12 +177,17 @@ h2 {
   min-height: 100vh;
 }
 
-.back-button {
+.sidebar-topbar {
   position: sticky;
-  top: 10px;
-  align-self: flex-start;
+  top: 0;
   z-index: 3;
-  margin: 10px 0 0 10px;
+  width: 100%;
+  padding-bottom: 12px;
+  background: #f8f8fb;
+}
+
+.back-button {
+  display: block;
   border: 3px solid #111;
   border-radius: 8px;
   background: #fff;
@@ -454,6 +459,37 @@ h2 {
   margin-bottom: 10px;
   color: var(--muted);
   font-size: 12px;
+  line-height: 1.4;
+}
+
+.selected-person-clue {
+  display: grid;
+  gap: 5px;
+  margin: 0 0 12px;
+  border: 2px solid rgba(62, 117, 178, 0.62);
+  border-radius: 7px;
+  background: rgba(239, 247, 255, 0.96);
+  padding: 9px 10px;
+  text-align: left;
+}
+
+.selected-person-clue[hidden] {
+  display: none;
+}
+
+.selected-person-clue strong {
+  color: #315f94;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.selected-person-clue p {
+  margin: 0;
+  color: #222a33;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 .person-list {
@@ -719,6 +755,8 @@ h2 {
   overflow: hidden;
   text-align: left;
   cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
   z-index: 2;
 }
 
@@ -735,6 +773,57 @@ h2 {
     var(--region-edge-bottom)
     var(--region-edge-left);
   pointer-events: none;
+}
+
+body[data-level-id="rain-manor"] {
+  background: #1b2931;
+}
+
+body[data-level-id="rain-manor"]::before {
+  background-image:
+    radial-gradient(circle at 72% 18%, rgba(120, 157, 162, 0.22), transparent 34%),
+    repeating-linear-gradient(
+      104deg,
+      rgba(202, 225, 224, 0.045) 0,
+      rgba(202, 225, 224, 0.045) 1px,
+      transparent 1px,
+      transparent 22px
+    ),
+    linear-gradient(145deg, #263b44 0%, #15242c 58%, #101b21 100%);
+  opacity: 1;
+}
+
+body[data-level-id="rain-manor"] .game-head,
+body[data-level-id="rain-manor"] .people-panel > h2,
+body[data-level-id="rain-manor"] .instruction {
+  color: #edf2eb;
+}
+
+body[data-level-id="rain-manor"] .instruction {
+  color: #b9c9c7;
+}
+
+body[data-level-id="rain-manor"] .back-button,
+body[data-level-id="rain-manor"] .proof-pill,
+body[data-level-id="rain-manor"] .tool-button,
+body[data-level-id="rain-manor"] .submit-button,
+body[data-level-id="rain-manor"] .help-button {
+  border-color: #d6e1dc;
+  background: #30424a;
+  color: #f2f1e8;
+  box-shadow: 3px 3px 0 rgba(3, 10, 14, 0.48);
+}
+
+body[data-level-id="rain-manor"] .tool-button[aria-pressed="true"] {
+  border-color: #9dd8d8;
+  background: #48636b;
+}
+
+body[data-level-id="rain-manor"] .tool-button:disabled,
+body[data-level-id="rain-manor"] .submit-button:disabled {
+  border-color: #728287;
+  background: #25353c;
+  color: #89999b;
 }
 
 .cell::after {
@@ -1085,12 +1174,11 @@ h2 {
 .board-object-layer,
 .board-region-label-layer {
   position: absolute;
-  left: var(--coord-width);
-  top: var(--coord-height);
-  right: 0;
-  bottom: 0;
-  width: calc(100% - var(--coord-width));
-  height: calc(100% - var(--coord-height));
+  grid-column: 2 / -1;
+  grid-row: 2 / -1;
+  inset: 0;
+  width: auto;
+  height: auto;
   pointer-events: none;
 }
 
@@ -1103,9 +1191,62 @@ h2 {
   image-rendering: auto;
 }
 
+.region-surface-image {
+  opacity: 0.76;
+  filter: saturate(0.72) contrast(0.9) brightness(0.98);
+}
+
+.board.is-boundary-light .region-surface-image {
+  opacity: 1;
+  filter: saturate(0.9) contrast(1.04) brightness(1.02);
+}
+
+body[data-level-id="rain-manor"] .region-surface-image[data-material="manor_walnut_study"] {
+  filter: saturate(0.9) contrast(1.1) brightness(0.98);
+}
+
+body[data-level-id="rain-manor"] .region-surface-image[data-material="manor_sage_tile"] {
+  filter: saturate(0.88) contrast(1.08) brightness(0.98);
+}
+
+body[data-level-id="rain-manor"] .region-surface-image[data-material="manor_blue_rug"] {
+  filter: saturate(0.92) contrast(1.08) brightness(0.96);
+}
+
+body[data-level-id="rain-manor"] .region-surface-image[data-material="manor_oak_parquet"] {
+  filter: saturate(0.7) contrast(1.08) brightness(0.9);
+}
+
+body[data-level-id="rain-manor"] .region-surface-image[data-material="manor_terracotta"] {
+  filter: saturate(0.82) contrast(1.08) brightness(0.94);
+}
+
+body[data-level-id="rain-manor"] .region-surface-image[data-material="manor_moss_stone"] {
+  filter: saturate(0.82) contrast(1.08) brightness(0.96);
+}
+
+.region-surface[data-surface-zone="covered-arrival-porch"],
+.region-surface[data-surface-zone="conservatory-rain-terrace"] {
+  opacity: 1;
+  filter: saturate(0.86) contrast(0.94) brightness(1.02);
+}
+
+.surface-zone-threshold {
+  stroke: rgba(237, 230, 207, 0.86);
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 2px 1px rgba(21, 31, 34, 0.52));
+}
+
+.surface-zone-threshold[data-kind="glazed-terrace-threshold"] {
+  stroke: rgba(191, 220, 218, 0.88);
+  stroke-dasharray: 9 4;
+  stroke-width: 2;
+}
+
 .board-object-layer {
   z-index: 1;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .board-region-label-layer {
@@ -1133,7 +1274,7 @@ h2 {
   position: absolute;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 4px 4px rgba(18, 13, 8, 0.42));
+  filter: drop-shadow(0 3px 3px rgba(18, 13, 8, 0.34));
   user-select: none;
 }
 
@@ -1148,6 +1289,15 @@ h2 {
   transition:
     box-shadow 110ms ease,
     filter 110ms ease;
+}
+
+.board.is-art-matrix-skin.is-boundary-light .cell {
+  border-color: rgba(248, 241, 221, 0.17);
+}
+
+.board.is-art-matrix-skin.is-boundary-light .cell::before {
+  border-color: rgba(255, 246, 218, 0.9);
+  filter: drop-shadow(0 1px 1px rgba(31, 25, 17, 0.45));
 }
 
 .board.is-art-matrix-skin .cell::after,
@@ -1232,6 +1382,7 @@ h2 {
 }
 
 .board.is-art-matrix-skin .occupant,
+.board.is-art-matrix-skin .candidate-stack,
 .board.is-art-matrix-skin .map-x {
   z-index: 6;
 }
@@ -1250,22 +1401,158 @@ h2 {
 }
 
 .occupant {
-  display: inline-flex;
+  position: absolute;
+  inset: 4%;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  color: #111;
+  pointer-events: none;
+}
+
+.occupant-portrait {
+  grid-area: 1 / 1;
+  display: grid;
+  width: min(72%, 58px);
+  min-width: 22px;
+  aspect-ratio: 1;
+  place-items: center;
+  overflow: hidden;
+  border: 3px solid #111;
+  border-radius: 50%;
+  background: #eef4f7;
+  font-size: clamp(10px, 1.2vw, 18px);
+  font-weight: 1000;
+  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.occupant-portrait-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.occupant-portrait.is-placeholder::before,
+.occupant-portrait.is-placeholder::after {
+  content: "";
+  grid-area: 1 / 1;
+  background: #596571;
+}
+
+.occupant-portrait.is-placeholder::before {
+  align-self: start;
+  width: 34%;
+  margin-top: 17%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.occupant-portrait.is-placeholder::after {
+  align-self: end;
+  width: 68%;
+  height: 42%;
+  margin-bottom: 8%;
+  border-radius: 48% 48% 28% 28%;
+}
+
+.occupant-name {
+  grid-area: 1 / 1;
+  align-self: end;
+  max-width: 96%;
+  overflow: hidden;
+  border: 2px solid #111;
+  border-radius: 999px;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.28);
+  font-size: clamp(8px, 0.9vw, 12px);
+  font-weight: 1000;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.candidate-stack {
+  position: absolute;
+  inset: 8%;
+  z-index: 6;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
   align-items: center;
   justify-content: center;
-  align-self: center;
-  justify-self: center;
-  max-width: 100%;
-  min-height: 26px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  color: #111;
-  border: 3px solid #111;
-  padding: 3px 8px;
-  font-size: 12px;
-  font-weight: 900;
-  line-height: 1;
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.28);
+  gap: 2px;
+  pointer-events: none;
+}
+
+.candidate-ghost {
+  display: grid;
+  flex: 0 1 42%;
+  width: 42%;
+  min-width: 16px;
+  max-width: 46px;
+  aspect-ratio: 1;
+  place-items: center;
+  overflow: hidden;
+  border: 2px dashed rgba(20, 35, 51, 0.84);
+  border-radius: 50%;
+  background: rgba(232, 244, 255, 0.82);
+  color: #172b40;
+  font-size: 11px;
+  font-weight: 1000;
+  opacity: 0.54;
+  filter: grayscale(0.22) saturate(0.78);
+  box-shadow: 0 2px 5px rgba(7, 17, 27, 0.36);
+}
+
+.candidate-ghost:only-child {
+  flex-basis: 62%;
+  width: 62%;
+  max-width: 58px;
+}
+
+.candidate-ghost img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@property --placement-progress {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.placement-hold-progress {
+  --placement-progress: 0deg;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 10;
+  width: 68%;
+  max-width: 70px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: conic-gradient(
+    #ffe08b var(--placement-progress),
+    rgba(19, 27, 35, 0.32) 0
+  );
+  filter: drop-shadow(0 0 4px rgba(255, 216, 112, 0.92));
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  -webkit-mask: radial-gradient(circle, transparent 52%, #000 55% 68%, transparent 71%);
+  mask: radial-gradient(circle, transparent 52%, #000 55% 68%, transparent 71%);
+  animation: placement-hold-fill 1s linear forwards;
+}
+
+.cell.is-placement-holding {
+  cursor: progress;
+}
+
+@keyframes placement-hold-fill {
+  to { --placement-progress: 360deg; }
 }
 
 .map-x {
@@ -1379,6 +1666,59 @@ h2 {
   border-color: var(--bad);
 }
 
+@media (min-width: 821px) {
+  body[data-level-id] {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  body[data-level-id] .app-shell,
+  body[data-level-id] .game-screen {
+    height: 100vh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  body[data-level-id] .game-layout {
+    height: 100%;
+    min-height: 0;
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  body[data-level-id] .suspect-column {
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    padding-right: 8px;
+  }
+
+  body[data-level-id] .board-stage,
+  body[data-level-id] .tool-rail {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  body[data-level-id] .board-stage {
+    align-content: center;
+    padding-top: 0;
+  }
+
+  body[data-level-id] .board-wrap {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    overflow: auto;
+    background: transparent;
+  }
+
+  body[data-level-id] .tool-rail {
+    overflow-y: auto;
+  }
+}
+
 @media (max-width: 1120px) {
   .level-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1410,6 +1750,10 @@ h2 {
 
   .game-layout {
     grid-template-columns: 1fr;
+  }
+
+  .sidebar-topbar {
+    order: 0;
   }
 
   .suspect-column {
