@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>雾镇书影</title>
-    <link rel="stylesheet" href="./styles.css?v=20260825-copy-review-v6" />
+    <link rel="stylesheet" href="./styles.css?v=20260825-mobile-interaction-v2" />
   </head>
   <body>
     <main class="app-shell" aria-live="polite">
@@ -28,7 +28,6 @@
                 <p class="product">Murdoku</p>
                 <h1 id="puzzle-title">雾镇书影</h1>
               </div>
-              <div class="proof-pill" id="proof-pill">读取题包中</div>
             </header>
 
             <section class="story-card" id="story-card" aria-label="场景描述">
@@ -41,7 +40,14 @@
             </section>
 
             <section class="people-panel" aria-labelledby="people-title">
-              <h2 id="people-title">嫌疑人</h2>
+              <div class="people-heading">
+                <h2 id="people-title">嫌疑人</h2>
+                <div class="person-carousel-nav" aria-label="人物线索卡切换">
+                  <button class="person-carousel-button" id="person-prev" type="button" aria-label="上一位嫌疑人">←</button>
+                  <span class="person-carousel-status" id="person-carousel-status" aria-live="polite"></span>
+                  <button class="person-carousel-button" id="person-next" type="button" aria-label="下一位嫌疑人">→</button>
+                </div>
+              </div>
               <p class="instruction">选中人物后，单击格子添加或取消候选虚影；长按 1 秒正式放置。经过或选中格子会高亮整个区域。</p>
               <div class="person-list" id="person-list"></div>
             </section>
@@ -60,34 +66,37 @@
             </section>
           </aside>
 
-          <section class="board-stage" aria-labelledby="board-title">
-            <h2 id="board-title">棋盘</h2>
-            <div class="board-wrap">
-              <div class="board" id="board"></div>
-            </div>
-          </section>
+          <!-- 手机适配：棋盘和工具栏共用一个工作区，窄屏时工具栏横排在棋盘上方。 -->
+          <div class="board-workspace">
+            <section class="board-stage" aria-labelledby="board-title">
+              <h2 id="board-title">棋盘</h2>
+              <div class="board-wrap">
+                <div class="board" id="board"></div>
+              </div>
+            </section>
 
-          <aside class="tool-rail" aria-label="棋盘工具">
-            <button class="tool-button tool-investigate" id="tool-investigate" type="button" aria-pressed="false" hidden>
-              <span class="tool-icon">⌕</span>
-              <span class="tool-caption">调查物件</span>
-            </button>
-            <button class="tool-button tool-clear" id="tool-clear" type="button" aria-pressed="false">
-              <span class="tool-icon">X</span>
-              <span class="tool-caption">标记格子</span>
-            </button>
-            <button class="tool-button tool-eraser" id="tool-eraser" type="button">
-              <span class="tool-icon">◆</span>
-              <span class="tool-caption">擦除标记/人物</span>
-            </button>
-            <button class="tool-button tool-undo" id="tool-undo" type="button" disabled>撤销</button>
-            <button class="submit-button" id="submit-button" type="button" disabled>
-              提交
-              <span id="submit-caption">请先放置所有人</span>
-            </button>
-            <button class="help-button" id="help-button" type="button">玩法说明</button>
-            <div class="feedback" id="feedback"></div>
-          </aside>
+            <aside class="tool-rail" aria-label="棋盘工具">
+              <button class="tool-button tool-investigate" id="tool-investigate" type="button" aria-pressed="false" hidden>
+                <span class="tool-icon">⌕</span>
+                <span class="tool-caption">调查物件</span>
+              </button>
+              <button class="tool-button tool-clear" id="tool-clear" type="button" aria-pressed="false">
+                <span class="tool-icon">X</span>
+                <span class="tool-caption">标记格子</span>
+              </button>
+              <button class="tool-button tool-eraser" id="tool-eraser" type="button">
+                <span class="tool-icon">◆</span>
+                <span class="tool-caption">擦除标记/人物</span>
+              </button>
+              <button class="tool-button tool-undo" id="tool-undo" type="button" disabled>撤销</button>
+              <button class="submit-button" id="submit-button" type="button" disabled>
+                提交
+                <span id="submit-caption">请先放置所有人</span>
+              </button>
+              <button class="help-button" id="help-button" type="button">玩法说明</button>
+              <div class="feedback" id="feedback" hidden></div>
+            </aside>
+          </div>
         </div>
       </section>
     </main>

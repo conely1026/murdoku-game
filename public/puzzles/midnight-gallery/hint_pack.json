@@ -1,52 +1,283 @@
 {
   "schema_version": 1,
   "puzzle_id": "midnight-gallery",
-  "ai_status": "P9-boundary-only",
+  "ai_status": "deduction-plan-v1",
+  "deduction": {
+    "schema_version": 1,
+    "aha_step_id": "gallery-step-5",
+    "final_step_id": "gallery-step-6",
+    "step_count": 6
+  },
   "hints": [
     {
       "id": "rules-row-col",
       "level": 0,
-      "title": "规则解释",
-      "text": "每行和每列都恰好放置一名人物，人物只能站在可行走格子上。",
+      "stage": "rules",
+      "tier": "rules",
+      "title": "现场规则",
+      "text": "每一排和每一列都只会出现一名人物，障碍物所在处不能停留。",
+      "depends_on": [],
       "references": [
         "puzzle.public.json#rows",
         "puzzle.public.json#cols"
       ]
     },
     {
-      "id": "first-fixed-person",
+      "id": "gallery-step-1-nudge",
       "level": 1,
-      "title": "方向提示",
-      "text": "先从 Aiden 的定位线索开始，它能直接缩小候选行列。",
+      "step_id": "gallery-step-1",
+      "stage": "anchor",
+      "tier": "nudge",
+      "title": "切入口·观察",
+      "text": "工具箱交接单留下了一条明确的横向记录。",
+      "depends_on": [],
       "references": [
         "puzzle.public.json#clues.clue-1"
       ]
     },
     {
-      "id": "victim-region",
+      "id": "gallery-step-1-connection",
       "level": 2,
-      "title": "排除提示",
-      "text": "留意 Fiona 所在区域；凶手必须与受害者单独同区。",
+      "step_id": "gallery-step-1",
+      "stage": "anchor",
+      "tier": "connection",
+      "title": "切入口·联系",
+      "text": "伊森的登记只出现在第三排。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-1"
+      ]
+    },
+    {
+      "id": "gallery-step-1-action",
+      "level": 3,
+      "step_id": "gallery-step-1",
+      "stage": "anchor",
+      "tier": "action",
+      "title": "切入口·行动",
+      "text": "先把伊森的活动范围收窄到第三排。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-1"
+      ]
+    },
+    {
+      "id": "gallery-step-2-nudge",
+      "level": 4,
+      "step_id": "gallery-step-2",
+      "stage": "anchor",
+      "tier": "nudge",
+      "title": "切入口·观察",
+      "text": "照度记录对应的是一条纵向灯带。",
+      "depends_on": [],
       "references": [
         "puzzle.public.json#clues.clue-2"
       ]
     },
     {
-      "id": "board-consistency",
-      "level": 3,
-      "title": "矛盾检查",
-      "text": "如果某一行或某一列已经放了两个人，这个棋盘状态一定需要回退。",
+      "id": "gallery-step-2-connection",
+      "level": 5,
+      "step_id": "gallery-step-2",
+      "stage": "anchor",
+      "tier": "connection",
+      "title": "切入口·联系",
+      "text": "科林的读数只可能来自第五列。",
+      "depends_on": [],
       "references": [
-        "proof.public.json#matrices.answer"
+        "puzzle.public.json#clues.clue-2"
       ]
     },
     {
-      "id": "next-step",
-      "level": 4,
-      "title": "下一步提示",
-      "text": "把已确定人物从同行、同列的其他候选中排除，再检查椅子、树、书柜和地毯线索。",
+      "id": "gallery-step-2-action",
+      "level": 6,
+      "step_id": "gallery-step-2",
+      "stage": "anchor",
+      "tier": "action",
+      "title": "切入口·行动",
+      "text": "先保留第五列中能够落脚的位置。",
+      "depends_on": [],
       "references": [
-        "puzzle.public.json#clues"
+        "puzzle.public.json#clues.clue-2"
+      ]
+    },
+    {
+      "id": "gallery-step-3-nudge",
+      "level": 7,
+      "step_id": "gallery-step-3",
+      "stage": "anchor",
+      "tier": "nudge",
+      "title": "切入口·观察",
+      "text": "先确认菲奥娜最后刷开的展区门。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-4"
+      ]
+    },
+    {
+      "id": "gallery-step-3-connection",
+      "level": 8,
+      "step_id": "gallery-step-3",
+      "stage": "anchor",
+      "tier": "connection",
+      "title": "切入口·联系",
+      "text": "她的门禁记录只出现在聚光展室。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-4"
+      ]
+    },
+    {
+      "id": "gallery-step-3-action",
+      "level": 9,
+      "step_id": "gallery-step-3",
+      "stage": "anchor",
+      "tier": "action",
+      "title": "切入口·行动",
+      "text": "把她的去向限制在聚光展室内。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-4"
+      ]
+    },
+    {
+      "id": "gallery-step-4-nudge",
+      "level": 10,
+      "step_id": "gallery-step-4",
+      "stage": "bridge",
+      "tier": "nudge",
+      "title": "继续推进·观察",
+      "text": "聚光展室里只有一处会留下扶手灰印。",
+      "depends_on": [
+        "gallery-step-3"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-5"
+      ]
+    },
+    {
+      "id": "gallery-step-4-connection",
+      "level": 11,
+      "step_id": "gallery-step-4",
+      "stage": "bridge",
+      "tier": "connection",
+      "title": "继续推进·联系",
+      "text": "门禁区域与单椅痕迹必须指向同一处。",
+      "depends_on": [
+        "gallery-step-3"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-5"
+      ]
+    },
+    {
+      "id": "gallery-step-4-action",
+      "level": 12,
+      "step_id": "gallery-step-4",
+      "stage": "bridge",
+      "tier": "action",
+      "title": "继续推进·行动",
+      "text": "在聚光展室内找出那把可坐的单椅。",
+      "depends_on": [
+        "gallery-step-3"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-5"
+      ]
+    },
+    {
+      "id": "gallery-step-5-nudge",
+      "level": 13,
+      "step_id": "gallery-step-5",
+      "stage": "convergence",
+      "tier": "nudge",
+      "title": "证据汇合·观察",
+      "text": "第五列里，科林还必须位于伊森北侧。",
+      "depends_on": [
+        "gallery-step-1",
+        "gallery-step-2"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-3"
+      ]
+    },
+    {
+      "id": "gallery-step-5-connection",
+      "level": 14,
+      "step_id": "gallery-step-5",
+      "stage": "convergence",
+      "tier": "connection",
+      "title": "证据汇合·联系",
+      "text": "伊森在第三排，而第五列最上端是不可落脚的档案柜。",
+      "depends_on": [
+        "gallery-step-1",
+        "gallery-step-2"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-3"
+      ]
+    },
+    {
+      "id": "gallery-step-5-action",
+      "level": 15,
+      "step_id": "gallery-step-5",
+      "stage": "convergence",
+      "tier": "action",
+      "title": "证据汇合·行动",
+      "text": "让第三排与第五列的记录通过南北关系相交。",
+      "depends_on": [
+        "gallery-step-1",
+        "gallery-step-2"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-3"
+      ]
+    },
+    {
+      "id": "gallery-step-6-nudge",
+      "level": 16,
+      "step_id": "gallery-step-6",
+      "stage": "reveal",
+      "tier": "nudge",
+      "title": "最后确认·观察",
+      "text": "两处刚确定的落点都在同一片聚光区域。",
+      "depends_on": [
+        "gallery-step-4",
+        "gallery-step-5"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-6"
+      ]
+    },
+    {
+      "id": "gallery-step-6-connection",
+      "level": 17,
+      "step_id": "gallery-step-6",
+      "stage": "reveal",
+      "tier": "connection",
+      "title": "最后确认·联系",
+      "text": "现场只有菲奥娜和另一人，科林正好占据另一处。",
+      "depends_on": [
+        "gallery-step-4",
+        "gallery-step-5"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-6"
+      ]
+    },
+    {
+      "id": "gallery-step-6-action",
+      "level": 18,
+      "step_id": "gallery-step-6",
+      "stage": "reveal",
+      "tier": "action",
+      "title": "最后确认·行动",
+      "text": "确认聚光展室里与菲奥娜单独同处的人。",
+      "depends_on": [
+        "gallery-step-4",
+        "gallery-step-5"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-6"
       ]
     }
   ]

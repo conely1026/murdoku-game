@@ -212,16 +212,23 @@ h2 {
 .game-layout {
   flex: 1;
   display: grid;
-  grid-template-columns: minmax(330px, 430px) minmax(560px, 1fr) 132px;
+  grid-template-columns: minmax(330px, 430px) minmax(0, 1fr);
   min-height: 100vh;
   gap: 18px;
   padding: 12px 14px 14px;
 }
 
 .suspect-column,
+.board-workspace,
 .board-stage,
 .tool-rail {
   min-width: 0;
+}
+
+.board-workspace {
+  display: grid;
+  grid-template-columns: minmax(560px, 1fr) 132px;
+  gap: 18px;
 }
 
 .game-head {
@@ -238,17 +245,6 @@ h2 {
   font-weight: 900;
   letter-spacing: 0;
   text-transform: uppercase;
-}
-
-.proof-pill {
-  border: 2px solid var(--line);
-  border-radius: 6px;
-  background: var(--panel);
-  padding: 6px 9px;
-  font-size: 12px;
-  font-weight: 800;
-  white-space: nowrap;
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
 }
 
 .story-card {
@@ -453,6 +449,21 @@ h2 {
 
 .people-panel {
   text-align: center;
+}
+
+.people-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.people-heading h2 {
+  margin-bottom: 10px;
+}
+
+.person-carousel-nav {
+  display: none;
 }
 
 .instruction {
@@ -869,7 +880,6 @@ body[data-level-id="rain-manor"] .instruction {
 }
 
 body[data-level-id="rain-manor"] .back-button,
-body[data-level-id="rain-manor"] .proof-pill,
 body[data-level-id="rain-manor"] .tool-button,
 body[data-level-id="rain-manor"] .submit-button,
 body[data-level-id="rain-manor"] .help-button {
@@ -1801,7 +1811,8 @@ body[data-level-id="rain-manor"] .region-surface-image[data-material="manor_moss
   }
 
   body[data-level-id] .board-stage,
-  body[data-level-id] .tool-rail {
+  body[data-level-id] .tool-rail,
+  body[data-level-id] .board-workspace {
     height: 100%;
     min-height: 0;
     overflow: hidden;
@@ -1832,9 +1843,14 @@ body[data-level-id="rain-manor"] .region-surface-image[data-material="manor_moss
   }
 
   .game-layout {
-    grid-template-columns: minmax(300px, 380px) minmax(420px, 1fr) 108px;
+    grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
     gap: 12px;
     padding: 12px;
+  }
+
+  .board-workspace {
+    grid-template-columns: minmax(420px, 1fr) 108px;
+    gap: 12px;
   }
 
   .person-list {
@@ -1846,6 +1862,7 @@ body[data-level-id="rain-manor"] .region-surface-image[data-material="manor_moss
   }
 }
 
+/* 手机适配：线索横向滑动，工具栏横排在棋盘上方且不挤压棋盘宽度。 */
 @media (max-width: 820px) {
   .level-select {
     padding: 22px;
@@ -1857,6 +1874,7 @@ body[data-level-id="rain-manor"] .region-surface-image[data-material="manor_moss
 
   .game-layout {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .sidebar-topbar {
@@ -1879,34 +1897,188 @@ body[data-level-id="rain-manor"] .region-surface-image[data-material="manor_moss
     order: 3;
   }
 
-  .board-stage {
+  .people-panel {
     order: 4;
-    padding-top: 0;
+    min-width: 0;
+    text-align: left;
   }
 
-  .people-panel {
+  .board-workspace {
     order: 5;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 8px;
+    min-width: 0;
   }
 
   .investigation-panel {
     order: 6;
   }
 
-  .tool-rail {
-    order: 7;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
+  .board-stage {
+    order: 1;
     padding-top: 0;
   }
 
-  .submit-button,
-  .feedback,
-  .help-button {
-    grid-column: span 4;
+  .board-wrap {
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
   }
 
   .person-list {
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 3px 18px 10px 2px;
+    scroll-padding-inline: 2px 18px;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+    touch-action: pan-x;
+  }
+
+  .person-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .person-card,
+  .people-panel.is-large-roster .person-card {
+    --portrait-height: 84px;
+    flex: 0 0 min(84vw, 330px);
+    grid-template-columns: 88px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    min-height: 128px;
+    height: auto;
+    padding: 7px;
+    text-align: left;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .portrait,
+  .people-panel.is-large-roster .portrait {
+    grid-row: 1 / span 2;
+    width: 82px;
+    justify-self: start;
+  }
+
+  .person-meta,
+  .people-panel.is-large-roster .person-meta {
+    align-content: start;
+    padding: 1px 0 5px;
+  }
+
+  .person-clue,
+  .people-panel.is-large-roster .person-clue {
+    min-height: 0;
+    padding: 6px 2px 1px;
+  }
+
+  .person-carousel-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 8px;
+  }
+
+  .person-carousel-button {
+    display: grid;
+    width: 38px;
+    min-height: 38px;
+    place-items: center;
+    border: 2px solid #111;
+    border-radius: 8px;
+    background: #fff;
+    color: #111;
+    font-size: 18px;
+    font-weight: 1000;
+    cursor: pointer;
+  }
+
+  .person-carousel-button:disabled {
+    border-color: #aaa;
+    color: #aaa;
+    cursor: not-allowed;
+  }
+
+  .person-carousel-status {
+    min-width: 44px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  .tool-rail {
+    order: 0;
+    position: sticky;
+    top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(52px, 1fr));
+    grid-template-rows: auto;
+    align-content: start;
+    gap: 6px;
+    z-index: 5;
+    max-height: none;
+    padding: 0 0 2px;
+    overflow: visible;
+    background: rgba(248, 248, 252, 0.94);
+  }
+
+  .tool-button,
+  .submit-button,
+  .help-button {
+    min-height: 48px;
+    border-width: 2px;
+    border-radius: 8px;
+    padding: 5px 2px;
+    font-size: 11px;
+  }
+
+  .tool-icon {
+    font-size: 24px;
+  }
+
+  .tool-caption {
+    margin-top: 3px;
+    font-size: 9px;
+  }
+
+  .submit-button {
+    min-height: 54px;
+  }
+
+  .submit-button #submit-caption {
+    display: none;
+  }
+
+  .feedback {
+    position: fixed;
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    left: 10px;
+    z-index: 20;
+    min-height: 0;
+    border-width: 2px;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.18);
+  }
+
+  .board {
+    --coord-width: 28px;
+    --coord-height: 28px;
+    min-width: 292px;
+    width: min(100%, 420px);
+    grid-template-columns: 28px repeat(var(--cols), minmax(44px, 1fr));
+    grid-template-rows: 28px repeat(var(--rows), minmax(44px, 1fr));
+  }
+
+  .board.is-large-grid {
+    min-width: 620px;
+    width: 620px;
+    grid-template-columns: 26px repeat(var(--cols), minmax(38px, 1fr));
+    grid-template-rows: 26px repeat(var(--rows), minmax(38px, 1fr));
   }
 }
 
@@ -1927,21 +2099,13 @@ body[data-level-id="rain-manor"] .region-surface-image[data-material="manor_moss
     grid-template-columns: 1fr;
   }
 
-  .person-list {
-    grid-template-columns: 1fr;
-  }
-
-  .people-panel.is-large-roster .person-list {
-    grid-template-columns: 1fr;
-  }
-
   .board {
     --coord-width: 26px;
     --coord-height: 26px;
-    min-width: 314px;
+    min-width: 278px;
     width: min(100%, 420px);
-    grid-template-columns: 26px repeat(var(--cols), minmax(48px, 1fr));
-    grid-template-rows: 26px repeat(var(--rows), minmax(48px, 1fr));
+    grid-template-columns: 26px repeat(var(--cols), minmax(42px, 1fr));
+    grid-template-rows: 26px repeat(var(--rows), minmax(42px, 1fr));
   }
 
   .board.is-large-grid {
@@ -1955,12 +2119,12 @@ body[data-level-id="rain-manor"] .region-surface-image[data-material="manor_moss
     background-size: calc(100% - 26px) calc(100% - 26px);
   }
 
-  .person-card {
+  .person-card,
+  .people-panel.is-large-roster .person-card {
     --portrait-height: 78px;
+    flex-basis: min(84vw, 320px);
     grid-template-columns: 82px minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    min-height: 0;
-    text-align: left;
+    min-height: 118px;
   }
 
   .portrait {

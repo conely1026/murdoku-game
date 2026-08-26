@@ -1,52 +1,427 @@
 {
   "schema_version": 1,
   "puzzle_id": "clockwork-hotel",
-  "ai_status": "P9-boundary-only",
+  "ai_status": "deduction-plan-v1",
+  "deduction": {
+    "schema_version": 1,
+    "aha_step_id": "hotel-step-8",
+    "final_step_id": "hotel-step-9",
+    "step_count": 9
+  },
   "hints": [
     {
       "id": "rules-row-col",
       "level": 0,
-      "title": "规则解释",
-      "text": "每行和每列都恰好放置一名人物，人物只能站在可行走格子上。",
+      "stage": "rules",
+      "tier": "rules",
+      "title": "现场规则",
+      "text": "每一排和每一列都只会出现一名人物，障碍物所在处不能停留。",
+      "depends_on": [],
       "references": [
         "puzzle.public.json#rows",
         "puzzle.public.json#cols"
       ]
     },
     {
-      "id": "first-fixed-person",
+      "id": "hotel-step-1-nudge",
       "level": 1,
-      "title": "方向提示",
-      "text": "先从 Aiden 的定位线索开始，它能直接缩小候选行列。",
+      "step_id": "hotel-step-1",
+      "stage": "anchor",
+      "tier": "nudge",
+      "title": "切入口·观察",
+      "text": "先看哪一排留下了完整湿鞋印。",
+      "depends_on": [],
       "references": [
         "puzzle.public.json#clues.clue-1"
       ]
     },
     {
-      "id": "victim-region",
+      "id": "hotel-step-1-connection",
       "level": 2,
-      "title": "排除提示",
-      "text": "留意 Fiona 所在区域；凶手必须与受害者单独同区。",
+      "step_id": "hotel-step-1",
+      "stage": "anchor",
+      "tier": "connection",
+      "title": "切入口·联系",
+      "text": "菲奥娜的脚印始终没有离开第二排。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-1"
+      ]
+    },
+    {
+      "id": "hotel-step-1-action",
+      "level": 3,
+      "step_id": "hotel-step-1",
+      "stage": "anchor",
+      "tier": "action",
+      "title": "切入口·行动",
+      "text": "先把她的去向收窄到第二排。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-1"
+      ]
+    },
+    {
+      "id": "hotel-step-2-nudge",
+      "level": 4,
+      "step_id": "hotel-step-2",
+      "stage": "anchor",
+      "tier": "nudge",
+      "title": "切入口·观察",
+      "text": "备用钥匙一直由前厅值守人保管。",
+      "depends_on": [],
       "references": [
         "puzzle.public.json#clues.clue-2"
       ]
     },
     {
-      "id": "board-consistency",
-      "level": 3,
-      "title": "矛盾检查",
-      "text": "如果某一行或某一列已经放了两个人，这个棋盘状态一定需要回退。",
+      "id": "hotel-step-2-connection",
+      "level": 5,
+      "step_id": "hotel-step-2",
+      "stage": "anchor",
+      "tier": "connection",
+      "title": "切入口·联系",
+      "text": "贝拉的活动范围没有离开前厅客席。",
+      "depends_on": [],
       "references": [
-        "proof.public.json#matrices.answer"
+        "puzzle.public.json#clues.clue-2"
       ]
     },
     {
-      "id": "next-step",
-      "level": 4,
-      "title": "下一步提示",
-      "text": "把已确定人物从同行、同列的其他候选中排除，再检查椅子、树、书柜和地毯线索。",
+      "id": "hotel-step-2-action",
+      "level": 6,
+      "step_id": "hotel-step-2",
+      "stage": "anchor",
+      "tier": "action",
+      "title": "切入口·行动",
+      "text": "先保留前厅客席内能站人的位置。",
+      "depends_on": [],
       "references": [
-        "puzzle.public.json#clues"
+        "puzzle.public.json#clues.clue-2"
+      ]
+    },
+    {
+      "id": "hotel-step-3-nudge",
+      "level": 7,
+      "step_id": "hotel-step-3",
+      "stage": "anchor",
+      "tier": "nudge",
+      "title": "切入口·观察",
+      "text": "校钟记录只会留在一处工作区。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-8"
+      ]
+    },
+    {
+      "id": "hotel-step-3-connection",
+      "level": 8,
+      "step_id": "hotel-step-3",
+      "stage": "anchor",
+      "tier": "connection",
+      "title": "切入口·联系",
+      "text": "伊森整晚都没有离开钟表工坊。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-8"
+      ]
+    },
+    {
+      "id": "hotel-step-3-action",
+      "level": 9,
+      "step_id": "hotel-step-3",
+      "stage": "anchor",
+      "tier": "action",
+      "title": "切入口·行动",
+      "text": "先保留工坊内能站人的位置。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-8"
+      ]
+    },
+    {
+      "id": "hotel-step-4-nudge",
+      "level": 10,
+      "step_id": "hotel-step-4",
+      "stage": "bridge",
+      "tier": "nudge",
+      "title": "继续推进·观察",
+      "text": "贝拉与菲奥娜不能占据同一排。",
+      "depends_on": [
+        "hotel-step-1",
+        "hotel-step-2"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-3"
+      ]
+    },
+    {
+      "id": "hotel-step-4-connection",
+      "level": 11,
+      "step_id": "hotel-step-4",
+      "stage": "bridge",
+      "tier": "connection",
+      "title": "继续推进·联系",
+      "text": "菲奥娜在第二排，而贝拉既在前厅又位于她西侧。",
+      "depends_on": [
+        "hotel-step-1",
+        "hotel-step-2"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-3"
+      ]
+    },
+    {
+      "id": "hotel-step-4-action",
+      "level": 12,
+      "step_id": "hotel-step-4",
+      "stage": "bridge",
+      "tier": "action",
+      "title": "继续推进·行动",
+      "text": "划掉前厅客席中与菲奥娜同排的位置。",
+      "depends_on": [
+        "hotel-step-1",
+        "hotel-step-2"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-3"
+      ]
+    },
+    {
+      "id": "hotel-step-5-nudge",
+      "level": 13,
+      "step_id": "hotel-step-5",
+      "stage": "bridge",
+      "tier": "nudge",
+      "title": "继续推进·观察",
+      "text": "前厅里只有两道与案发有关的人影。",
+      "depends_on": [
+        "hotel-step-2"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-3",
+        "puzzle.public.json#clues.clue-4"
+      ]
+    },
+    {
+      "id": "hotel-step-5-connection",
+      "level": 14,
+      "step_id": "hotel-step-5",
+      "stage": "bridge",
+      "tier": "connection",
+      "title": "继续推进·联系",
+      "text": "贝拉在菲奥娜西侧，前厅的可落脚列会因此成对收紧。",
+      "depends_on": [
+        "hotel-step-2"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-3",
+        "puzzle.public.json#clues.clue-4"
+      ]
+    },
+    {
+      "id": "hotel-step-5-action",
+      "level": 15,
+      "step_id": "hotel-step-5",
+      "stage": "bridge",
+      "tier": "action",
+      "title": "继续推进·行动",
+      "text": "核对前厅内能让两人保持东西次序的列。",
+      "depends_on": [
+        "hotel-step-2"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-3",
+        "puzzle.public.json#clues.clue-4"
+      ]
+    },
+    {
+      "id": "hotel-step-6-nudge",
+      "level": 16,
+      "step_id": "hotel-step-6",
+      "stage": "bridge",
+      "tier": "nudge",
+      "title": "继续推进·观察",
+      "text": "工坊里的三人证词形成了两条方向约束。",
+      "depends_on": [
+        "hotel-step-1",
+        "hotel-step-2",
+        "hotel-step-3"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-5",
+        "puzzle.public.json#clues.clue-6"
+      ]
+    },
+    {
+      "id": "hotel-step-6-connection",
+      "level": 17,
+      "step_id": "hotel-step-6",
+      "stage": "bridge",
+      "tier": "connection",
+      "title": "继续推进·联系",
+      "text": "艾登在伊森西侧，科林又在伊森北侧；前厅两排已有各自去向。",
+      "depends_on": [
+        "hotel-step-1",
+        "hotel-step-2",
+        "hotel-step-3"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-5",
+        "puzzle.public.json#clues.clue-6"
+      ]
+    },
+    {
+      "id": "hotel-step-6-action",
+      "level": 18,
+      "step_id": "hotel-step-6",
+      "stage": "bridge",
+      "tier": "action",
+      "title": "继续推进·行动",
+      "text": "同时核对工坊位置的东西和南北余量。",
+      "depends_on": [
+        "hotel-step-1",
+        "hotel-step-2",
+        "hotel-step-3"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-5",
+        "puzzle.public.json#clues.clue-6"
+      ]
+    },
+    {
+      "id": "hotel-step-7-nudge",
+      "level": 19,
+      "step_id": "hotel-step-7",
+      "stage": "convergence",
+      "tier": "nudge",
+      "title": "证据汇合·观察",
+      "text": "贝拉的排与列已经分别收紧。",
+      "depends_on": [
+        "hotel-step-4",
+        "hotel-step-5"
+      ],
+      "references": []
+    },
+    {
+      "id": "hotel-step-7-connection",
+      "level": 20,
+      "step_id": "hotel-step-7",
+      "stage": "convergence",
+      "tier": "connection",
+      "title": "证据汇合·联系",
+      "text": "第一排与第四列只在前厅的一处相交。",
+      "depends_on": [
+        "hotel-step-4",
+        "hotel-step-5"
+      ],
+      "references": []
+    },
+    {
+      "id": "hotel-step-7-action",
+      "level": 21,
+      "step_id": "hotel-step-7",
+      "stage": "convergence",
+      "tier": "action",
+      "title": "证据汇合·行动",
+      "text": "让两条记录在同一个落点重合。",
+      "depends_on": [
+        "hotel-step-4",
+        "hotel-step-5"
+      ],
+      "references": []
+    },
+    {
+      "id": "hotel-step-8-nudge",
+      "level": 22,
+      "step_id": "hotel-step-8",
+      "stage": "convergence",
+      "tier": "nudge",
+      "title": "证据汇合·观察",
+      "text": "剩余的东西次序还差黛安娜那道灯影。",
+      "depends_on": [
+        "hotel-step-6",
+        "hotel-step-7"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-7"
+      ]
+    },
+    {
+      "id": "hotel-step-8-connection",
+      "level": 23,
+      "step_id": "hotel-step-8",
+      "stage": "convergence",
+      "tier": "connection",
+      "title": "证据汇合·联系",
+      "text": "伊森与贝拉落定后，再把黛安娜在科林东侧的记录放回去，菲奥娜的列只剩一处。",
+      "depends_on": [
+        "hotel-step-6",
+        "hotel-step-7"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-7"
+      ]
+    },
+    {
+      "id": "hotel-step-8-action",
+      "level": 24,
+      "step_id": "hotel-step-8",
+      "stage": "convergence",
+      "tier": "action",
+      "title": "证据汇合·行动",
+      "text": "用已占用的行列排除前厅最后的空位。",
+      "depends_on": [
+        "hotel-step-6",
+        "hotel-step-7"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-7"
+      ]
+    },
+    {
+      "id": "hotel-step-9-nudge",
+      "level": 25,
+      "step_id": "hotel-step-9",
+      "stage": "reveal",
+      "tier": "nudge",
+      "title": "最后确认·观察",
+      "text": "前厅两人的落点已经全部确定。",
+      "depends_on": [
+        "hotel-step-8"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-4"
+      ]
+    },
+    {
+      "id": "hotel-step-9-connection",
+      "level": 26,
+      "step_id": "hotel-step-9",
+      "stage": "reveal",
+      "tier": "connection",
+      "title": "最后确认·联系",
+      "text": "菲奥娜遇害时没有第三人在场，另一处正是贝拉。",
+      "depends_on": [
+        "hotel-step-8"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-4"
+      ]
+    },
+    {
+      "id": "hotel-step-9-action",
+      "level": 27,
+      "step_id": "hotel-step-9",
+      "stage": "reveal",
+      "tier": "action",
+      "title": "最后确认·行动",
+      "text": "确认与菲奥娜单独留在前厅的人。",
+      "depends_on": [
+        "hotel-step-8"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-4"
       ]
     }
   ]

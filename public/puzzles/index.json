@@ -9,10 +9,10 @@
       "difficulty": "入门",
       "author_difficulty": "入门",
       "difficulty_band": "Easy",
-      "difficulty_score": 166,
+      "difficulty_score": 198,
       "pack": "./public/puzzles/fog-town-books",
       "source": "examples/fog_town_books.json",
-      "summary": "从苔庭到玻璃连廊，找回旧书街六人的落脚处。"
+      "summary": "书签与纸灰，勾出旧书街六人的落脚处。"
     },
     {
       "id": "midnight-gallery",
@@ -21,58 +21,22 @@
       "difficulty": "标准",
       "author_difficulty": "标准",
       "difficulty_band": "Medium",
-      "difficulty_score": 1142,
+      "difficulty_score": 330,
       "pack": "./public/puzzles/midnight-gallery",
       "source": "examples/midnight_gallery.json",
-      "summary": "应急灯照不到的错位展区里，六人的夜巡证词互相牵制。"
+      "summary": "行列记录与南北关系，牵出应急灯下的六人去向。"
     },
     {
       "id": "clockwork-hotel",
       "title": "钟楼旅店",
       "subtitle": "暴雨夜的旅店钟声",
-      "difficulty": "标准",
-      "author_difficulty": "标准",
-      "difficulty_band": "Medium",
-      "difficulty_score": 579,
-      "pack": "./public/puzzles/clockwork-hotel",
-      "source": "examples/clockwork_hotel.json",
-      "summary": "听着停下的钟声，把旅店六人的最后位置排出来。"
-    },
-    {
-      "id": "rain-manor",
-      "title": "雨幕庄园",
-      "subtitle": "九人被困的庄园一层",
-      "difficulty": "标准",
-      "author_difficulty": "标准",
-      "difficulty_band": "Medium",
-      "difficulty_score": 458,
-      "pack": "./public/puzzles/rain-manor",
-      "source": "examples/rain_manor.json",
-      "summary": "根据房间边界和现场记录，找出庄园九人的位置。"
-    },
-    {
-      "id": "last-curtain-theatre",
-      "title": "末场剧院",
-      "subtitle": "舞台灯熄灭后的十人剧院",
       "difficulty": "困难",
       "author_difficulty": "困难",
       "difficulty_band": "Hard",
-      "difficulty_score": 28376,
-      "pack": "./public/puzzles/last-curtain-theatre",
-      "source": "examples/last_curtain_theatre.json",
-      "summary": "根据座席分区和现场记录，找出剧院十人的最后位置。"
-    },
-    {
-      "id": "tideglass-observatory",
-      "title": "潮镜观测站",
-      "subtitle": "黑潮风暴中的十五人观测站",
-      "difficulty": "入门",
-      "author_difficulty": "大型入门",
-      "difficulty_band": "Easy",
-      "difficulty_score": 110,
-      "pack": "./public/puzzles/tideglass-observatory",
-      "source": "examples/tideglass_observatory.json",
-      "summary": "沿海崖小径核对十五人的位置，并调查六件现场设备。"
+      "difficulty_score": 4423,
+      "pack": "./public/puzzles/clockwork-hotel",
+      "source": "examples/clockwork_hotel.json",
+      "summary": "菲奥娜的湿鞋印，牵动前厅与工坊的方位证词。"
     }
   ]
 }

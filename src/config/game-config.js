@@ -46,12 +46,6 @@ export const COMMON_OBJECT_ASSETS = Object.freeze({
   table: 'assets/common/tile-kit/v1/tiles/table.png',
   fountain: 'assets/common/tile-kit/v1/tiles/fountain.png',
   shrub: 'assets/common/tile-kit/v1/tiles/shrub.png',
-  telescope: 'assets/common/object-kit/v4/objects/telescope.png',
-  radio: 'assets/common/object-kit/v4/objects/radio.png',
-  cabinet: 'assets/common/object-kit/v4/objects/cabinet.png',
-  generator: 'assets/common/object-kit/v4/objects/generator.png',
-  lifebuoy: 'assets/common/object-kit/v4/objects/lifebuoy.png',
-  beacon: 'assets/common/object-kit/v4/objects/beacon.png',
 });
 
 export const PORTRAIT_ASSETS = Object.freeze({
@@ -66,9 +60,6 @@ export const PORTRAIT_ASSETS = Object.freeze({
 export const ART_MODE_DEFAULT = 'matrix-skin';
 export const ART_MODES = new Set([
   ART_MODE_DEFAULT,
-  'scene-slices',
-  'region-grade',
-  'background-objects',
 ]);
 
 export const SVG_NAMESPACE = 'http://www.w3.org/2000/svg';

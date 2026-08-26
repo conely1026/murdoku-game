@@ -1,52 +1,277 @@
 {
   "schema_version": 1,
   "puzzle_id": "fog-town-books",
-  "ai_status": "P9-boundary-only",
+  "ai_status": "deduction-plan-v1",
+  "deduction": {
+    "schema_version": 1,
+    "aha_step_id": "fog-step-5",
+    "final_step_id": "fog-step-6",
+    "step_count": 6
+  },
   "hints": [
     {
       "id": "rules-row-col",
       "level": 0,
-      "title": "规则解释",
-      "text": "每行和每列都恰好放置一名人物，人物只能站在可行走格子上。",
+      "stage": "rules",
+      "tier": "rules",
+      "title": "现场规则",
+      "text": "每一排和每一列都只会出现一名人物，障碍物所在处不能停留。",
+      "depends_on": [],
       "references": [
         "puzzle.public.json#rows",
         "puzzle.public.json#cols"
       ]
     },
     {
-      "id": "first-fixed-person",
+      "id": "fog-step-1-nudge",
       "level": 1,
-      "title": "方向提示",
-      "text": "先从 Aiden 的定位线索开始，它能直接缩小候选行列。",
+      "step_id": "fog-step-1",
+      "stage": "anchor",
+      "tier": "nudge",
+      "title": "切入口·观察",
+      "text": "先查失物登记本最后几页的落款。",
+      "depends_on": [],
       "references": [
-        "puzzle.public.json#clues.clue-3"
+        "puzzle.public.json#clues.clue-1"
       ]
     },
     {
-      "id": "victim-region",
+      "id": "fog-step-1-connection",
       "level": 2,
-      "title": "排除提示",
-      "text": "留意 Fiona 所在区域；凶手必须与受害者单独同区。",
+      "step_id": "fog-step-1",
+      "stage": "anchor",
+      "tier": "connection",
+      "title": "切入口·联系",
+      "text": "连续的墨迹都留在第四排附近。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-1"
+      ]
+    },
+    {
+      "id": "fog-step-1-action",
+      "level": 3,
+      "step_id": "fog-step-1",
+      "stage": "anchor",
+      "tier": "action",
+      "title": "切入口·行动",
+      "text": "先把黛安娜的去向收窄到第四排。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-1"
+      ]
+    },
+    {
+      "id": "fog-step-2-nudge",
+      "level": 4,
+      "step_id": "fog-step-2",
+      "stage": "anchor",
+      "tier": "nudge",
+      "title": "切入口·观察",
+      "text": "纸灰不会从普通木地板上沾到袖口。",
+      "depends_on": [],
       "references": [
         "puzzle.public.json#clues.clue-2"
       ]
     },
     {
-      "id": "board-consistency",
-      "level": 3,
-      "title": "矛盾检查",
-      "text": "如果某一行或某一列已经放了两个人，这个棋盘状态一定需要回退。",
+      "id": "fog-step-2-connection",
+      "level": 5,
+      "step_id": "fog-step-2",
+      "stage": "anchor",
+      "tier": "connection",
+      "title": "切入口·联系",
+      "text": "黛安娜停留处必须紧挨同一区域的书柜。",
+      "depends_on": [],
       "references": [
-        "proof.public.json#matrices.answer"
+        "puzzle.public.json#clues.clue-2"
       ]
     },
     {
-      "id": "next-step",
-      "level": 4,
-      "title": "下一步提示",
-      "text": "把已确定人物从同行、同列的其他候选中排除，再检查椅子、树、书柜和地毯线索。",
+      "id": "fog-step-2-action",
+      "level": 6,
+      "step_id": "fog-step-2",
+      "stage": "anchor",
+      "tier": "action",
+      "title": "切入口·行动",
+      "text": "圈出所有能碰到书柜纸灰的落脚处。",
+      "depends_on": [],
       "references": [
-        "puzzle.public.json#clues"
+        "puzzle.public.json#clues.clue-2"
+      ]
+    },
+    {
+      "id": "fog-step-3-nudge",
+      "level": 7,
+      "step_id": "fog-step-3",
+      "stage": "anchor",
+      "tier": "nudge",
+      "title": "切入口·观察",
+      "text": "先沿着遗落书签出现的方向看。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-3"
+      ]
+    },
+    {
+      "id": "fog-step-3-connection",
+      "level": 8,
+      "step_id": "fog-step-3",
+      "stage": "anchor",
+      "tier": "connection",
+      "title": "切入口·联系",
+      "text": "书签只把菲奥娜带到最西侧一列。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-3"
+      ]
+    },
+    {
+      "id": "fog-step-3-action",
+      "level": 9,
+      "step_id": "fog-step-3",
+      "stage": "anchor",
+      "tier": "action",
+      "title": "切入口·行动",
+      "text": "暂时保留最西侧仍可落脚的位置。",
+      "depends_on": [],
+      "references": [
+        "puzzle.public.json#clues.clue-3"
+      ]
+    },
+    {
+      "id": "fog-step-4-nudge",
+      "level": 10,
+      "step_id": "fog-step-4",
+      "stage": "bridge",
+      "tier": "nudge",
+      "title": "继续推进·观察",
+      "text": "最西侧并不只有一处能停留。",
+      "depends_on": [
+        "fog-step-3"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-4"
+      ]
+    },
+    {
+      "id": "fog-step-4-connection",
+      "level": 11,
+      "step_id": "fog-step-4",
+      "stage": "bridge",
+      "tier": "connection",
+      "title": "继续推进·联系",
+      "text": "书签的位置还要和阅读椅的压痕对上。",
+      "depends_on": [
+        "fog-step-3"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-4"
+      ]
+    },
+    {
+      "id": "fog-step-4-action",
+      "level": 12,
+      "step_id": "fog-step-4",
+      "stage": "bridge",
+      "tier": "action",
+      "title": "继续推进·行动",
+      "text": "在最西侧的落脚处中，找出带阅读椅的一处。",
+      "depends_on": [
+        "fog-step-3"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-4"
+      ]
+    },
+    {
+      "id": "fog-step-5-nudge",
+      "level": 13,
+      "step_id": "fog-step-5",
+      "stage": "convergence",
+      "tier": "nudge",
+      "title": "证据汇合·观察",
+      "text": "第四排的几个落脚处，纸灰来源并不相同。",
+      "depends_on": [
+        "fog-step-1",
+        "fog-step-2"
+      ],
+      "references": []
+    },
+    {
+      "id": "fog-step-5-connection",
+      "level": 14,
+      "step_id": "fog-step-5",
+      "stage": "convergence",
+      "tier": "connection",
+      "title": "证据汇合·联系",
+      "text": "只有一处既在第四排，又紧挨同区书柜。",
+      "depends_on": [
+        "fog-step-1",
+        "fog-step-2"
+      ],
+      "references": []
+    },
+    {
+      "id": "fog-step-5-action",
+      "level": 15,
+      "step_id": "fog-step-5",
+      "stage": "convergence",
+      "tier": "action",
+      "title": "证据汇合·行动",
+      "text": "让登记记录与纸灰痕迹在同一处相交。",
+      "depends_on": [
+        "fog-step-1",
+        "fog-step-2"
+      ],
+      "references": []
+    },
+    {
+      "id": "fog-step-6-nudge",
+      "level": 16,
+      "step_id": "fog-step-6",
+      "stage": "reveal",
+      "tier": "nudge",
+      "title": "最后确认·观察",
+      "text": "看一看两处已确定落点属于哪个区域。",
+      "depends_on": [
+        "fog-step-4",
+        "fog-step-5"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-5"
+      ]
+    },
+    {
+      "id": "fog-step-6-connection",
+      "level": 17,
+      "step_id": "fog-step-6",
+      "stage": "reveal",
+      "tier": "connection",
+      "title": "最后确认·联系",
+      "text": "菲奥娜与黛安娜都在旧书馆，现场又只留下两个人。",
+      "depends_on": [
+        "fog-step-4",
+        "fog-step-5"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-5"
+      ]
+    },
+    {
+      "id": "fog-step-6-action",
+      "level": 18,
+      "step_id": "fog-step-6",
+      "stage": "reveal",
+      "tier": "action",
+      "title": "最后确认·行动",
+      "text": "确认与菲奥娜单独同区的那个人。",
+      "depends_on": [
+        "fog-step-4",
+        "fog-step-5"
+      ],
+      "references": [
+        "puzzle.public.json#clues.clue-5"
       ]
     }
   ]

@@ -1,5 +1,3 @@
-export const NO_DIRECT_CLUE_TEXT = '无直接线索，需通过其他线索推出。';
-
 export function activeCluesByPerson(puzzle) {
   const byPerson = Object.fromEntries(puzzle.people.map((person) => [person.id, []]));
   for (const clue of puzzle.clues) {
@@ -13,7 +11,10 @@ export function activeCluesByPerson(puzzle) {
 
 export function personClueText(cluesByPerson, personId) {
   const clues = cluesByPerson[personId] || [];
-  return clues.length ? clues.join(' ') : NO_DIRECT_CLUE_TEXT;
+  if (!clues.length) {
+    throw new Error(`人物卡缺少线索：${personId}`);
+  }
+  return clues.join(' ');
 }
 
 export function clueCardOwnerId(clue) {

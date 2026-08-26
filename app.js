@@ -17,7 +17,6 @@ import {
   activeCluesByPerson,
   clueCardOwnerId,
   generalClues,
-  NO_DIRECT_CLUE_TEXT,
   personClueText,
 } from './src/domain/clues.js';
 import {
@@ -49,6 +48,10 @@ import {
   loadCollectedInvestigationIds,
   saveCollectedInvestigationIds,
 } from './src/infrastructure/investigation-storage.js';
+import {
+  loadLastPlayState,
+  saveLastPlayState,
+} from './src/infrastructure/play-state-storage.js';
 import { publicAssetUrl } from './src/infrastructure/public-assets.js';
 import {
   loadLevelIndex,
@@ -59,6 +62,10 @@ import {
 import {
   objectPlacementStyle,
 } from './src/presentation/matrix-skin-layers.js';
+import {
+  createFeedbackController,
+  SUBMISSION_FEEDBACK_DURATION_MS,
+} from './src/presentation/feedback-view.js';
 import {
   renderBoardView,
   updateRegionHighlightView,
@@ -88,7 +95,6 @@ export {
   COMMON_OBJECT_ASSETS,
   FORMAL_PLACEMENT_HOLD_MS,
   LEVEL_INDEX,
-  NO_DIRECT_CLUE_TEXT,
   PACK_BASE,
   PORTRAIT_ASSETS,
   activeCluesByPerson,
@@ -161,6 +167,8 @@ const state = {
   collectedInvestigationIds: new Set(),
 };
 
+const feedbackView = createFeedbackController();
+
 const boardInteractions = createBoardInteractionController({
   getContext: () => ({
     playState: snapshotPlayState(),
@@ -199,9 +207,6 @@ function render() {
   }
   document.title = state.puzzle.title;
   byId('puzzle-title').textContent = state.puzzle.title;
-  byId('proof-pill').textContent = state.proof.valid
-    ? '已验证 · 唯一解'
-    : 'proof 未通过';
   renderStory();
   renderBoard();
   renderGeneralClues();
@@ -267,10 +272,11 @@ async function loadLevel(levelId, options = {}) {
   );
   state.selectedPerson = pack.puzzle.people[0]?.id || '';
   state.mode = 'place';
-  state.assignments = {};
-  state.candidatePositions = {};
-  state.blockedPositions = new Set();
-  state.manualMarks = new Set();
+  const savedPlayState = loadLastPlayState(levelId);
+  state.assignments = savedPlayState?.assignments || {};
+  state.candidatePositions = savedPlayState?.candidatePositions || {};
+  state.blockedPositions = computeBlockedPositions(state.assignments, pack.puzzle);
+  state.manualMarks = savedPlayState?.manualMarks || new Set();
   state.history = EMPTY_UNDO_HISTORY;
   state.activeHint = 0;
   state.hoveredRegion = '';
@@ -281,6 +287,7 @@ async function loadLevel(levelId, options = {}) {
     document.body.dataset.levelId = level.id;
   }
   boardInteractions.stopInteractions();
+  clearFeedback();
   applyVisualManifest();
   showGameScreen(options);
   render();
@@ -459,9 +466,10 @@ function bindActions() {
       state.proof,
       people,
     );
-    const feedback = byId('feedback');
-    feedback.textContent = result.message;
-    feedback.className = `feedback ${result.ok ? 'is-good' : 'is-bad'}`;
+    feedbackView.show(result.message, {
+      tone: result.ok ? 'good' : 'bad',
+      dismissAfterMs: SUBMISSION_FEEDBACK_DURATION_MS,
+    });
   };
 
   byId('tool-investigate').onclick = () => {
@@ -487,9 +495,7 @@ function bindActions() {
   byId('help-button').onclick = () => {
     state.activeHint = Math.min(state.activeHint + 1, state.hints.hints.length - 1);
     const hint = state.hints.hints[state.activeHint] || state.hints.hints[0];
-    const feedback = byId('feedback');
-    feedback.textContent = hint ? `${hint.title}：${hint.text}` : '';
-    feedback.className = 'feedback';
+    feedbackView.show(hint ? `${hint.title}：${hint.text}` : '');
   };
   renderToolState();
 }
@@ -527,15 +533,12 @@ function handleCellClick(row, col) {
 
 function investigateCell(row, col) {
   const item = investigationItemAt(state.puzzle, row, col);
-  const feedback = byId('feedback');
   if (!item) {
-    feedback.textContent = '这里没有可记录的新发现。';
-    feedback.className = 'feedback';
+    feedbackView.show('这里没有可记录的新发现。');
     return;
   }
   if (state.collectedInvestigationIds.has(item.id)) {
-    feedback.textContent = `已记录：${item.title}`;
-    feedback.className = 'feedback';
+    feedbackView.show(`已记录：${item.title}`);
     return;
   }
   state.collectedInvestigationIds = collectInvestigationItem(
@@ -546,8 +549,7 @@ function investigateCell(row, col) {
     state.currentLevel?.id || '',
     state.collectedInvestigationIds,
   );
-  feedback.textContent = `发现追加线索：${item.clue_text}`;
-  feedback.className = 'feedback is-good';
+  feedbackView.show(`发现追加线索：${item.clue_text}`, { tone: 'good' });
   renderBoard();
   renderInvestigationPanel();
   renderToolState();
@@ -574,6 +576,7 @@ function applyPlayState(playState) {
   state.history = playState.history;
   state.selectedPerson = playState.selectedPerson;
   state.mode = playState.mode;
+  saveLastPlayState(state.currentLevel?.id || '', snapshotPlayState());
   renderBoard();
   renderPeople();
   renderSubmitState();
@@ -600,9 +603,7 @@ function renderToolState() {
 }
 
 function clearFeedback() {
-  const feedback = byId('feedback');
-  feedback.textContent = '';
-  feedback.className = 'feedback';
+  feedbackView.clear();
 }
 
 function sceneBackgroundAsset() {

@@ -4,7 +4,7 @@
   "generated_by": "murdoku.cli export-public",
   "source": "examples/fog_town_books.json",
   "title": "雾镇书影（6×6）",
-  "story": "雨刚停，雾镇旧书街的几间店铺还连在一片潮湿的水汽里：苔庭挨着修书铺，咖啡馆守在街角，旧书馆的折角又通向玻璃连廊。六个人都说自己没有离开原处；在警灯照进来之前，先从鞋印、物件和街屋分区里找出他们各自站在哪一格。",
+  "story": "雨停后，旧书街只剩潮湿的签条、书签和纸灰。值班记录上的落款彼此错开，物件留下的痕迹却在旧书馆汇到了一处。",
   "rows": 6,
   "cols": 6,
   "walkable_tiles": [
@@ -386,65 +386,67 @@
   "clues": [
     {
       "id": "clue-1",
-      "type": "exactly_n_on_tile",
-      "tile": "chair",
-      "n": 1,
-      "text": "案发时，三把椅子中只有一把有人坐着。"
+      "type": "person_in_row",
+      "person": "Diana",
+      "row": 4,
+      "text": "黛安娜的失物登记停在第四排。"
     },
     {
       "id": "clue-2",
-      "type": "victim_alone_with_murderer",
-      "victim": "Fiona",
-      "text": "菲奥娜所在的区域只剩两个人：她和凶手。"
-    },
-    {
-      "id": "clue-3",
-      "type": "person_in_row",
-      "person": "Aiden",
-      "row": 1,
-      "text": "艾登说，自己整晚没有离开第 1 行。"
-    },
-    {
-      "id": "clue-4",
-      "type": "person_in_region",
-      "person": "Bella",
-      "region": "咖啡馆",
-      "text": "咖啡粉落在贝拉的围裙上；她人在咖啡馆。"
-    },
-    {
-      "id": "clue-5",
-      "type": "person_in_col",
-      "person": "Colin",
-      "col": 5,
-      "text": "科林的鞋印停在第 5 列。"
-    },
-    {
-      "id": "clue-6",
-      "type": "person_in_region",
-      "person": "Colin",
-      "region": "玻璃连廊",
-      "text": "科林没有离开玻璃连廊。"
-    },
-    {
-      "id": "clue-7",
       "type": "person_beside_tile",
       "person": "Diana",
       "tile": "bookshelf",
-      "text": "黛安娜的手套蹭上了书页灰，书柜就在她旁边。"
+      "text": "黛安娜袖口沾着紧邻书柜的纸灰。"
+    },
+    {
+      "id": "clue-3",
+      "type": "person_in_col",
+      "person": "Fiona",
+      "col": 1,
+      "text": "菲奥娜遗落的书签在最西侧一列。"
+    },
+    {
+      "id": "clue-4",
+      "type": "person_on_tile",
+      "person": "Fiona",
+      "tile": "chair",
+      "text": "菲奥娜最后坐过一把阅读椅。"
+    },
+    {
+      "id": "clue-5",
+      "type": "victim_alone_with_murderer",
+      "victim": "Fiona",
+      "text": "菲奥娜遇害时，所在区域只留下两个人。"
+    },
+    {
+      "id": "clue-6",
+      "type": "person_relative",
+      "person": "Aiden",
+      "other": "Colin",
+      "relation": "west_of",
+      "text": "艾登留下的修复签条在科林泥印西侧。"
+    },
+    {
+      "id": "clue-7",
+      "type": "person_relative",
+      "person": "Bella",
+      "other": "Aiden",
+      "relation": "south_of",
+      "text": "贝拉的咖啡豆痕落在艾登签条南侧。"
     },
     {
       "id": "clue-8",
-      "type": "person_on_tile",
-      "person": "Ethan",
-      "tile": "carpet",
-      "text": "伊森的铜屑落在一块地毯上。"
+      "type": "person_in_row",
+      "person": "Colin",
+      "row": 5,
+      "text": "科林的泥印停在第五排。"
     },
     {
       "id": "clue-9",
       "type": "person_in_col",
-      "person": "Fiona",
-      "col": 1,
-      "text": "菲奥娜最后一次被看见时，在第 1 列。"
+      "person": "Ethan",
+      "col": 3,
+      "text": "伊森掉落的铜屑沿第三列散开。"
     }
   ]
 }

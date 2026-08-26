@@ -7,6 +7,8 @@ import { candidateLabelForPerson } from '../domain/play-state.js';
 import { publicAssetUrl } from '../infrastructure/public-assets.js';
 import { portraitAssetFor } from './visual-assets.js';
 
+const MOBILE_CAROUSEL_QUERY = '(max-width: 820px)';
+
 export function renderStoryView(puzzle, root = document) {
   const storyCard = root.getElementById('story-card');
   const storyText = root.getElementById('story-text');
@@ -18,9 +20,10 @@ export function renderStoryView(puzzle, root = document) {
 export function renderGeneralCluesView(puzzle, root = document) {
   const card = root.getElementById('general-clue-card');
   const clues = generalClues(puzzle);
+  const section = card.closest('.general-clues');
   card.replaceChildren();
+  section.hidden = clues.length === 0;
   if (!clues.length) {
-    card.textContent = '没有通用线索。';
     return;
   }
   for (const clue of clues) {
@@ -130,6 +133,87 @@ export function renderPeopleView({
     const clue = createPersonClue(root, cluesByPerson, person.id);
     button.append(portrait, meta, clue);
     list.appendChild(button);
+  }
+  bindPersonCarousel({
+    list,
+    people: puzzle.people,
+    selectedPerson,
+    onSelectPerson,
+    root,
+  });
+}
+
+function bindPersonCarousel({ list, people, selectedPerson, onSelectPerson, root }) {
+  const previous = root.getElementById('person-prev');
+  const next = root.getElementById('person-next');
+  const status = root.getElementById('person-carousel-status');
+  if (!previous || !next || !status) {
+    return;
+  }
+
+  const selectedIndex = Math.max(
+    0,
+    people.findIndex((person) => person.id === selectedPerson),
+  );
+  updateCarouselControls({ previous, next, status, index: selectedIndex, count: people.length });
+  previous.onclick = () => onSelectPerson(people[selectedIndex - 1]?.id || selectedPerson);
+  next.onclick = () => onSelectPerson(people[selectedIndex + 1]?.id || selectedPerson);
+
+  const view = root.defaultView;
+  if (!view?.matchMedia?.(MOBILE_CAROUSEL_QUERY).matches) {
+    list.onscroll = null;
+    return;
+  }
+
+  // 手机适配：原生横向滚动负责手势，停止滑动后同步选中居中的线索卡。
+  let selectionTimer = 0;
+  list.onscroll = () => {
+    const nearest = nearestPersonCard(list);
+    if (!nearest) return;
+    const index = people.findIndex((person) => person.id === nearest.dataset.personId);
+    if (index >= 0) {
+      updateCarouselControls({ previous, next, status, index, count: people.length });
+    }
+    view.clearTimeout(selectionTimer);
+    selectionTimer = view.setTimeout(() => {
+      const personId = nearestPersonCard(list)?.dataset.personId;
+      if (personId && personId !== selectedPerson) {
+        onSelectPerson(personId);
+      }
+    }, 140);
+  };
+
+  const schedule = view.requestAnimationFrame || ((callback) => view.setTimeout(callback, 0));
+  schedule(() => centerSelectedPersonCard(list, selectedPerson));
+}
+
+function updateCarouselControls({ previous, next, status, index, count }) {
+  previous.disabled = index <= 0;
+  next.disabled = index >= count - 1;
+  status.textContent = count ? `${index + 1} / ${count}` : '';
+}
+
+function nearestPersonCard(list) {
+  const cards = [...list.querySelectorAll('.person-card')];
+  const center = list.getBoundingClientRect().left + list.clientWidth / 2;
+  return cards.reduce((nearest, card) => {
+    if (!nearest) return card;
+    const cardCenter = card.getBoundingClientRect().left + card.offsetWidth / 2;
+    const nearestCenter = nearest.getBoundingClientRect().left + nearest.offsetWidth / 2;
+    return Math.abs(cardCenter - center) < Math.abs(nearestCenter - center)
+      ? card
+      : nearest;
+  }, null);
+}
+
+function centerSelectedPersonCard(list, selectedPerson) {
+  const selected = list.querySelector(`[data-person-id="${selectedPerson}"]`);
+  if (!selected) return;
+  const left = selected.offsetLeft - (list.clientWidth - selected.offsetWidth) / 2;
+  if (typeof list.scrollTo === 'function') {
+    list.scrollTo({ left: Math.max(0, left), behavior: 'auto' });
+  } else {
+    list.scrollLeft = Math.max(0, left);
   }
 }
 
